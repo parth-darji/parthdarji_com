@@ -9,6 +9,6 @@ Map<String, Widget Function(BuildContext)> routes = {
 };
 
 class NamedRoutes {
-  static String splash = '/';
+  static String splash = '/splash';
   static String home = '/home';
 }
