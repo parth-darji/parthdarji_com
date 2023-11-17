@@ -21,7 +21,7 @@ class MySite extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const HomePage(),
-      initialRoute: NamedRoutes.splash,
+      initialRoute: NamedRoutes.home,
       routes: routes,
     );
   }

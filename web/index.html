@@ -41,7 +41,13 @@
   <script src="flutter.js" defer></script>
 </head>
 
-<body>
+<body style="margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <dotlottie-player src="https://lottie.host/9e780c7a-e17d-463d-ac6d-058258df6469/gwcZ9N9gtK.json"
+      background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay></dotlottie-player>
+  </div>
+
   <script>
     window.addEventListener('load', function (ev) {
       // Download main.dart.js
