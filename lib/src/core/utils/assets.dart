@@ -2,5 +2,6 @@ const String _assets = "assets";
 const String _animations = "$_assets/animations";
 
 class Assets {
-  static const String loading = "$_animations/test.json";
+  @Deprecated("This is not available now.")
+  static const String loading = "$_animations/loading_animation.json";
 }
