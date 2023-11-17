@@ -5,7 +5,7 @@ import 'src/core/utils/routes.dart';
 import 'src/presentation/home/home_page.dart';
 
 void main() {
-  // setPathUrlStrategy();
+  setPathUrlStrategy();
   runApp(const MySite());
 }
 
