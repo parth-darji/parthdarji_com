@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "342639177291",
+    "project_id": "parthdarji-com",
+    "storage_bucket": "parthdarji-com.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342639177291:android:7a4e821014b390d77967ce",
+        "android_client_info": {
+          "package_name": "com.parthdarji"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQqVLEqH4mXq_rp4UiyZTj_T5T82goIvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
