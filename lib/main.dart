@@ -1,16 +1,22 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:url_strategy/url_strategy.dart';
+import 'package:parthdarji_com/core/resources/resources.dart';
+import 'package:parthdarji_com/features/auth/auth.dart';
 
-import 'src/core/utils/routes.dart';
-import 'src/presentation/home/home_page.dart';
+import 'firebase_options.dart';
 
-void main() {
-  setPathUrlStrategy();
-  runApp(const MySite());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(const App());
 }
 
-class MySite extends StatelessWidget {
-  const MySite({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +26,8 @@ class MySite extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyanAccent),
         useMaterial3: true,
       ),
-      home: const HomePage(),
-      initialRoute: NamedRoutes.home,
+      home: const LoginScreen(),
+      initialRoute: Routes.login,
       routes: routes,
     );
   }
