@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:parthdarji_com/core/resources/resources.dart';
-import 'package:parthdarji_com/features/auth/auth.dart';
+import 'package:parthdarji_com/features/splash/splash.dart';
 
 import 'firebase_options.dart';
 
@@ -21,13 +21,13 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Parth Darji - Software Engineer',
+      title: 'parthdarji.com',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyanAccent),
         useMaterial3: true,
       ),
-      home: const LoginScreen(),
-      initialRoute: Routes.login,
+      home: const SplashScreen(),
+      initialRoute: Routes.splash,
       routes: routes,
     );
   }
