@@ -1,4 +1,4 @@
-part of resources;
+part of main_resources;
 
 class Routes {
   static String splash = "splash";

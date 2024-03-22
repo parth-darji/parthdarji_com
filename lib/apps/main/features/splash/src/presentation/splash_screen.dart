@@ -1,4 +1,4 @@
-part of splash;
+part of main_splash;
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

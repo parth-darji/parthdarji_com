@@ -1,4 +1,4 @@
-part of widgets;
+part of main_widgets;
 
 class CommonText extends StatelessWidget {
   const CommonText(

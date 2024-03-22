@@ -1,4 +1,4 @@
-library home;
+library main_home;
 
 import 'package:flutter/material.dart';
 

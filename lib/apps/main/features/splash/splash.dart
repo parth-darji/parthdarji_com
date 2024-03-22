@@ -1,4 +1,4 @@
-library splash;
+library main_splash;
 
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,4 @@
-library auth;
+library main_auth;
 
 import 'package:flutter/material.dart';
 

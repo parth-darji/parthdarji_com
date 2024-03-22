@@ -1,4 +1,4 @@
-part of auth;
+part of main_auth;
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

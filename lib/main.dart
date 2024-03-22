@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:parthdarji_com/core/resources/resources.dart';
-import 'package:parthdarji_com/features/splash/splash.dart';
+import 'package:parthdarji_com/apps/main/core/resources/resources.dart';
+import 'package:parthdarji_com/apps/main/features/splash/splash.dart';
 
 import 'firebase_options.dart';
 

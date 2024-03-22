@@ -1,4 +1,4 @@
-part of home;
+part of main_home;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
