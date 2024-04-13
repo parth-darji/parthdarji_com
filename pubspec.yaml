@@ -38,14 +38,12 @@ dependencies:
   url_strategy: ^0.2.0
   lottie: ^2.7.0
   firebase_core: ^2.27.1
-  firebase_auth: ^4.17.9
   firebase_messaging: ^14.7.20
-  cloud_firestore: ^4.15.9
-  firebase_storage: ^11.6.10
   firebase_analytics: ^10.8.10
   firebase_crashlytics: ^3.4.19
   fpdart: ^1.1.0
   flutter_bloc: ^8.1.5
+  supabase_flutter: ^2.5.0
 
 dev_dependencies:
   flutter_test:
