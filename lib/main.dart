@@ -1,17 +1,13 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:parthdarji_com/core/resources/resources.dart';
 import 'package:parthdarji_com/features/splash/splash.dart';
 
-import 'firebase_options.dart';
+import 'core/init/init.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
+  await FirebaseInit.initialize();
+  await SupabaseInit.initialize();
   runApp(const App());
 }
 
