@@ -2,4 +2,4 @@ library splash;
 
 import 'package:flutter/material.dart';
 
-part 'src/presentation/splash_screen.dart';
+part 'src/presentation/screens/splash_screen.dart';
