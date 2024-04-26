@@ -6,3 +6,8 @@ import 'package:parthdarji_com/features/splash/splash.dart';
 
 part 'src/colors.dart';
 part 'src/routes.dart';
+part 'src/assets.dart';
+part 'src/animations.dart';
+part 'src/images.dart';
+part 'src/fonts.dart';
+part 'src/svg.dart';

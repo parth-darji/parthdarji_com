@@ -2,6 +2,7 @@ part of resources;
 
 class Routes {
   static String splash = "splash";
+  static String onboarding = "onboarding";
   static String login = "login";
   static String home = "home";
 }
