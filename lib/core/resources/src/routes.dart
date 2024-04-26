@@ -9,5 +9,7 @@ class Routes {
 
 final Map<String, Widget Function(BuildContext)> routes = {
   Routes.splash: (context) => const SplashScreen(),
+  Routes.onboarding: (context) => const OnboardingScreen(),
   Routes.login: (context) => const LoginScreen(),
+  Routes.home: (context) => const HomeScreen(),
 };
