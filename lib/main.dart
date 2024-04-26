@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:parthdarji_com/core/resources/resources.dart';
 import 'package:parthdarji_com/features/splash/splash.dart';
@@ -16,12 +17,9 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return CupertinoApp(
       title: 'parthdarji.com',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyanAccent),
-        useMaterial3: true,
-      ),
+      theme: const CupertinoThemeData(),
       home: const SplashScreen(),
       initialRoute: Routes.splash,
       routes: routes,
