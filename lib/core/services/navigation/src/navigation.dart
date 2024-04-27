@@ -9,6 +9,8 @@ class Navigation {
     WidgetNavigationModel? widgetNavigation,
   }) {
     assert(namedNavigation != null ? widgetNavigation == null : true);
+    assert(namedNavigation == null ? widgetNavigation != null : true);
+    assert(!(namedNavigation == null && widgetNavigation == null));
 
     if (namedNavigation != null) {
       Navigator.pushNamed(
@@ -21,9 +23,11 @@ class Navigation {
     if (widgetNavigation != null) {
       Navigator.push(
         context,
-        CupertinoPageRoute(
-          builder: (context) => widgetNavigation.screenWidget,
-        ),
+        widgetNavigation.customPageRoute != null
+            ? widgetNavigation.customPageRoute!
+            : CupertinoPageRoute(
+                builder: (context) => widgetNavigation.screenWidget,
+              ),
       );
     }
   }
