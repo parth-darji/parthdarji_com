@@ -12,14 +12,11 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Future.delayed(
       const Duration(
-        seconds: 3,
+        milliseconds: 2500,
       ),
     ).then((value) {
       Navigation.push(
         context,
-        // namedNavigation: NamedNavigationModel(
-        //   routeName: Routes.hello,
-        // ),
         widgetNavigation: WidgetNavigationModel(
           screenWidget: const HelloScreen(),
           customPageRoute: PageRouteBuilder(
@@ -40,6 +37,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double min = 0.8;
+    double max = 1.2;
+
     return Scaffold(
       body: SafeArea(
         top: false,
@@ -56,15 +56,33 @@ class _SplashScreenState extends State<SplashScreen> {
                     Images.appLogo,
                   ),
                 ),
+              ).animate(
+                effects: [
+                  ScaleEffect(
+                    curve: Curves.easeInOut,
+                    duration: const Duration(seconds: 1),
+                    begin: Offset(max, max),
+                    end: Offset(min, min),
+                  ),
+                ],
+              ).animate(
+                effects: [
+                  ScaleEffect(
+                    curve: Curves.easeInOut,
+                    duration: const Duration(seconds: 1),
+                    begin: Offset(min, min),
+                    end: Offset(max, max),
+                  ),
+                ],
               ),
             ),
-            Positioned(
-              bottom: 60.0.h,
-              child: Lottie.asset(
-                Animations.waitingSandBlue,
-                height: 70.0.h,
-              ),
-            ),
+            // Positioned(
+            //   bottom: 60.0.h,
+            //   child: Lottie.asset(
+            //     Animations.waitingSandBlue,
+            //     height: 70.0.h,
+            //   ),
+            // ),
           ],
         ),
       ),

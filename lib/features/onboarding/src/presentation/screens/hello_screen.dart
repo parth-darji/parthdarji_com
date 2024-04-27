@@ -18,7 +18,7 @@ class _HelloScreenState extends State<HelloScreen>
       duration: const Duration(milliseconds: 6000),
     );
     Future.delayed(
-      const Duration(milliseconds: 700),
+      const Duration(milliseconds: 500),
     ).then((value) {
       animationController.forward();
       animationController.repeat();
@@ -39,10 +39,10 @@ class _HelloScreenState extends State<HelloScreen>
               Navigation.push(
                 context,
                 widgetNavigation: WidgetNavigationModel(
-                  screenWidget: const LoginScreen(),
+                  screenWidget: const LanguageSelectionScreen(),
                   customPageRoute: PageRouteBuilder(
                     pageBuilder: (context, animation, secondaryAnimation) =>
-                        const LoginScreen(),
+                        const LanguageSelectionScreen(),
                     transitionsBuilder:
                         (context, animation, secondaryAnimation, child) {
                       const begin = Offset(0.0, 1.0);

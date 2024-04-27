@@ -9,6 +9,7 @@ class LanguageData {
   static List<LanguageData> languageList() {
     return <LanguageData>[
       LanguageData("English", 'en'),
+      LanguageData("Hindi", 'hi'),
     ];
   }
 }
