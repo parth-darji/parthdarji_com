@@ -1,10 +1,8 @@
 part of resources;
 
-abstract class AnimationsAsset {
-  late String walkingWorking;
-}
+class Animations {
+  static String walkingWorking = AssetPath.animation("walking_working.riv");
 
-class Animations implements AnimationsAsset {
-  @override
-  String walkingWorking = AssetPath.image("walking_working.riv");
+  static String helloIphone =
+      AssetPath.animation("hello_iphone_animation.json");
 }

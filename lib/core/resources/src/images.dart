@@ -1,10 +1,7 @@
 part of resources;
 
-abstract class ImagesAsset {
-  late String appLogo;
-}
-
-class Images implements ImagesAsset {
-  @override
-  String appLogo = AssetPath.image("app_logo.png");
+class Images {
+  static String appLogo = AssetPath.image("app_logo.png");
+  static String seaBreezeWallpaper =
+      AssetPath.image("sea_breeze_wallpaper.png");
 }

@@ -45,6 +45,10 @@ dependencies:
   flutter_bloc: ^8.1.5
   supabase_flutter: ^2.5.0
   rive: ^0.13.2
+  get_it: ^7.7.0
+  hive_flutter: ^1.1.0
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:

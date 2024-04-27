@@ -1,4 +1,4 @@
-part of resources;
+import '../resources.dart';
 
 class AssetPath {
   static const String _imagesPath = "assets/images/";
@@ -11,3 +11,12 @@ class AssetPath {
   static String fonts(String fileName) => "$_fontsPath/$fileName";
   static String svg(String fileName) => "$_svgPath/$fileName";
 }
+
+class AssetController {
+  final images = Images();
+  final animations = Animations();
+  final fonts = Fonts();
+  final svg = Svg();
+}
+
+final AssetController assets = AssetController();
