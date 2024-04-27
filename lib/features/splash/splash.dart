@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:lottie/lottie.dart';
+import 'package:parthdarji_com/core/services/responsive/responsive.dart';
 
 import '../../core/resources/resources.dart';
 import '../../core/services/localization/localization.dart';

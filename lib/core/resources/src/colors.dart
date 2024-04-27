@@ -7,4 +7,5 @@ class AppColors {
   static Color vaatoDarkTheme = const Color(0xff27374D);
 
   static Color black = Colors.black;
+  static Color white = Colors.white;
 }

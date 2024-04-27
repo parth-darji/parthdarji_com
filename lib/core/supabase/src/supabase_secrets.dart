@@ -1,4 +1,4 @@
-part of secrets;
+part of supabase;
 
 class SupabaseSecrets {
   static const String url = "https://xynhinckmqkdlpfickzb.supabase.co";

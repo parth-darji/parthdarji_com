@@ -1,4 +1,4 @@
-part of init;
+part of supabase;
 
 class SupabaseInit {
   static Future<void> initialize() async {

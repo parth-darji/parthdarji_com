@@ -1,4 +1,4 @@
-part of init;
+part of firebase;
 
 class FirebaseInit {
   static Future<void> initialize() async {
