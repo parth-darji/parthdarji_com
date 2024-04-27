@@ -1,13 +1,13 @@
 part of onboarding;
 
-class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({super.key});
+class HelloScreen extends StatefulWidget {
+  const HelloScreen({super.key});
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
+  State<HelloScreen> createState() => _HelloScreenState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen> {
+class _HelloScreenState extends State<HelloScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
