@@ -12,3 +12,4 @@ import '../../core/services/navigation/navigation.dart';
 import '../auth/auth.dart';
 
 part 'src/presentation/screens/hello_screen.dart';
+part 'src/presentation/screens/language_selection_screen.dart';

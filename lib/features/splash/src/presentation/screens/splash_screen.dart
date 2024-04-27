@@ -9,79 +9,63 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  void initState() {
+    Future.delayed(
+      const Duration(
+        seconds: 3,
+      ),
+    ).then((value) {
+      Navigation.push(
+        context,
+        // namedNavigation: NamedNavigationModel(
+        //   routeName: Routes.hello,
+        // ),
+        widgetNavigation: WidgetNavigationModel(
+          screenWidget: const HelloScreen(),
+          customPageRoute: PageRouteBuilder(
+            transitionDuration: const Duration(milliseconds: 700),
+            pageBuilder: (_, __, ___) => const HelloScreen(),
+            transitionsBuilder: (_, animation, __, child) {
+              return FadeTransition(
+                opacity: animation,
+                child: child,
+              );
+            },
+          ),
+        ),
+      );
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         top: false,
         bottom: false,
-        child: GestureDetector(
-          onVerticalDragEnd: (details) {
-            if ((details.primaryVelocity ?? 0) < 0) {
-              Navigation.push(
-                context,
-                widgetNavigation: WidgetNavigationModel(
-                  screenWidget: const LoginScreen(),
-                  customPageRoute: PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) =>
-                        const LoginScreen(),
-                    transitionsBuilder:
-                        (context, animation, secondaryAnimation, child) {
-                      const begin = Offset(0.0, 1.0);
-                      const end = Offset.zero;
-                      const curve = Curves.ease;
-
-                      var tween = Tween(begin: begin, end: end)
-                          .chain(CurveTween(curve: curve));
-
-                      return SlideTransition(
-                        position: animation.drive(tween),
-                        child: child,
-                      );
-                    },
-                  ),
-                ),
-              );
-            }
-          },
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                      Images.seaBreezeWallpaper,
-                    ),
-                    fit: BoxFit.cover,
-                  ),
-                ),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Center(
+              child: SizedBox(
+                height: 110.0.h,
                 child: ClipRRect(
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 40, sigmaY: 40),
-                    child: Container(
-                      alignment: Alignment.center,
-                      color: Colors.grey.withOpacity(0.1),
-                      child: Lottie.asset(
-                        Animations.helloIphone,
-                        height: 300,
-                        filterQuality: FilterQuality.high,
-                      ),
-                    ),
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.asset(
+                    Images.appLogo,
                   ),
                 ),
               ),
-              Positioned(
-                bottom: 32.0.h,
-                child: Text(
-                  Languages.of(context).swipeUpToOpen,
-                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                        color: AppColors.white,
-                        fontSize: 14.0.sp,
-                      ),
-                ),
+            ),
+            Positioned(
+              bottom: 60.0.h,
+              child: Lottie.asset(
+                Animations.waitingSandBlue,
+                height: 70.0.h,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

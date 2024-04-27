@@ -7,7 +7,26 @@ class HelloScreen extends StatefulWidget {
   State<HelloScreen> createState() => _HelloScreenState();
 }
 
-class _HelloScreenState extends State<HelloScreen> {
+class _HelloScreenState extends State<HelloScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+
+  @override
+  void initState() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 6000),
+    );
+    Future.delayed(
+      const Duration(milliseconds: 700),
+    ).then((value) {
+      animationController.forward();
+      animationController.repeat();
+    });
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,6 +85,7 @@ class _HelloScreenState extends State<HelloScreen> {
                         Animations.helloIphone,
                         height: 300,
                         filterQuality: FilterQuality.high,
+                        controller: animationController,
                       ),
                     ),
                   ),
