@@ -48,33 +48,36 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen>
                   bool firstIndex = index == 0;
                   bool lastIndex = index == languageList.length - 1;
 
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.lightGray.withOpacity(0.2),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(firstIndex ? 15 : 0),
-                        topRight: Radius.circular(firstIndex ? 15 : 0),
-                        bottomLeft: Radius.circular(lastIndex ? 15 : 0),
-                        bottomRight: Radius.circular(lastIndex ? 15 : 0),
-                      ),
-                    ),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 15.0.w,
-                      vertical: 15.0.h,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          languageList[index].name,
-                          style: Theme.of(context).textTheme.bodyLarge,
+                  return GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: CupertinoColors.systemGrey6,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(firstIndex ? 15 : 0),
+                          topRight: Radius.circular(firstIndex ? 15 : 0),
+                          bottomLeft: Radius.circular(lastIndex ? 15 : 0),
+                          bottomRight: Radius.circular(lastIndex ? 15 : 0),
                         ),
-                        Icon(
-                          CupertinoIcons.forward,
-                          color: AppColors.lightGray2,
-                          size: 17.0.h,
-                        )
-                      ],
+                      ),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 15.0.w,
+                        vertical: 15.0.h,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CommonText(
+                            languageList[index].name,
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                          Icon(
+                            CupertinoIcons.forward,
+                            color: AppColors.lightGray2,
+                            size: 17.0.h,
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },

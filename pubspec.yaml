@@ -50,6 +50,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_animate: ^4.5.0
+  enough_platform_widgets: ^1.1.0
 
 dev_dependencies:
   flutter_test:

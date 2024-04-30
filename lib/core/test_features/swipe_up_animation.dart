@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/widgets.dart';
+
 class SwipeUpAnimationDemo extends StatefulWidget {
   const SwipeUpAnimationDemo({super.key});
 
@@ -48,7 +50,7 @@ class SwipeUpAnimationDemoState extends State
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Swipe Up Animation Demo'),
+        title: const CommonText('Swipe Up Animation Demo'),
       ),
       body: GestureDetector(
         onVerticalDragUpdate: (details) {
@@ -66,7 +68,7 @@ class SwipeUpAnimationDemoState extends State
               height: MediaQuery.of(context).size.height * _animation.value,
               color: Colors.blue,
               child: const Center(
-                child: Text(
+                child: CommonText(
                   'Swipe Up to Open',
                   style: TextStyle(color: Colors.black, fontSize: 24.0),
                 ),

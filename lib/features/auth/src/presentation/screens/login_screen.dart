@@ -13,7 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(),
       body: const Center(
-        child: Text(
+        child: CommonText(
           "Login",
         ),
       ),
