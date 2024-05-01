@@ -8,8 +8,10 @@ class LanguageData {
 
   static List<LanguageData> languageList() {
     return <LanguageData>[
-      LanguageData(languageNames.english, languageCodes.english),
-      LanguageData(languageNames.hindi, languageCodes.hindi),
+      LanguageData(Languages.of(LanguageConstant.name).english,
+          Languages.of(LanguageConstant.code).english),
+      LanguageData(Languages.of(LanguageConstant.name).hindi,
+          Languages.of(LanguageConstant.code).hindi),
     ];
   }
 }

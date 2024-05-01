@@ -40,7 +40,8 @@ class _AppState extends State<App> {
   @override
   void initState() {
     super.initState();
-    Localization.instance.changeLanguage(context, "en");
+    Localization.instance
+        .changeLanguage(context, Languages.of(LanguageConstant.code).english);
   }
 
   @override
@@ -62,8 +63,8 @@ class _AppState extends State<App> {
       home: const SplashScreen(),
       initialRoute: Routes.splash,
       routes: routes,
-      supportedLocales: const [
-        Locale('en', ''),
+      supportedLocales: [
+        Locale(Languages.of(LanguageConstant.code).english, ''),
       ],
       locale: Localization.instance.currentLanguage,
       localizationsDelegates: const [

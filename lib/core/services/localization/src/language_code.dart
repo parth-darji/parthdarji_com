@@ -1,25 +1,35 @@
 part of localization;
 
-LanguageCode languageCodes = LanguageCode();
-LanguageName languageNames = LanguageName();
+enum LanguageConstant { code, name }
 
 abstract class Languages {
-  String english = "";
-  String hindi = "";
+  static Languages of(LanguageConstant constant) {
+    switch (constant) {
+      case LanguageConstant.code:
+        return LanguageCode();
+      case LanguageConstant.name:
+        return LanguageName();
+      default:
+        return LanguageCode();
+    }
+  }
+
+  String get english;
+  String get hindi;
 }
 
 class LanguageCode implements Languages {
   @override
-  String english = "en";
+  String get english => "en";
 
   @override
-  String hindi = "hi";
+  String get hindi => "hi";
 }
 
 class LanguageName implements Languages {
   @override
-  String english = "English";
+  String get english => "English";
 
   @override
-  String hindi = "Hindi";
+  String get hindi => "Hindi";
 }

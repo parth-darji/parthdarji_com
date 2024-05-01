@@ -26,14 +26,15 @@ class Localization {
       hiveBox: HiveBox.user,
       key: HiveKeyManager.preferredLanguage,
     );
-    return _locale(preferredLanguage ?? "en");
+    return _locale(
+        preferredLanguage ?? Languages.of(LanguageConstant.code).english);
   }
 
   Locale _locale(String languageCode) {
     if (languageCode.isNotEmpty) {
       return Locale(languageCode);
     } else {
-      return const Locale("en");
+      return Locale(Languages.of(LanguageConstant.code).english);
     }
   }
 

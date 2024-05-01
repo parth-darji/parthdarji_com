@@ -5,18 +5,17 @@ class AppLocalizationsDelegate extends LocalizationsDelegate<LanguageText> {
 
   @override
   bool isSupported(Locale locale) => [
-        'en',
+        Languages.of(LanguageConstant.code).english,
       ].contains(locale.languageCode);
 
   @override
   Future<LanguageText> load(Locale locale) => _load(locale);
 
   static Future<LanguageText> _load(Locale locale) async {
-    switch (locale.languageCode) {
-      case 'en':
-        return LanguageEn();
-      default:
-        return LanguageEn();
+    if (locale.languageCode == Languages.of(LanguageConstant.code).english) {
+      return LanguageEn();
+    } else {
+      return LanguageEn();
     }
   }
 
