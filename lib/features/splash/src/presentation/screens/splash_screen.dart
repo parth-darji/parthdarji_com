@@ -15,10 +15,10 @@ class _SplashScreenState extends State<SplashScreen> {
         milliseconds: 2500,
       ),
     ).then((value) {
-      Navigation.push(
+      Traveller.go(
         context,
-        widgetNavigation: WidgetNavigationModel(
-          screenWidget: const HelloScreen(),
+        widgetTravelling: WidgetTravelling(
+          widget: const HelloScreen(),
           customPageRoute: PageRouteBuilder(
             transitionDuration: const Duration(milliseconds: 700),
             pageBuilder: (_, __, ___) => const HelloScreen(),

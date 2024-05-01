@@ -36,10 +36,10 @@ class _HelloScreenState extends State<HelloScreen>
         child: GestureDetector(
           onVerticalDragEnd: (details) {
             if ((details.primaryVelocity ?? 0) < 0) {
-              Navigation.push(
+              Traveller.go(
                 context,
-                widgetNavigation: WidgetNavigationModel(
-                  screenWidget: const LanguageSelectionScreen(),
+                widgetTravelling: WidgetTravelling(
+                  widget: const LanguageSelectionScreen(),
                   customPageRoute: PageRouteBuilder(
                     pageBuilder: (context, animation, secondaryAnimation) =>
                         const LanguageSelectionScreen(),
