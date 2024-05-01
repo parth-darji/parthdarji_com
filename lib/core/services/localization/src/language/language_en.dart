@@ -1,6 +1,6 @@
 part of localization;
 
-class LanguageEn extends Languages {
+class LanguageEn extends LanguageText {
   @override
   String get appName => "parthdarji.com";
 

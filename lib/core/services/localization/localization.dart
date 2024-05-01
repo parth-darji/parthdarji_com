@@ -7,6 +7,7 @@ import '../local_storage/local_storage.dart';
 
 part 'src/delegate.dart';
 part 'src/localization.dart';
+part 'src/language_code.dart';
 part 'src/language/language_en.dart';
 part 'src/language/languages.dart';
 part 'src/model/language_data.dart';

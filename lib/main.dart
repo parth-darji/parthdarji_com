@@ -64,7 +64,6 @@ class _AppState extends State<App> {
       routes: routes,
       supportedLocales: const [
         Locale('en', ''),
-        Locale('sw', ''),
       ],
       locale: Localization.instance.currentLanguage,
       localizationsDelegates: const [

@@ -94,7 +94,7 @@ class _HelloScreenState extends State<HelloScreen>
               Positioned(
                 bottom: 32.0.h,
                 child: CommonText(
-                  Languages.of(context).swipeUpToOpen,
+                  LanguageText.of(context).swipeUpToOpen,
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
                         color: AppColors.white,
                         fontSize: 14.0.sp,

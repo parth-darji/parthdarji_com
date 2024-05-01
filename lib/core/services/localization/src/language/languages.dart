@@ -1,9 +1,9 @@
 part of localization;
 
-abstract class Languages {
-  static Languages of(BuildContext context) {
-    return Localizations.of<Languages>(context, Languages) ??
-        Languages.of(context);
+abstract class LanguageText {
+  static LanguageText of(BuildContext context) {
+    return Localizations.of<LanguageText>(context, LanguageText) ??
+        LanguageText.of(context);
   }
 
   String get appName;

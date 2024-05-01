@@ -1,6 +1,6 @@
 part of localization;
 
-class AppLocalizationsDelegate extends LocalizationsDelegate<Languages> {
+class AppLocalizationsDelegate extends LocalizationsDelegate<LanguageText> {
   const AppLocalizationsDelegate();
 
   @override
@@ -9,9 +9,9 @@ class AppLocalizationsDelegate extends LocalizationsDelegate<Languages> {
       ].contains(locale.languageCode);
 
   @override
-  Future<Languages> load(Locale locale) => _load(locale);
+  Future<LanguageText> load(Locale locale) => _load(locale);
 
-  static Future<Languages> _load(Locale locale) async {
+  static Future<LanguageText> _load(Locale locale) async {
     switch (locale.languageCode) {
       case 'en':
         return LanguageEn();
@@ -21,5 +21,5 @@ class AppLocalizationsDelegate extends LocalizationsDelegate<Languages> {
   }
 
   @override
-  bool shouldReload(LocalizationsDelegate<Languages> old) => false;
+  bool shouldReload(LocalizationsDelegate<LanguageText> old) => false;
 }
