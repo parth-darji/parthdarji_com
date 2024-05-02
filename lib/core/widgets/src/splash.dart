@@ -1,5 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+part of widgets;
 
 class Splash extends StatefulWidget {
   final Widget child;

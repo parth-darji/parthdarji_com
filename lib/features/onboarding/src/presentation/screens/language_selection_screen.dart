@@ -48,18 +48,18 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen>
                   bool firstIndex = index == 0;
                   bool lastIndex = index == languageList.length - 1;
 
-                  return GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: CupertinoColors.systemGrey6,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(firstIndex ? 15 : 0),
-                          topRight: Radius.circular(firstIndex ? 15 : 0),
-                          bottomLeft: Radius.circular(lastIndex ? 15 : 0),
-                          bottomRight: Radius.circular(lastIndex ? 15 : 0),
+                  return Splash(
+                    firstIndex: firstIndex,
+                    lastIndex: lastIndex,
+                    onPressed: () {
+                      Traveller.go(
+                        context,
+                        namedTravelling: NamedTravelling(
+                          destinationName: Routes.login,
                         ),
-                      ),
+                      );
+                    },
+                    child: Container(
                       padding: EdgeInsets.symmetric(
                         horizontal: 15.0.w,
                         vertical: 15.0.h,
