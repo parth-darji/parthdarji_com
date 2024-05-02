@@ -12,9 +12,128 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: const Center(
-        child: CommonText(
-          "Login",
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Image.asset(
+              Images.vaatoTransparentLogo,
+              height: 100.0.h,
+            ),
+            CommonText(
+              LanguageText.of(context).vaatoId,
+              style: TextStyle(
+                fontWeight: FontWeight.w900,
+                fontSize: 30.0.sp,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: 8.0.h,
+                left: 40.0.w,
+                right: 40.0.w,
+              ),
+              child: CommonText(
+                LanguageText.of(context).vaatoSignInDescription,
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 15.0.sp,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: 17.0.h,
+                left: 20.0.w,
+                right: 20.0.w,
+              ),
+              child: CupertinoTextField(
+                controller: TextEditingController(),
+                placeholder: LanguageText.of(context).signInTextFieldHintText,
+                placeholderStyle: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: CupertinoColors.placeholderText,
+                ),
+                keyboardType: TextInputType.emailAddress,
+                maxLines: 1,
+                padding: EdgeInsets.symmetric(
+                  vertical: 17.0.h,
+                  horizontal: 13.0.w,
+                ),
+                decoration: const BoxDecoration(
+                  border: Border.fromBorderSide(
+                    BorderSide.none,
+                  ),
+                  color: CupertinoColors.systemGrey6,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: 4.0.h,
+                left: 50.0.w,
+                right: 50.0.w,
+              ),
+              child: CupertinoButton(
+                onPressed: () {},
+                child: CommonText(
+                  LanguageText.of(context).newUserRegistrationActionText,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16.0.sp,
+                  ),
+                ),
+              ),
+            ),
+            const Spacer(),
+            Icon(
+              Icons.handshake,
+              size: 30.0.h,
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: 8.0.h,
+                left: 20.0.w,
+                right: 20.0.w,
+              ),
+              child: CommonText(
+                LanguageText.of(context).vaatoPrivacyText,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 12.0.sp,
+                  color: CupertinoColors.systemGrey,
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: 20.0.h,
+                left: 20.0.w,
+                right: 20.0.w,
+              ),
+              child: SizedBox(
+                width: double.infinity,
+                child: CupertinoButton.filled(
+                  onPressed: () {},
+                  child: CommonText(
+                    LanguageText.of(context).continueButtonText,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16.0.sp,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
