@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:parthdarji_com/core/resources/resources.dart';
+import 'package:parthdarji_com/core/services/theme/theme.dart';
 import 'package:parthdarji_com/features/splash/splash.dart';
 
 import 'core/firebase/firebase.dart';
@@ -59,7 +60,7 @@ class _AppState extends State<App> {
     ScreenManager.instance.init(context);
     return CupertinoApp(
       title: 'parthdarji.com',
-      theme: const CupertinoThemeData(),
+      theme: AppTheme().lightTheme,
       home: const SplashScreen(),
       initialRoute: Routes.splash,
       routes: routes,
