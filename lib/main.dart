@@ -59,6 +59,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     ScreenManager.instance.init(context);
     return CupertinoApp(
+      debugShowCheckedModeBanner: false,
       title: 'parthdarji.com',
       theme: AppTheme().lightTheme,
       home: const SplashScreen(),

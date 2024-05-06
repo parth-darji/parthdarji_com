@@ -15,7 +15,7 @@ class LanguageEn extends LanguageText {
       "Sign in wih an email to view the portfolio of Parth Darji.";
 
   @override
-  String get signInTextFieldHintText => "Email";
+  String get emailHintText => "Email";
 
   @override
   String get newUserRegistrationActionText =>
@@ -27,4 +27,20 @@ class LanguageEn extends LanguageText {
   @override
   String get vaatoPrivacyText =>
       "Your Vaato ID information is utilized for tracking app usage by individuals.";
+
+  @override
+  String get vaatoIdPassword => "Vaato ID Password";
+
+  @override
+  String get passwordHintText => "Password";
+
+  @override
+  String get verifyPasswordHintText => "Verify Password";
+
+  @override
+  String get passwordTextFieldInstruction =>
+      "Your password must be at least 8 characters including a lowercase letter, an uppercase letter, and a number";
+
+  @override
+  String get settingUpYourAccount => "Setting up your account!";
 }

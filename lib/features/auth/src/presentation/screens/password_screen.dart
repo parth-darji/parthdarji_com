@@ -1,46 +1,44 @@
 part of auth;
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class PasswordScreen extends StatefulWidget {
+  const PasswordScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<PasswordScreen> createState() => _PasswordScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _PasswordScreenState extends State<PasswordScreen> {
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        backgroundColor: Colors.transparent,
+    return Container(
+      decoration: const BoxDecoration(
+        color: CupertinoColors.lightBackgroundGray,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
       ),
+      height: MediaQuery.of(context).size.height * 0.8,
       child: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image.asset(
-              Images.vaatoTransparentLogo,
-              height: 100.0.h,
-            ),
-            CommonText(
-              LanguageText.of(context).vaatoId,
-              style: TextStyle(
-                fontWeight: FontWeight.w900,
-                fontSize: 30.0.sp,
-              ),
+            Icon(
+              CupertinoIcons.lock_circle_fill,
+              size: 60.0.h,
             ),
             Padding(
               padding: EdgeInsets.only(
                 top: 8.0.h,
-                left: 40.0.w,
-                right: 40.0.w,
+                left: 80.0.w,
+                right: 80.0.w,
               ),
               child: CommonText(
-                LanguageText.of(context).vaatoSignInDescription,
+                LanguageText.of(context).vaatoIdPassword,
                 style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 15.0.sp,
+                  fontWeight: FontWeight.w900,
+                  fontSize: 30.0.sp,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -53,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               child: CupertinoTextField(
                 controller: TextEditingController(),
-                placeholder: LanguageText.of(context).emailHintText,
+                placeholder: LanguageText.of(context).passwordHintText,
                 placeholderStyle: const TextStyle(
                   fontWeight: FontWeight.w600,
                   color: CupertinoColors.placeholderText,
@@ -77,26 +75,33 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                top: 4.0.h,
-                left: 50.0.w,
-                right: 50.0.w,
+                top: 17.0.h,
+                left: 20.0.w,
+                right: 20.0.w,
               ),
-              child: CupertinoButton(
-                onPressed: () {},
-                child: CommonText(
-                  LanguageText.of(context).newUserRegistrationActionText,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16.0.sp,
+              child: CupertinoTextField(
+                controller: TextEditingController(),
+                placeholder: LanguageText.of(context).verifyPasswordHintText,
+                placeholderStyle: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: CupertinoColors.placeholderText,
+                ),
+                keyboardType: TextInputType.emailAddress,
+                maxLines: 1,
+                padding: EdgeInsets.symmetric(
+                  vertical: 17.0.h,
+                  horizontal: 13.0.w,
+                ),
+                decoration: const BoxDecoration(
+                  border: Border.fromBorderSide(
+                    BorderSide.none,
+                  ),
+                  color: CupertinoColors.systemGrey6,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
                   ),
                 ),
               ),
-            ),
-            const Spacer(),
-            Icon(
-              Icons.handshake,
-              size: 30.0.h,
             ),
             Padding(
               padding: EdgeInsets.only(
@@ -105,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 right: 20.0.w,
               ),
               child: CommonText(
-                LanguageText.of(context).vaatoPrivacyText,
+                LanguageText.of(context).passwordTextFieldInstruction,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
@@ -114,6 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
+            const Spacer(),
             Padding(
               padding: EdgeInsets.only(
                 top: 20.0.h,
@@ -124,17 +130,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: double.infinity,
                 child: CupertinoButton.filled(
                   onPressed: () {
-                    showCupertinoModalPopup(
-                      context: context,
-                      builder: (context) => const PasswordScreen(),
+                    Traveller.go(
+                      context,
+                      namedTravelling: NamedTravelling(
+                        destinationName: Routes.youAreOneStepAway,
+                      ),
                     );
-
-                    // Traveller.go(
-                    //   context,
-                    //   namedTravelling: NamedTravelling(
-                    //     destinationName: Routes.password,
-                    //   ),
-                    // );
                   },
                   child: CommonText(
                     LanguageText.of(context).continueButtonText,
