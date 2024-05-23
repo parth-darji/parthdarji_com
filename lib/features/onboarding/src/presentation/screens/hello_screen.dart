@@ -1,4 +1,14 @@
-part of onboarding;
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:parthdarji_com/core/services/responsive/responsive.dart';
+
+import '../../../../../core/resources/resources.dart';
+import '../../../../../core/services/localization/localization.dart';
+import '../../../../../core/services/traveller/traveller.dart';
+import '../../../../../core/widgets/widgets.dart';
+import '../../../onboarding.dart';
 
 class HelloScreen extends StatefulWidget {
   const HelloScreen({super.key});

@@ -1,4 +1,9 @@
-part of resources;
+import 'package:flutter/material.dart';
+
+import '../../../features/auth/auth.dart';
+import '../../../features/home/home.dart';
+import '../../../features/onboarding/onboarding.dart';
+import '../../../features/splash/splash.dart';
 
 class Routes {
   static String splash = "splash";

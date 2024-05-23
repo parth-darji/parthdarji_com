@@ -1,4 +1,4 @@
-part of responsive;
+import '../responsive.dart';
 
 extension ScreenSize on double {
   double get h => ScreenManager.instance.setHeight(this);

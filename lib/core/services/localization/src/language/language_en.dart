@@ -1,4 +1,4 @@
-part of localization;
+import '../../localization.dart';
 
 class LanguageEn extends LanguageText {
   @override

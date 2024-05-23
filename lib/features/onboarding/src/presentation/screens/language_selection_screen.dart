@@ -1,4 +1,11 @@
-part of onboarding;
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:parthdarji_com/core/services/responsive/responsive.dart';
+
+import '../../../../../core/resources/resources.dart';
+import '../../../../../core/services/localization/localization.dart';
+import '../../../../../core/services/traveller/traveller.dart';
+import '../../../../../core/widgets/widgets.dart';
 
 class LanguageSelectionScreen extends StatefulWidget {
   const LanguageSelectionScreen({super.key});

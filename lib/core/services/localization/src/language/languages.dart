@@ -1,4 +1,4 @@
-part of localization;
+import 'package:flutter/material.dart';
 
 abstract class LanguageText {
   static LanguageText of(BuildContext context) {

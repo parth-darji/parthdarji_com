@@ -1,5 +1,3 @@
-part of traveller;
-
 class NamedTravelling {
   final String destinationName;
   final Object? luggage;

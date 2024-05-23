@@ -1,5 +1,3 @@
-part of localization;
-
 enum LanguageConstant { code, name }
 
 abstract class Languages {

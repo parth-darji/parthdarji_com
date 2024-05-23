@@ -1,4 +1,4 @@
-part of resources;
+import 'assets.dart';
 
 class Images {
   static String appLogo = AssetPath.image("app_logo.png");

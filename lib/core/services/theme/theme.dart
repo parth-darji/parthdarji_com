@@ -1,8 +1,4 @@
-library theme;
-
-import 'package:flutter/cupertino.dart';
-
-part 'src/constants.dart';
-part 'src/dark_theme.dart';
-part 'src/light_theme.dart';
-part 'src/theme.dart';
+export 'src/constants.dart';
+export 'src/dark_theme.dart';
+export 'src/light_theme.dart';
+export 'src/theme.dart';

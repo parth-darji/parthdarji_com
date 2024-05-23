@@ -1,4 +1,6 @@
-part of theme;
+import 'package:flutter/cupertino.dart';
+
+import '../theme.dart';
 
 class AppTheme {
   static final AppTheme _instance = AppTheme._internal();
@@ -9,6 +11,6 @@ class AppTheme {
 
   AppTheme._internal();
 
-  CupertinoThemeData get lightTheme => _lightTheme;
-  CupertinoThemeData get darkTheme => _darkTheme;
+  CupertinoThemeData get lightTheme => lightThemeInstance;
+  CupertinoThemeData get darkTheme => darkThemeInstance;
 }

@@ -1,4 +1,6 @@
-part of localization;
+import 'package:flutter/material.dart';
+
+import '../localization.dart';
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<LanguageText> {
   const AppLocalizationsDelegate();

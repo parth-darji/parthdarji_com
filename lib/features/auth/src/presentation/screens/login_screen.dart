@@ -1,4 +1,11 @@
-part of auth;
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:parthdarji_com/core/services/responsive/responsive.dart';
+
+import '../../../../../core/resources/resources.dart';
+import '../../../../../core/services/localization/localization.dart';
+import '../../../../../core/widgets/widgets.dart';
+import '../../../auth.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

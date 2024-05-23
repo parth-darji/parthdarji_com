@@ -1,4 +1,11 @@
-part of auth;
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:parthdarji_com/core/services/responsive/responsive.dart';
+
+import '../../../../../core/resources/resources.dart';
+import '../../../../../core/services/traveller/traveller.dart';
+import '../../../../../core/widgets/widgets.dart';
 
 class YouAreOneStepAwayScreen extends StatefulWidget {
   const YouAreOneStepAwayScreen({super.key});

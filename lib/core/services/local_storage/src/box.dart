@@ -1,4 +1,4 @@
-part of local_storage;
+import 'package:hive_flutter/hive_flutter.dart';
 
 enum HiveBox {
   user,

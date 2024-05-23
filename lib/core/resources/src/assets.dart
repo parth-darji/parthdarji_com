@@ -1,4 +1,5 @@
 import '../resources.dart';
+import 'svg.dart';
 
 class AssetPath {
   static const String _imagesPath = "assets/images/";

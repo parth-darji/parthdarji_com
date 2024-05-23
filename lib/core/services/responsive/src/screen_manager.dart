@@ -1,4 +1,4 @@
-part of responsive;
+import 'package:flutter/material.dart';
 
 class ScreenManager {
   static ScreenManager? _instance;

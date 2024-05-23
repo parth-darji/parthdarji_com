@@ -1,4 +1,7 @@
-part of traveller;
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../traveller.dart';
 
 class Traveller<T> {
   static void back(BuildContext context) {

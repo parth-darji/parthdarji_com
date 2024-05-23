@@ -1,16 +1,6 @@
-library resources;
-
-import 'package:flutter/material.dart';
-import 'package:parthdarji_com/features/auth/auth.dart';
-import 'package:parthdarji_com/features/home/home.dart';
-import 'package:parthdarji_com/features/splash/splash.dart';
-
-import '../../features/onboarding/onboarding.dart';
-import 'src/assets.dart';
-
-part 'src/colors.dart';
-part 'src/routes.dart';
-part 'src/animations.dart';
-part 'src/images.dart';
-part 'src/fonts.dart';
-part 'src/svg.dart';
+export 'src/colors.dart';
+export 'src/routes.dart';
+export 'src/animations.dart';
+export 'src/images.dart';
+export 'src/fonts.dart';
+export 'src/svg.dart';

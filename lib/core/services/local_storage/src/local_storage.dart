@@ -1,4 +1,6 @@
-part of local_storage;
+import 'package:hive_flutter/hive_flutter.dart';
+
+import '../local_storage.dart';
 
 class HiveDataManager {
   static Future<void> initialize() async {

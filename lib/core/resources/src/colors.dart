@@ -1,4 +1,4 @@
-part of resources;
+import 'package:flutter/material.dart';
 
 class AppColors {
   // vaato colors

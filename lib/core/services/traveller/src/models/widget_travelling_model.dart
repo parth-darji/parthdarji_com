@@ -1,4 +1,4 @@
-part of traveller;
+import 'package:flutter/material.dart';
 
 class WidgetTravelling<T> {
   final Widget widget;

@@ -1,4 +1,8 @@
-part of localization;
+import 'package:flutter/material.dart';
+
+import '../../../../main.dart';
+import '../../local_storage/local_storage.dart';
+import '../localization.dart';
 
 class Localization {
   static Localization? _instance;

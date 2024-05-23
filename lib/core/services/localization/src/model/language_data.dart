@@ -1,4 +1,4 @@
-part of localization;
+import '../../localization.dart';
 
 class LanguageData {
   final String name;

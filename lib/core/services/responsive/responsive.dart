@@ -1,6 +1,2 @@
-library responsive;
-
-import 'package:flutter/material.dart';
-
-part 'src/entension.dart';
-part 'src/screen_manager.dart';
+export 'src/entension.dart';
+export 'src/screen_manager.dart';

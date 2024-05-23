@@ -1,4 +1,10 @@
-part of splash;
+import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:parthdarji_com/core/services/responsive/responsive.dart';
+
+import '../../../../../core/resources/resources.dart';
+import '../../../../../core/services/traveller/traveller.dart';
+import '../../../../onboarding/onboarding.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

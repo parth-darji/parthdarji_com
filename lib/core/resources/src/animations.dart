@@ -1,4 +1,4 @@
-part of resources;
+import 'package:parthdarji_com/core/resources/src/assets.dart';
 
 class Animations {
   static String walkingWorking = AssetPath.animation("walking_working.riv");

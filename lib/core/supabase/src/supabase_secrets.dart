@@ -1,5 +1,3 @@
-part of supabase;
-
 class SupabaseSecrets {
   static const String url = "https://xynhinckmqkdlpfickzb.supabase.co";
   static const String anon =

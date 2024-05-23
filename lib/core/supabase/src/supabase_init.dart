@@ -1,4 +1,6 @@
-part of supabase;
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+import '../supabase.dart';
 
 class SupabaseInit {
   static Future<void> initialize() async {

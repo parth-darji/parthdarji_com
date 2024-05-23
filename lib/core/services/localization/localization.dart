@@ -1,13 +1,6 @@
-library localization;
-
-import 'package:flutter/material.dart';
-
-import '../../../main.dart';
-import '../local_storage/local_storage.dart';
-
-part 'src/delegate.dart';
-part 'src/localization.dart';
-part 'src/language_code.dart';
-part 'src/language/language_en.dart';
-part 'src/language/languages.dart';
-part 'src/model/language_data.dart';
+export 'src/delegate.dart';
+export 'src/localization.dart';
+export 'src/language_code.dart';
+export 'src/language/language_en.dart';
+export 'src/language/languages.dart';
+export 'src/model/language_data.dart';

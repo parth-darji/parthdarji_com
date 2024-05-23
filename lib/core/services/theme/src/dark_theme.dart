@@ -1,3 +1,3 @@
-part of theme;
+import 'package:flutter/cupertino.dart';
 
-const _darkTheme = CupertinoThemeData();
+const darkThemeInstance = CupertinoThemeData();
