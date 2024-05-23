@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import '../widgets/widgets.dart';
@@ -35,7 +37,7 @@ class SwipeUpAnimationDemoState extends State
   }
 
   void _toggleAnimation() {
-    print("toggle animation called");
+    log("toggle animation called");
     setState(() {
       _isOpened = !_isOpened;
     });
