@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Image.asset(
-              Images.vaatoTransparentLogo,
+              assets.images.vaatoTransparentLogo,
               height: 100.0.h,
             ),
             CommonText(

@@ -1,17 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:parthdarji_com/core/resources/resources.dart';
-import 'package:parthdarji_com/core/services/theme/theme.dart';
 import 'package:parthdarji_com/features/splash/splash.dart';
 
 import 'core/firebase/firebase.dart';
-import 'core/services/local_storage/local_storage.dart';
-import 'core/services/localization/localization.dart';
-import 'core/services/responsive/responsive.dart';
+import 'core/services/services.dart';
 import 'core/supabase/supabase.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  registerDependencies();
   await FirebaseInit.initialize();
   await SupabaseInit.initialize();
   await HiveDataManager.initialize();

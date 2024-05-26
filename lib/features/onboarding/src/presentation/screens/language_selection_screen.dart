@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:parthdarji_com/core/services/responsive/responsive.dart';
 
 import '../../../../../core/resources/resources.dart';
+import '../../../../../core/resources/src/colors.dart';
 import '../../../../../core/services/localization/localization.dart';
 import '../../../../../core/services/traveller/traveller.dart';
 import '../../../../../core/widgets/widgets.dart';

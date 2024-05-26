@@ -51,6 +51,8 @@ dependencies:
     sdk: flutter
   flutter_animate: ^4.5.0
   enough_platform_widgets: ^1.1.0
+  flutter_svg: ^2.0.10+1
+  equatable: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +83,7 @@ flutter:
     - assets/fonts/
     - assets/animation/
     - assets/svg/
+    - assets/svg/icons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

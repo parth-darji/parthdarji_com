@@ -1,3 +1,4 @@
+export 'injection/get_it.dart';
 export 'local_storage/local_storage.dart';
 export 'local_storage/src/box.dart';
 export 'local_storage/src/keys.dart';
@@ -12,6 +13,9 @@ export 'localization/src/model/language_data.dart';
 export 'responsive/responsive.dart';
 export 'responsive/src/entension.dart';
 export 'responsive/src/screen_manager.dart';
+export 'theme/src/constants.dart';
+export 'theme/src/dark_theme.dart';
+export 'theme/src/light_theme.dart';
 export 'theme/src/theme.dart';
 export 'theme/theme.dart';
 export 'traveller/src/models/named_travelling_model.dart';

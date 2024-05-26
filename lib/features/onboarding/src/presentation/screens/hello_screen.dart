@@ -5,6 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:parthdarji_com/core/services/responsive/responsive.dart';
 
 import '../../../../../core/resources/resources.dart';
+import '../../../../../core/resources/src/colors.dart';
 import '../../../../../core/services/localization/localization.dart';
 import '../../../../../core/services/traveller/traveller.dart';
 import '../../../../../core/widgets/widgets.dart';
@@ -80,7 +81,7 @@ class _HelloScreenState extends State<HelloScreen>
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
-                      Images.seaBreezeWallpaper,
+                      assets.images.seaBreezeWallpaper,
                     ),
                     fit: BoxFit.cover,
                   ),
