@@ -129,6 +129,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
             Padding(
               padding: EdgeInsets.only(
                 top: 20.0.h,
+                bottom: 20.0.h,
                 left: 20.0.w,
                 right: 20.0.w,
               ),
