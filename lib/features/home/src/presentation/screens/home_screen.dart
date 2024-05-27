@@ -79,18 +79,13 @@ class HomeScreenState extends State<HomeScreen> {
                                 ),
                                 IntrinsicWidth(
                                   child: Container(
-                                    height: 20.0.h,
+                                    height: 27.0.h,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(50),
                                       color: CupertinoColors.black
                                           .withOpacity(0.4),
                                     ),
-                                    padding: EdgeInsets.only(
-                                      top: 6.5.h,
-                                      bottom: 6.5.h,
-                                      left: 6.5.h,
-                                      right: 6.5.h,
-                                    ),
+                                    padding: EdgeInsets.all(8.0.h),
                                     margin: EdgeInsets.only(
                                       left: 8.0.w,
                                       right: 8.0.w,
