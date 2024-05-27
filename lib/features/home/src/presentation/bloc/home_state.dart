@@ -10,10 +10,12 @@ class HomeInitial extends HomeState {}
 
 class HomeLoading extends HomeState {}
 
-class HomeLoaded extends HomeState {
+class HomeLoadingCompleted extends HomeState {}
+
+class HomeReadyToRender extends HomeState {
   final List<DrawerPage> pages;
 
-  HomeLoaded(this.pages);
+  HomeReadyToRender(this.pages);
 
   @override
   List<Object> get props => [pages];

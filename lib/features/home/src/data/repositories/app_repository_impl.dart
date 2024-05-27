@@ -29,6 +29,10 @@ class AppRepositoryImpl implements AppRepository {
       );
     }
 
+    if (pages.isNotEmpty) {
+      pages[0].isSelected = true;
+    }
+
     return pages;
   }
 }

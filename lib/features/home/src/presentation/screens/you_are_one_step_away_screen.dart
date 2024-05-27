@@ -1,15 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:parthdarji_com/core/services/responsive/responsive.dart';
+import 'package:parthdarji_com/features/home/home.dart';
 
 import '../../../../../core/resources/resources.dart';
 import '../../../../../core/resources/src/colors.dart';
-import '../../../../../core/services/traveller/traveller.dart';
 import '../../../../../core/widgets/widgets.dart';
 
 class YouAreOneStepAwayScreen extends StatefulWidget {
-  const YouAreOneStepAwayScreen({super.key});
+  final HomeBloc homeBloc;
+
+  const YouAreOneStepAwayScreen({super.key, required this.homeBloc});
 
   @override
   State<YouAreOneStepAwayScreen> createState() =>
@@ -27,13 +28,7 @@ class _YouAreOneStepAwayScreenState extends State<YouAreOneStepAwayScreen> {
 
   void increaseProgressCount() async {
     if (progressCount == 1) {
-      Traveller.goAndForgotAllTrips(
-        context,
-        namedTravelling: NamedTravelling(
-          destinationName: Routes.home,
-        ),
-      );
-
+      widget.homeBloc.add(LoaderCompletedEvent());
       return;
     }
 
@@ -49,8 +44,8 @@ class _YouAreOneStepAwayScreenState extends State<YouAreOneStepAwayScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      child: Center(
+    return Scaffold(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

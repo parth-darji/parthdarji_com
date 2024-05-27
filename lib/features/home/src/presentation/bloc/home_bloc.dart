@@ -13,15 +13,28 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   HomeBloc({required this.getApps}) : super(HomeInitial()) {
     on<HomeEvent>((event, emit) async {
-      if (event is GetAppsEvent) {
-        emit(HomeLoading());
-        try {
-          final apps = await getApps.call();
-          emit(HomeLoaded(apps));
-        } catch (e) {
-          emit(HomeError(e.toString()));
-        }
+      emit(HomeLoading());
+    });
+
+    on<LoaderCompletedEvent>((event, emit) async {
+      try {
+        final pages = await getApps.call();
+        emit(HomeReadyToRender(pages));
+      } catch (e) {
+        emit(HomeError(e.toString()));
       }
+    });
+
+    on<ChangePageEvent>((event, emit) async {
+      int nextIndex = event.upcomingIndex;
+
+      for (var data in event.pages) {
+        data.isSelected = false;
+      }
+
+      event.pages[nextIndex].isSelected = true;
+
+      emit(HomeReadyToRender(event.pages));
     });
   }
 }

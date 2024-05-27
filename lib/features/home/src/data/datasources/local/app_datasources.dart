@@ -136,6 +136,412 @@ class AppIconLocalDataSourceImpl implements AppsLocalDataSource {
           // TODO: implement navigation
         },
       ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
+      AppModel(
+        imagePath: assets.svg.weather,
+        appName: "Weather",
+        onTap: () {
+          // TODO: implement navigation
+        },
+      ),
     ];
 
     return apps;

@@ -139,7 +139,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                     Traveller.go(
                       context,
                       namedTravelling: NamedTravelling(
-                        destinationName: Routes.youAreOneStepAway,
+                        destinationName: Routes.home,
                       ),
                     );
                   },
