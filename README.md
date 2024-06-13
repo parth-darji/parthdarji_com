@@ -1,16 +1,30 @@
 # parthdarji_com
 
-A new Flutter project.
+This is my personal portfolio app, showcasing all aspects of my independent development work. The project features an iOS-like user interface for interacting with my projects, complete with animations to enhance user engagement. Additional apps can be downloaded from the App Store.
 
-## Getting Started
+## Projects that made with ❤️
 
-This project is a starting point for a Flutter application.
+- Phone App
+- Safari App
 
-A few resources to get you started if this is your first Flutter project:
+## Architecture I've used
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Clean Architecture
+- Model View View Model (MVVM)
+- Model View Controller (MVC)
+- Domain Driven Design (DDD)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Technologies I've used
+
+- Flutter (Dart)
+- Firebase (NoSQL)
+- Supabase (SQL)
+
+## Other things (Only for recruiters)
+
+- Third party API integration
+- Login integrated such as Apple ID, Google ID, Facebook ID
+- Implemented socket
+- Implemented payment gateways like Stripe, Razorpay, GPay, UPI.
+
+This portfolio showcases my work. I hope you find it enjoyable. Thank you.
