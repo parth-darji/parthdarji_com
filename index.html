@@ -1,302 +1,214 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parth Darji | Portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
-  <title>Parth Darji - Software Engineer</title>
+  @keyframes fadeSlideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/social_media.css">
-  <link rel="stylesheet" href="css/unicons.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="icon" href="images/favicon/man_technologist.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Fira Code', monospace;
+    background: linear-gradient(135deg, #f5f7fa, #e4ebf5, #d0daf0, #ffffff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    transition: background 0.3s;
+  }
 
-  <!-- MAIN STYLE -->
-  <link rel="stylesheet" href="css/tooplate-style.css">
+  body.dark {
+    background: linear-gradient(135deg, #0a0a1a, #1f1a40, #2a1a55, #0f0f15);
+  }
+
+  .container {
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.6);
+    border-radius: 32px;
+    padding: 3rem 2rem;
+    max-width: 480px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    animation: fadeSlideUp 1s ease forwards;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  }
+
+  body.dark .container {
+    background: rgba(20,20,30,0.75);
+    box-shadow: 0 12px 40px rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .container:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #222;
+  }
+
+  body.dark h1 { color: #f5f5f7; }
+
+  .tagline {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    min-height: 24px;
+  }
+
+  body.dark .tagline { color: #d0d0d0; }
+
+  .links {
+    margin-bottom: 1.5rem;
+  }
+
+  .links a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #8a2be2;
+    font-weight: 500;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .links a:hover {
+    color: #fff;
+    background: linear-gradient(135deg, #8a2be2, #00d4ff);
+    transform: translateY(-3px) scale(1.05);
+  }
+
+  body.dark .links a {
+    color: #8a2be2;
+    background: transparent;
+  }
+
+  body.dark .links a:hover {
+    background: linear-gradient(135deg, #8a2be2, #00d4ff);
+    color: #fff;
+  }
+
+  .resume-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.6rem;
+    background: linear-gradient(135deg, #8a2be2, #00d4ff);
+    color: white;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .resume-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  }
+
+  .email {
+    margin-top: 1.2rem;
+    font-size: 0.95rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: #8a2be2;
+    text-decoration: none;
+  }
+
+  .email:hover {
+    transform: translateY(-2px) scale(1.03);
+    text-decoration: underline;
+  }
+
+  body.dark .email { color: #8a2be2; }
+  body.dark .email:hover { color: #00d4ff; }
+
+  .toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(240,240,240,0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .toggle-btn:hover { transform: scale(1.1); }
+  body.dark .toggle-btn {
+    background: rgba(50,50,50,0.8);
+    color: #fff;
+  }
+
+  .typing::after {
+    content: '|';
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 1.5rem; }
+    .tagline { font-size: 0.9rem; }
+  }
+</style>
 </head>
-
 <body>
-
-  <!-- MENU -->
-  <nav class="navbar navbar-expand-sm navbar-light">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><i class='uil uil-user'></i> Me</a>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-            <a href="#about" class="nav-link"><span data-hover="About">About</span></a>
-          </li>
-          <li class="nav-item">
-            <a href="#project" class="nav-link"><span data-hover="Projects">Projects</span></a>
-          </li>
-          <li class="nav-item">
-            <a href="#resume" class="nav-link"><span data-hover="Resume">Resume</span></a>
-          </li>
-          <li class="nav-item">
-            <a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a>
-          </li>
-        </ul>
-
-        <ul class="navbar-nav ml-lg-auto">
-          <div class="ml-lg-4">
-            <div class="color-mode d-lg-flex justify-content-center align-items-center">
-              <i class="color-mode-icon"></i>
-              Color mode
-            </div>
-          </div>
-        </ul>
-      </div>
+  <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+  <div class="container">
+    <h1>Hi, it's Parth Darji here.<br>The Software Engineer</h1>
+    <p class="tagline typing" id="tagline"></p>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+      <a href="https://github.com/your-github" target="_blank">GitHub</a>
     </div>
-  </nav>
+    <a href="your_resume.pdf" class="resume-btn" download>Download Resume</a>
+    <br>
+    <a href="mailto:parthdarji2961@gmail.com" class="email">📩 parthdarji2961@gmail.com</a>
+  </div>
 
-  <!-- ABOUT -->
-  <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
-    <div class="container">
-      <div class="row">
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+      const btn = document.querySelector(".toggle-btn");
+      btn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    }
 
-        <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
-          <div class="about-text">
-            <small class="small-text">Welcome to <span class="mobile-block">my portfolio website!</span></small>
-            <h1 class="animated animated-text">
-              <span class="mr-2">Hey folks, I'm</span>
-              <div class="animated-info">
-                <span class="animated-item">Parth Darji</span>
-                <span class="animated-item">Software Engineer</span>
-                <span class="animated-item">Flutter Developer</span>
-              </div>
-            </h1>
-
-            <p>Creating seamless applications is my passion. Let's build an app with a beautiful user experience,
-              intuitive interface, and robust, developer-friendly architecture.</p>
-
-            <div class="custom-btn-group mt-4">
-              <a href="https://docs.google.com/document/d/10xm94MQGVVwgO5aoc4FlF7ccdY5l5uDjjes45-z1_dU/edit?usp=sharing"
-                target="_blank" class="btn mr-lg-2 custom-btn"><i class='uil uil-file-alt'></i> Download Resume</a>
-              <a href="#contact" class="btn custom-btn custom-btn-bg custom-btn-link">Contact me</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-5 col-md-12 col-12">
-          <div class="about-image svg">
-            <img src="images/undraw/undraw_software_engineer_lvl5.svg" class="svg-fluid" alt="svg image">
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="project py-5" id="project">
-    <div class="container">
-
-      <div class="row">
-        <div class="col-lg-11 text-center mx-auto col-12">
-
-          <div class="col-lg-8 mx-auto">
-            <h2>Projects I have worked in software companies</h2>
-          </div>
-
-          <div class="owl-carousel owl-theme">
-            <div class="item">
-              <div class="project-info">
-                <img src="images/project/selcom_bank.png" class="img-fluid" alt="project image">
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="project-info">
-                <img src="images/project/duka_direct.png" class="img-fluid" alt="project image">
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="project-info">
-                <img src="images/project/oneclick_buzz.png" class="img-fluid" alt="project image">
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="project-info">
-                <img src="images/project/loba.png" class="img-fluid" alt="project image">
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
-    <div class="container">
-      <div class="row">
-
-        <div class="col-lg-6 col-12">
-          <h2 class="mb-4">Experiences</h2>
-
-          <div class="timeline">
-            <div class="timeline-wrapper">
-              <div class="timeline-yr">
-                <span style="font-size: 24px;">2</span>
-            </div>
-              <div class="timeline-info">
-                <h3><span>Selcom Paytech Ltd.</span></h3>
-                <p>As part of the team, I spearheaded critical initiatives, including enhancing app security, implementing seamless CI/CD processes, and optimizing performance to elevate the banking experience for millions of users.</p>
-              </div>
-            </div>
-
-            <div class="timeline-wrapper">
-              <div class="timeline-yr">
-                <span style="font-size: 24px;">1</span>
-              </div>
-              <div class="timeline-info">
-                <h3><span>OneClick IT Solutions</span></h3>
-                <p>Developed advanced mobile and IoT solutions, including a silent mode notification system, improved BLE connectivity by 50%, and optimized app performance to enhance user experiences and customer satisfaction.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-12">
-          <h2 class="mb-4 mobile-mt-2">Educations</h2>
-
-          <div class="timeline">
-            <div class="timeline-wrapper">
-              <div class="timeline-yr">
-                <span>2022</span>
-              </div>
-              <div class="timeline-info">
-                <h3><span>Gujarat Technological University</span><small>B.E. in Computer Engineering</small></h3>
-                <p>CGPA: 8.26/10</p>
-              </div>
-            </div>
-
-            <div class="timeline-wrapper">
-              <div class="timeline-yr">
-                <span>2018</span>
-              </div>
-              <div class="timeline-info">
-                <h3><span>P.R. Mukhi Secondary School</span><small>H.S.C. Science</small></h3>
-                <p>Percentage: 75%</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- CONTACT -->
-  <section class="contact py-5" id="contact">
-    <div style="width: 240px;
-            margin: 0 auto;
-            ">
-      <a href="https://www.linkedin.com/in/parth-darji/" target="_blank" class="fa fa-linkedin"></a>
-      <a href="mailto:parthdarji2961@gmail.com" target="_blank" class="fa fa-envelope"></a>
-      <a href="https://github.com/parth-darji" target="_blank" class="fa fa-github"></a>
-      <a href="https://pub.dev/publishers/parthdarji.com/packages" target="_blank" class="fa fa-cube"></a>
-      <a href="https://medium.com/@parthpdarji" target="_blank" class="fa fa-medium"></a>
-    </div>
-
-    <!-- <div class="container">
-      <div class="row">
-        <div class="col-lg-5 mr-lg-5 col-12">
-          <div class="google-map w-100">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12088.558402180099!2d-73.99373482142036!3d40.75895421922642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855b8fb3083%3A0xa0f9aef176042a5c!2sTheater+District%2C+New+York%2C+NY%2C+USA!5e0!3m2!1sen!2smm!4v1549875377188"
-              width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-          </div>
-
-          <div class="contact-info d-flex justify-content-between align-items-center py-4 px-lg-5">
-            <div class="contact-info-item">
-              <h3 class="mb-3 text-white">Say hello</h3>
-              <p class="footer-text mb-0">010 020 0960</p>
-              <p><a href="mailto:hello@company.co">hello@company.co</a></p>
-            </div>
-
-            <ul class="social-links">
-              <li><a href="#" class="uil uil-dribbble" data-toggle="tooltip" data-placement="left" title="Dribbble"></a>
-              </li>
-              <li><a href="#" class="uil uil-instagram" data-toggle="tooltip" data-placement="left"
-                  title="Instagram"></a></li>
-              <li><a href="#" class="uil uil-youtube" data-toggle="tooltip" data-placement="left" title="Youtube"></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-12">
-          <div class="contact-form">
-            <h2 class="mb-4">Interested to work together? Let's talk</h2>
-
-            <form action="" method="get">
-              <div class="row">
-                <div class="col-lg-6 col-12">
-                  <input type="text" class="form-control" name="name" placeholder="Your Name" id="name">
-                </div>
-
-                <div class="col-lg-6 col-12">
-                  <input type="email" class="form-control" name="email" placeholder="Email" id="email">
-                </div>
-
-                <div class="col-12">
-                  <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message"></textarea>
-                </div>
-
-                <div class="ml-lg-auto col-lg-5 col-12">
-                  <input type="submit" class="form-control submit-btn" value="Send Button">
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div> -->
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer py-5">
-    <div class="container">
-      <div class="row">
-
-        <div class="col-lg-12 col-12">
-          <p class="copyright-text text-center">Copyright &copy; 2024 parthdarji.com, All rights reserved</p>
-          <p class="copyright-text text-center">Designed with ❤️ by <a rel="nofollow"
-              href="https://parthdarji.com/">Parth Darji</a></p>
-        </div>
-
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/Headroom.js"></script>
-  <script src="js/jQuery.headroom.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/smoothscroll.js"></script>
-  <script src="js/custom.js"></script>
-
+    const taglineText = "Turning complex problems into simple, elegant software solutions.";
+    let i = 0;
+    const taglineElement = document.getElementById("tagline");
+    function typeWriter() {
+      if (i < taglineText.length) {
+        taglineElement.textContent += taglineText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+      }
+    }
+    window.onload = typeWriter;
+  </script>
 </body>
-
 </html>
