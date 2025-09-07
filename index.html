@@ -63,10 +63,11 @@
   }
 
   .container {
+    position: relative; /* important so button stays inside */
     backdrop-filter: blur(15px);
     background: #fff;
     border-radius: 20px;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
     margin: 3rem 2rem;
     max-width: 480px;
     width: 90%;
@@ -173,15 +174,15 @@
 
   .toggle-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
     background: rgba(240,240,240,0.8);
     border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -222,8 +223,8 @@
 </style>
 </head>
 <body>
-  <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
   <div class="container">
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
     <h1>Hi, it's Parth Darji here.<br>The Software Engineer</h1>
     <p class="tagline typing" id="tagline"></p>
     <div class="links">
