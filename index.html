@@ -12,6 +12,22 @@
     100% { opacity: 1; transform: translateY(0); }
   }
 
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Fira Code', monospace;
+
+    /* Light mode fallback background */
+    background-color: #f5f7fa; 
+    background: linear-gradient(135deg, #f5f7fa, #e4ebf5, #d0daf0, #ffffff);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+  }
+
   body {
     margin: 0;
     padding: 0;
@@ -25,6 +41,7 @@
   }
 
   body.dark {
+    background-color: #0a0a1a;
     background: linear-gradient(135deg, #0a0a1a, #1f1a40, #2a1a55, #0f0f15);
   }
 
@@ -49,6 +66,7 @@
     background: #fff;
     border-radius: 20px;
     padding: 3rem 2rem;
+    margin: 3rem 2rem;
     max-width: 480px;
     width: 90%;
     text-align: center;
@@ -208,10 +226,10 @@
     <h1>Hi, it's Parth Darji here.<br>The Software Engineer</h1>
     <p class="tagline typing" id="tagline"></p>
     <div class="links">
-      <a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
-      <a href="https://github.com/your-github" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/parth-darji" target="_blank">LinkedIn</a>
+      <a href="https://github.com/parth-darji" target="_blank">GitHub</a>
     </div>
-    <a href="your_resume.pdf" class="resume-btn" download>Download Resume</a>
+    <a href="Parth_Darji_Software_Engineer_Resume.pdf" class="resume-btn" download>Download Resume</a>
     <br>
     <a href="mailto:parthdarji2961@gmail.com" class="email">📩 parthdarji2961@gmail.com</a>
   </div>
