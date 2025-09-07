@@ -28,15 +28,31 @@
     background: linear-gradient(135deg, #0a0a1a, #1f1a40, #2a1a55, #0f0f15);
   }
 
+  .container a, 
+  .container button {
+    margin: 10px 0; /* more breathing space */
+  }
+
+  button {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
   .container {
     backdrop-filter: blur(15px);
-    background: rgba(255,255,255,0.6);
-    border-radius: 32px;
+    background: #fff;
+    border-radius: 20px;
     padding: 3rem 2rem;
     max-width: 480px;
     width: 90%;
     text-align: center;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     animation: fadeSlideUp 1s ease forwards;
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
   }
@@ -169,6 +185,15 @@
   @keyframes blink {
     0%, 50%, 100% { opacity: 1; }
     25%, 75% { opacity: 0; }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 14px;
+    }
   }
 
   @media (max-width: 600px) {
