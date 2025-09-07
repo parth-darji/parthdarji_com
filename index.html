@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Parth Darji | Portfolio</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
@@ -13,24 +13,21 @@
   }
 
   html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Fira Code', monospace;
-
-    /* Light mode fallback background */
-    background-color: #f5f7fa; 
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) 
+            env(safe-area-inset-bottom) env(safe-area-inset-left);
+    background-color: #f5f7fa;
     background: linear-gradient(135deg, #f5f7fa, #e4ebf5, #d0daf0, #ffffff);
+  }
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s;
+  body.dark {
+    background-color: #0a0a1a;
+    background: linear-gradient(135deg, #0a0a1a, #1f1a40, #2a1a55, #0f0f15);
   }
 
   body {
     margin: 0;
     padding: 0;
+    overscroll-behavior: none;
     font-family: 'Fira Code', monospace;
     background: linear-gradient(135deg, #f5f7fa, #e4ebf5, #d0daf0, #ffffff);
     display: flex;
@@ -38,11 +35,6 @@
     justify-content: center;
     height: 100vh;
     transition: background 0.3s;
-  }
-
-  body.dark {
-    background-color: #0a0a1a;
-    background: linear-gradient(135deg, #0a0a1a, #1f1a40, #2a1a55, #0f0f15);
   }
 
   .container a, 
