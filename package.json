@@ -1,0 +1,26 @@
+{
+  "name": "parthdarji_com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://parth-darji@github.com/parth-darji/parthdarji_com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parth-darji/parthdarji_com/issues"
+  },
+  "homepage": "https://github.com/parth-darji/parthdarji_com#readme",
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
+}
