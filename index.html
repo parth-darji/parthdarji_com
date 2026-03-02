@@ -20,8 +20,27 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>PD</text></svg>">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#818cf8">
   
   <link rel="stylesheet" href="./src/style.css" />
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Parth Darji",
+    "jobTitle": "Software Engineer",
+    "url": "https://parthdarji.com/",
+    "sameAs": [
+      "https://github.com/parth-darji",
+      "https://www.linkedin.com/in/parth-darji/",
+      "https://medium.com/@parthpdarji"
+    ],
+    "knowsAbout": ["Flutter", "Dart", "Mobile Application Development", "Fintech", "Android", "iOS"]
+  }
+  </script>
 </head>
 <body>
   <div class="mesh-gradient"></div>
@@ -72,13 +91,13 @@
 
       <div class="featured-projects-container">
         <!-- Featured Project 1 -->
-        <div class="featured-project">
+        <div class="featured-project project-details-trigger" data-project="dukadirect">
           <div class="project-content">
             <p class="project-overline accent">Featured Project</p>
             <h3 class="project-title">DukaDirect Super App</h3>
             <div class="project-description">
               <p>A flagship lifestyle super app in Tanzania. It integrates e-commerce, bill payments, and flight bookings into a single, high-performance Flutter mobile application.</p>
-              <button class="btn-text project-details-trigger" data-project="dukadirect">View Case Study →</button>
+              <span class="btn-text">View Case Study &rarr;</span>
             </div>
             <div class="project-tech-badges">
               <span class="tech-badge">Flutter</span>
@@ -96,13 +115,13 @@
         </div>
 
         <!-- Featured Project 2 -->
-        <div class="featured-project left">
+        <div class="featured-project left project-details-trigger" data-project="selcompay">
           <div class="project-content">
             <p class="project-overline accent">Featured Project</p>
             <h3 class="project-title">Selcom Pay</h3>
             <div class="project-description">
               <p>A merchant-focused application enabling seamless QR payments, business tracking, and financial reconciliation for thousands of businesses across Tanzania.</p>
-              <button class="btn-text project-details-trigger" data-project="selcompay">View Case Study →</button>
+              <span class="btn-text">View Case Study &rarr;</span>
             </div>
             <div class="project-tech-badges">
               <span class="tech-badge">Flutter</span>
@@ -177,7 +196,7 @@
         <h2 style="font-size: clamp(40px, 5vw, 60px); margin: 20px 0;">Get In Touch</h2>
         <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you have a question or just want to say hi, my inbox is always open!</p>
         <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px;">
-          <a href="mailto:parthdarji2961@gmail.com" class="btn">Say Hello</a>
+          <a href="mailto:parthdarji2961@gmail.com?subject=Collaboration%20Query%20from%20Portfolio" class="btn">Say Hello</a>
           <button id="copy-email" class="btn" style="cursor: pointer; display: flex; align-items: center; gap: 10px;">
             <i class="fa fa-clone"></i> Copy Email
           </button>

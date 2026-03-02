@@ -198,12 +198,17 @@ function closeLightbox() {
     lightbox.classList.remove('active');
 }
 
-triggers.forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
-        e.stopPropagation();
+// Modal Trigger Delegation
+document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.project-details-trigger');
+    if (trigger) {
+        console.log('Project trigger clicked:', trigger.getAttribute('data-project'));
+        e.preventDefault();
         const projectId = trigger.getAttribute('data-project') || trigger.closest('[data-project]').getAttribute('data-project');
-        openModal(projectId);
-    });
+        if (projectId) {
+            openModal(projectId);
+        }
+    }
 });
 
 modalClose.addEventListener('click', closeModal);

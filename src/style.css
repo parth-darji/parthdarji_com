@@ -314,6 +314,11 @@ nav.scrolled {
     margin-top: 80px;
 }
 
+.featured-project.project-details-trigger {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
 .featured-project {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -326,13 +331,6 @@ nav.scrolled {
     grid-column: 1 / 9;
     grid-row: 1 / -1;
     z-index: 2;
-    pointer-events: none;
-    /* Let clicks pass to triggers */
-}
-
-.project-content>* {
-    pointer-events: auto;
-    /* Re-enable for content */
 }
 
 .featured-project.left .project-content {
@@ -731,6 +729,10 @@ nav.scrolled {
 .btn-text:hover {
     padding-left: 10px;
     letter-spacing: 0.5px;
+}
+
+.project-details-trigger {
+    pointer-events: auto !important;
 }
 
 /* Project Video */

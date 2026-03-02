@@ -1,0 +1,17 @@
+{
+    "name": "Parth Darji | Mobile Application Developer",
+    "short_name": "Parth Darji",
+    "description": "Software Engineer specializing in high-performance, user-centric mobile applications.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#020617",
+    "theme_color": "#818cf8",
+    "icons": [
+        {
+            "src": "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23020617%22/><text y=%22.9em%22 font-size=%2290%22 fill=%22%23818cf8%22>PD</text></svg>",
+            "sizes": "192x192 512x512",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}
