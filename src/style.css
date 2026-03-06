@@ -273,8 +273,8 @@ nav.scrolled {
 /* Cards & Grid */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
     margin-top: 50px;
 }
 
@@ -304,6 +304,28 @@ nav.scrolled {
 .card p {
     color: var(--text-secondary);
     font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.card ul {
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+.card li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.card li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
 }
 
 /* Featured Projects */
