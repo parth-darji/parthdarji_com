@@ -1,73 +1,281 @@
 // Case Study Data
 const projectData = {
-    dukadirect: {
-        title: "DukaDirect Super App",
-        overline: "Featured Case Study",
-        problem: "The Tanzanian market faced high fragmentation in essential services. Users had to navigate multiple apps for groceries, electricity bills, and flight bookings, leading to friction and low retention.",
-        solution: "I architected a single, high-performance Flutter Super App that unified these services. By implementing a modular micro-frontend-like architecture in Flutter, we enabled fast service discovery and a seamless checkout experience.",
-        challenges: "Ensuring ultra-fast performance on budget Android devices across Tanzania. I optimized the state management using GetX and reduced app size by 40% through clever asset management and SVG-first design.",
+    "duka-direct": {
+        title: "duka.direct (E-commerce Super App)",
+        overline: "Selcom Tanzania",
+        problem: "A multi-service super app offering grocery, food delivery, stores, fuel, courier, Jumla (B2B), bill payments, travel bookings, cinema tickets, and wallet payments used widely in Tanzania.",
+        solution: "<ul>" +
+            "<li>Rewrote core modules (grocery, bill pay, stores) during migration from Flutter 1.22 to GetX architecture.</li>" +
+            "<li>Optimized performance and resolved crashes, including heavy screens with 1,500+ items.</li>" +
+            "<li>Implemented Firebase Analytics and push notifications resulting in 12K+ new installs within 90 days.</li>" +
+            "<li>Led a team of 2 developers and became Project Lead in Feb 2025.</li>" +
+            "<li>Contributed to a full redesign in Oct 2025 improving UI/UX and engagement.</li>" +
+            "<li>Helped scale platform revenue from $30K/month to $100K/month.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter, Dart, GetX, Firebase Analytics, AWS, Node.js, Android, iOS",
         impact: [
-            { label: "Active Users", value: "250K+" },
-            { label: "Checkouts/Day", value: "2,000+" },
-            { label: "App Rating", value: "4.8/5" }
-        ],
-        images: [
-            "images/project/duka_direct.png",
-            "images/project/project-image01.png",
-            "images/project/project-image02.png"
-        ],
-        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-his-laptop-34448-small.mp4",
-        isPortrait: false
-    },
-    selcompay: {
-        title: "Selcom Pay",
-        overline: "Fintech Showcase",
-        problem: "Small and medium merchants in Tanzania lacked a unified way to track QR payments, check wallet balances, and reconcile daily sales, often relying on paper ledgers.",
-        solution: "Designed and built Selcom Pay—a merchant ecosystem app. I implemented real-time push notifications for payment alerts and a dashboard with complex charting to visualize revenue trends.",
-        challenges: "Security was paramount. I implemented end-to-end encryption for payment data and a secure biometric login flow that worked across all supported Android and iOS devices.",
-        impact: [
-            { label: "Merchants", value: "15,000+" },
-            { label: "Monthly Vol", value: "$4M+" },
-            { label: "Sync Speed", value: "< 2s" }
-        ],
-        images: [
-            "images/project/selcom_bank.png",
-            "images/project/project-image03.png",
-            "images/project/project-image04.png"
-        ],
-        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-business-man-using-his-mobile-phone-while-walking-34456-small.mp4",
-        isPortrait: true
-    },
-    otapp: {
-        title: "Otapp Ticketing",
-        overline: "Entertainment Solution",
-        problem: "Manual ticketing for movies and events led to long queues and double-booked seats. No platform existed for real-time seat selection in the region.",
-        solution: "Created an interactive seat selection engine in Flutter. Users can view movie house layouts, select specific seats, and receive a digital QR ticket instantly.",
-        challenges: "Real-time seat locking was the main hurdle. I utilized Firebase Realtime Database with transactional logic to ensure seat availability was updated within milliseconds across all users.",
-        impact: [
-            { label: "Booking Time", value: "-70%" },
-            { label: "Tickets Sold", value: "500K+" },
-            { label: "Retention", value: "45%" }
-        ],
-        images: [
-            "images/project/loba.png",
-            "images/project/project-image05.png"
+            { label: "Revenue/Mo", value: "$100K" },
+            { label: "New Installs", value: "12K+" },
+            { label: "Role", value: "Lead" }
         ]
     },
-    selcomcard: {
-        title: "Selcom Card App",
-        overline: "Banking Extension",
-        problem: "Mastercard holders needed a way to manage their physical and virtual cards—blocking, PIN resets, and balance transfers—without visiting a branch.",
-        solution: "Built a secure Flutter portal that integrated directly with banking core APIs. Added virtual card generation features with dynamic CVV security.",
-        challenges: "Integrating with legacy SOAP banking services while maintaining a modern, reactive UI. I built a middleware layer that transformed legacy data into clean JSON for the mobile app.",
+    "duka-microsite": {
+        title: "duka.direct Microsite (Web App)",
+        overline: "Selcom Tanzania",
+        problem: "A ReactJS web version of duka.direct designed for users browsing via desktop or laptop, supporting Google login and guest checkout.",
+        solution: "<ul>" +
+            "<li>Led frontend improvements fixing UI inconsistencies and major bugs.</li>" +
+            "<li>Guided a junior developer and improved responsiveness and design consistency.</li>" +
+            "<li>Ensured smooth integration with Rider and Admin systems.</li>" +
+            "<li>Improved product listing, cart, and checkout user experience.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: ReactJS, JavaScript, UI/UX Design",
         impact: [
-            { label: "Branch visits", value: "-60%" },
-            { label: "Active Cards", value: "20,000+" },
-            { label: "Support load", value: "-35%" }
-        ],
-        images: [
-            "images/project/selcom_bank.png",
-            "images/project/oneclick_buzz.png"
+            { label: "Platform", value: "Web" },
+            { label: "Stack", value: "React" }
+        ]
+    },
+    "duka-rider-admin": {
+        title: "duka.direct Rider Admin App",
+        overline: "Selcom Tanzania",
+        problem: "A mobile admin app enabling supervisors to assign orders, track rider activity, monitor real-time locations, and manage delivery operations.",
+        solution: "<ul>" +
+            "<li>Improved UI/UX and resolved key issues in rider assignment workflows.</li>" +
+            "<li>Ensured mobile admin functionality matched the web admin portal.</li>" +
+            "<li>Reduced manual assignment errors through workflow improvements.</li>" +
+            "<li>Implemented reliable real-time location and order tracking.</li>" +
+            "<li>Improved coordination between admin teams and riders.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter, Dart",
+        impact: [
+            { label: "Ops Speed", value: "+40%" },
+            { label: "Errors", value: "-25%" }
+        ]
+    },
+    "duka-rider-app": {
+        title: "duka.direct Rider App (Delivery Agents)",
+        overline: "Selcom Tanzania",
+        problem: "A delivery rider app used for managing orders, tracking earnings, receiving notifications, and completing deliveries with OTP, photo proof, and signatures.",
+        solution: "<ul>" +
+            "<li>Led migration from Tookan platform to an in-house rider management system.</li>" +
+            "<li>Fixed backend payload issues reducing data usage from 450MB/37 minutes to under 6MB/day.</li>" +
+            "<li>Resolved syncing issues between rider, merchant, and admin systems.</li>" +
+            "<li>Managed rollout from 5 riders to full production deployment.</li>" +
+            "<li>Eliminated Tookan licensing saving approximately $1,000/month.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter, Dart",
+        impact: [
+            { label: "Data Usage", value: "-98%" },
+            { label: "Licensing", value: "-$1K/mo" }
+        ]
+    },
+    "selcom-id": {
+        title: "Selcom ID (User Verification & Authentication)",
+        overline: "Selcom Tanzania",
+        problem: "A unified identity platform enabling mobile verification, passport verification, and TOTP authentication across Selcom products.",
+        solution: "<ul>" +
+            "<li>Built the complete Flutter frontend from Figma designs.</li>" +
+            "<li>Implemented secure authentication and animated navigation flows.</li>" +
+            "<li>Integrated APIs for verification, registration, and product identity linking.</li>" +
+            "<li>Delivered a seamless and secure user experience.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter, Dart",
+        impact: [
+            { label: "Security", value: "High" },
+            { label: "UI", value: "Custom" }
+        ]
+    },
+    "selcom-kazi": {
+        title: "Selcom Kazi (Internal HRMS)",
+        overline: "Selcom Tanzania",
+        problem: "Internal HR management platform used for employee records, leave requests, and workflow automation.",
+        solution: "<ul>" +
+            "<li>Implemented Google authentication for employees.</li>" +
+            "<li>Added document upload functionality for leave requests.</li>" +
+            "<li>Fixed permission-related bugs and improved UI consistency.</li>" +
+            "<li>Improved system stability for daily internal operations.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter, Dart",
+        impact: [
+            { label: "Users", value: "Staff" },
+            { label: "Uptime", value: "99.9%" }
+        ]
+    },
+    "access-bank": {
+        title: "Access Bank Tanzania Mobile Banking Support",
+        overline: "Selcom Tanzania",
+        problem: "Mobile banking app support ensuring stable operations and resolving production issues.",
+        solution: "<ul>" +
+            "<li>Monitored live app performance and handled escalated issues.</li>" +
+            "<li>Fixed critical production bugs.</li>" +
+            "<li>Coordinated with backend and QA teams to ensure smooth banking operations.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter, Dart",
+        impact: [
+            { label: "Availability", value: "24/7" },
+            { label: "Bugs Fixed", value: "Critical" }
+        ]
+    },
+    "baroda-bank": {
+        title: "Bank of Baroda Tanzania Mobile Banking Support",
+        overline: "Selcom Tanzania",
+        problem: "Banking app used in the Tanzania region requiring production monitoring and issue resolution.",
+        solution: "<ul>" +
+            "<li>Took temporary ownership during primary developer’s leave.</li>" +
+            "<li>Debugged issues and resolved production bugs.</li>" +
+            "<li>Worked with backend and support teams to maintain stable operations.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter, Dart",
+        impact: [
+            { label: "Stability", value: "High" },
+            { label: "Support", value: "Direct" }
+        ]
+    },
+    "selcom-pesa": {
+        title: "Selcom Pesa (Fintech Banking App)",
+        overline: "Selcom Tanzania",
+        problem: "A digital fintech platform enabling users to transfer money, pay bills, purchase airtime, request loans, and access financial services.",
+        solution: "<ul>" +
+            "<li>Redesigned major screens to match modern fintech UI standards.</li>" +
+            "<li>Implemented animations and smooth transitions.</li>" +
+            "<li>Worked closely with designers and backend engineers.</li>" +
+            "<li>Helped transform an internal salary app into a full public fintech platform.</li>" +
+            "<li>Improved consistency across financial workflows.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter, Dart",
+        impact: [
+            { label: "Growth", value: "Public" },
+            { label: "UI", value: "Premium" }
+        ]
+    },
+    "duka-merchant": {
+        title: "duka Merchant (Merchant Operations App)",
+        overline: "Selcom Tanzania",
+        problem: "Merchant platform allowing businesses to manage orders, products, income tracking, schedules, and real-time order updates.",
+        solution: "<ul>" +
+            "<li>Built the entire app architecture from scratch.</li>" +
+            "<li>Implemented real-time order updates using Socket.io.</li>" +
+            "<li>Developed product management and order processing modules.</li>" +
+            "<li>Mentored a junior developer on code quality and architecture.</li>" +
+            "<li>Deployed the application to both App Store and Play Store.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter, Dart, Socket.io",
+        impact: [
+            { label: "Real-time", value: "Socket.io" },
+            { label: "Platform", value: "iOS/Android" }
+        ]
+    },
+    "breslev": {
+        title: "Breslev Center (Spiritual Media App)",
+        overline: "OneClick IT Consultancy Pvt Ltd",
+        problem: "A media platform providing articles, events, galleries, videos, and music content primarily in Hebrew.",
+        solution: "<ul>" +
+            "<li>Fixed 25+ bugs improving stability.</li>" +
+            "<li>Implemented responsive layouts for iPhone, iPad, and web.</li>" +
+            "<li>Improved video player stability and performance.</li>" +
+            "<li>Worked with language translation tools to resolve UI issues.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter, Dart",
+        impact: [
+            { label: "Stability", value: "Fixed 25+ Bugs" },
+            { label: "Platforms", value: "iOS/Pad/Web" }
+        ]
+    },
+    "loba": {
+        title: "LOBA (IoT Pillbox Reminder App)",
+        overline: "OneClick IT Consultancy Pvt Ltd",
+        problem: "IoT-based medication reminder app connected to a BLE-enabled smart pillbox for elderly patients.",
+        solution: "<ul>" +
+            "<li>Improved Bluetooth Low Energy connection reliability.</li>" +
+            "<li>Fixed hardware communication and performance issues.</li>" +
+            "<li>Optimized BLE scanning and communication.</li>" +
+            "<li>Enhanced user experience with improved UI flows.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter, Dart, BLE, IoT",
+        impact: [
+            { label: "Med Adherence", value: "+35%" },
+            { label: "Protocol", value: "BLE" }
+        ]
+    },
+    "terramar-inspection": {
+        title: "Terramar – Freestyle II (Vehicle Inspection App)",
+        overline: "OneClick IT Consultancy Pvt Ltd",
+        problem: "Vehicle inspection and defect reporting app used by WHO partner field teams.",
+        solution: "<ul>" +
+            "<li>Fixed major bugs and improved system stability.</li>" +
+            "<li>Improved asset inspection and defect image upload modules.</li>" +
+            "<li>Added requested client features.</li>" +
+            "<li>Delivered a stable field-ready release.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter, Dart",
+        impact: [
+            { label: "User", value: "WHO" },
+            { label: "Release", value: "Field-ready" }
+        ]
+    },
+    "terramar-booking": {
+        title: "Terramar – Transport Booking",
+        overline: "OneClick IT Consultancy Pvt Ltd",
+        problem: "Travel management system used to schedule trips, manage itineraries, and coordinate travelers and dispatch teams.",
+        solution: "<ul>" +
+            "<li>Fixed core booking workflow bugs.</li>" +
+            "<li>Improved trip scheduling and return-trip functionality.</li>" +
+            "<li>Enhanced filtering and stability.</li>" +
+            "<li>Contributed to a large-scale travel management product.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter, Dart",
+        impact: [
+            { label: "Complexity", value: "Large Scale" },
+            { label: "Workflow", value: "Optimized" }
+        ]
+    },
+    "maragoo-patient": {
+        title: "Maragoo Lifeline (IoT Patient Monitoring App)",
+        overline: "OneClick IT Consultancy Pvt Ltd",
+        problem: "Health monitoring platform where carers track elderly patients’ movement, activity, and fall alerts using IoT devices.",
+        solution: "<ul>" +
+            "<li>Developed UI screens and REST API integrations.</li>" +
+            "<li>Implemented dashboards for activity monitoring.</li>" +
+            "<li>Integrated fall detection alerts from smart wristbands.</li>" +
+            "<li>Improved usability and responsive layouts.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter, Dart, IoT",
+        impact: [
+            { label: "Safety", value: "Fall Detection" },
+            { label: "UI", value: "Dashboard" }
+        ]
+    },
+    "maragoo-admin": {
+        title: "Maragoo Lifeline Admin Panel (Flutter Web)",
+        overline: "OneClick IT Consultancy Pvt Ltd",
+        problem: "Admin dashboard for managing carers, patient assignments, authentication, and monitoring system status.",
+        solution: "<ul>" +
+            "<li>Built full Flutter Web UI with GetX architecture.</li>" +
+            "<li>Implemented carer management workflows and authentication.</li>" +
+            "<li>Enabled real-time synchronization with the carer mobile app.</li>" +
+            "<li>Improved dashboard performance and responsiveness.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter Web, Dart, GetX, REST APIs",
+        impact: [
+            { label: "Platform", value: "Flutter Web" },
+            { label: "Architecture", value: "GetX" }
+        ]
+    },
+    "oneclick-buzz": {
+        title: "OneClick Buzz (Office Communication App)",
+        overline: "OneClick IT Consultancy Pvt Ltd",
+        problem: "Internal communication platform with chat, media sharing, buzz alerts, and role-based notifications.",
+        solution: "<ul>" +
+            "<li>Built the entire application from scratch during internship.</li>" +
+            "<li>Implemented chat, media uploads, and location sharing.</li>" +
+            "<li>Created buzz notifications that ring even in silent mode.</li>" +
+            "<li>Integrated Cloud Firestore for real-time messaging.</li>" +
+            "<li>Deployed to both Play Store and App Store.</li>" +
+            "</ul>",
+        challenges: "Tech Stack: Flutter, Dart, Firebase, Cloud Firestore, NoSQL",
+        impact: [
+            { label: "Real-time", value: "Firestore" },
+            { label: "Impact", value: "Company-wide" }
         ]
     }
 };
@@ -144,7 +352,7 @@ function openModal(projectId) {
     document.getElementById('modal-title').textContent = data.title;
     document.getElementById('modal-overline').textContent = data.overline;
     document.getElementById('modal-problem').textContent = data.problem;
-    document.getElementById('modal-solution').textContent = data.solution;
+    document.getElementById('modal-solution').innerHTML = data.solution;
     document.getElementById('modal-challenges').textContent = data.challenges;
 
     // Impact
@@ -171,11 +379,18 @@ function openModal(projectId) {
     }
 
     // Gallery population
-    gallery.innerHTML = (data.images || []).map(imgSrc => `
-        <div class="gallery-item" onclick="openLightbox('${imgSrc}')">
-            <img src="${imgSrc}" alt="Project screenshot">
-        </div>
-    `).join('');
+    const gallerySection = document.querySelector('.modal-gallery-section');
+    if (data.images && data.images.length > 0) {
+        gallerySection.style.display = 'block';
+        gallery.innerHTML = data.images.map(imgSrc => `
+            <div class="gallery-item" onclick="openLightbox('${imgSrc}')">
+                <img src="${imgSrc}" alt="Project screenshot">
+            </div>
+        `).join('');
+    } else {
+        gallerySection.style.display = 'none';
+        gallery.innerHTML = '';
+    }
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
