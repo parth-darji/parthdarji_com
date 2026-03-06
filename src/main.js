@@ -198,7 +198,7 @@ const projectData = {
         ]
     },
     "terramar-inspection": {
-        title: "Terramar – Freestyle II (Vehicle Inspection App)",
+        title: "Terramar - Freestyle II (Vehicle Inspection App)",
         overline: "OneClick IT Consultancy Pvt Ltd",
         problem: "Vehicle inspection and defect reporting app used by WHO partner field teams.",
         solution: "<ul>" +
@@ -214,7 +214,7 @@ const projectData = {
         ]
     },
     "terramar-booking": {
-        title: "Terramar – Transport Booking",
+        title: "Terramar - Transport Booking",
         overline: "OneClick IT Consultancy Pvt Ltd",
         problem: "Travel management system used to schedule trips, manage itineraries, and coordinate travelers and dispatch teams.",
         solution: "<ul>" +
