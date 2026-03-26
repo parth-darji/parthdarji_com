@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.parthdarji.resumeaipro",
+            "sha256_cert_fingerprints": [
+                "20:02:DB:96:55:6D:F8:29:67:73:AE:C5:B0:CF:D0:BD:5A:82:C9:9E:61:7F:BC:D1:40:09:C2:7E:68:9C:D7:D4"
+            ]
+        }
+    }
+]
