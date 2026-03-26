@@ -28,7 +28,7 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#818cf8">
   
-  <link rel="stylesheet" href="./src/style.css" />
+  <link rel="stylesheet" href="/src/style.css" />
 
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
@@ -365,6 +365,31 @@
     <i class="fa fa-arrow-up"></i>
   </button>
 
-  <script type="module" src="./src/main.js"></script>
+  <script type="module" src="/src/main.js"></script>
+
+  <!-- Verification Success Overlay -->
+  <div id="verify-overlay" style="display: none; position: fixed; inset: 0; background: var(--bg-dark); z-index: 3000; align-items: center; justify-content: center; text-align: center;">
+    <div class="card reveal" style="max-width: 500px; padding: 60px; border-color: var(--accent);">
+      <div style="font-size: 60px; margin-bottom: 20px;">✅</div>
+      <h2 class="accent">Email Verified!</h2>
+      <p style="margin: 20px 0; font-size: 1.1rem; color: var(--text-secondary);">Your account is now active. You can close this window and continue in the **ResumeAI Pro** app.</p>
+      <button onclick="document.getElementById('verify-overlay').style.display='none'" class="btn" style="width: 100%;">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // Detect Supabase Auth Callback
+    window.addEventListener('load', () => {
+      const isCallback = window.location.pathname.includes('/auth/callback') || 
+                        window.location.search.includes('code=') || 
+                        window.location.hash.includes('access_token=');
+      
+      if (isCallback) {
+        document.getElementById('verify-overlay').style.display = 'flex';
+        // Cleanup URL for a cleaner look
+        window.history.replaceState({}, document.title, "/");
+      }
+    });
+  </script>
 </body>
 </html>
