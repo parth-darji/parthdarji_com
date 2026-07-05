@@ -9,6 +9,12 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://parthdarji.com/" />
   
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;700;800&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://parthdarji.com/" />
@@ -48,6 +54,12 @@
   </script>
 </head>
 <body>
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
   <div class="mesh-gradient"></div>
   <div class="cursor"></div>
   <nav>
@@ -60,6 +72,9 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fa fa-sun-o"></i>
+      </button>
       <div class="menu-toggle">
         <div class="hamburger"></div>
       </div>

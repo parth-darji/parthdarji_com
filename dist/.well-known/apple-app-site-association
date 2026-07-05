@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "YZ8S4FP7UW.com.parthdarji.resumeaipro",
+        "paths": [
+          "/auth/callback",
+          "/auth/v1/verify"
+        ]
+      }
+    ]
+  }
+}

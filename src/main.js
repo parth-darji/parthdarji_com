@@ -304,7 +304,7 @@ function animateCursor() {
 animateCursor();
 
 // Magnetic Button Effect
-const magneticButtons = document.querySelectorAll('.btn');
+const magneticButtons = document.querySelectorAll('.btn, .theme-toggle');
 magneticButtons.forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
         const rect = btn.getBoundingClientRect();
@@ -536,3 +536,35 @@ window.addEventListener('scroll', () => {
 backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// Theme Toggle Logic
+const themeToggle = document.getElementById('theme-toggle');
+const themeToggleIcon = themeToggle ? themeToggle.querySelector('i') : null;
+
+function setTheme(theme, updateStorage = true) {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (updateStorage) {
+        localStorage.setItem('theme', theme);
+    }
+    
+    // Update toggle icon
+    if (themeToggleIcon) {
+        if (theme === 'light') {
+            themeToggleIcon.className = 'fa fa-moon-o';
+        } else {
+            themeToggleIcon.className = 'fa fa-sun-o';
+        }
+    }
+}
+
+// Initialize theme from localStorage
+const savedTheme = localStorage.getItem('theme') || 'dark';
+setTheme(savedTheme, false);
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+    });
+}

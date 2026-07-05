@@ -1,17 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Parth Darji | Mobile Application Developer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Parth Darji is a Software Engineer specializing in high-performance, user-centric mobile applications using Flutter, Dart, and Fintech solutions." />
+  <meta name="keywords" content="Parth Darji, Mobile Developer, Flutter Developer, Software Engineer, Fintech, Tanzania" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://parthdarji.com/" />
+  
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Inter:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script type="module" crossorigin src="/assets/index-DHA4FJG9.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-Dn_CJN_J.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;700;800&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://parthdarji.com/" />
+  <meta property="og:title" content="Parth Darji | Mobile Application Developer" />
+  <meta property="og:description" content="Software Engineer focused on delivering fintech and marketplace solutions at Selcom Tanzania." />
+  <meta property="og:image" content="https://parthdarji.com/images/og-image.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://parthdarji.com/" />
+  <meta property="twitter:title" content="Parth Darji | Mobile Application Developer" />
+  <meta property="twitter:description" content="Software Engineer focused on delivering fintech and marketplace solutions at Selcom Tanzania." />
+  <meta property="twitter:image" content="https://parthdarji.com/images/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#818cf8">
+  
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Parth Darji",
+    "jobTitle": "Software Engineer",
+    "url": "https://parthdarji.com/",
+    "sameAs": [
+      "https://github.com/parth-darji",
+      "https://www.linkedin.com/in/parth-darji/",
+      "https://medium.com/@parthpdarji"
+    ],
+    "knowsAbout": ["Flutter", "Dart", "Mobile Application Development", "Fintech", "Android", "iOS"]
+  }
+  </script>
+  <script type="module" crossorigin src="/assets/index-C3at2GbE.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BXl71w7X.css">
 </head>
 <body>
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
   <div class="mesh-gradient"></div>
   <div class="cursor"></div>
   <nav>
@@ -24,6 +73,9 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fa fa-sun-o"></i>
+      </button>
       <div class="menu-toggle">
         <div class="hamburger"></div>
       </div>
@@ -35,7 +87,7 @@
       <span class="accent reveal">Hi, my name is</span>
       <h1 class="reveal">Parth Darji.</h1>
       <h2 class="reveal">I build mobile experiences.</h2>
-      <p class="reveal">I'm a software engineer specializing in building high-performance, user-centric mobile applications. Currently, I'm focused on delivering fintech and marketplace solutions at Selcom Tanzania.</p>
+      <p class="reveal">I'm a software engineer specialized in crafting high-performance, user-centric mobile applications. From fintech to IoT, I build smooth, secure, and beautiful experiences that work - driven by a passion for clean design and thoughtful details.</p>
       <a href="#projects" class="btn reveal">Check out my work!</a>
     </section>
 
@@ -43,96 +95,89 @@
       <h2 class="section-title">Professional Journey</h2>
       <div class="grid">
         <div class="card">
-          <span class="accent">March 2021 - Present</span>
-          <h3>Software Engineer</h3>
-          <p><strong>Selcom Tanzania</strong><br>Lead developer for core fintech applications, including merchant tools and card management systems. Focused on scalability and secure transaction processing.</p>
+          <span class="accent">Dec 2022 - Present</span>
+          <h3>Mobile Application Developer</h3>
+          <p><strong>Selcom Paytech Limited</strong></p>
+          <ul>
+            <li>Solved high-severity 4K/8K payload crashes by enforcing image compression standards, stabilizing the entire user module.</li>
+            <li>Upgraded Flutter from 1.22.0 to 3.3.7, reducing daily crashes from 1,000 to just 10 non-fatal ones within 6 months.</li>
+            <li>Secured payment APIs using AES and RSA encryption with sequential token-based validation to align with fintech best practices.</li>
+            <li>Increased app downloads by 12,000 in 3 months via Firebase Analytics and push notifications; cut build time from 30 to 3 minutes using Codemagic CI/CD.</li>
+            <li>Optimized high-load grocery screen (1,500+ items) rendering and memory management to ensure smooth, crash-free navigation.</li>
+            <li>Integrated Apple & Google Wallet for digital tickets using Node.js for .pkpass generation and OAuth2 via Google Workload Identity.</li>
+            <li>Reduced rider app data usage from 450MB/37min to under 6MB/day by identifying and optimizing oversized backend broadcast events.</li>
+          </ul>
         </div>
         <div class="card">
-          <span class="accent">Dec 2020 - Feb 2021</span>
-          <h3>Software Engineer Intern</h3>
-          <p><strong>Otapp</strong><br>Developed and optimized ticketing platforms and event management solutions using Flutter. Improved user booking experience by 30% through API refinements.</p>
+          <span class="accent">Jan 2022 - Nov 2022</span>
+          <h3>Flutter Developer</h3>
+          <p><strong>OneClick IT Consultancy</strong></p>
+          <ul>
+            <li>Developed <strong>OneClick Buzz</strong> from scratch (Figma, GPS tracking, real-time chat) while aligning technical delivery with business goals.</li>
+            <li>Optimized Blackk&One Flutter Web app for 1GB RAM smart TVs, reducing load times by 3&times; and memory usage by 60%.</li>
+            <li>Integrated BLE support for <strong>LOBA</strong> pillbox reminder app, improving medication adherence by 35% through smart feedback cues.</li>
+            <li>Architected <strong>Maragoo Lifeline</strong> IoT carer app and admin portal using GetX and real-time health monitoring for elderly fall detection.</li>
+            <li>Stabilized WHO's <strong>Terramar Freestyle II</strong> with 25+ critical fixes and enhanced Hebrew Spiritual app <strong>Breslev</strong> with adaptive video playback.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    
-  <h2 class="section-title">My Apps</h2>
-  <div class="app-grid">
-    <!-- App Card 1 -->
-    <div class="app-card">
-      <img src="/assets/duka_direct-BT0dbV29.png" alt="DukaDirect" class="app-image" />
-      <div class="app-info">
-        <h3 class="app-name">DukaDirect Super App</h3>
-        <p class="app-tagline">All‑in‑one lifestyle super app</p>
-        <a href="#" class="btn-text app-link" data-project="dukadirect">View Details →</a>
-      </div>
-    </div>
-    <!-- App Card 2 -->
-    <div class="app-card">
-      <img src="/assets/selcom_bank-BAHF1Fqv.png" alt="Selcom Pay" class="app-image" />
-      <div class="app-info">
-        <h3 class="app-name">Selcom Pay</h3>
-        <p class="app-tagline">Seamless QR payments for merchants</p>
-        <a href="#" class="btn-text app-link" data-project="selcompay">View Details →</a>
-      </div>
-    </div>
-    <!-- App Card 3 -->
-    <div class="app-card">
-      <img src="/assets/loba-5y0wxDrv.png" alt="Otapp" class="app-image" />
-      <div class="app-info">
-        <h3 class="app-name">Otapp</h3>
-        <p class="app-tagline">Event ticketing & booking platform</p>
-        <a href="#" class="btn-text app-link" data-project="otapp">View Details →</a>
-      </div>
-    </div>
-  </div>
-</section>
-      <h2 class="section-title">Featured Projects</h2>
-      
-      <!-- Featured Project 1 -->
-      <div class="featured-project">
-        <div class="project-content">
-          <p class="project-overline accent">Featured Project</p>
-          <h3 class="project-title">DukaDirect Super App</h3>
-          <div class="project-description">
-            <p>A flagship lifestyle super app in Tanzania. It integrates e-commerce, bill payments, and flight bookings into a single, high-performance Flutter mobile application.</p>
-            <button class="btn-text project-details-trigger" data-project="dukadirect">View Case Study →</button>
-          </div>
-          <div class="project-tech-badges">
-            <span class="tech-badge">Flutter</span>
-            <span class="tech-badge">Dart</span>
-            <span class="tech-badge">Firebase</span>
-            <span class="tech-badge">Cloud Functions</span>
-          </div>
-        </div>
-        <div class="project-image-container">
-          <div class="project-image">
-            <div class="image-overlay"></div>
-            <img src="/assets/duka_direct-BT0dbV29.png" alt="DukaDirect App">
-          </div>
-        </div>
-      </div>
+    <section id="projects" class="reveal">
+      <h2 class="section-title">Notable Projects</h2>
 
-      <!-- Featured Project 2 -->
-      <div class="featured-project left">
-        <div class="project-content">
-          <p class="project-overline accent">Featured Project</p>
-          <h3 class="project-title">Selcom Pay</h3>
-          <div class="project-description">
-            <p>A merchant-focused application enabling seamless QR payments, business tracking, and financial reconciliation for thousands of businesses across Tanzania.</p>
-            <button class="btn-text project-details-trigger" data-project="selcompay">View Case Study →</button>
-          </div>
-          <div class="project-tech-badges">
-            <span class="tech-badge">Flutter</span>
-            <span class="tech-badge">GetX</span>
-            <span class="tech-badge">Node.js</span>
-            <span class="tech-badge">Cryptography</span>
+      <div class="featured-projects-container">
+        <!-- Featured Project 1: duka.direct -->
+        <div class="featured-project project-details-trigger" data-project="duka-direct">
+          <div class="project-content">
+            <p class="project-overline accent">Featured Project</p>
+            <h3 class="project-title">duka.direct Super App</h3>
+            <div class="project-description">
+              <p>A flagship multi-service super app in Tanzania integrating e-commerce, food delivery, bill payments, and travel bookings into a single high-performance experience.</p>
+              <span class="btn-text">View Case Study &rarr;</span>
+            </div>
+            <div class="project-tech-badges">
+              <span class="tech-badge">Flutter</span>
+              <span class="tech-badge">GetX</span>
+              <span class="tech-badge">Firebase</span>
+              <span class="tech-badge">Node.js</span>
+            </div>
           </div>
         </div>
-        <div class="project-image-container">
-          <div class="project-image">
-            <div class="image-overlay"></div>
-            <img src="/assets/selcom_bank-BAHF1Fqv.png" alt="Selcom Pay App">
+
+        <!-- Featured Project 2: Selcom Pesa -->
+        <div class="featured-project left project-details-trigger" data-project="selcom-pesa">
+          <div class="project-content">
+            <p class="project-overline accent">Fintech Showcase</p>
+            <h3 class="project-title">Selcom Pesa</h3>
+            <div class="project-description">
+              <p>A digital fintech platform enabling seamless money transfers, bill payments, and loan access, transformed from an internal tool to a public-facing ecosystem.</p>
+              <span class="btn-text">View Case Study &rarr;</span>
+            </div>
+            <div class="project-tech-badges">
+              <span class="tech-badge">Flutter</span>
+              <span class="tech-badge">Dart</span>
+              <span class="tech-badge">Fintech</span>
+              <span class="tech-badge">Security</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Project 3: duka Merchant -->
+        <div class="featured-project project-details-trigger" data-project="duka-merchant">
+          <div class="project-content">
+            <p class="project-overline accent">Merchant Operations</p>
+            <h3 class="project-title">duka Merchant</h3>
+            <div class="project-description">
+              <p>A comprehensive platform for businesses to manage orders, products, and real-time income tracking with Socket.io updates.</p>
+              <span class="btn-text">View Case Study &rarr;</span>
+            </div>
+            <div class="project-tech-badges">
+              <span class="tech-badge">Flutter</span>
+              <span class="tech-badge">Socket.io</span>
+              <span class="tech-badge">Real-time</span>
+              <span class="tech-badge">B2B</span>
+            </div>
           </div>
         </div>
       </div>
@@ -140,17 +185,89 @@
       <!-- Other Projects Grid -->
       <h3 style="margin-top: 80px; margin-bottom: 30px;">Other Noteworthy Work</h3>
       <div class="grid">
-        <div class="card project-details-trigger" data-project="otapp">
-          <span class="accent">Ticketing Solution</span>
-          <h3>Otapp App</h3>
-          <p>A comprehensive app for movies, events, and travel ticketing with real-time seat selection.</p>
-          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details →</span>
+        <div class="card project-details-trigger" data-project="duka-rider-app">
+          <span class="accent">Logistics</span>
+          <h3>duka Rider App</h3>
+          <p>Delivery agent app for order management and real-time tracking with optimized data usage.</p>
+          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details &rarr;</span>
         </div>
-        <div class="card project-details-trigger" data-project="selcomcard">
-          <span class="accent">Card Management</span>
-          <h3>Selcom Card App</h3>
-          <p>A secure portal for cardholders to manage balances, blocks, and virtual card generation.</p>
-          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details →</span>
+        <div class="card project-details-trigger" data-project="oneclick-buzz">
+          <span class="accent">Communication</span>
+          <h3>OneClick Buzz</h3>
+          <p>Internal office app with real-time chat and smart 'silent-mode' bypass alerts.</p>
+          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details &rarr;</span>
+        </div>
+        <div class="card project-details-trigger" data-project="loba">
+          <span class="accent">IoT / Health</span>
+          <h3>LOBA App</h3>
+          <p>Pillbox reminder app with BLE integration to improve medication adherence.</p>
+          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details &rarr;</span>
+        </div>
+        <div class="card project-details-trigger" data-project="selcom-id">
+          <span class="accent">Identity</span>
+          <h3>Selcom ID</h3>
+          <p>Unified verification platform for mobile and passport-based user authentication.</p>
+          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details &rarr;</span>
+        </div>
+        <div class="card project-details-trigger" data-project="maragoo-patient">
+          <span class="accent">IoT / Carer</span>
+          <h3>Maragoo Lifeline</h3>
+          <p>Health monitoring for elderly fall detection and real-time activity tracking.</p>
+          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details &rarr;</span>
+        </div>
+        <div class="card project-details-trigger" data-project="duka-microsite">
+          <span class="accent">Web App</span>
+          <h3>duka Microsite</h3>
+          <p>Responsive ReactJS web version of the super app for desktop users.</p>
+          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details &rarr;</span>
+        </div>
+        <div class="card project-details-trigger" data-project="duka-rider-admin">
+          <span class="accent">Admin Ops</span>
+          <h3>Rider Admin</h3>
+          <p>Supervisor tool for real-time tracking and delivery operation coordination.</p>
+          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details &rarr;</span>
+        </div>
+        <div class="card project-details-trigger" data-project="selcom-kazi">
+          <span class="accent">Internal HR</span>
+          <h3>Selcom Kazi</h3>
+          <p>Employee management platform for automated records and leave requests.</p>
+          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details &rarr;</span>
+        </div>
+        <div class="card project-details-trigger" data-project="breslev">
+          <span class="accent">Media</span>
+          <h3>Breslev Center</h3>
+          <p>Spiritual media platform with Hebrew content and adaptive video playback.</p>
+          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details &rarr;</span>
+        </div>
+        <div class="card project-details-trigger" data-project="terramar-inspection">
+          <span class="accent">Logistics / WHO</span>
+          <h3>Freestyle II</h3>
+          <p>WHO partner vehicle inspection app for stable field-ready defect reporting.</p>
+          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details &rarr;</span>
+        </div>
+        <div class="card project-details-trigger" data-project="terramar-booking">
+          <span class="accent">Travel Mgmt</span>
+          <h3>Transport Booking</h3>
+          <p>Large-scale system for trip scheduling and itinerary coordination.</p>
+          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details &rarr;</span>
+        </div>
+        <div class="card project-details-trigger" data-project="maragoo-admin">
+          <span class="accent">Flutter Web</span>
+          <h3>Maragoo Admin</h3>
+          <p>Admin panel for carer management and real-time patient monitoring.</p>
+          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details &rarr;</span>
+        </div>
+        <div class="card project-details-trigger" data-project="access-bank">
+          <span class="accent">Fintech / Support</span>
+          <h3>Access Bank Support</h3>
+          <p>Production support and critical bug resolution for mobile banking services.</p>
+          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details &rarr;</span>
+        </div>
+        <div class="card project-details-trigger" data-project="baroda-bank">
+          <span class="accent">Fintech / Support</span>
+          <h3>Baroda Bank Support</h3>
+          <p>Banking application maintenance and production stability monitoring.</p>
+          <span class="btn-text" style="margin-top: auto; padding-top: 15px;">Read Details &rarr;</span>
         </div>
       </div>
     </section>
@@ -193,16 +310,26 @@
         <span class="accent">What's Next?</span>
         <h2 style="font-size: clamp(40px, 5vw, 60px); margin: 20px 0;">Get In Touch</h2>
         <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you have a question or just want to say hi, my inbox is always open!</p>
-        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 40px;">
-          <a href="mailto:parthdarji2961@gmail.com" class="btn">Say Hello</a>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px;">
+          <a href="mailto:parthdarji2961@gmail.com?subject=Collaboration%20Query%20from%20Portfolio" class="btn">Say Hello</a>
+          <button id="copy-email" class="btn" style="cursor: pointer; display: flex; align-items: center; gap: 10px;">
+            <i class="fa fa-clone"></i> Copy Email
+          </button>
         </div>
+        <div id="copy-notification" style="margin-top: 15px; color: var(--accent); font-family: 'Space Mono', monospace; font-size: 0.8rem; opacity: 0; transition: var(--transition);">Email copied to clipboard!</div>
         <div style="display: flex; justify-content: center; gap: 40px; margin-top: 40px; font-size: 32px;">
-           <a href="https://www.linkedin.com/in/parth-darji/" target="_blank" style="color: var(--text-secondary); transition: var(--transition);"><i class="fa fa-linkedin"></i></a>
-           <a href="https://github.com/parth-darji" target="_blank" style="color: var(--text-secondary); transition: var(--transition);"><i class="fa fa-github"></i></a>
-           <a href="https://medium.com/@parthpdarji" target="_blank" style="color: var(--text-secondary); transition: var(--transition);"><i class="fa fa-medium"></i></a>
+           <a href="https://www.linkedin.com/in/parth-darji/" target="_blank" aria-label="LinkedIn" style="color: var(--text-secondary); transition: var(--transition);"><i class="fa fa-linkedin"></i></a>
+           <a href="https://github.com/parth-darji" target="_blank" aria-label="GitHub" style="color: var(--text-secondary); transition: var(--transition);"><i class="fa fa-github"></i></a>
+           <a href="https://medium.com/@parthpdarji" target="_blank" aria-label="Medium" style="color: var(--text-secondary); transition: var(--transition);"><i class="fa fa-medium"></i></a>
         </div>
       </div>
     </section>
+
+    <footer style="text-align: center; padding: 40px 0; border-top: 1px solid var(--glass-border); margin-top: 60px;">
+      <p style="color: var(--text-secondary); font-size: 0.9rem;">
+        &copy; <span id="current-year"></span> Parth Darji. Designed & Built by PD.
+      </p>
+    </footer>
   </main>
 
   <div id="project-modal" class="modal">
@@ -218,14 +345,14 @@
 
         <div class="modal-grid">
           <div class="modal-info">
-            <h3>The Problem</h3>
-            <p id="modal-problem">Description of the business or user problem.</p>
+            <h3>Project Overview</h3>
+            <p id="modal-problem">Context and purpose of the application.</p>
             
-            <h3>The Solution</h3>
-            <p id="modal-solution">How the project addressed the problem.</p>
+            <h3>My Contributions</h3>
+            <p id="modal-solution">Key roles and responsibilities performed.</p>
             
-            <h3>Key Challenges</h3>
-            <p id="modal-challenges">Technical hurdles overcome.</p>
+            <h3>Technologies & Tools</h3>
+            <p id="modal-challenges">The technical stack used for this project.</p>
           </div>
           <div class="modal-stats">
             <h3>Impact</h3>
@@ -249,6 +376,35 @@
     <button class="lightbox-close">&times;</button>
     <img id="lightbox-img" src="" alt="Enlarged screenshot">
   </div>
+
+  <button id="back-to-top" class="btn" style="position: fixed; bottom: 30px; right: 30px; z-index: 1000; padding: 0.8rem; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: var(--transition);">
+    <i class="fa fa-arrow-up"></i>
+  </button>
 
+
+  <!-- Verification Success Overlay -->
+  <div id="verify-overlay" style="display: none; position: fixed; inset: 0; background: var(--bg-dark); z-index: 3000; align-items: center; justify-content: center; text-align: center;">
+    <div class="card reveal" style="max-width: 500px; padding: 60px; border-color: var(--accent);">
+      <div style="font-size: 60px; margin-bottom: 20px;">✅</div>
+      <h2 class="accent">Email Verified!</h2>
+      <p style="margin: 20px 0; font-size: 1.1rem; color: var(--text-secondary);">Your account is now active. You can close this window and continue in the **ResumeAI Pro** app.</p>
+      <button onclick="document.getElementById('verify-overlay').style.display='none'" class="btn" style="width: 100%;">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // Detect Supabase Auth Callback
+    window.addEventListener('load', () => {
+      const isCallback = window.location.pathname.includes('/auth/callback') || 
+                        window.location.search.includes('code=') || 
+                        window.location.hash.includes('access_token=');
+      
+      if (isCallback) {
+        document.getElementById('verify-overlay').style.display = 'flex';
+        // Cleanup URL for a cleaner look
+        window.history.replaceState({}, document.title, "/");
+      }
+    });
+  </script>
 </body>
 </html>
