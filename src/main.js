@@ -555,6 +555,15 @@ function setTheme(theme, updateStorage = true) {
             themeToggleIcon.className = 'fa fa-sun-o';
         }
     }
+
+    // Force repaint to resolve WebKit/Safari/Chrome rendering cache lag
+    const body = document.body;
+    if (body) {
+        const prevOpacity = body.style.opacity;
+        body.style.opacity = '0.99';
+        body.offsetHeight; // Force layout recalculation & repaint
+        body.style.opacity = prevOpacity;
+    }
 }
 
 // Initialize theme from localStorage
