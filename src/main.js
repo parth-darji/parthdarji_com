@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Focus streaks and mindful distraction diagnostics"
       ],
       progressText: "iOS TestFlight Beta",
-      privacyUrl: "/moneystreak-privacy-policy.html",
+      privacyUrl: "/zenlatch-privacy-policy.html",
       actionType: "progress"
     },
     {
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Encrypted iCloud sync with zero third-party brokers"
       ],
       progressText: "Coming to App Store",
-      privacyUrl: "/moneystreak-privacy-policy.html",
+      privacyUrl: "/shoeboxhsa-privacy-policy.html",
       actionType: "progress"
     },
     {
@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Swift & Metal acceleration for buttery 120Hz scrubbing"
       ],
       progressText: "In Development",
-      privacyUrl: "/punchmate-privacy-policy.html",
+      privacyUrl: "/purgeroll-privacy-policy.html",
       actionType: "progress"
     },
     {
@@ -302,9 +302,29 @@ document.addEventListener("DOMContentLoaded", () => {
       privacyUrl: "/punchmate-privacy-policy.html",
       actionType: "progress"
     },
-    
-    
-    
+    {
+      id: "pinaco",
+      name: "Pinaco",
+      tagline: "The Fine Art Frame for Apple TV & Mac",
+      platform: "tvOS, iOS & macOS",
+      category: "macos",
+      genre: "Art & Lifestyle",
+      rating: "4.9 ★",
+      badgeType: "progress",
+      pillLabel: "In Development",
+      icon: "/images/apps/pinaco.png",
+      description: "Transform your television and Apple displays into high-resolution museum art galleries. Pinaco curates public-domain masterpieces from The Met and Art Institute of Chicago with archival passe-partout matting and OLED burn-in protection.",
+      features: [
+        "Museum-grade framing: Natural Oak, Walnut, Antique Gold & Matte Black",
+        "Public Domain masterpieces from The Met & Chicago Art Institute",
+        "OLED sub-pixel micro-drifting for burn-in protection",
+        "10-Foot living room Apple TV Remote navigation",
+        "100% On-Device & Zero Tracking"
+      ],
+      progressText: "In Development · tvOS / macOS",
+      privacyUrl: "/pinaco-privacy-policy.html",
+      actionType: "progress"
+    }
   ];
 
   // Action Buttons Renderer
@@ -349,6 +369,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderIcons(category = "all") {
     if (!gridContainer) return;
     gridContainer.innerHTML = "";
+
+    const filterAllBtn = document.querySelector('.filter-btn[data-cat="all"]');
+    if (filterAllBtn) {
+      filterAllBtn.textContent = `All (${apps.length})`;
+    }
 
     currentCategoryList = category === "all" 
       ? apps 
@@ -550,6 +575,37 @@ document.addEventListener("DOMContentLoaded", () => {
       navigateModal(1);
     }
   });
+
+  // Mobile Touch Swipe Gesture Support
+  let touchStartX = 0;
+  let touchStartY = 0;
+  const modalSheet = document.querySelector(".modal-sheet");
+
+  if (modalSheet) {
+    modalSheet.addEventListener("touchstart", (e) => {
+      if (e.touches && e.touches.length > 0) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    modalSheet.addEventListener("touchend", (e) => {
+      if (e.changedTouches && e.changedTouches.length > 0) {
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+        // Require at least 45px swipe horizontally and more horizontal than vertical
+        if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY) * 1.4) {
+          if (diffX < 0) {
+            navigateModal(1); // Swipe left -> Next app
+          } else {
+            navigateModal(-1); // Swipe right -> Previous app
+          }
+        }
+      }
+    }, { passive: true });
+  }
 
   // Contact Dialog & Anti-Scraping Assembly
   const contactTriggerBtn = document.getElementById("contact-trigger-btn");

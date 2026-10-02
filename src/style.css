@@ -40,6 +40,12 @@
   --radius-card: 20px;
   --radius-pill: 9999px;
 
+  /* Safe Area Insets for iOS & Mobile */
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+
   --transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -135,7 +141,10 @@ button {
   top: 0;
   left: 0;
   right: 0;
-  height: 56px;
+  height: calc(56px + var(--sat));
+  padding-top: var(--sat);
+  padding-left: var(--sal);
+  padding-right: var(--sar);
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -146,7 +155,7 @@ button {
 
 .nav-inner {
   max-width: 1120px;
-  height: 100%;
+  height: 56px;
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
@@ -351,7 +360,12 @@ html[data-theme="light"] .hero-title .gradient-text {
 }
 
 .filter-btn {
-  padding: 7px 16px;
+  min-height: 40px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
   border-radius: var(--radius-pill);
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -359,6 +373,8 @@ html[data-theme="light"] .hero-title .gradient-text {
   font-size: 13px;
   font-weight: 500;
   transition: var(--transition);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .filter-btn:hover {
@@ -1123,10 +1139,10 @@ html[data-theme="light"] .icon-squircle-wrap {
 
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 40px;
+    font-size: 38px;
   }
   .hero-desc {
-    font-size: 16.5px;
+    font-size: 16px;
   }
   .app-icon-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -1143,11 +1159,149 @@ html[data-theme="light"] .icon-squircle-wrap {
     flex-direction: column;
     gap: 10px;
     text-align: center;
+    padding-bottom: calc(20px + var(--sab));
+  }
+  .modal-quicklook-hint {
+    display: none;
+  }
+  .modal-backdrop {
+    padding: 16px;
+  }
+  .modal-sheet {
+    padding: 26px 20px 22px;
+    max-height: 88vh;
   }
 }
 
 @media (max-width: 480px) {
+  .hero {
+    padding: 48px 0 28px;
+  }
+  .hero-privacy-pill {
+    font-size: 10.5px;
+    padding: 5px 12px;
+  }
+  .hero-title {
+    font-size: 30px;
+    letter-spacing: -0.025em;
+  }
+  .hero-desc {
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+  .filter-bar {
+    gap: 6px;
+    margin-bottom: 36px;
+  }
+  .filter-btn {
+    padding: 7px 14px;
+    font-size: 12.5px;
+  }
   .app-icon-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 22px 10px;
+  }
+  .icon-squircle-wrap {
+    width: 70px;
+    height: 70px;
+  }
+  .app-name {
+    font-size: 13.5px;
+  }
+  .modal-backdrop {
+    padding: 12px;
+  }
+  .modal-sheet {
+    padding: 20px 16px 18px;
+    max-height: 88vh;
+    border-radius: 18px;
+  }
+  .modal-header-actions {
+    top: 14px;
+    right: 14px;
+    gap: 6px;
+  }
+  .modal-tool-btn span {
+    display: none;
+  }
+  .modal-tool-btn {
+    padding: 6px;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+  }
+  .modal-header {
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-right: 76px;
+  }
+  .modal-squircle {
+    width: 60px;
+    height: 60px;
+  }
+  .modal-titles h2 {
+    font-size: 19px;
+  }
+  .modal-titles p {
+    font-size: 12.5px;
+  }
+  .modal-meta-row {
+    font-size: 11px;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .modal-desc {
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+  .modal-privacy-callout {
+    padding: 10px 12px;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .modal-privacy-callout .shield {
+    font-size: 16px;
+  }
+  .modal-privacy-callout .text {
+    font-size: 11.5px;
+  }
+  .modal-features-title {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  .modal-features-list {
+    gap: 7px;
+    margin-bottom: 20px;
+  }
+  .modal-features-list li {
+    font-size: 13px;
+    gap: 8px;
+  }
+  .modal-footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 10px;
+    padding-top: 16px;
+  }
+  .modal-buttons-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .btn-primary-store,
+  .btn-dmg-download,
+  .btn-status-pill {
+    width: 100%;
+    justify-content: center;
+    height: 40px;
+  }
+  .btn-privacy-link {
+    justify-content: center;
+    text-align: center;
+  }
+  .contact-sheet {
+    padding: 22px 16px;
   }
 }
