@@ -1,17 +1,37 @@
 {
-    "name": "Parth Darji | Mobile Application Developer",
-    "short_name": "Parth Darji",
-    "description": "Software Engineer specializing in high-performance, user-centric mobile applications.",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#020617",
-    "theme_color": "#818cf8",
-    "icons": [
-        {
-            "src": "favicon.png",
-            "sizes": "192x192 512x512",
-            "type": "image/png",
-            "purpose": "any maskable"
-        }
-    ]
+  "name": "Parth Darji — Privacy-First Native Apps",
+  "short_name": "Parth Darji",
+  "description": "Purpose-built native macOS utilities and iOS applications designed with radical privacy and zero subscriptions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png?v=4",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png?v=4",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-48x48.png?v=4",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png?v=4",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png?v=4",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }

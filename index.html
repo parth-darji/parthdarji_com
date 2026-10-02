@@ -20,11 +20,15 @@
 
   <!-- Open Graph & Twitter Cards -->
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Parth Darji" />
   <meta property="og:url" content="https://parthdarji.com/" />
   <meta property="og:title" content="Parth Darji — Privacy-First Native Apps" />
   <meta property="og:description" content="Software that respects your privacy. 100% on-device compute, zero advertising trackers, and zero telemetry." />
   <meta property="og:image" content="https://parthdarji.com/images/logo.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:image:alt" content="Parth Darji Logo" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Parth Darji — Privacy-First Native Apps" />
@@ -32,14 +36,15 @@
   <meta name="twitter:image" content="https://parthdarji.com/images/logo.png" />
   <meta name="twitter:image:alt" content="Parth Darji Logo" />
 
-  <!-- Favicon Suite -->
+  <!-- Favicon Suite & Web App Manifest -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=4" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4" />
   <link rel="icon" type="image/png" href="/favicon.png?v=4" />
   <link rel="shortcut icon" href="/favicon.ico?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4" />
+  <link rel="manifest" href="/manifest.json" />
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -51,7 +56,16 @@
         "url": "https://parthdarji.com/",
         "jobTitle": "Native Software Engineer & Founder",
         "sameAs": [
-          "https://apps.apple.com/developer/id1740925205"
+          "https://apps.apple.com/developer/id1740925205",
+          "https://github.com/parth-darji"
+        ],
+        "knowsAbout": [
+          "Swift",
+          "SwiftUI",
+          "macOS Development",
+          "iOS Development",
+          "Local-First Architecture",
+          "On-Device Privacy"
         ]
       },
       {
@@ -60,6 +74,7 @@
         "url": "https://parthdarji.com/",
         "name": "Parth Darji",
         "description": "Privacy-First Native Apps & Software",
+        "inLanguage": "en-US",
         "publisher": { "@id": "https://parthdarji.com/#person" }
       },
       {
@@ -68,6 +83,8 @@
         "operatingSystem": "iOS",
         "applicationCategory": "FinanceApplication",
         "description": "Gamified Streak-Based Savings & Habit Tracker with zero financial telemetry.",
+        "image": "https://parthdarji.com/images/apps/moneystreak.png",
+        "author": { "@id": "https://parthdarji.com/#person" },
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5.0",
@@ -79,6 +96,7 @@
           "@type": "Offer",
           "price": "9.99",
           "priceCurrency": "USD",
+          "availability": "https://schema.org/PreOrder",
           "description": "One-Time Lifetime Purchase. Zero Subscriptions."
         }
       },
@@ -88,6 +106,8 @@
         "operatingSystem": "iOS",
         "applicationCategory": "FinanceApplication",
         "description": "Smart HSA Receipt Organizer, Lifetime Tax Vault & Compound Growth Calculator.",
+        "image": "https://parthdarji.com/images/apps/shoeboxhsa.png",
+        "author": { "@id": "https://parthdarji.com/#person" },
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.9",
@@ -99,6 +119,7 @@
           "@type": "Offer",
           "price": "9.99",
           "priceCurrency": "USD",
+          "availability": "https://schema.org/PreOrder",
           "description": "One-Time Lifetime Purchase. Zero Subscriptions."
         }
       },
@@ -108,6 +129,8 @@
         "operatingSystem": "macOS",
         "applicationCategory": "BusinessApplication",
         "description": "Native Menu Bar Punch Clock & Project Time Tracker for macOS.",
+        "image": "https://parthdarji.com/images/apps/punchmate.png",
+        "author": { "@id": "https://parthdarji.com/#person" },
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.9",
@@ -119,6 +142,7 @@
           "@type": "Offer",
           "price": "9.99",
           "priceCurrency": "USD",
+          "availability": "https://schema.org/PreOrder",
           "description": "One-Time Lifetime Purchase. Zero Subscriptions."
         }
       }
@@ -212,7 +236,8 @@
     </section>
 
     <!-- Minimalist App Icon Grid (SEO Prerendered) -->
-    <section>
+    <section class="apps-section">
+      <h2 class="section-title">Featured Native Applications</h2>
       <div id="app-icon-grid" class="app-icon-grid">
         <!-- MoneyStreak -->
         <a class="app-icon-item" href="#moneystreak" aria-label="MoneyStreak — Gamified Streak-Based Savings & Habit Tracker">
@@ -220,6 +245,7 @@
             <img src="/images/apps/moneystreak.png" alt="MoneyStreak App Icon" class="icon-img" width="88" height="88" loading="lazy" decoding="async" />
           </div>
           <div class="app-name">MoneyStreak</div>
+          <p class="app-tagline">Gamified Streak-Based Savings & Habit Tracker</p>
           <div class="app-pill">
             <span class="badge-dot progress"></span>
             In Progress
@@ -232,6 +258,7 @@
             <img src="/images/apps/shoeboxhsa.png" alt="ShoeboxHSA App Icon" class="icon-img" width="88" height="88" loading="lazy" decoding="async" />
           </div>
           <div class="app-name">ShoeboxHSA</div>
+          <p class="app-tagline">Smart HSA Receipt Organizer & Tax Vault</p>
           <div class="app-pill">
             <span class="badge-dot progress"></span>
             iOS Preview
@@ -244,6 +271,7 @@
             <img src="/images/apps/punchmate.png" alt="PunchMate App Icon" class="icon-img" width="88" height="88" loading="lazy" decoding="async" />
           </div>
           <div class="app-name">PunchMate</div>
+          <p class="app-tagline">Menu Bar Punch Clock & Project Time Tracker</p>
           <div class="app-pill">
             <span class="badge-dot progress"></span>
             In Progress

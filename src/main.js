@@ -167,6 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <img src="${a.icon}" alt="${a.name} App Icon" class="icon-img" width="88" height="88" loading="lazy" decoding="async" />
         </div>
         <div class="app-name">${a.name}</div>
+        <p class="app-tagline">${a.tagline}</p>
         <div class="app-pill">
           <span class="badge-dot ${a.badgeType}"></span>
           ${a.pillLabel}

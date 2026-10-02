@@ -24,6 +24,7 @@
           <img src="${t.icon}" alt="${t.name} App Icon" class="icon-img" width="88" height="88" loading="lazy" decoding="async" />
         </div>
         <div class="app-name">${t.name}</div>
+        <p class="app-tagline">${t.tagline}</p>
         <div class="app-pill">
           <span class="badge-dot ${t.badgeType}"></span>
           ${t.pillLabel}
