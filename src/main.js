@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "ios",
       genre: "Finance & Wealth",
       rating: "5.0 ★",
-      badgeType: "progress",
-      pillLabel: "In Progress",
+      badgeType: "live",
+      pillLabel: "App Store",
       icon: "/images/apps/moneystreak.png",
       description: "Transform personal finance into an empowering daily streak. MoneyStreak turns saving money into a winning habit using visual milestones, progress rings, and biometric security — with zero cloud surveillance or bank login scraping.",
       features: [
@@ -44,9 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "Visual compound interest & milestone targets",
         "Pay Once, Own Forever: Zero recurring subscriptions"
       ],
-      progressText: "In Progress · iOS App Store",
+      appStoreUrl: "https://apps.apple.com/app/id6806923779",
       privacyUrl: "/moneystreak-privacy-policy.html",
-      actionType: "progress"
+      actionType: "store"
     },
     {
       id: "shoeboxhsa",
@@ -56,8 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "ios",
       genre: "Medical & Finance",
       rating: "4.9 ★",
-      badgeType: "progress",
-      pillLabel: "iOS Preview",
+      badgeType: "live",
+      pillLabel: "App Store",
       icon: "/images/apps/shoeboxhsa.png",
       description: "The ultimate healthcare savings strategy tool. Scan and catalog eligible medical receipts today so your HSA investment portfolio can compound tax-free for decades before reimbursement.",
       features: [
@@ -67,9 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "One-tap PDF report generation for tax filing",
         "Pay Once, Own Forever: Zero recurring subscriptions"
       ],
-      progressText: "Coming to App Store",
+      appStoreUrl: "https://apps.apple.com/app/id6813872704",
       privacyUrl: "/shoeboxhsa-privacy-policy.html",
-      actionType: "progress"
+      actionType: "store"
     },
     {
       id: "punchmate",
@@ -79,8 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "macos",
       genre: "Productivity",
       rating: "4.9 ★",
-      badgeType: "progress",
-      pillLabel: "In Progress",
+      badgeType: "live",
+      pillLabel: "Mac App Store",
       icon: "/images/apps/punchmate.png",
       description: "A lightning-fast native macOS menu bar companion designed for freelancers, developers, and consultants to track billable hours, client milestones, and task sessions without cumbersome web SaaS apps.",
       features: [
@@ -90,15 +90,24 @@ document.addEventListener("DOMContentLoaded", () => {
         "Built-in Pomodoro & healthy break reminder engine",
         "Pay Once, Own Forever: 100% on-device local database"
       ],
-      progressText: "In Progress · Mac App Store",
+      appStoreUrl: "https://apps.apple.com/app/id6811594421",
       privacyUrl: "/punchmate-privacy-policy.html",
-      actionType: "progress"
+      actionType: "store"
     }
   ];
 
   // Action Buttons Renderer
   function renderActionButtons(app) {
-    if (app.actionType === "dual_store") {
+    if (app.actionType === "store" || app.appStoreUrl) {
+      const isMac = app.platform.toLowerCase().includes("mac");
+      const storeLabel = isMac ? "Mac App Store" : "App Store";
+      return `
+        <a href="${app.appStoreUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary-store" aria-label="Download ${app.name} on ${storeLabel}">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 7.17c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.09.65-2.73 1.4-.56.64-1.05 1.7-1.01 2.74 1.08.08 2.12-.52 2.73-1.27z"/></svg>
+          <span>View on ${storeLabel}</span>
+        </a>
+      `;
+    } else if (app.actionType === "dual_store") {
       return `
         <a href="${app.appStoreUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary-store" aria-label="Download ${app.name} on Apple App Store">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 7.17c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.09.65-2.73 1.4-.56.64-1.05 1.7-1.01 2.74 1.08.08 2.12-.52 2.73-1.27z"/></svg>
