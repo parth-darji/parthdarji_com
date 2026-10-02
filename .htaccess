@@ -48,6 +48,15 @@
 </IfModule>
 
 # ----------------------------------------------------------------------
+# Service Worker Freshness (Never Stale Cache)
+# ----------------------------------------------------------------------
+<Files "sw.js">
+    <IfModule mod_headers.c>
+        Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+    </IfModule>
+</Files>
+
+# ----------------------------------------------------------------------
 # Gzip / Brotli Deflate Compression
 # ----------------------------------------------------------------------
 <IfModule mod_deflate.c>

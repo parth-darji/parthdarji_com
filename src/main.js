@@ -135,14 +135,25 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentCategoryList = apps;
   let currentActiveApp = null;
 
+  function updateFilterPills() {
+    const allCount = apps.length;
+    const macCount = apps.filter(a => a.category === "macos" || a.platform.toLowerCase().includes("mac")).length;
+    const iosCount = apps.filter(a => a.category === "ios" || a.platform.toLowerCase().includes("ios")).length;
+
+    const btnAll = document.querySelector('.filter-btn[data-cat="all"]');
+    const btnMac = document.querySelector('.filter-btn[data-cat="macos"]');
+    const btnIos = document.querySelector('.filter-btn[data-cat="ios"]');
+
+    if (btnAll) btnAll.textContent = `All (${allCount})`;
+    if (btnMac) btnMac.textContent = `macOS (${macCount})`;
+    if (btnIos) btnIos.textContent = `iOS (${iosCount})`;
+  }
+
   function renderIcons(category = "all") {
     if (!gridContainer) return;
     gridContainer.innerHTML = "";
 
-    const filterAllBtn = document.querySelector('.filter-btn[data-cat="all"]');
-    if (filterAllBtn) {
-      filterAllBtn.textContent = `All (${apps.length})`;
-    }
+    updateFilterPills();
 
     currentCategoryList = category === "all" 
       ? apps 
@@ -199,8 +210,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Filter Buttons
   filterBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-      filterBtns.forEach(b => b.classList.remove("active"));
+      filterBtns.forEach(b => {
+        b.classList.remove("active");
+        b.setAttribute("aria-selected", "false");
+      });
       btn.classList.add("active");
+      btn.setAttribute("aria-selected", "true");
       const cat = btn.getAttribute("data-cat");
       renderIcons(cat);
     });
@@ -447,4 +462,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial Render
   renderIcons("all");
   checkHashRouting();
+
+  // Service Worker Registration for Offline-First PWA Support
+  if ("serviceWorker" in navigator && (window.location.protocol === "https:" || window.location.hostname === "localhost")) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/sw.js").catch(() => {
+        // Silently catch registration errors if unsupported or blocked in dev sandbox
+      });
+    });
+  }
 });
