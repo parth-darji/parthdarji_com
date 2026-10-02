@@ -1,20 +1,47 @@
 // Parth Darji - Minimalist Icon-First Product Showcase
 document.addEventListener("DOMContentLoaded", () => {
-  // Theme Management
+  // Tactile Haptic Feedback Engine
+  function triggerHaptic(type = "light") {
+    if ("vibrate" in navigator) {
+      try {
+        if (type === "medium") {
+          navigator.vibrate(14);
+        } else {
+          navigator.vibrate(8);
+        }
+      } catch (_) {}
+    }
+  }
+
+  // Theme Management & Real-Time OS Preference Sync
   const themeToggle = document.getElementById("theme-toggle");
-  const currentTheme = localStorage.getItem("theme") || "dark";
+  const userPref = localStorage.getItem("theme");
+  const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const currentTheme = userPref || systemPref;
   document.documentElement.setAttribute("data-theme", currentTheme);
   updateThemeIcon(currentTheme);
 
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
+      triggerHaptic("light");
       const active = document.documentElement.getAttribute("data-theme") || "dark";
       const next = active === "dark" ? "light" : "dark";
       document.documentElement.setAttribute("data-theme", next);
       localStorage.setItem("theme", next);
+      localStorage.setItem("theme-user-choice", "true");
       updateThemeIcon(next);
     });
   }
+
+  // Real-time listener for system appearance shift (e.g. sunset / system dark mode)
+  const colorSchemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  colorSchemeQuery.addEventListener("change", (e) => {
+    if (!localStorage.getItem("theme-user-choice")) {
+      const newTheme = e.matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", newTheme);
+      updateThemeIcon(newTheme);
+    }
+  });
 
   function updateThemeIcon(theme) {
     if (!themeToggle) return;
@@ -170,11 +197,15 @@ document.addEventListener("DOMContentLoaded", () => {
           return a.category === category;
         });
 
-    currentCategoryList.forEach(a => {
+    currentCategoryList.forEach((a, index) => {
       const item = document.createElement("a");
       item.className = "app-icon-item";
       item.href = `#${a.id}`;
       item.setAttribute("aria-label", `${a.name} — ${a.tagline}`);
+      item.style.animationDelay = `${index * 0.05}s`;
+
+      const isMac = a.platform.toLowerCase().includes("mac");
+      const storeLabel = isMac ? "Mac App Store" : "App Store";
 
       item.innerHTML = `
         <div class="icon-squircle-wrap">
@@ -182,16 +213,14 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="app-name">${a.name}</div>
         <p class="app-tagline">${a.tagline}</p>
-        <div class="app-pill">
-          <span class="badge-dot ${a.badgeType}"></span>
-          ${a.pillLabel}
+        <div class="app-card-footer">
+          <span class="app-pill">
+            <span class="badge-dot ${a.badgeType}"></span>
+            ${a.pillLabel}
+          </span>
+          <button class="btn-card-get" data-store-url="${a.appStoreUrl}" aria-label="Get ${a.name} on ${storeLabel}">Get</button>
         </div>
       `;
-
-      item.addEventListener("click", (e) => {
-        e.preventDefault();
-        openModal(a);
-      });
 
       gridContainer.appendChild(item);
     });
@@ -200,9 +229,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // Delegated click handling on gridContainer (supports prerendered & dynamic cards)
   if (gridContainer) {
     gridContainer.addEventListener("click", (e) => {
+      const getBtn = e.target.closest(".btn-card-get");
+      if (getBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        triggerHaptic("medium");
+        const url = getBtn.getAttribute("data-store-url");
+        if (url) window.open(url, "_blank", "noopener,noreferrer");
+        return;
+      }
+
       const item = e.target.closest(".app-icon-item");
       if (!item) return;
       e.preventDefault();
+      triggerHaptic("light");
       const href = item.getAttribute("href") || "";
       const id = href.replace("#", "").trim();
       const app = apps.find(a => a.id === id);
@@ -213,6 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Filter Buttons
   filterBtns.forEach(btn => {
     btn.addEventListener("click", () => {
+      triggerHaptic("medium");
       filterBtns.forEach(b => {
         b.classList.remove("active");
         b.setAttribute("aria-selected", "false");
@@ -299,6 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function closeModal() {
     if (!modalBackdrop) return;
+    triggerHaptic("light");
     modalBackdrop.classList.remove("active");
     document.body.style.overflow = "";
     currentActiveApp = null;
@@ -310,6 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Quick Look Navigation (Arrow Keys & Buttons)
   function navigateModal(direction) {
     if (!currentActiveApp || !modalBackdrop.classList.contains("active")) return;
+    triggerHaptic("light");
     const idx = currentCategoryList.findIndex(x => x.id === currentActiveApp.id);
     if (idx === -1) return;
     let nextIdx = idx + direction;
@@ -323,6 +366,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (modalCopyBtn) {
     modalCopyBtn.addEventListener("click", () => {
+      triggerHaptic("medium");
       if (!currentActiveApp) return;
       const url = `${window.location.origin}/#${currentActiveApp.id}`;
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -387,8 +431,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const touchEndY = e.changedTouches[0].clientY;
         const diffX = touchEndX - touchStartX;
         const diffY = touchEndY - touchStartY;
-        // Require at least 45px swipe horizontally and more horizontal than vertical
+
+        // Native iOS Bottom Sheet Swipe Down to Dismiss (at least 60px downwards)
+        if (diffY > 60 && Math.abs(diffY) > Math.abs(diffX) * 1.3) {
+          triggerHaptic("light");
+          closeModal();
+          return;
+        }
+
+        // Horizontal swipe between apps (Quick Look)
         if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY) * 1.4) {
+          triggerHaptic("light");
           if (diffX < 0) {
             navigateModal(1); // Swipe left -> Next app
           } else {

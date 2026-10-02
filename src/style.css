@@ -90,6 +90,7 @@ html {
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.28s ease, color 0.28s ease;
 }
 
 body {
@@ -389,6 +390,17 @@ html[data-theme="light"] .hero-title .gradient-text {
   justify-items: center;
 }
 
+@keyframes appCardFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .app-icon-item {
   display: flex;
   flex-direction: column;
@@ -397,11 +409,12 @@ html[data-theme="light"] .hero-title .gradient-text {
   cursor: pointer;
   width: 100%;
   max-width: 200px;
-  transition: var(--transition);
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.24s ease;
   position: relative;
   outline: none;
   text-decoration: none;
   color: inherit;
+  animation: appCardFadeIn 0.34s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .app-icon-item:hover {
@@ -457,11 +470,46 @@ html[data-theme="light"] .icon-squircle-wrap {
   max-width: 180px;
 }
 
+.app-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 2px;
+}
+
 .app-pill {
   font-size: 11px;
   font-weight: 500;
   color: var(--text-secondary);
   letter-spacing: 0.02em;
+}
+
+.btn-card-get {
+  height: 22px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 113, 227, 0.14);
+  border: 1px solid rgba(0, 113, 227, 0.32);
+  color: var(--apple-cyan);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-card-get:hover {
+  background: var(--apple-blue);
+  color: #ffffff;
+  border-color: var(--apple-blue);
+  transform: scale(1.06);
+  box-shadow: 0 2px 8px var(--apple-blue-glow);
 }
 
 .badge-dot {
@@ -477,6 +525,10 @@ html[data-theme="light"] .icon-squircle-wrap {
 .badge-dot.dmg { background: var(--apple-cyan); box-shadow: 0 0 6px var(--apple-cyan); }
 .badge-dot.progress { background: var(--apple-amber); }
 .badge-dot.beta { background: var(--apple-purple); }
+
+.modal-sheet-grabber {
+  display: none;
+}
 
 /* ==========================================================================
    APP DETAIL MODAL (THE RICH INSIDE VIEW)
@@ -1166,6 +1218,41 @@ html[data-theme="light"] .icon-squircle-wrap {
   .modal-sheet {
     padding: 26px 20px 22px;
     max-height: 88vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .modal-backdrop {
+    padding: 0 !important;
+    align-items: flex-end !important;
+  }
+
+  .modal-sheet {
+    max-width: 100% !important;
+    width: 100% !important;
+    max-height: 85vh !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-left-radius: 24px !important;
+    border-top-right-radius: 24px !important;
+    border-bottom: none !important;
+    padding: 12px 20px calc(24px + var(--sab)) !important;
+    transform: translateY(100%) !important;
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  .modal-backdrop.active .modal-sheet {
+    transform: translateY(0) !important;
+  }
+
+  .modal-sheet-grabber {
+    display: block;
+    width: 38px;
+    height: 5px;
+    border-radius: 3px;
+    background: var(--border-hover);
+    margin: 4px auto 14px;
+    flex-shrink: 0;
   }
 }
 
