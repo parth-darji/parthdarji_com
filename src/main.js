@@ -335,18 +335,42 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     modalBackdrop.classList.add("active");
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("modal-open");
   }
 
   function closeModal() {
-    if (!modalBackdrop) return;
+    if (!modalBackdrop || !modalBackdrop.classList.contains("active")) return;
     triggerHaptic("light");
-    modalBackdrop.classList.remove("active");
-    document.body.style.overflow = "";
-    currentActiveApp = null;
-    if (window.location.hash) {
-      window.history.replaceState(null, null, window.location.pathname + window.location.search);
+
+    const sheet = modalBackdrop.querySelector(".modal-sheet");
+    const isMobile = window.innerWidth <= 768;
+
+    if (sheet) {
+      sheet.style.transition = isMobile
+        ? "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)"
+        : "transform 0.22s ease, opacity 0.2s ease";
+      sheet.style.transform = isMobile ? "translateY(100%)" : "scale(0.96) translateY(14px)";
+      if (!isMobile) sheet.style.opacity = "0";
     }
+
+    modalBackdrop.style.transition = "opacity 0.24s ease";
+    modalBackdrop.style.opacity = "0";
+
+    setTimeout(() => {
+      modalBackdrop.classList.remove("active");
+      document.body.classList.remove("modal-open");
+      if (sheet) {
+        sheet.style.transform = "";
+        sheet.style.opacity = "";
+        sheet.style.transition = "";
+      }
+      modalBackdrop.style.opacity = "";
+      modalBackdrop.style.transition = "";
+      currentActiveApp = null;
+      if (window.location.hash) {
+        window.history.replaceState(null, null, window.location.pathname + window.location.search);
+      }
+    }, 280);
   }
 
   // Quick Look Navigation (Arrow Keys & Buttons)
@@ -412,50 +436,101 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Mobile Touch Swipe Gesture Support
-  let touchStartX = 0;
-  let touchStartY = 0;
-  const modalSheet = document.querySelector(".modal-sheet");
+  // Native iOS Touch Sheet Gesture Controller (Real-time finger tracking & spring dismiss)
+  function attachNativeSheetGestures(backdrop, sheet, onDismiss, onSwipeHorizontal) {
+    if (!backdrop || !sheet) return;
 
-  if (modalSheet) {
-    modalSheet.addEventListener("touchstart", (e) => {
-      if (e.touches && e.touches.length > 0) {
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
+    let startX = 0;
+    let startY = 0;
+    let currentDeltaX = 0;
+    let currentDeltaY = 0;
+    let isDraggingDown = false;
+
+    sheet.addEventListener("touchstart", (e) => {
+      if (e.touches.length !== 1) return;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      currentDeltaX = 0;
+      currentDeltaY = 0;
+      isDraggingDown = false;
+    }, { passive: true });
+
+    sheet.addEventListener("touchmove", (e) => {
+      if (e.touches.length !== 1 || window.innerWidth > 768) return;
+      const touchX = e.touches[0].clientX;
+      const touchY = e.touches[0].clientY;
+      currentDeltaX = touchX - startX;
+      currentDeltaY = touchY - startY;
+
+      // Only drag down if scrolled to the top and downward swipe is dominant
+      if (sheet.scrollTop <= 0 && currentDeltaY > 0 && currentDeltaY > Math.abs(currentDeltaX) * 1.1) {
+        isDraggingDown = true;
+        sheet.classList.add("dragging");
+        // Realistic rubber-band curve
+        const pullDist = Math.pow(currentDeltaY, 0.94);
+        sheet.style.transform = `translateY(${pullDist}px)`;
+        const fade = Math.max(0.12, 1 - (pullDist / 380));
+        backdrop.style.opacity = fade;
       }
     }, { passive: true });
 
-    modalSheet.addEventListener("touchend", (e) => {
-      if (e.changedTouches && e.changedTouches.length > 0) {
-        const touchEndX = e.changedTouches[0].clientX;
-        const touchEndY = e.changedTouches[0].clientY;
-        const diffX = touchEndX - touchStartX;
-        const diffY = touchEndY - touchStartY;
+    sheet.addEventListener("touchend", () => {
+      if (isDraggingDown) {
+        sheet.classList.remove("dragging");
+        isDraggingDown = false;
 
-        // Native iOS Bottom Sheet Swipe Down to Dismiss (at least 60px downwards)
-        if (diffY > 60 && Math.abs(diffY) > Math.abs(diffX) * 1.3) {
+        // Dismiss threshold: dragged down more than 85px
+        if (currentDeltaY > 85) {
           triggerHaptic("light");
-          closeModal();
-          return;
+          sheet.style.transition = "transform 0.28s cubic-bezier(0.16, 1, 0.3, 1)";
+          sheet.style.transform = "translateY(100%)";
+          backdrop.style.transition = "opacity 0.24s ease";
+          backdrop.style.opacity = "0";
+
+          setTimeout(() => {
+            sheet.style.transform = "";
+            sheet.style.transition = "";
+            backdrop.style.opacity = "";
+            backdrop.style.transition = "";
+            onDismiss();
+          }, 260);
+        } else {
+          // Spring back up
+          sheet.style.transition = "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)";
+          sheet.style.transform = "translateY(0)";
+          backdrop.style.transition = "opacity 0.24s ease";
+          backdrop.style.opacity = "1";
+
+          setTimeout(() => {
+            sheet.style.transform = "";
+            sheet.style.transition = "";
+            backdrop.style.opacity = "";
+            backdrop.style.transition = "";
+          }, 300);
         }
+        return;
+      }
 
-        // Horizontal swipe between apps (Quick Look)
-        if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY) * 1.4) {
-          triggerHaptic("light");
-          if (diffX < 0) {
-            navigateModal(1); // Swipe left -> Next app
-          } else {
-            navigateModal(-1); // Swipe right -> Previous app
-          }
+      // Horizontal Quick Look swipe between apps (only when not dragging sheet down)
+      if (onSwipeHorizontal && Math.abs(currentDeltaX) > 48 && Math.abs(currentDeltaX) > Math.abs(currentDeltaY) * 1.5) {
+        triggerHaptic("light");
+        if (currentDeltaX < 0) {
+          onSwipeHorizontal(1); // Swipe left -> Next app
+        } else {
+          onSwipeHorizontal(-1); // Swipe right -> Previous app
         }
       }
     }, { passive: true });
   }
 
+  const appModalSheet = modalBackdrop ? modalBackdrop.querySelector(".modal-sheet") : null;
+  attachNativeSheetGestures(modalBackdrop, appModalSheet, closeModal, (dir) => navigateModal(dir));
+
   // Contact Dialog & Anti-Scraping Assembly
   const contactTriggerBtn = document.getElementById("contact-trigger-btn");
   const contactModal = document.getElementById("contact-modal");
   const contactCloseBtn = document.getElementById("contact-close-btn");
+  const contactSheet = contactModal ? contactModal.querySelector(".modal-sheet") : null;
   const btnOpenMail = document.getElementById("btn-open-mail");
   const btnCopyEmail = document.getElementById("btn-copy-email");
 
@@ -465,14 +540,41 @@ document.addEventListener("DOMContentLoaded", () => {
   function openContactModal() {
     if (!contactModal) return;
     contactModal.classList.add("active");
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("modal-open");
   }
 
   function closeContactModal() {
-    if (!contactModal) return;
-    contactModal.classList.remove("active");
-    document.body.style.overflow = "";
+    if (!contactModal || !contactModal.classList.contains("active")) return;
+    triggerHaptic("light");
+
+    const sheet = contactModal.querySelector(".modal-sheet");
+    const isMobile = window.innerWidth <= 768;
+
+    if (sheet) {
+      sheet.style.transition = isMobile
+        ? "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)"
+        : "transform 0.22s ease, opacity 0.2s ease";
+      sheet.style.transform = isMobile ? "translateY(100%)" : "scale(0.96) translateY(14px)";
+      if (!isMobile) sheet.style.opacity = "0";
+    }
+
+    contactModal.style.transition = "opacity 0.24s ease";
+    contactModal.style.opacity = "0";
+
+    setTimeout(() => {
+      contactModal.classList.remove("active");
+      document.body.classList.remove("modal-open");
+      if (sheet) {
+        sheet.style.transform = "";
+        sheet.style.opacity = "";
+        sheet.style.transition = "";
+      }
+      contactModal.style.opacity = "";
+      contactModal.style.transition = "";
+    }, 280);
   }
+
+  attachNativeSheetGestures(contactModal, contactSheet, closeContactModal, null);
 
   if (contactTriggerBtn) contactTriggerBtn.addEventListener("click", openContactModal);
   if (contactCloseBtn) contactCloseBtn.addEventListener("click", closeContactModal);

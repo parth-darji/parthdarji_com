@@ -530,6 +530,12 @@ html[data-theme="light"] .icon-squircle-wrap {
   display: none;
 }
 
+/* Body scroll lock */
+body.modal-open {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
 /* ==========================================================================
    APP DETAIL MODAL (THE RICH INSIDE VIEW)
    ========================================================================== */
@@ -537,9 +543,9 @@ html[data-theme="light"] .icon-squircle-wrap {
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: rgba(0, 0, 0, 0.52);
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -547,31 +553,48 @@ html[data-theme="light"] .icon-squircle-wrap {
   padding: 24px;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.22s ease, visibility 0.22s ease;
+  pointer-events: none;
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .modal-backdrop.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .modal-sheet {
-  background: var(--bg-subtle);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
+  background: var(--bg-card);
+  border: 0.5px solid rgba(255, 255, 255, 0.16);
+  border-radius: 24px;
   max-width: 580px;
   width: 100%;
-  max-height: 90vh;
+  max-height: 88vh;
   overflow-y: auto;
-  padding: 34px;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.7);
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 32px;
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 28px 70px rgba(0, 0, 0, 0.7);
   position: relative;
-  transform: scale(0.95);
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.96) translateY(14px);
+  opacity: 0;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s ease;
+  user-select: text;
+}
+
+html[data-theme="light"] .modal-sheet {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 28px 70px rgba(0, 0, 0, 0.22);
 }
 
 .modal-backdrop.active .modal-sheet {
-  transform: scale(1);
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.modal-sheet.dragging {
+  transition: none !important;
 }
 
 .modal-nav-arrow {
@@ -1213,46 +1236,68 @@ html[data-theme="light"] .icon-squircle-wrap {
     display: none;
   }
   .modal-backdrop {
-    padding: 16px;
-  }
-  .modal-sheet {
-    padding: 26px 20px 22px;
-    max-height: 88vh;
-  }
-}
-
-@media (max-width: 640px) {
-  .modal-backdrop {
     padding: 0 !important;
     align-items: flex-end !important;
+    background: rgba(0, 0, 0, 0.45) !important;
   }
-
   .modal-sheet {
     max-width: 100% !important;
     width: 100% !important;
-    max-height: 85vh !important;
-    border-bottom-left-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
-    border-top-left-radius: 24px !important;
-    border-top-right-radius: 24px !important;
+    max-height: 88vh !important;
+    border-radius: 22px 22px 0 0 !important;
+    border-left: none !important;
+    border-right: none !important;
     border-bottom: none !important;
-    padding: 12px 20px calc(24px + var(--sab)) !important;
-    transform: translateY(100%) !important;
-    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.22) !important;
+    padding: 8px 20px calc(24px + var(--sab)) !important;
+    transform: translateY(100%);
+    opacity: 1 !important;
+    box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.55) !important;
+    transition: transform 0.36s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    touch-action: pan-y;
   }
-
   .modal-backdrop.active .modal-sheet {
     transform: translateY(0) !important;
+    opacity: 1 !important;
   }
-
+  .modal-sheet.dragging {
+    transition: none !important;
+  }
   .modal-sheet-grabber {
-    display: block;
-    width: 38px;
-    height: 5px;
-    border-radius: 3px;
-    background: var(--border-hover);
-    margin: 4px auto 14px;
+    display: block !important;
+    width: 36px !important;
+    height: 5px !important;
+    border-radius: 3px !important;
+    background: rgba(255, 255, 255, 0.32) !important;
+    margin: 4px auto 14px !important;
     flex-shrink: 0;
+  }
+  html[data-theme="light"] .modal-sheet-grabber {
+    background: rgba(0, 0, 0, 0.22) !important;
+  }
+  .modal-footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 10px;
+    padding-top: 16px;
+  }
+  .modal-buttons-right {
+    width: 100%;
+  }
+  .modal-buttons-right .btn-primary-store {
+    width: 100%;
+    height: 48px;
+    font-size: 15px;
+    font-weight: 600;
+    justify-content: center;
+    border-radius: 14px;
+  }
+  .btn-privacy-link {
+    width: 100%;
+    justify-content: center;
+    height: 40px;
+    font-size: 13px;
+    border-radius: 12px;
   }
 }
 
@@ -1298,14 +1343,6 @@ html[data-theme="light"] .icon-squircle-wrap {
   .app-tagline {
     font-size: 11px;
     max-width: 140px;
-  }
-  .modal-backdrop {
-    padding: 12px;
-  }
-  .modal-sheet {
-    padding: 20px 16px 18px;
-    max-height: 88vh;
-    border-radius: 18px;
   }
   .modal-header-actions {
     top: 14px;
