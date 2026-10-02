@@ -293,61 +293,36 @@ html[data-theme="light"] .hero-title .gradient-text {
   display: inline-block;
 }
 
-.hero-desc {
-  font-size: 19px;
-  color: var(--text-secondary);
-  max-width: 680px;
-  margin: 0 auto 34px;
-  line-height: 1.52;
+/* Minimalist Hero Value Tags */
+.hero-feature-tags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px auto 36px;
+  max-width: 640px;
 }
 
-/* Privacy Pillars Banner */
-.privacy-pillars-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  max-width: 940px;
-  margin: 0 auto 48px;
-  text-align: left;
-}
-
-.pillar-card {
+.feature-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 18px 20px;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   transition: var(--transition);
 }
 
-.pillar-card:hover {
-  background: var(--bg-card-hover);
+.feature-tag:hover {
   border-color: var(--border-hover);
-  transform: translateY(-2px);
-}
-
-.pillar-icon {
-  font-size: 20px;
-  flex-shrink: 0;
-  line-height: 1;
-  margin-top: 2px;
-}
-
-.pillar-content h4 {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 3px;
-  letter-spacing: -0.01em;
-}
-
-.pillar-content p {
-  font-size: 12.5px;
-  color: var(--text-secondary);
-  line-height: 1.4;
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
 }
 
 /* Category Filter Pills */

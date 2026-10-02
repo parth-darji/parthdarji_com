@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: "moneystreak",
       name: "MoneyStreak",
-      tagline: "Gamified Streak-Based Savings & Habit Tracker",
+      tagline: "Streak-based savings tracker",
       platform: "iOS",
       category: "ios",
       genre: "Finance & Wealth",
@@ -36,12 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
       badgeType: "live",
       pillLabel: "App Store",
       icon: "/images/apps/moneystreak.png",
-      description: "Transform personal finance into an empowering daily streak. MoneyStreak turns saving money into a winning habit using visual milestones, progress rings, and biometric security — with zero cloud surveillance or bank login scraping.",
+      description: "Gamified daily streak savings and expense tracking built natively for iOS with biometric privacy and zero cloud surveillance.",
       features: [
         "Daily micro-saving streaks & momentum multipliers",
-        "Interactive iOS Home & Lock Screen Widgets",
-        "Biometric protection with Face ID / Touch ID",
-        "Visual compound interest & milestone targets",
+        "Interactive iOS Home, Lock Screen & Watch Widgets",
         "Pay Once, Own Forever: Zero recurring subscriptions"
       ],
       appStoreUrl: "https://apps.apple.com/app/id6806923779",
@@ -51,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: "shoeboxhsa",
       name: "ShoeboxHSA",
-      tagline: "Smart HSA Receipt Organizer & Tax Vault",
+      tagline: "Medical receipt & tax vault",
       platform: "iOS",
       category: "ios",
       genre: "Medical & Finance",
@@ -59,12 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
       badgeType: "live",
       pillLabel: "App Store",
       icon: "/images/apps/shoeboxhsa.png",
-      description: "The ultimate healthcare savings strategy tool. Scan and catalog eligible medical receipts today so your HSA investment portfolio can compound tax-free for decades before reimbursement.",
+      description: "The 20-year medical receipt vault engineered for the HSA shoebox strategy, compounding your health savings 100% tax-free.",
       features: [
         "On-device OCR receipt scanning & metadata parsing",
-        "IRS-compliant lifetime digital audit vault",
-        "Compound growth trajectory calculator",
-        "One-tap PDF report generation for tax filing",
+        "IRS Form 8889 audit-ready PDF package generation",
         "Pay Once, Own Forever: Zero recurring subscriptions"
       ],
       appStoreUrl: "https://apps.apple.com/app/id6813872704",
@@ -74,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: "punchmate",
       name: "PunchMate",
-      tagline: "Menu Bar Punch Clock & Project Time Tracker",
+      tagline: "Menu bar workday timer",
       platform: "macOS",
       category: "macos",
       genre: "Productivity",
@@ -82,13 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
       badgeType: "live",
       pillLabel: "Mac App Store",
       icon: "/images/apps/punchmate.png",
-      description: "A lightning-fast native macOS menu bar companion designed for freelancers, developers, and consultants to track billable hours, client milestones, and task sessions without cumbersome web SaaS apps.",
+      description: "A native macOS menu bar companion for professionals to hit their exact daily workday hours with zero guesswork.",
       features: [
-        "Always-accessible Menu Bar resident widget",
-        "Global keyboard shortcuts for instant punching",
-        "One-click CSV & PDF export for client invoicing",
-        "Built-in Pomodoro & healthy break reminder engine",
-        "Pay Once, Own Forever: 100% on-device local database"
+        "Always-accessible Menu Bar dial & global shortcuts (⌥⌘P)",
+        "Automatic lunch break integration & retroactive punch-in",
+        "Pay Once, Own Forever: 100% local on-device database"
       ],
       appStoreUrl: "https://apps.apple.com/app/id6811594421",
       privacyUrl: "/punchmate-privacy-policy.html",
@@ -277,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
       privacyCallout.style.borderColor = "rgba(48, 209, 88, 0.22)";
       privacyCallout.innerHTML = `
         <span class="shield" style="color:var(--apple-green);">🛡️</span>
-        <span class="text"><strong>100% On-Device & Anti-Subscription:</strong> This app operates locally on your hardware. Zero telemetry, zero analytics tracking, and zero recurring subscriptions.</span>
+        <span class="text"><strong>Private by Design:</strong> 100% on-device compute with zero telemetry and zero recurring fees.</span>
       `;
     }
 
