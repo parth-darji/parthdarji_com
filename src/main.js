@@ -23,77 +23,53 @@ document.addEventListener("DOMContentLoaded", () => {
       : `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
   }
 
-  // 15 Native Apps Dataset
+  // 3 Core Native Apps Dataset (MoneyStreak, ShoeboxHSA, PunchMate)
   const apps = [
     {
-      id: "careerly",
-      name: "Careerly",
-      tagline: "AI-Powered Resume Builder & Application Tracker",
-      platform: "iOS & Android",
+      id: "moneystreak",
+      name: "MoneyStreak",
+      tagline: "Gamified Streak-Based Savings & Habit Tracker",
+      platform: "iOS",
       category: "ios",
-      genre: "Career & Productivity",
-      rating: "4.9 ★",
-      badgeType: "live",
-      pillLabel: "Live on Stores",
-      icon: "/images/apps/careerly.png",
-      description: "Careerly is the ultimate AI career companion. Build ATS-optimized resumes in minutes with Google Gemini intelligence, score your resume against job descriptions, and track all applications through an intuitive Kanban board.",
-      features: [
-        "AI Resume Builder powered by Google Gemini",
-        "Real-Time ATS Keyword Scoring & Feedback",
-        "Job Application Kanban Board with Stage Tracking",
-        "Clean Minimalist PDF Export",
-        "Live on Apple App Store & Google Play Store"
-      ],
-      appStoreUrl: "https://apps.apple.com/app/careerly-ai-resume-builder/id6740925203",
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.parthdarji.resumeaipro",
-      privacyUrl: "/privacy-policy-careerly.html",
-      actionType: "dual_store"
-    },
-    {
-      id: "presentshield",
-      name: "PresentShield",
-      tagline: "1-Click Screen Privacy & Clean Desk for Mac",
-      platform: "macOS",
-      category: "macos",
-      genre: "Mac Utility",
+      genre: "Finance & Wealth",
       rating: "5.0 ★",
-      badgeType: "dmg",
-      pillLabel: "macOS · DMG",
-      icon: "/images/apps/presentshield.png",
-      description: "PresentShield safeguards your privacy in a single click before sharing your screen on Zoom, Google Meet, Teams, or Slack. It instantly sweeps desktop icons, pauses notifications, and shields confidential windows.",
+      badgeType: "progress",
+      pillLabel: "In Progress",
+      icon: "/images/apps/moneystreak.png",
+      description: "Transform personal finance into an empowering daily streak. MoneyStreak turns saving money into a winning habit using visual milestones, progress rings, and biometric security — with zero cloud surveillance or bank login scraping.",
       features: [
-        "1-Click Clean Desk: Sweeps desktop icons instantly",
-        "Notification Silencer: Auto-activates macOS Do Not Disturb",
-        "Sensitive App Mask: Prevents accidental window leaks",
-        "Executive Wallpaper: Neutral backdrop during presentations",
-        "100% Offline & Private: Zero network telemetry"
+        "Daily micro-saving streaks & momentum multipliers",
+        "Interactive iOS Home & Lock Screen Widgets",
+        "Biometric protection with Face ID / Touch ID",
+        "Visual compound interest & milestone targets",
+        "Pay Once, Own Forever: Zero recurring subscriptions"
       ],
-      dmgUrl: "/downloads/PresentShield.dmg",
-      privacyUrl: "/punchmate-privacy-policy.html",
-      actionType: "dmg"
+      progressText: "In Progress · iOS App Store",
+      privacyUrl: "/moneystreak-privacy-policy.html",
+      actionType: "progress"
     },
     {
-      id: "purgemate",
-      name: "PurgeMate",
-      tagline: "Deep App Uninstaller & Residual File Cleaner",
-      platform: "macOS",
-      category: "macos",
-      genre: "Developer Tools",
+      id: "shoeboxhsa",
+      name: "ShoeboxHSA",
+      tagline: "Smart HSA Receipt Organizer & Tax Vault",
+      platform: "iOS",
+      category: "ios",
+      genre: "Medical & Finance",
       rating: "4.9 ★",
-      badgeType: "dmg",
-      pillLabel: "macOS · DMG",
-      icon: "/images/apps/purgemate.png",
-      description: "PurgeMate completely deletes applications and hunts down hidden leftover caches, orphaned Application Support folders, and lingering preference plists left in ~/Library/.",
+      badgeType: "progress",
+      pillLabel: "iOS Preview",
+      icon: "/images/apps/shoeboxhsa.png",
+      description: "The ultimate healthcare savings strategy tool. Scan and catalog eligible medical receipts today so your HSA investment portfolio can compound tax-free for decades before reimbursement.",
       features: [
-        "Deep ~/Library/ Residual File Scanner",
-        "Reclaims gigabytes of orphaned caches & crash logs",
-        "Safe-Check Confirmation before destructive removal",
-        "Ultra-lightweight Swift core with zero background daemons",
-        "Full macOS Sonoma & Sequoia compatibility"
+        "On-device OCR receipt scanning & metadata parsing",
+        "IRS-compliant lifetime digital audit vault",
+        "Compound growth trajectory calculator",
+        "One-tap PDF report generation for tax filing",
+        "Pay Once, Own Forever: Zero recurring subscriptions"
       ],
-      dmgUrl: "/downloads/PurgeMate.dmg",
-      privacyUrl: "/punchmate-privacy-policy.html",
-      actionType: "dmg"
+      progressText: "Coming to App Store",
+      privacyUrl: "/shoeboxhsa-privacy-policy.html",
+      actionType: "progress"
     },
     {
       id: "punchmate",
@@ -112,217 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "Global keyboard shortcuts for instant punching",
         "One-click CSV & PDF export for client invoicing",
         "Built-in Pomodoro & healthy break reminder engine",
-        "Encrypted local database on your Mac"
+        "Pay Once, Own Forever: 100% on-device local database"
       ],
       progressText: "In Progress · Mac App Store",
       privacyUrl: "/punchmate-privacy-policy.html",
-      actionType: "progress"
-    },
-    {
-      id: "moneystreak",
-      name: "MoneyStreak",
-      tagline: "Gamified Streak-Based Savings & Habit Tracker",
-      platform: "iOS",
-      category: "ios",
-      genre: "Finance & Wealth",
-      rating: "5.0 ★",
-      badgeType: "progress",
-      pillLabel: "In Progress",
-      icon: "/images/apps/moneystreak.png",
-      description: "Transform personal finance into an empowering daily streak. MoneyStreak turns saving money into a winning habit using visual milestones, milestone badges, and Apple Health-style rings.",
-      features: [
-        "Daily micro-saving streaks & momentum multipliers",
-        "Interactive iOS Home & Lock Screen Widgets",
-        "Biometric protection with Face ID / Touch ID",
-        "Visual compound interest & milestone targets",
-        "Privacy-first: No bank login scraping or Plaid sharing"
-      ],
-      progressText: "In Progress · iOS App Store",
-      privacyUrl: "/moneystreak-privacy-policy.html",
-      actionType: "progress"
-    },
-    {
-      id: "zenlatch",
-      name: "ZenLatch",
-      tagline: "Intentional Friction & Screen Time Shield",
-      platform: "iOS",
-      category: "ios",
-      genre: "Productivity & Focus",
-      rating: "4.8 ★",
-      badgeType: "beta",
-      pillLabel: "TestFlight Beta",
-      icon: "/images/apps/zenlatch.png",
-      description: "Break mindless doomscrolling loops with deliberate friction. Powered by Apple Screen Time API and FamilyControls, ZenLatch creates conscious pauses before launching addictive apps.",
-      features: [
-        "Native Apple Screen Time API & Shield Configuration",
-        "Physical & mental friction barriers before app launch",
-        "Dynamic schedule gates for deep work hours",
-        "Zero server tracking: all Screen Time tokens remain on-device",
-        "Focus streaks and mindful distraction diagnostics"
-      ],
-      progressText: "iOS TestFlight Beta",
-      privacyUrl: "/zenlatch-privacy-policy.html",
-      actionType: "progress"
-    },
-    {
-      id: "shoeboxhsa",
-      name: "ShoeboxHSA",
-      tagline: "Smart HSA Receipt Organizer & Tax Vault",
-      platform: "iOS",
-      category: "ios",
-      genre: "Medical & Finance",
-      rating: "4.9 ★",
-      badgeType: "progress",
-      pillLabel: "iOS Preview",
-      icon: "/images/apps/shoeboxhsa.png",
-      description: "The ultimate healthcare savings strategy tool. Scan and catalog eligible medical receipts today so your HSA investment portfolio can compound tax-free for decades before reimbursement.",
-      features: [
-        "On-device OCR receipt parsing",
-        "IRS-compliant lifetime digital audit vault",
-        "Compound growth trajectory calculator",
-        "One-tap PDF report generation for tax filing",
-        "Encrypted iCloud sync with zero third-party brokers"
-      ],
-      progressText: "Coming to App Store",
-      privacyUrl: "/shoeboxhsa-privacy-policy.html",
-      actionType: "progress"
-    },
-    {
-      id: "cafpulse",
-      name: "CafPulse",
-      tagline: "Caffeine Metabolism & Sleep Biohacking",
-      platform: "iOS",
-      category: "ios",
-      genre: "Health & Fitness",
-      rating: "4.8 ★",
-      badgeType: "progress",
-      pillLabel: "iOS Preview",
-      icon: "/images/apps/cafpulse.png",
-      description: "Predict plasma caffeine decay curves in real time. CafPulse analyzes individual metabolic rates to tell you exactly when your adenosine receptors will be clear for restorative sleep.",
-      features: [
-        "Real-time metabolic half-life decay simulation",
-        "Evening cutoff advisory & bedtime readiness score",
-        "Two-way synchronization with Apple HealthKit",
-        "Interactive beverage library with caffeine metrics",
-        "Minimalist design tuned for iOS 18"
-      ],
-      progressText: "Coming to App Store",
-      privacyUrl: "/moneystreak-privacy-policy.html",
-      actionType: "progress"
-    },
-    {
-      id: "ownary",
-      name: "Ownary",
-      tagline: "Privacy-First Net Worth & Asset Tracking",
-      platform: "iOS",
-      category: "ios",
-      genre: "Finance & FIRE",
-      rating: "4.9 ★",
-      badgeType: "progress",
-      pillLabel: "iOS Preview",
-      icon: "/images/apps/ownary.png",
-      description: "A private, distraction-free asset and net worth companion designed for the FIRE (Financial Independence) community. Track real estate, investments, and physical assets without giving away bank passwords.",
-      features: [
-        "100% offline & manual logging for absolute privacy",
-        "Multi-asset class tracking: equities, crypto, real estate, cash",
-        "Net worth milestone projection & FIRE trajectory curve",
-        "Multi-currency support with offline currency rates",
-        "Clean Apple Pro typography and charts"
-      ],
-      progressText: "Coming to App Store",
-      privacyUrl: "/moneystreak-privacy-policy.html",
-      actionType: "progress"
-    },
-    {
-      id: "purgeroll",
-      name: "PurgeRoll",
-      tagline: "Fast Camera Roll Cleaner & Duplicate Purge",
-      platform: "iOS & macOS",
-      category: "macos",
-      genre: "Photo & Video",
-      rating: "4.7 ★",
-      badgeType: "progress",
-      pillLabel: "In Development",
-      icon: "/images/apps/purgeroll.png",
-      description: "Effortlessly declutter your iPhone and Mac camera roll. Swipe intuitively through blurry shots, redundant screenshots, and oversized videos to reclaim dozens of gigabytes of iCloud storage.",
-      features: [
-        "Fluid swipe gestures for keep vs. purge decisions",
-        "Duplicate screenshot & burst photo grouping",
-        "Reclaims massive local and iCloud storage space",
-        "Direct Apple PhotoKit integration with safe trash staging",
-        "Swift & Metal acceleration for buttery 120Hz scrubbing"
-      ],
-      progressText: "In Development",
-      privacyUrl: "/purgeroll-privacy-policy.html",
-      actionType: "progress"
-    },
-    {
-      id: "scriberoll",
-      name: "ScribeRoll",
-      tagline: "Local Voice Recording & Instant Transcription",
-      platform: "macOS & iOS",
-      category: "macos",
-      genre: "Audio & AI",
-      rating: "4.8 ★",
-      badgeType: "progress",
-      pillLabel: "In Development",
-      icon: "/images/apps/scriberoll.png",
-      description: "High-fidelity audio recording studio that produces instant, structured markdown transcripts powered by local machine learning. Ideal for executive meetings, interviews, and journaling.",
-      features: [
-        "Local on-device transcription engine (no cloud uploads)",
-        "Instant structured summary & action-item generation",
-        "Global Mac hotkey for immediate dictation",
-        "Studio-quality audio engine with noise suppression",
-        "Export directly to Apple Notes, Obsidian, and Markdown"
-      ],
-      progressText: "In Development",
-      privacyUrl: "/punchmate-privacy-policy.html",
-      actionType: "progress"
-    },
-    {
-      id: "productdeck",
-      name: "ProductDeck",
-      tagline: "Interactive Showcase & Pitch Studio",
-      platform: "macOS & iOS",
-      category: "macos",
-      genre: "Graphics & Design",
-      rating: "4.9 ★",
-      badgeType: "progress",
-      pillLabel: "In Development",
-      icon: "/images/apps/productdeck.png",
-      description: "A developer and founder tool for building interactive product decks, App Store presentation mockups, and high-impact visual slides with native 120Hz ProMotion smoothness.",
-      features: [
-        "Interactive live canvas with responsive device frames",
-        "One-click App Store screenshot asset generation",
-        "High-fidelity export to Apple Keynote, Web, & 4K PDF",
-        "Native Swift framework architecture",
-        "Preset color systems & Apple typography scales"
-      ],
-      progressText: "In Development",
-      privacyUrl: "/punchmate-privacy-policy.html",
-      actionType: "progress"
-    },
-    {
-      id: "pinaco",
-      name: "Pinaco",
-      tagline: "The Fine Art Frame for Apple TV & Mac",
-      platform: "tvOS, iOS & macOS",
-      category: "macos",
-      genre: "Art & Lifestyle",
-      rating: "4.9 ★",
-      badgeType: "progress",
-      pillLabel: "In Development",
-      icon: "/images/apps/pinaco.png",
-      description: "Transform your television and Apple displays into high-resolution museum art galleries. Pinaco curates public-domain masterpieces from The Met and Art Institute of Chicago with archival passe-partout matting and OLED burn-in protection.",
-      features: [
-        "Museum-grade framing: Natural Oak, Walnut, Antique Gold & Matte Black",
-        "Public Domain masterpieces from The Met & Chicago Art Institute",
-        "OLED sub-pixel micro-drifting for burn-in protection",
-        "10-Foot living room Apple TV Remote navigation",
-        "100% On-Device & Zero Tracking"
-      ],
-      progressText: "In Development · tvOS / macOS",
-      privacyUrl: "/pinaco-privacy-policy.html",
       actionType: "progress"
     }
   ];
@@ -413,6 +182,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Delegated click handling on gridContainer (supports prerendered & dynamic cards)
+  if (gridContainer) {
+    gridContainer.addEventListener("click", (e) => {
+      const item = e.target.closest(".app-icon-item");
+      if (!item) return;
+      e.preventDefault();
+      const href = item.getAttribute("href") || "";
+      const id = href.replace("#", "").trim();
+      const app = apps.find(a => a.id === id);
+      if (app) openModal(app);
+    });
+  }
+
   // Filter Buttons
   filterBtns.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -466,21 +248,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const privacyCallout = document.querySelector(".modal-privacy-callout");
     if (privacyCallout) {
-      if (a.id === "careerly") {
-        privacyCallout.style.background = "rgba(41, 151, 255, 0.08)";
-        privacyCallout.style.borderColor = "rgba(41, 151, 255, 0.25)";
-        privacyCallout.innerHTML = `
-          <span class="shield" style="color:var(--apple-cyan);">☁️</span>
-          <span class="text"><strong>Cloud & AI Privacy:</strong> Careerly securely stores your account and resume data via Supabase and processes AI requests with Google Gemini. Your data is encrypted and strictly used to power your resume — <strong>never sold to third-party ad brokers</strong>.</span>
-        `;
-      } else {
-        privacyCallout.style.background = "rgba(48, 209, 88, 0.08)";
-        privacyCallout.style.borderColor = "rgba(48, 209, 88, 0.22)";
-        privacyCallout.innerHTML = `
-          <span class="shield" style="color:var(--apple-green);">🛡️</span>
-          <span class="text"><strong>Data Not Collected:</strong> This app operates 100% locally on your device. Zero telemetry, zero analytics tracking, and zero personal data collected.</span>
-        `;
-      }
+      privacyCallout.style.background = "rgba(48, 209, 88, 0.08)";
+      privacyCallout.style.borderColor = "rgba(48, 209, 88, 0.22)";
+      privacyCallout.innerHTML = `
+        <span class="shield" style="color:var(--apple-green);">🛡️</span>
+        <span class="text"><strong>100% On-Device & Anti-Subscription:</strong> This app operates locally on your hardware. Zero telemetry, zero analytics tracking, and zero recurring subscriptions.</span>
+      `;
     }
 
     const featList = document.getElementById("modal-features-list");
