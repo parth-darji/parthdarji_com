@@ -1,5 +1,5 @@
 // Parth Darji Portfolio - Lightweight Offline-First Service Worker
-const CACHE_NAME = "pd-portfolio-v1";
+const CACHE_NAME = "pd-portfolio-v2";
 
 const PRECACHE_ASSETS = [
   "/",
@@ -7,10 +7,8 @@ const PRECACHE_ASSETS = [
   "/favicon.png?v=4",
   "/apple-touch-icon.png?v=4",
   "/images/logo.png?v=4",
-  "/images/apps/moneystreak.png",
   "/images/apps/shoeboxhsa.png",
   "/images/apps/punchmate.png",
-  "/moneystreak-privacy-policy.html",
   "/shoeboxhsa-privacy-policy.html",
   "/punchmate-privacy-policy.html",
   "/manifest.json"

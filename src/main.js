@@ -50,29 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
       : `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
   }
 
-  // 3 Core Native Apps Dataset (MoneyStreak, ShoeboxHSA, PunchMate)
+  // 2 Core Native Apps Dataset (ShoeboxHSA, PunchMate)
   const apps = [
-    {
-      id: "moneystreak",
-      name: "MoneyStreak",
-      tagline: "Streak-based savings tracker",
-      platform: "iOS",
-      category: "ios",
-      genre: "Finance & Wealth",
-      rating: "5.0 ★",
-      badgeType: "live",
-      pillLabel: "App Store",
-      icon: "/images/apps/moneystreak.png",
-      description: "Gamified daily streak savings and expense tracking built natively for iOS with biometric privacy and zero cloud surveillance.",
-      features: [
-        "Daily micro-saving streaks & momentum multipliers",
-        "Interactive iOS Home, Lock Screen & Watch Widgets",
-        "Pay Once, Own Forever: Zero recurring subscriptions"
-      ],
-      appStoreUrl: "https://apps.apple.com/app/id6806923779",
-      privacyUrl: "/moneystreak-privacy-policy.html",
-      actionType: "store"
-    },
     {
       id: "shoeboxhsa",
       name: "ShoeboxHSA",
