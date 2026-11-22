@@ -59,15 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
       platform: "iOS",
       category: "ios",
       genre: "Medical & Finance",
-      rating: "4.9 ★",
       badgeType: "live",
       pillLabel: "App Store",
       icon: "/images/apps/shoeboxhsa.png",
-      description: "The 20-year medical receipt vault engineered for the HSA shoebox strategy, compounding your health savings 100% tax-free.",
+      description: "Keep every medical receipt for the HSA shoebox strategy: pay bills now, let your HSA grow, and reimburse yourself tax-free later. No account; your receipts stay on your iPhone.",
       features: [
-        "On-device OCR receipt scanning & metadata parsing",
-        "IRS Form 8889 audit-ready PDF package generation",
-        "Pay Once, Own Forever: Zero recurring subscriptions"
+        "Scan receipts: the amount, provider and date are read on your iPhone",
+        "See what you haven't reimbursed yet, and create an audit-ready PDF",
+        "Free to try, with an optional Pro upgrade. HSA guides at parthdarji.com/hsa"
       ],
       appStoreUrl: "https://apps.apple.com/app/id6813872704",
       privacyUrl: "/shoeboxhsa-privacy-policy.html",
@@ -80,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
       platform: "macOS",
       category: "macos",
       genre: "Productivity",
-      rating: "4.9 ★",
       badgeType: "live",
       pillLabel: "Mac App Store",
       icon: "/images/apps/punchmate.png",
@@ -280,8 +278,6 @@ document.addEventListener("DOMContentLoaded", () => {
       <span>${a.platform}</span>
       <span>•</span>
       <span>${a.genre}</span>
-      <span>•</span>
-      <span style="color:#ffb800;">${a.rating}</span>
     `;
     document.getElementById("modal-desc").textContent = a.description;
 

@@ -1442,3 +1442,10 @@ html[data-theme="light"] .modal-sheet {
     padding: 22px 16px;
   }
 }
+
+/* Header fits on phones (2026-11-22) */
+.nav-brand span, .nav-link { white-space: nowrap; }
+@media (max-width: 480px) {
+  .nav-links { gap: 12px; }
+  .nav-link[href="#privacy"] { display: none; }
+}
