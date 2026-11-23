@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Time Card Calculator with Lunch Breaks and Overtime (Free)</title>
+<meta name="description" content="Free weekly time card calculator: enter start and end times with lunch breaks, round to the quarter hour or tenth, and see total hours in decimal and hours:minutes, plus regular and overtime pay.">
+<link rel="canonical" href="https://parthdarji.com/tools/time-card-calculator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Time card calculator">
+<meta property="og:description" content="Free weekly time card calculator: enter start and end times with lunch breaks, round to the quarter hour or tenth, and see total hours in decimal and hours:minutes, plus regular and overtime pay.">
+<meta property="og:url" content="https://parthdarji.com/tools/time-card-calculator">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Time card calculator",
+   "description": "Free weekly time card calculator: enter start and end times with lunch breaks, round to the quarter hour or tenth, and see total hours in decimal and hours:minutes, plus regular and overtime pay.",
+   "url": "https://parthdarji.com/tools/time-card-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I calculate hours worked with a lunch break?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Subtract the start time from the end time, then subtract the unpaid break. 9:00 to 5:30 with a 30-minute lunch is 8 hours."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I convert hours and minutes to decimal?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Divide the minutes by 60 and add them to the hours. 7 hours 45 minutes is 7 + 45/60 = 7.75 hours."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "When does overtime start?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Under federal law, after 40 hours in a workweek for most hourly employees, at least 1.5 times the regular rate. Some states also have daily overtime rules."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Time card calculator",
+     "item": "https://parthdarji.com/tools/time-card-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Time card calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p>Enter start and end times for each day. Overnight shifts work too (an end time earlier than the start counts as the next day). Leave a day empty if you didn't work.</p>
+<div class="tool" id="tc">
+  <div class="row tc-day" data-i="0"><div class="field"><label for="s0">Monday start</label><input id="s0" type="time" value="09:00"></div><div class="field"><label for="e0">Monday end</label><input id="e0" type="time" value="17:30"></div><div class="field"><label for="b0">Unpaid break (min)</label><input id="b0" type="number" min="0" step="5" value="30" inputmode="numeric"></div></div><div class="row tc-day" data-i="1"><div class="field"><label for="s1">Tuesday start</label><input id="s1" type="time" value="09:00"></div><div class="field"><label for="e1">Tuesday end</label><input id="e1" type="time" value="17:30"></div><div class="field"><label for="b1">Unpaid break (min)</label><input id="b1" type="number" min="0" step="5" value="30" inputmode="numeric"></div></div><div class="row tc-day" data-i="2"><div class="field"><label for="s2">Wednesday start</label><input id="s2" type="time" value="09:00"></div><div class="field"><label for="e2">Wednesday end</label><input id="e2" type="time" value="17:30"></div><div class="field"><label for="b2">Unpaid break (min)</label><input id="b2" type="number" min="0" step="5" value="30" inputmode="numeric"></div></div><div class="row tc-day" data-i="3"><div class="field"><label for="s3">Thursday start</label><input id="s3" type="time" value="09:00"></div><div class="field"><label for="e3">Thursday end</label><input id="e3" type="time" value="17:30"></div><div class="field"><label for="b3">Unpaid break (min)</label><input id="b3" type="number" min="0" step="5" value="30" inputmode="numeric"></div></div><div class="row tc-day" data-i="4"><div class="field"><label for="s4">Friday start</label><input id="s4" type="time" value="09:00"></div><div class="field"><label for="e4">Friday end</label><input id="e4" type="time" value="17:30"></div><div class="field"><label for="b4">Unpaid break (min)</label><input id="b4" type="number" min="0" step="5" value="30" inputmode="numeric"></div></div><div class="row tc-day" data-i="5"><div class="field"><label for="s5">Saturday start</label><input id="s5" type="time" value=""></div><div class="field"><label for="e5">Saturday end</label><input id="e5" type="time" value=""></div><div class="field"><label for="b5">Unpaid break (min)</label><input id="b5" type="number" min="0" step="5" value="0" inputmode="numeric"></div></div><div class="row tc-day" data-i="6"><div class="field"><label for="s6">Sunday start</label><input id="s6" type="time" value=""></div><div class="field"><label for="e6">Sunday end</label><input id="e6" type="time" value=""></div><div class="field"><label for="b6">Unpaid break (min)</label><input id="b6" type="number" min="0" step="5" value="0" inputmode="numeric"></div></div>
+  <div class="row">
+    <div class="field"><label for="rnd">Round each day to</label><select id="rnd"><option value="0">No rounding</option><option value="15">Nearest 15 minutes</option><option value="6">Nearest 6 minutes (tenth of an hour)</option><option value="5">Nearest 5 minutes</option></select></div>
+    <div class="field"><label for="rate">Hourly rate ($, optional)</label><input id="rate" type="number" min="0" step="0.25" value="" placeholder="e.g. 22" inputmode="decimal"></div>
+    <div class="field"><label for="ot">Overtime after (hours per week)</label><input id="ot" type="number" min="0" step="1" value="40" inputmode="numeric"></div>
+    <div class="field"><label for="otx">Overtime pay</label><select id="otx"><option value="1.5">1.5× (time and a half)</option><option value="2">2× (double time)</option><option value="1">No overtime premium</option></select></div>
+  </div>
+  <p class="fine" style="margin:6px 0 2px">Total hours this week</p>
+  <div class="big-number" id="out" aria-live="polite">0:00</div>
+  <p class="fine" id="sub"></p>
+  <div class="results" id="days"></div>
+</div>
+<p class="note">Federal law requires overtime after 40 hours in a workweek for most hourly employees; some states, like California, also count daily overtime. Rounding to the nearest 15 minutes is a common payroll practice, but it has to be neutral over time. Check your employer's policy.</p>
+<h2>Converting minutes to decimal hours</h2>
+<p>Divide minutes by 60: 15 min = 0.25, 30 min = 0.5, 45 min = 0.75, 6 min = 0.1. So 7 hours 45 minutes is 7.75 hours.</p>
+<aside class="promo">
+  <img src="/images/apps/punchmate-192.webp" alt="" width="64" height="64" loading="lazy">
+  <div><p><strong>PunchMate</strong> · Punch in and out from the Mac menu bar and see your hours add up automatically.</p>
+  <a class="btn" href="https://apps.apple.com/app/id6811594421">Get it on the App Store</a></div>
+</aside><p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var names = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });
+  function mins(t) { if (!t) return null; var a = t.split(':'); return (+a[0]) * 60 + (+a[1]); }
+  function hm(m) { m = Math.round(m); return Math.floor(m / 60) + ':' + ('0' + (m % 60)).slice(-2); }
+  function n(id) { var v = parseFloat(document.getElementById(id).value); return isFinite(v) && v > 0 ? v : 0; }
+  function run() {
+    var r = +document.getElementById('rnd').value, total = 0, out = [];
+    for (var i = 0; i < 7; i++) {
+      var s = mins(document.getElementById('s' + i).value), e = mins(document.getElementById('e' + i).value);
+      if (s === null || e === null) continue;
+      var w = e - s; if (w <= 0) w += 1440;
+      w = Math.max(0, w - n('b' + i));
+      if (r) w = Math.round(w / r) * r;
+      total += w; out.push('<div class="item"><h3>' + names[i] + ' <span class="badge ok">' + hm(w) + '</span></h3><p>' + (w / 60).toFixed(2) + ' hours</p></div>');
+    }
+    var hrs = total / 60, otAfter = document.getElementById('ot').value === '' ? 40 : n('ot'), reg = Math.min(hrs, otAfter), ot = Math.max(0, hrs - otAfter);
+    document.getElementById('out').textContent = hm(total);
+    var rate = n('rate'), x = +document.getElementById('otx').value, t = hrs.toFixed(2) + ' hours · ' + reg.toFixed(2) + ' regular · ' + ot.toFixed(2) + ' overtime';
+    if (rate) t += ' · Pay ' + usd.format(reg * rate + ot * rate * x) + ' (' + usd.format(reg * rate) + ' regular + ' + usd.format(ot * rate * x) + ' overtime)';
+    document.getElementById('sub').textContent = t;
+    document.getElementById('days').innerHTML = out.join('');
+  }
+  document.getElementById('tc').addEventListener('input', run); document.getElementById('tc').addEventListener('change', run); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>How do I calculate hours worked with a lunch break?</summary><p>Subtract the start time from the end time, then subtract the unpaid break. 9:00 to 5:30 with a 30-minute lunch is 8 hours.</p></details>
+<details><summary>How do I convert hours and minutes to decimal?</summary><p>Divide the minutes by 60 and add them to the hours. 7 hours 45 minutes is 7 + 45/60 = 7.75 hours.</p></details>
+<details><summary>When does overtime start?</summary><p>Under federal law, after 40 hours in a workweek for most hourly employees, at least 1.5 times the regular rate. Some states also have daily overtime rules.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>

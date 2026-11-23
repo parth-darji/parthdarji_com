@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EV vs Gas Cost Calculator: Fuel Savings per Year</title>
+<meta name="description" content="Free EV vs gas calculator: compare yearly fuel cost of an electric car and a gas car using your miles, mpg, gas price, EV efficiency and electricity rate, plus break-even years.">
+<link rel="canonical" href="https://parthdarji.com/tools/ev-vs-gas-calculator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="EV vs gas cost calculator">
+<meta property="og:description" content="Free EV vs gas calculator: compare yearly fuel cost of an electric car and a gas car using your miles, mpg, gas price, EV efficiency and electricity rate, plus break-even years.">
+<meta property="og:url" content="https://parthdarji.com/tools/ev-vs-gas-calculator">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "EV vs gas cost calculator",
+   "description": "Free EV vs gas calculator: compare yearly fuel cost of an electric car and a gas car using your miles, mpg, gas price, EV efficiency and electricity rate, plus break-even years.",
+   "url": "https://parthdarji.com/tools/ev-vs-gas-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is it cheaper to charge an EV than buy gas?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Usually, when you charge mostly at home. At 17 cents per kWh and 30 kWh per 100 miles, an EV costs about $5 per 100 miles, versus about $10.67 for a 30 mpg car at $3.20 a gallon. Frequent fast charging can erase much of the gap."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much does it cost to charge an EV per year?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Miles \u00f7 100 \u00d7 kWh per 100 miles \u00d7 your rate. 12,000 miles at 30 kWh/100 mi and 17 cents is about $612 a year at home."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "EV vs gas cost calculator",
+     "item": "https://parthdarji.com/tools/ev-vs-gas-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>EV vs gas cost calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<div class="tool" id="ev">
+  <div class="row">
+    <div class="field"><label for="mi">Miles driven per year</label><input id="mi" type="number" min="0" step="500" value="12000" inputmode="decimal"></div>
+    <div class="field"><label for="mpg">Gas car fuel economy (mpg)</label><input id="mpg" type="number" min="1" step="1" value="30" inputmode="decimal"></div>
+    <div class="field"><label for="gp">Gas price ($ per gallon)</label><input id="gp" type="number" min="0" step="0.05" value="3.20" inputmode="decimal"></div>
+    <div class="field"><label for="eff">EV efficiency (kWh per 100 miles)</label><input id="eff" type="number" min="1" step="1" value="30" inputmode="decimal"></div>
+    <div class="field"><label for="er">Home electricity (cents per kWh)</label><input id="er" type="number" min="0" step="0.5" value="17" inputmode="decimal"></div>
+    <div class="field"><label for="pub">Share of charging at public fast chargers (%)</label><input id="pub" type="number" min="0" max="100" step="5" value="10" inputmode="decimal"></div>
+    <div class="field"><label for="pr">Public charging (cents per kWh)</label><input id="pr" type="number" min="0" step="1" value="45" inputmode="decimal"></div>
+    <div class="field"><label for="diff">Extra price of the EV ($, optional)</label><input id="diff" type="number" min="0" step="500" value="" placeholder="e.g. 5000" inputmode="decimal"></div>
+  </div>
+  <p class="fine" style="margin:6px 0 2px">Fuel savings per year with the EV</p>
+  <div class="big-number" id="out" aria-live="polite">$0</div>
+  <p class="fine" id="sub"></p>
+</div>
+<p class="note">Fuel only: insurance, maintenance, depreciation, incentives and charger installation also matter. EV efficiency is on the window sticker or fueleconomy.gov (lower is better; 25-35 kWh/100 mi is typical). Charging losses add roughly 10%, already a reason to round up.</p>
+<h2>How it's calculated</h2>
+<p>Gas cost = miles ÷ mpg × gas price. EV cost = miles ÷ 100 × kWh per 100 miles × your blended electricity rate (home and public). Break-even = extra EV price ÷ yearly savings.</p>
+<p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var ids = ['mi', 'mpg', 'gp', 'eff', 'er', 'pub', 'pr', 'diff'], el = {}; ids.forEach(function (i) { el[i] = document.getElementById(i); });
+  function n(i) { var v = parseFloat(el[i].value); return isFinite(v) && v > 0 ? v : 0; }
+  function run() {
+    var mi = n('mi'), gas = n('mpg') ? mi / n('mpg') * n('gp') : 0, pub = Math.min(100, n('pub')) / 100;
+    var rate = ((1 - pub) * n('er') + pub * n('pr')) / 100, ev = mi / 100 * n('eff') * rate, save = gas - ev;
+    document.getElementById('out').textContent = (save < 0 ? '−' : '') + usd.format(Math.abs(save));
+    var t = 'Gas ' + usd.format(gas) + ' a year (' + usd.format(mi ? gas / mi * 100 : 0) + ' per 100 mi) · EV ' + usd.format(ev) + ' a year (' + usd.format(mi ? ev / mi * 100 : 0) + ' per 100 mi)';
+    if (n('diff')) t += save > 0 ? ' · Pays back the extra price in about ' + (n('diff') / save).toFixed(1) + ' years' : ' · No fuel savings to pay back the extra price';
+    document.getElementById('sub').textContent = t;
+  }
+  ids.forEach(function (i) { el[i].addEventListener('input', run); }); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>Is it cheaper to charge an EV than buy gas?</summary><p>Usually, when you charge mostly at home. At 17 cents per kWh and 30 kWh per 100 miles, an EV costs about $5 per 100 miles, versus about $10.67 for a 30 mpg car at $3.20 a gallon. Frequent fast charging can erase much of the gap.</p></details>
+<details><summary>How much does it cost to charge an EV per year?</summary><p>Miles ÷ 100 × kWh per 100 miles × your rate. 12,000 miles at 30 kWh/100 mi and 17 cents is about $612 a year at home.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>

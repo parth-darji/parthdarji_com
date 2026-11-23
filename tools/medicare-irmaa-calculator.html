@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Medicare IRMAA Calculator 2026: Part B and Part D Premiums by Income</title>
+<meta name="description" content="Free 2026 Medicare IRMAA calculator using the official CMS brackets: enter your 2024 income and filing status to see your monthly Part B premium, Part D surcharge and yearly cost.">
+<link rel="canonical" href="https://parthdarji.com/tools/medicare-irmaa-calculator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Medicare IRMAA calculator 2026">
+<meta property="og:description" content="Free 2026 Medicare IRMAA calculator using the official CMS brackets: enter your 2024 income and filing status to see your monthly Part B premium, Part D surcharge and yearly cost.">
+<meta property="og:url" content="https://parthdarji.com/tools/medicare-irmaa-calculator">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Medicare IRMAA calculator 2026",
+   "description": "Free 2026 Medicare IRMAA calculator using the official CMS brackets: enter your 2024 income and filing status to see your monthly Part B premium, Part D surcharge and yearly cost.",
+   "url": "https://parthdarji.com/tools/medicare-irmaa-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What are the 2026 IRMAA brackets?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "For individuals, IRMAA starts above $109,000 of 2024 modified AGI ($218,000 joint), with Part B totals of $284.10, $405.80, $527.50, $649.20 and $689.90 per month across the brackets, per CMS."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What income is used for 2026 IRMAA?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Generally your 2024 tax return: adjusted gross income plus tax-exempt interest."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I appeal IRMAA?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, if your income went down because of a life-changing event such as retirement or the death of a spouse. Ask Social Security to use newer income with form SSA-44."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Medicare IRMAA calculator 2026",
+     "item": "https://parthdarji.com/tools/medicare-irmaa-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Medicare IRMAA calculator 2026</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<div class="tldr"><strong>In short</strong>Higher-income Medicare enrollees pay an extra amount (IRMAA) on top of the standard Part B premium of $202.90 and their Part D plan premium. For 2026, Social Security uses your income from your 2024 tax return.</div>
+<div class="tool" id="ir">
+  <div class="row">
+    <div class="field"><label for="magi">2024 modified AGI ($)</label><input id="magi" type="number" min="0" step="1000" value="150000" inputmode="decimal"></div>
+    <div class="field"><label for="fs">2024 filing status</label><select id="fs"><option value="i">Single, head of household, or married filing separately and lived apart all year</option><option value="j">Married filing jointly</option><option value="m">Married filing separately and lived with spouse</option></select></div>
+    <div class="field"><label for="ppl">People on Medicare (joint filers)</label><select id="ppl"><option value="1">1</option><option value="2">2</option></select></div>
+  </div>
+  <p class="fine" style="margin:6px 0 2px">Part B premium per person per month</p>
+  <div class="big-number" id="out" aria-live="polite">$0</div>
+  <p class="fine" id="sub"></p>
+</div>
+<p class="note">2026 brackets from the CMS fact sheet "2026 Medicare Parts A & B Premiums and Deductibles". Modified AGI here = adjusted gross income plus tax-exempt interest. Part D IRMAA is added to your Part D plan's own premium. If your income dropped because of a life-changing event (retirement, marriage, divorce, death of a spouse), you can ask Social Security to use newer income with form SSA-44.</p>
+<h2>2026 Part B and Part D IRMAA brackets</h2>
+<div class="table-scroll"><table>
+<tr><th>Individual MAGI</th><th>Joint MAGI</th><th>Part B total</th><th>Part D add-on</th></tr>
+<tr><td>$109,000 or less</td><td>$218,000 or less</td><td>$202.90</td><td>$0.00</td></tr>
+<tr><td>$109,001 – $137,000</td><td>$218,001 – $274,000</td><td>$284.10</td><td>$14.50</td></tr>
+<tr><td>$137,001 – $171,000</td><td>$274,001 – $342,000</td><td>$405.80</td><td>$37.50</td></tr>
+<tr><td>$171,001 – $205,000</td><td>$342,001 – $410,000</td><td>$527.50</td><td>$60.40</td></tr>
+<tr><td>$205,001 – $499,999</td><td>$410,001 – $749,999</td><td>$649.20</td><td>$83.30</td></tr>
+<tr><td>$500,000 or more</td><td>$750,000 or more</td><td>$689.90</td><td>$91.00</td></tr>
+</table></div>
+<p>Married filing separately and living with your spouse: $202.90 up to $109,000, $649.20 (Part D +$83.30) above $109,000 and below $391,000, and $689.90 (Part D +$91.00) at $391,000 or more. The 2026 Part B deductible is $283.</p>
+<p>Your HSA can pay Medicare premiums once you're 65: see <a href="/hsa/hsa-insurance-premiums">HSA and insurance premiums</a> and <a href="/hsa/hsa-after-65">your HSA after 65</a>.</p>
+<aside class="promo">
+  <img src="/images/apps/shoeboxhsa-192.webp" alt="" width="64" height="64" loading="lazy">
+  <div><p><strong>ShoeboxHSA</strong> · Keep Medicare premium statements with your HSA receipts.</p>
+  <a class="btn" href="https://apps.apple.com/app/id6813872704">Get it on the App Store</a></div>
+</aside><p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  var B = [202.90, 284.10, 405.80, 527.50, 649.20, 689.90], D = [0, 14.50, 37.50, 60.40, 83.30, 91.00];
+  var IND = [109000, 137000, 171000, 205000, 500000], JNT = [218000, 274000, 342000, 410000, 750000];
+  function tier(m, cuts) { for (var i = 0; i < 4; i++) if (m <= cuts[i]) return i; return m < cuts[4] ? 4 : 5; }
+  function run() {
+    var m = parseFloat(document.getElementById('magi').value); m = isFinite(m) && m > 0 ? m : 0;
+    var fs = document.getElementById('fs').value, ppl = fs === 'j' ? +document.getElementById('ppl').value : 1, t;
+    document.getElementById('ppl').disabled = fs !== 'j';
+    if (fs === 'm') t = m <= 109000 ? 0 : m < 391000 ? 4 : 5; else t = tier(m, fs === 'j' ? JNT : IND);
+    var b = B[t], d = D[t], extra = (b - B[0] + d) * 12 * ppl;
+    document.getElementById('out').textContent = usd.format(b);
+    document.getElementById('sub').textContent = (t ? 'IRMAA: +' + usd.format(b - B[0]) + ' Part B and +' + usd.format(d) + ' Part D per person per month · ' + usd.format(extra) + ' a year extra' + (ppl > 1 ? ' for both of you' : '') : 'No IRMAA: you pay the standard Part B premium') + ' · Part B for the year: ' + usd.format(b * 12 * ppl);
+  }
+  ['magi', 'fs', 'ppl'].forEach(function (i) { document.getElementById(i).addEventListener('input', run); document.getElementById(i).addEventListener('change', run); }); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>What are the 2026 IRMAA brackets?</summary><p>For individuals, IRMAA starts above $109,000 of 2024 modified AGI ($218,000 joint), with Part B totals of $284.10, $405.80, $527.50, $649.20 and $689.90 per month across the brackets, per CMS.</p></details>
+<details><summary>What income is used for 2026 IRMAA?</summary><p>Generally your 2024 tax return: adjusted gross income plus tax-exempt interest.</p></details>
+<details><summary>Can I appeal IRMAA?</summary><p>Yes, if your income went down because of a life-changing event such as retirement or the death of a spouse. Ask Social Security to use newer income with form SSA-44.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>

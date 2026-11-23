@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dependent Care FSA Calculator 2026: Tax Savings on the $7,500 Limit</title>
+<meta name="description" content="Free dependent care FSA calculator for 2026: the limit is now $7,500 per household ($3,750 married filing separately). Estimate your federal, state and payroll tax savings on child care.">
+<link rel="canonical" href="https://parthdarji.com/tools/dependent-care-fsa-calculator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dependent care FSA calculator 2026">
+<meta property="og:description" content="Free dependent care FSA calculator for 2026: the limit is now $7,500 per household ($3,750 married filing separately). Estimate your federal, state and payroll tax savings on child care.">
+<meta property="og:url" content="https://parthdarji.com/tools/dependent-care-fsa-calculator">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Dependent care FSA calculator 2026",
+   "description": "Free dependent care FSA calculator for 2026: the limit is now $7,500 per household ($3,750 married filing separately). Estimate your federal, state and payroll tax savings on child care.",
+   "url": "https://parthdarji.com/tools/dependent-care-fsa-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is the dependent care FSA limit for 2026?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "$7,500 per household, or $3,750 if married filing separately. The One Big Beautiful Bill Act raised it from $5,000. Employers can keep a lower plan limit."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much does a dependent care FSA save?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Your contribution skips federal income tax, 7.65% Social Security and Medicare tax, and usually state tax. At a 22% bracket and 5% state tax, $7,500 saves about $2,600."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Dependent care FSA calculator 2026",
+     "item": "https://parthdarji.com/tools/dependent-care-fsa-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Dependent care FSA calculator 2026</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<div class="tldr"><strong>In short</strong>For 2026 the dependent care FSA limit rose to $7,500 per household ($3,750 if married filing separately). Money you set aside skips federal income tax, Social Security and Medicare tax, and usually state tax. Your employer's plan may use a lower limit, so check.</div>
+<div class="tool" id="dc">
+  <div class="row">
+    <div class="field"><label for="cost">Child or dependent care costs this year ($)</label><input id="cost" type="number" min="0" step="100" value="12000" inputmode="decimal"></div>
+    <div class="field"><label for="amt">Amount you'll put in the FSA ($)</label><input id="amt" type="number" min="0" step="100" value="7500" inputmode="decimal"></div>
+    <div class="field"><label for="fs">Filing status</label><select id="fs"><option value="7500">Single, head of household or married filing jointly</option><option value="3750">Married filing separately</option></select></div>
+    <div class="field"><label for="br">Federal tax bracket</label><select id="br"><option>10</option><option>12</option><option selected>22</option><option>24</option><option>32</option><option>35</option><option>37</option></select></div>
+    <div class="field"><label for="st">State income tax (%)</label><input id="st" type="number" min="0" max="15" step="0.5" value="5" inputmode="decimal"></div>
+  </div>
+  <p class="fine" style="margin:6px 0 2px">Estimated tax saved</p>
+  <div class="big-number" id="out" aria-live="polite">$0</div>
+  <p class="fine" id="sub"></p>
+</div>
+<p class="note">Qualifying care is for children under 13 or a spouse or dependent who can't care for themselves, so you (and your spouse) can work or look for work. Money left at the end of the plan year can be lost, so don't put in more than you'll spend. Expenses paid with the FSA can't also count toward the Child and Dependent Care Credit. Payroll tax savings stop above the Social Security wage limit. An estimate.</p>
+<h2>FSA or the child care credit?</h2>
+<p>The credit covers up to $3,000 of expenses for one child or $6,000 for two or more. Many families with income above modest levels save more with the FSA, and some can use both on different expenses. A tax professional or your tax software can compare the two for your income.</p>
+<p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var ids = ['cost', 'amt', 'fs', 'br', 'st'], el = {}; ids.forEach(function (i) { el[i] = document.getElementById(i); });
+  function n(i) { var v = parseFloat(el[i].value); return isFinite(v) && v > 0 ? v : 0; }
+  function run() {
+    var limit = +el.fs.value, put = Math.min(n('amt'), limit), used = Math.min(put, n('cost'));
+    var f = used * n('br') / 100, s = used * Math.min(15, n('st')) / 100, p = used * 0.0765;
+    document.getElementById('out').textContent = usd.format(f + s + p);
+    var t = usd.format(f) + ' federal · ' + usd.format(s) + ' state · ' + usd.format(p) + ' Social Security and Medicare';
+    if (n('amt') > limit) t += ' · The limit for your filing status is ' + usd.format(limit);
+    if (put > n('cost')) t += ' · Warning: ' + usd.format(put - n('cost')) + ' more than your care costs could be lost';
+    document.getElementById('sub').textContent = t;
+  }
+  ids.forEach(function (i) { el[i].addEventListener('input', run); }); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>What is the dependent care FSA limit for 2026?</summary><p>$7,500 per household, or $3,750 if married filing separately. The One Big Beautiful Bill Act raised it from $5,000. Employers can keep a lower plan limit.</p></details>
+<details><summary>How much does a dependent care FSA save?</summary><p>Your contribution skips federal income tax, 7.65% Social Security and Medicare tax, and usually state tax. At a 22% bracket and 5% state tax, $7,500 saves about $2,600.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>

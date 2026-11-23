@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rent Split Calculator by Room Size: Fair Rent for Roommates</title>
+<meta name="description" content="Free fair rent calculator for roommates: split rent by bedroom size, with a shared-space share split equally, extras for a private bathroom, and couples sharing a room.">
+<link rel="canonical" href="https://parthdarji.com/tools/rent-split-by-room-calculator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rent split by room size calculator">
+<meta property="og:description" content="Free fair rent calculator for roommates: split rent by bedroom size, with a shared-space share split equally, extras for a private bathroom, and couples sharing a room.">
+<meta property="og:url" content="https://parthdarji.com/tools/rent-split-by-room-calculator">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Rent split by room size calculator",
+   "description": "Free fair rent calculator for roommates: split rent by bedroom size, with a shared-space share split equally, extras for a private bathroom, and couples sharing a room.",
+   "url": "https://parthdarji.com/tools/rent-split-by-room-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do you split rent fairly with different room sizes?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Split part of the rent (often 30-50%) equally for shared space, and the rest in proportion to bedroom size, adding extra for a private bathroom."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How should a couple split rent with roommates?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A common approach: the couple pays their room's share once, plus two people's shares of the common space."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Rent split by room size calculator",
+     "item": "https://parthdarji.com/tools/rent-split-by-room-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Rent split by room size calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p>Bigger rooms and private bathrooms are worth more. This splits a share of the rent equally for common areas and the rest by bedroom size.</p>
+<div class="tool" id="rs">
+  <div class="row">
+    <div class="field"><label for="rent">Total monthly rent ($)</label><input id="rent" type="number" min="0" step="50" value="3000" inputmode="decimal"></div>
+    <div class="field"><label for="com">Part of rent for shared space, split equally (%)</label><input id="com" type="number" min="0" max="100" step="5" value="40" inputmode="decimal"></div>
+    <div class="field"><label for="bath">Private bathroom adds (% of that room's value)</label><input id="bath" type="number" min="0" max="100" step="5" value="20" inputmode="decimal"></div>
+  </div>
+  <h3>Bedrooms</h3>
+  <div id="rooms"></div>
+  <button class="btn ghost" type="button" id="addr">+ Add a room</button>
+  <div class="results" id="res" style="margin-top:14px"></div>
+</div>
+<p class="note">There's no single fair formula. A 30-50% shared-space share is common; adjust it until it feels right to everyone. Couples in one room pay that room's share and two shares of the common space.</p>
+<p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var box = document.getElementById('rooms');
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function row(name, sqft, ppl, bath) {
+    var d = document.createElement('div'); d.className = 'row rm-row';
+    d.innerHTML = '<div class="field"><label>Who</label><input type="search" class="nm" autocomplete="off"></div>' +
+      '<div class="field"><label>Room size (sq ft)</label><input type="number" min="0" class="sz" inputmode="decimal"></div>' +
+      '<div class="field"><label>People in room</label><select class="pp"><option>1</option><option>2</option></select></div>' +
+      '<div class="field"><label>Private bathroom</label><select class="bt"><option value="0">No</option><option value="1">Yes</option></select></div>' +
+      '<div class="field" style="align-self:end"><button type="button" class="chip del">Remove</button></div>';
+    d.querySelector('.nm').value = name; d.querySelector('.sz').value = sqft; d.querySelector('.pp').value = ppl; d.querySelector('.bt').value = bath;
+    d.querySelector('.del').addEventListener('click', function () { if (document.querySelectorAll('.rm-row').length > 1) { d.remove(); run(); } });
+    box.appendChild(d);
+  }
+  row('Alex', 180, 1, 1); row('Sam', 130, 1, 0); row('Jo', 110, 1, 0);
+  document.getElementById('addr').addEventListener('click', function () { row('Roommate', 120, 1, 0); run(); });
+  function n(v) { v = parseFloat(v); return isFinite(v) && v > 0 ? v : 0; }
+  function run() {
+    var rent = n(document.getElementById('rent').value), com = Math.min(100, n(document.getElementById('com').value)) / 100, bath = n(document.getElementById('bath').value) / 100;
+    var rs = [].map.call(document.querySelectorAll('.rm-row'), function (r) {
+      return { name: r.querySelector('.nm').value || 'Room', sz: n(r.querySelector('.sz').value), pp: +r.querySelector('.pp').value, bt: r.querySelector('.bt').value === '1' };
+    });
+    var people = rs.reduce(function (s, r) { return s + r.pp; }, 0) || 1;
+    var w = rs.map(function (r) { return r.sz * (r.bt ? 1 + bath : 1); }), wsum = w.reduce(function (a, b) { return a + b; }, 0);
+    document.getElementById('res').innerHTML = rs.map(function (r, i) {
+      var common = rent * com / people * r.pp, room = rent * (1 - com) * (wsum ? w[i] / wsum : 1 / rs.length), pay = common + room;
+      return '<div class="item"><h3>' + esc(r.name) + ' <span class="badge ok">' + usd.format(pay) + '/mo</span></h3><p>' + usd.format(room) + ' for the room + ' + usd.format(common) + ' shared space' + (r.pp > 1 ? ' · ' + usd.format(pay / r.pp) + ' each' : '') + '</p></div>';
+    }).join('');
+  }
+  document.getElementById('rs').addEventListener('input', run); document.getElementById('rs').addEventListener('change', run); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>How do you split rent fairly with different room sizes?</summary><p>Split part of the rent (often 30-50%) equally for shared space, and the rest in proportion to bedroom size, adding extra for a private bathroom.</p></details>
+<details><summary>How should a couple split rent with roommates?</summary><p>A common approach: the couple pays their room's share once, plus two people's shares of the common space.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>

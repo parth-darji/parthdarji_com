@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Freelance Hourly Rate Calculator: What Should I Charge?</title>
+<meta name="description" content="Free freelance rate calculator: enter your income goal, business costs, taxes, time off and billable hours to find the hourly and day rate you need to charge.">
+<link rel="canonical" href="https://parthdarji.com/tools/freelance-rate-calculator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Freelance hourly rate calculator">
+<meta property="og:description" content="Free freelance rate calculator: enter your income goal, business costs, taxes, time off and billable hours to find the hourly and day rate you need to charge.">
+<meta property="og:url" content="https://parthdarji.com/tools/freelance-rate-calculator">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Freelance hourly rate calculator",
+   "description": "Free freelance rate calculator: enter your income goal, business costs, taxes, time off and billable hours to find the hourly and day rate you need to charge.",
+   "url": "https://parthdarji.com/tools/freelance-rate-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I calculate my freelance hourly rate?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Add your income goal grossed up for taxes plus business costs, then divide by the hours you can actually bill in a year. $70,000 take-home at 30% tax plus $6,000 costs over 25 billable hours a week for 46 weeks is about $93 an hour."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How many billable hours does a freelancer have?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Often 20-30 hours a week, because admin, sales and invoicing take the rest of the working week."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Freelance hourly rate calculator",
+     "item": "https://parthdarji.com/tools/freelance-rate-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Freelance hourly rate calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p>Most freelancers undercharge because they forget taxes, unpaid admin time and time off. Start from the income you want and work backwards.</p>
+<div class="tool" id="fr">
+  <div class="row">
+    <div class="field"><label for="inc">Take-home income you want per year ($)</label><input id="inc" type="number" min="0" step="1000" value="70000" inputmode="decimal"></div>
+    <div class="field"><label for="exp">Business costs per year ($)</label><input id="exp" type="number" min="0" step="500" value="6000" inputmode="decimal"></div>
+    <div class="field"><label for="tax">Total tax rate (%)</label><input id="tax" type="number" min="0" max="70" step="1" value="30" inputmode="decimal"></div>
+    <div class="field"><label for="hrs">Billable hours per week</label><input id="hrs" type="number" min="1" max="80" step="1" value="25" inputmode="decimal"></div>
+    <div class="field"><label for="off">Weeks off per year (vacation, holidays, sick)</label><input id="off" type="number" min="0" max="51" step="1" value="6" inputmode="numeric"></div>
+  </div>
+  <p class="fine" style="margin:6px 0 2px">Minimum hourly rate</p>
+  <div class="big-number" id="out" aria-live="polite">$0</div>
+  <p class="fine" id="sub"></p>
+</div>
+<p class="note">Tax rate: in the US, self-employment tax is 15.3% on most of your profit, plus federal and state income tax, so 25-35% total is common. Billable hours are hours clients pay for; admin, sales and invoicing usually take 25-40% of a working week. An estimate.</p>
+<h2>How it's calculated</h2>
+<p>Revenue needed = (take-home income ÷ (1 − tax rate)) + business costs. Hourly rate = revenue ÷ (billable hours × working weeks). Day rate assumes 8 billable hours.</p>
+<aside class="promo">
+  <img src="/images/apps/punchmate-192.webp" alt="" width="64" height="64" loading="lazy">
+  <div><p><strong>PunchMate</strong> · Track billable hours per project from the Mac menu bar.</p>
+  <a class="btn" href="https://apps.apple.com/app/id6811594421">Get it on the App Store</a></div>
+</aside><p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var ids = ['inc', 'exp', 'tax', 'hrs', 'off'], el = {}; ids.forEach(function (i) { el[i] = document.getElementById(i); });
+  function n(i) { var v = parseFloat(el[i].value); return isFinite(v) && v > 0 ? v : 0; }
+  function run() {
+    var tax = Math.min(90, n('tax')) / 100, rev = n('inc') / (1 - tax) + n('exp'), weeks = Math.max(1, 52 - Math.min(51, n('off'))), hours = n('hrs') * weeks;
+    if (!hours) { document.getElementById('out').textContent = '—'; document.getElementById('sub').textContent = 'Enter billable hours per week.'; return; }
+    var rate = rev / hours;
+    document.getElementById('out').textContent = usd.format(Math.ceil(rate)) + '/hr';
+    document.getElementById('sub').textContent = usd.format(rev) + ' revenue needed · ' + Math.round(hours).toLocaleString('en-US') + ' billable hours a year · ' + usd.format(Math.ceil(rate * 8)) + ' day rate · ' + usd.format(rev / 12) + ' a month';
+  }
+  ids.forEach(function (i) { el[i].addEventListener('input', run); }); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>How do I calculate my freelance hourly rate?</summary><p>Add your income goal grossed up for taxes plus business costs, then divide by the hours you can actually bill in a year. $70,000 take-home at 30% tax plus $6,000 costs over 25 billable hours a week for 46 weeks is about $93 an hour.</p></details>
+<details><summary>How many billable hours does a freelancer have?</summary><p>Often 20-30 hours a week, because admin, sales and invoicing take the rest of the working week.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>
