@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trip Expense Splitter: Who Owes Whom (Free, No App)</title>
+<meta name="description" content="Free trip expense splitter: add who paid for what and who shared it, then see who owes whom in the fewest payments.">
+<link rel="canonical" href="https://parthdarji.com/tools/trip-expense-splitter">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Trip expense splitter">
+<meta property="og:description" content="Free trip expense splitter: add who paid for what and who shared it, then see who owes whom in the fewest payments.">
+<meta property="og:url" content="https://parthdarji.com/tools/trip-expense-splitter">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-trip-expense-splitter.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Trip expense splitter",
+   "description": "Free trip expense splitter: add who paid for what and who shared it, then see who owes whom in the fewest payments.",
+   "url": "https://parthdarji.com/tools/trip-expense-splitter",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do you split trip expenses fairly?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Add every expense with who paid and who it was for. Each person's share is what they owe; subtract it from what they paid. People who paid more than their share get paid back by those who paid less."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I figure out who owes whom?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Work out each person's balance (paid minus share), then match the people who owe with the people who are owed. This tool does that with the fewest payments."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Trip expense splitter",
+     "item": "https://parthdarji.com/tools/trip-expense-splitter"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Trip expense splitter</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p>Add the people, then each expense with who paid and who it was for. You'll get the simplest set of payments to settle up. Nothing is uploaded; use the share link to send the group the same view.</p>
+<div class="tool" id="tx">
+  <div class="field"><label for="ppl">People, one per line</label><textarea id="ppl" rows="4" style="font:inherit;width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text)">Alex
+Sam
+Jordan
+Priya</textarea></div>
+  <h3>Expenses</h3>
+  <div id="exps"></div>
+  <button class="btn ghost" type="button" id="addx">+ Add expense</button>
+  <div class="row" style="margin-top:12px"><div class="field"><label for="cur">Currency</label><select id="cur"><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option><option>INR</option></select></div></div>
+  <p class="fine" style="margin:6px 0 2px">Total spent</p>
+  <div class="big-number" id="tot" aria-live="polite">0</div>
+  <div class="results" id="pay"></div>
+  <div class="results" id="bal" style="margin-top:10px"></div>
+  <div class="cta-row" style="margin-top:14px"><button class="btn" type="button" id="share">Copy share link</button><span class="fine" id="shmsg"></span></div>
+</div>
+<p class="note">"Who it was for" lists the people who share that cost equally. Payments are simplified so the group settles with as few transfers as possible. Your trip is saved in this browser; the share link carries the trip inside the link itself, not on any server.</p>
+<p>Splitting rent or bills at home instead? Try the <a href="/tools/bill-split-by-income-calculator">bill split by income calculator</a>.</p>
+<p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var KEY = 'pd-trip-v1', box = document.getElementById('exps'), ppl = document.getElementById('ppl');
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function names() { var s = {}, out = []; ppl.value.split('\n').forEach(function (x) { x = x.trim(); if (x && !s[x.toLowerCase()]) { s[x.toLowerCase()] = 1; out.push(x); } }); return out; }
+  function row(e) {
+    var d = document.createElement('div'); d.className = 'item ex';
+    d.innerHTML = '<div class="row"><div class="field"><label>What</label><input type="search" class="w" autocomplete="off"></div>' +
+      '<div class="field"><label>Amount</label><input type="number" min="0" step="0.01" class="a" inputmode="decimal"></div>' +
+      '<div class="field"><label>Paid by</label><select class="by"></select></div></div>' +
+      '<div class="field"><label>Who it was for</label><div class="chips fo"></div></div><button type="button" class="chip del">Remove expense</button>';
+    d.querySelector('.w').value = e.w || ''; d.querySelector('.a').value = e.a || ''; d.dataset.by = e.by || ''; d.dataset.fo = JSON.stringify(e.fo || null);
+    d.querySelector('.del').addEventListener('click', function () { d.remove(); run(); });
+    box.appendChild(d);
+  }
+  function sync() {
+    var ns = names();
+    [].forEach.call(document.querySelectorAll('.ex'), function (d) {
+      var sel = d.querySelector('.by'), cur = sel.value || d.dataset.by, fo = d.dataset.fo ? JSON.parse(d.dataset.fo) : null;
+      if (!fo) { fo = ns.slice(); }
+      var chosen = {}; fo.forEach(function (x) { chosen[x] = 1; });
+      sel.innerHTML = ns.map(function (x) { return '<option>' + esc(x) + '</option>'; }).join('');
+      if (ns.indexOf(cur) >= 0) sel.value = cur;
+      var c = d.querySelector('.fo'); c.innerHTML = '';
+      ns.forEach(function (x) {
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.textContent = x; b.setAttribute('aria-pressed', chosen[x] ? 'true' : 'false');
+        b.addEventListener('click', function () { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); save(d); run(); });
+        c.appendChild(b);
+      });
+      save(d);
+    });
+  }
+  function save(d) {
+    d.dataset.by = d.querySelector('.by').value;
+    d.dataset.fo = JSON.stringify([].filter.call(d.querySelectorAll('.fo .chip'), function (b) { return b.getAttribute('aria-pressed') === 'true'; }).map(function (b) { return b.textContent; }));
+  }
+  function state() {
+    return { p: ppl.value, c: document.getElementById('cur').value, e: [].map.call(document.querySelectorAll('.ex'), function (d) {
+      save(d); return { w: d.querySelector('.w').value, a: d.querySelector('.a').value, by: d.dataset.by, fo: JSON.parse(d.dataset.fo || '[]') }; }) };
+  }
+  function enc(o) { return btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
+  function dec(s) { s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '='; return JSON.parse(decodeURIComponent(escape(atob(s)))); }
+  var st = null;
+  if (location.hash.length > 1) { try { st = dec(location.hash.slice(1)); } catch (e) {} }
+  if (!st) { try { st = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {} }
+  if (!st) st = { p: ppl.value, c: 'USD', e: [{ w: 'Cabin', a: 900, by: 'Alex' }, { w: 'Groceries', a: 180, by: 'Sam' }, { w: 'Gas', a: 120, by: 'Jordan', fo: ['Alex', 'Sam', 'Jordan'] }] };
+  ppl.value = st.p; document.getElementById('cur').value = st.c || 'USD';
+  (st.e || []).forEach(row);
+  document.getElementById('addx').addEventListener('click', function () { row({ by: names()[0] }); sync(); run(); });
+  function n(v) { v = parseFloat(v); return isFinite(v) && v > 0 ? v : 0; }
+  function run() {
+    var ns = names(), money = new Intl.NumberFormat('en-US', { style: 'currency', currency: document.getElementById('cur').value });
+    var bal = {}; ns.forEach(function (x) { bal[x] = 0; });
+    var total = 0;
+    [].forEach.call(document.querySelectorAll('.ex'), function (d) {
+      save(d); var a = n(d.querySelector('.a').value), by = d.dataset.by, fo = JSON.parse(d.dataset.fo || '[]').filter(function (x) { return x in bal; });
+      if (!a || !(by in bal) || !fo.length) return;
+      total += a; bal[by] += a; fo.forEach(function (x) { bal[x] -= a / fo.length; });
+    });
+    document.getElementById('tot').textContent = money.format(total);
+    var cr = [], db = [];
+    ns.forEach(function (x) { var v = Math.round(bal[x] * 100) / 100; if (v > 0.004) cr.push([x, v]); else if (v < -0.004) db.push([x, -v]); });
+    cr.sort(function (a, b) { return b[1] - a[1]; }); db.sort(function (a, b) { return b[1] - a[1]; });
+    var pays = [], i = 0, j = 0;
+    while (i < db.length && j < cr.length) {
+      var m = Math.min(db[i][1], cr[j][1]); pays.push([db[i][0], cr[j][0], m]);
+      db[i][1] -= m; cr[j][1] -= m; if (db[i][1] < 0.005) i++; if (cr[j][1] < 0.005) j++;
+    }
+    document.getElementById('pay').innerHTML = pays.length ? '<h3>Payments to settle up</h3>' + pays.map(function (q) {
+      return '<div class="item"><h3>' + esc(q[0]) + ' pays ' + esc(q[1]) + ' <span class="badge ok">' + money.format(q[2]) + '</span></h3></div>'; }).join('') : '<p class="fine">Everyone is settled up.</p>';
+    document.getElementById('bal').innerHTML = ns.map(function (x) { var v = bal[x]; return '<div class="item"><p>' + esc(x) + ': ' + (Math.abs(v) < 0.005 ? 'even' : v > 0 ? 'is owed ' + money.format(v) : 'owes ' + money.format(-v)) + '</p></div>'; }).join('');
+    try { localStorage.setItem(KEY, JSON.stringify(state())); } catch (e) {}
+  }
+  document.getElementById('share').addEventListener('click', function () {
+    var url = location.origin + location.pathname + '#' + enc(state()), m = document.getElementById('shmsg');
+    if (navigator.clipboard) navigator.clipboard.writeText(url).then(function () { m.textContent = 'Link copied. Anyone with it sees this trip.'; }, function () { prompt('Copy this link:', url); });
+    else prompt('Copy this link:', url);
+  });
+  ppl.addEventListener('input', function () { sync(); run(); });
+  var t = document.getElementById('tx'); t.addEventListener('input', function (e) { if (e.target !== ppl) run(); }); t.addEventListener('change', function (e) { if (e.target !== ppl) run(); });
+  sync(); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>How do you split trip expenses fairly?</summary><p>Add every expense with who paid and who it was for. Each person's share is what they owe; subtract it from what they paid. People who paid more than their share get paid back by those who paid less.</p></details>
+<details><summary>How do I figure out who owes whom?</summary><p>Work out each person's balance (paid minus share), then match the people who owe with the people who are owed. This tool does that with the fewest payments.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/random-team-generator">Random team generator</a>
+<a href="/tools/chore-chart-maker">Chore chart maker</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>

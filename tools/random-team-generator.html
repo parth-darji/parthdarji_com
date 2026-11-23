@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Random Team Generator: Split Names into Random Groups</title>
+<meta name="description" content="Free random team generator: paste names, choose the number of teams or people per team, and get fair random groups for class, sports, work or games.">
+<link rel="canonical" href="https://parthdarji.com/tools/random-team-generator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Random team generator">
+<meta property="og:description" content="Free random team generator: paste names, choose the number of teams or people per team, and get fair random groups for class, sports, work or games.">
+<meta property="og:url" content="https://parthdarji.com/tools/random-team-generator">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-random-team-generator.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Random team generator",
+   "description": "Free random team generator: paste names, choose the number of teams or people per team, and get fair random groups for class, sports, work or games.",
+   "url": "https://parthdarji.com/tools/random-team-generator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I split a group into random teams?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Paste the names, choose the number of teams or people per team, and shuffle. Team sizes will differ by at most one."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is the random team generator fair?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. It shuffles with the browser's cryptographically secure random number generator, so every arrangement is equally likely."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Random team generator",
+     "item": "https://parthdarji.com/tools/random-team-generator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Random team generator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p>Paste names, pick how to split them, and shuffle. Shuffle again as many times as you like.</p>
+<div class="tool" id="tg">
+  <div class="field"><label for="nm">Names, one per line</label><textarea id="nm" rows="7" style="font:inherit;width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text)">Ava
+Ben
+Chloe
+Diego
+Emma
+Finn
+Grace
+Hiro
+Isla
+Jack</textarea></div>
+  <div class="row">
+    <div class="field"><label for="mode">Split by</label><select id="mode"><option value="t">Number of teams</option><option value="s">People per team</option></select></div>
+    <div class="field"><label for="k">How many</label><input id="k" type="number" min="1" step="1" value="3" inputmode="numeric"></div>
+  </div>
+  <div class="cta-row"><button class="btn big" type="button" id="go">Make teams</button><button class="btn ghost" type="button" id="cp">Copy teams</button></div>
+  <p class="fine" id="msg" aria-live="polite"></p>
+  <div class="cards" id="teams" style="margin-top:12px"></div>
+</div>
+<p class="note">Teams are as even as possible: sizes differ by at most one person. Shuffling uses your browser's secure random numbers, so no name is favored.</p>
+<p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var last = [];
+  function rnd(n) { var a = new Uint32Array(1); crypto.getRandomValues(a); return a[0] % n; }
+  function go() {
+    var ns = document.getElementById('nm').value.split('\n').map(function (x) { return x.trim(); }).filter(Boolean);
+    var k = Math.max(1, parseInt(document.getElementById('k').value, 10) || 1), msg = document.getElementById('msg');
+    if (ns.length < 2) { msg.textContent = 'Add at least 2 names.'; document.getElementById('teams').innerHTML = ''; return; }
+    var teams = document.getElementById('mode').value === 't' ? Math.min(k, ns.length) : Math.max(1, Math.ceil(ns.length / k));
+    for (var i = ns.length - 1; i > 0; i--) { var j = rnd(i + 1), t = ns[i]; ns[i] = ns[j]; ns[j] = t; }
+    last = []; for (var x = 0; x < teams; x++) last.push([]);
+    ns.forEach(function (name, idx) { last[idx % teams].push(name); });
+    msg.textContent = ns.length + ' people in ' + teams + ' teams';
+    document.getElementById('teams').innerHTML = last.map(function (tm, idx) {
+      return '<div class="card"><span class="tag">Team ' + (idx + 1) + ' · ' + tm.length + '</span><p>' + tm.map(esc).join('<br>') + '</p></div>'; }).join('');
+  }
+  document.getElementById('go').addEventListener('click', go);
+  document.getElementById('cp').addEventListener('click', function () {
+    var txt = last.map(function (tm, i) { return 'Team ' + (i + 1) + ': ' + tm.join(', '); }).join('\n');
+    if (!txt) return;
+    if (navigator.clipboard) navigator.clipboard.writeText(txt).then(function () { document.getElementById('msg').textContent = 'Copied.'; }, function () { prompt('Copy:', txt); });
+    else prompt('Copy:', txt);
+  });
+  go();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>How do I split a group into random teams?</summary><p>Paste the names, choose the number of teams or people per team, and shuffle. Team sizes will differ by at most one.</p></details>
+<details><summary>Is the random team generator fair?</summary><p>Yes. It shuffles with the browser's cryptographically secure random number generator, so every arrangement is equally likely.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/trip-expense-splitter">Trip expense splitter</a>
+<a href="/tools/chore-chart-maker">Chore chart maker</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>

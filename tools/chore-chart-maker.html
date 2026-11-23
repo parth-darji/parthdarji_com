@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chore Chart Maker: Free Printable Weekly Chore Chart</title>
+<meta name="description" content="Free chore chart maker: add family members or roommates and chores, rotate them fairly through the week, and print a clean weekly chore chart or save it as…">
+<link rel="canonical" href="https://parthdarji.com/tools/chore-chart-maker">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chore chart maker">
+<meta property="og:description" content="Free chore chart maker: add family members or roommates and chores, rotate them fairly through the week, and print a clean weekly chore chart or save it as…">
+<meta property="og:url" content="https://parthdarji.com/tools/chore-chart-maker">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-chore-chart-maker.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Chore chart maker",
+   "description": "Free chore chart maker: add family members or roommates and chores, rotate them fairly through the week, and print a clean weekly chore chart or save it as\u2026",
+   "url": "https://parthdarji.com/tools/chore-chart-maker",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I make a fair chore chart?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "List everyone and every chore, then rotate daily chores so each person does each job on different days, and share weekly chores out evenly."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I print the chore chart?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Tap Print or save as PDF; only the chart prints."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Chore chart maker",
+     "item": "https://parthdarji.com/tools/chore-chart-maker"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Chore chart maker</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p class="noprint">Add who's helping and the chores. Choose daily or weekly chores, and the maker rotates them so everyone gets a fair turn. Print it or save it as a PDF for the fridge.</p>
+<div class="tool" id="cc">
+  <div class="noprint">
+    <div class="row">
+      <div class="field"><label for="who">People, one per line</label><textarea id="who" rows="4" style="font:inherit;width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text)">Mia
+Leo
+Zara</textarea></div>
+      <div class="field"><label for="ch">Daily chores, one per line</label><textarea id="ch" rows="4" style="font:inherit;width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text)">Make bed
+Feed the dog
+Set the table
+Dishes</textarea></div>
+    </div>
+    <div class="row">
+      <div class="field"><label for="wch">Once-a-week chores, one per line</label><textarea id="wch" rows="3" style="font:inherit;width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text)">Take out recycling
+Vacuum living room</textarea></div>
+      <div class="field"><label for="title">Chart title</label><input id="title" type="search" value="Our chore chart" autocomplete="off"><label for="wk" style="margin-top:10px">Week of</label><input id="wk" type="date"></div>
+    </div>
+    <div class="cta-row" style="margin:6px 0 18px"><button class="btn" type="button" id="rot">Rotate again</button><button class="btn big" type="button" id="pr">Print or save as PDF</button></div>
+  </div>
+  <div class="doc" id="chart"></div>
+</div>
+<p class="note">Daily chores rotate each day so nobody is stuck with the same one; weekly chores are shared out across people. Tick the boxes when done.</p>
+<p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var off = 0, days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  function lines(id) { return document.getElementById(id).value.split('\n').map(function (x) { return x.trim(); }).filter(Boolean); }
+  function run() {
+    var who = lines('who'), ch = lines('ch'), wch = lines('wch'), wk = document.getElementById('wk').value;
+    var head = '<div class="doc-head"><h3>' + esc(document.getElementById('title').value || 'Chore chart') + '</h3><div class="r">' + (wk ? 'Week of ' + new Date(wk + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '') + '</div></div>';
+    if (!who.length || (!ch.length && !wch.length)) { document.getElementById('chart').innerHTML = head + '<p>Add at least one person and one chore.</p>'; return; }
+    var t = '<table><tr><th>Chore</th>' + days.map(function (d) { return '<th>' + d + '</th>'; }).join('') + '</tr>';
+    ch.forEach(function (c, i) {
+      t += '<tr><td>' + esc(c) + '</td>' + days.map(function (d, di) { return '<td>' + esc(who[(i + di + off) % who.length]) + ' ☐</td>'; }).join('') + '</tr>';
+    });
+    t += '</table>';
+    var w = wch.length ? '<table><tr><th>This week</th><th>Who</th><th>Done</th></tr>' + wch.map(function (c, i) { return '<tr><td>' + esc(c) + '</td><td>' + esc(who[(i + off) % who.length]) + '</td><td>☐</td></tr>'; }).join('') + '</table>' : '';
+    document.getElementById('chart').innerHTML = head + (ch.length ? t : '') + w;
+  }
+  document.getElementById('rot').addEventListener('click', function () { off++; run(); });
+  document.getElementById('pr').addEventListener('click', function () { window.print(); });
+  var c = document.getElementById('cc'); c.addEventListener('input', run); c.addEventListener('change', run); run();
+})();
+</script>
+<style>#chart table { font-size: 12px; } #chart td, #chart th { padding: 6px 4px; } @media (max-width: 520px) { #chart { overflow-x: auto; } }</style>
+<h2>Questions</h2>
+<details><summary>How do I make a fair chore chart?</summary><p>List everyone and every chore, then rotate daily chores so each person does each job on different days, and share weekly chores out evenly.</p></details>
+<details><summary>Can I print the chore chart?</summary><p>Yes. Tap Print or save as PDF; only the chart prints.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/trip-expense-splitter">Trip expense splitter</a>
+<a href="/tools/random-team-generator">Random team generator</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>
