@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Parth Darji — Privacy-First Native Apps & Software</title>
+  <title>Parth Darji: Private, Simple Apps for iPhone and Mac</title>
   <!-- Primary SEO Meta Tags -->
   <meta name="description" content="Privacy-first iPhone and Mac apps by independent developer Parth Darji: ShoeboxHSA, the HSA receipt tracker for the shoebox strategy, and PunchMate. No ads, no trackers, your data stays on your device." />
   <meta name="keywords" content="Parth Darji, ShoeboxHSA, HSA receipt tracker, HSA shoebox strategy, PunchMate, privacy-first apps, iOS, macOS" />
@@ -14,11 +14,9 @@
   <link rel="canonical" href="https://parthdarji.com/" />
 
   <!-- Theme Color & Mobile Browser UI -->
-  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
-  <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)" />
 
-  <!-- Preload Critical Logo -->
-  <link rel="preload" as="image" href="/images/logo.png?v=4" />
 
   <!-- Open Graph & Twitter Cards -->
   <meta property="og:type" content="website" />
@@ -26,7 +24,7 @@
   <meta property="og:site_name" content="Parth Darji" />
   <meta property="og:url" content="https://parthdarji.com/" />
   <meta property="og:title" content="Parth Darji — Privacy-First Native Apps" />
-  <meta property="og:description" content="Software that respects your privacy. 100% on-device compute, zero advertising trackers, and zero telemetry." />
+  <meta property="og:description" content="Simple, private apps for iPhone and Mac by independent developer Parth Darji. No ads, no tracking, no account." />
   <meta property="og:image" content="https://parthdarji.com/images/logo.png" />
   <meta property="og:image:width" content="512" />
   <meta property="og:image:height" content="512" />
@@ -34,7 +32,7 @@
   <meta property="og:image:alt" content="Parth Darji Logo" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Parth Darji — Privacy-First Native Apps" />
-  <meta name="twitter:description" content="Software that respects your privacy. 100% on-device compute, zero advertising trackers, and zero telemetry." />
+  <meta name="twitter:description" content="Simple, private apps for iPhone and Mac by independent developer Parth Darji. No ads, no tracking, no account." />
   <meta name="twitter:image" content="https://parthdarji.com/images/logo.png" />
   <meta name="twitter:image:alt" content="Parth Darji Logo" />
 
@@ -120,263 +118,99 @@
   }
   </script>
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="/src/style.css" />
-
-  <!-- Instant Theme Script -->
-  <script>
-    (function () {
-      const saved = localStorage.getItem("theme") || "dark";
-      document.documentElement.setAttribute("data-theme", saved);
-    })();
-  </script>
+  <link rel="stylesheet" href="/assets/site.css?v=5" />
 </head>
 <body>
-  <div class="ambient-glow"></div>
-
-  <!-- Navigation Bar -->
-  <header class="site-nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-brand" aria-label="Parth Darji Homepage">
-        <img src="/images/logo.png?v=4" alt="Parth Darji Logo" class="brand-logo" width="28" height="28" loading="eager" />
-        <span>Parth Darji</span>
-      </a>
-
-      <div class="nav-links">
-        <a href="/hsa/" class="nav-link">HSA Guides</a>
-        <a href="#privacy" class="nav-link">Privacy & Legal</a>
-        <button id="theme-toggle" class="btn-theme" aria-label="Toggle Theme">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Main Website Content -->
-  <main class="container">
-    
-    <!-- Hero Section (Privacy, Security & Anti-Subscription Positioning) -->
-    <section class="hero">
-      <div class="hero-privacy-pill">
-        <span class="shield-dot"></span>
-        <span>Privacy First · No Ads · No Trackers</span>
-      </div>
-
-      <h1 class="hero-title">
-        <span class="gradient-text">Software designed around your privacy.</span><br />
-        <span class="sub-accent">Your data stays on your device.</span>
-      </h1>
-
-      <!-- Minimalist Value Tags -->
-      <div class="hero-feature-tags">
-        <span class="feature-tag">🔒 On-Device Silicon</span>
-        <span class="feature-tag">🚫 Zero Trackers</span>
-        <span class="feature-tag">👤 No Account Needed</span>
-      </div>
-
-      <!-- Category Filter Pills -->
-      <div class="filter-bar" role="tablist" aria-label="Application Platform Filters">
-        <button class="filter-btn active" data-cat="all" role="tab" aria-selected="true">All (2)</button>
-        <button class="filter-btn" data-cat="macos" role="tab" aria-selected="false">macOS (1)</button>
-        <button class="filter-btn" data-cat="ios" role="tab" aria-selected="false">iOS (1)</button>
-      </div>
-    </section>
-
-    <!-- Minimalist App Icon Grid (SEO Prerendered) -->
-    <section class="apps-section">
-      <h2 class="section-title">Featured Native Applications</h2>
-      <div id="app-icon-grid" class="app-icon-grid">
-        <!-- ShoeboxHSA -->
-        <a class="app-icon-item" href="#shoeboxhsa" aria-label="ShoeboxHSA — Medical receipt & tax vault">
-          <div class="icon-squircle-wrap">
-            <img src="/images/apps/shoeboxhsa.png" alt="ShoeboxHSA App Icon" class="icon-img" width="88" height="88" loading="lazy" decoding="async" />
-          </div>
-          <div class="app-name">ShoeboxHSA</div>
-          <p class="app-tagline">Medical receipt & tax vault</p>
-          <div class="app-card-footer">
-            <span class="app-pill">
-              <span class="badge-dot live"></span>
-              App Store
-            </span>
-            <button class="btn-card-get" data-store-url="https://apps.apple.com/app/id6813872704" aria-label="Get ShoeboxHSA on App Store">Get</button>
-          </div>
-        </a>
-
-        <!-- PunchMate -->
-        <a class="app-icon-item" href="#punchmate" aria-label="PunchMate — Menu bar workday timer">
-          <div class="icon-squircle-wrap">
-            <img src="/images/apps/punchmate.png" alt="PunchMate App Icon" class="icon-img" width="88" height="88" loading="lazy" decoding="async" />
-          </div>
-          <div class="app-name">PunchMate</div>
-          <p class="app-tagline">Menu bar workday timer</p>
-          <div class="app-card-footer">
-            <span class="app-pill">
-              <span class="badge-dot live"></span>
-              Mac App Store
-            </span>
-            <button class="btn-card-get" data-store-url="https://apps.apple.com/app/id6811594421" aria-label="Get PunchMate on Mac App Store">Get</button>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- HSA guides (ShoeboxHSA marketing) -->
-    <section id="hsa-guides" class="privacy-hub">
-      <h2 class="privacy-title">Free HSA Guides &amp; Tools</h2>
-      <div class="legal-grid">
-        <a href="/shoeboxhsa/" class="legal-card">
-          <div class="legal-card-header"><span class="legal-app-badge">ShoeboxHSA</span><span class="legal-arrow">↗</span></div>
-          <div><div class="legal-doc-title">The HSA receipt app</div><div class="legal-doc-sub">Pay now, reimburse yourself later</div></div>
-        </a>
-        <a href="/hsa/shoebox-strategy" class="legal-card">
-          <div class="legal-card-header"><span class="legal-app-badge">Guide</span><span class="legal-arrow">↗</span></div>
-          <div><div class="legal-doc-title">The HSA shoebox strategy</div><div class="legal-doc-sub">How it works, rules and risks</div></div>
-        </a>
-        <a href="/hsa/eligible-expenses" class="legal-card">
-          <div class="legal-card-header"><span class="legal-app-badge">Tool</span><span class="legal-arrow">↗</span></div>
-          <div><div class="legal-doc-title">Is it HSA eligible?</div><div class="legal-doc-sub">Search common expenses</div></div>
-        </a>
-        <a href="/hsa/reimburse-yourself" class="legal-card">
-          <div class="legal-card-header"><span class="legal-app-badge">Guide</span><span class="legal-arrow">↗</span></div>
-          <div><div class="legal-doc-title">Reimburse yourself from your HSA</div><div class="legal-doc-sub">Step by step, even years later</div></div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Privacy & Legal Transparency Section -->
-    <section id="privacy" class="privacy-hub">
-      <h2 class="privacy-title">Official Privacy & Legal Hub</h2>
-
-      <div class="legal-grid">
-        <!-- ShoeboxHSA Privacy -->
-        <a href="/shoeboxhsa-privacy-policy.html" class="legal-card">
-          <div class="legal-card-header">
-            <span class="legal-app-badge">ShoeboxHSA</span>
-            <span class="legal-arrow">↗</span>
-          </div>
-          <div>
-            <div class="legal-doc-title">Privacy Policy</div>
-            <div class="legal-doc-sub">Private Medical Receipt Vault</div>
-          </div>
-        </a>
-
-        <!-- PunchMate Privacy -->
-        <a href="/punchmate-privacy-policy.html" class="legal-card">
-          <div class="legal-card-header">
-            <span class="legal-app-badge">PunchMate</span>
-            <span class="legal-arrow">↗</span>
-          </div>
-          <div>
-            <div class="legal-doc-title">Privacy Policy</div>
-            <div class="legal-doc-sub">100% Local & Encrypted</div>
-          </div>
-        </a>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- App Detail Modal (Inside View with Apple Quick Look Navigation) -->
-  <div id="app-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
-    <button id="modal-prev-btn" class="modal-nav-arrow prev" aria-label="Previous App (Left Arrow)">‹</button>
-    <button id="modal-next-btn" class="modal-nav-arrow next" aria-label="Next App (Right Arrow)">›</button>
-
-    <div class="modal-sheet">
-      <div class="modal-sheet-grabber" aria-hidden="true"></div>
-      <div class="modal-header-actions">
-        <button id="modal-copy-link-btn" class="modal-tool-btn" aria-label="Copy Direct Link to App">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          <span>Copy Link</span>
-        </button>
-        <button id="modal-close-btn" class="modal-close-btn" aria-label="Close Modal (Escape)">✕</button>
-      </div>
-
-      <div class="modal-header">
-        <div class="modal-squircle">
-          <img id="modal-icon" src="" alt="App Icon" width="96" height="96" loading="eager" decoding="async" />
-        </div>
-        <div class="modal-titles">
-          <h2 id="modal-title"></h2>
-          <p id="modal-tagline"></p>
-          <div id="modal-meta-row" class="modal-meta-row"></div>
-        </div>
-      </div>
-
-      <p id="modal-desc" class="modal-desc"></p>
-
-      <!-- Apple Privacy Nutrition Label -->
-      <div class="modal-privacy-callout">
-        <span class="shield">🛡️</span>
-        <span class="text"><strong>Data Not Collected:</strong> This app does not harvest or transmit personal identifiers, browsing history, or tracking analytics.</span>
-      </div>
-
-      <h3 class="modal-features-title">Key Capabilities</h3>
-      <ul id="modal-features-list" class="modal-features-list"></ul>
-
-      <div class="modal-footer">
-        <a id="modal-privacy-link" href="#" class="btn-privacy-link">
-          Privacy Policy
-        </a>
-        <div id="modal-buttons-right" class="modal-buttons-right"></div>
-      </div>
-
-      <div class="modal-quicklook-hint">
-        <span>Quick Look: Use <kbd>←</kbd> <kbd>→</kbd> keys to cycle · <kbd>Esc</kbd> to exit</span>
-      </div>
-    </div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="#apps">Apps</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="#about">About</a>
+    </nav>
   </div>
+</header>
 
-  <!-- Contact Developer Sheet (Anti-Scraping Protected) -->
-  <div id="contact-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="contact-title">
-    <div class="modal-sheet contact-sheet">
-      <div class="modal-sheet-grabber" aria-hidden="true"></div>
-      <button id="contact-close-btn" class="modal-close-btn" aria-label="Close Contact Dialog">✕</button>
-      <div class="contact-header">
-        <div class="contact-icon-wrap">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        </div>
-        <div>
-          <h3 id="contact-title" class="contact-title">Get in Touch</h3>
-          <p class="contact-subtitle">Direct channel for press inquiries, collaboration, and feedback.</p>
-        </div>
+<main id="main">
+  <section class="intro">
+    <div class="wrap">
+      <span class="eyebrow">Independent developer</span>
+      <h1>Simple, private apps that <span class="accent">respect you.</span></h1>
+      <p class="lede">I make focused apps for iPhone and Mac. Your data stays on your device. No ads, no tracking, no account to create.</p>
+      <div class="cta-row">
+        <a class="btn big" href="#apps">See the apps</a>
+        <a class="btn big ghost" href="/hsa/">Free HSA guides</a>
       </div>
-      <div class="contact-actions">
-        <button id="btn-open-mail" class="btn-contact-action primary">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-          <span>Open Email Client</span>
-        </button>
-        <button id="btn-copy-email" class="btn-contact-action secondary">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-          <span>Copy Email Address</span>
-        </button>
-      </div>
-      <p class="contact-anti-spam-note">🛡️ Protected against automated web scrapers</p>
+      <ul class="principles">
+        <li>Data stays on your device</li>
+        <li>No ads or trackers</li>
+        <li>No account needed</li>
+      </ul>
     </div>
-  </div>
+  </section>
 
-  <!-- Toast Notification -->
-  <div id="toast" class="toast-notification" role="status" aria-live="polite">Direct link copied to clipboard</div>
-
-  <!-- Minimalist Footer -->
-  <footer class="container">
-    <div class="site-footer">
-      <div class="footer-meta">
-        <span>© 2026 Parth Darji. All rights reserved.</span>
-        <span>Engineered with radical privacy & security · <a href="/hsa/">HSA guides</a></span>
-      </div>
-      <div class="footer-links">
-        <a href="https://apps.apple.com/developer/id1889125667" target="_blank" rel="noopener noreferrer" class="footer-contact-pill" aria-label="Parth Darji on Apple App Store">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 7.17c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.09.65-2.73 1.4-.56.64-1.05 1.7-1.01 2.74 1.08.08 2.12-.52 2.73-1.27z"/></svg>
-          <span>Apple Developer</span>
+  <section id="apps">
+    <div class="wrap">
+      <div class="section-head"><h2>Apps</h2><p>Each one does one job well.</p></div>
+      <div class="apps">
+        <a class="app" href="/shoeboxhsa/">
+          <img src="/images/apps/shoeboxhsa-192.webp" alt="ShoeboxHSA app icon" width="84" height="84">
+          <div>
+            <span class="tag">iPhone</span>
+            <h3>ShoeboxHSA</h3>
+            <p>Keep every medical receipt and reimburse yourself from your HSA tax-free, even years later.</p>
+            <span class="go">Learn more →</span>
+          </div>
         </a>
-        <button id="contact-trigger-btn" class="footer-contact-pill" aria-label="Contact Developer">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          <span>Contact</span>
-        </button>
+        <a class="app" href="https://apps.apple.com/app/id6811594421">
+          <img src="/images/apps/punchmate-192.webp" alt="PunchMate app icon" width="84" height="84" loading="lazy">
+          <div>
+            <span class="tag">Mac</span>
+            <h3>PunchMate</h3>
+            <p>A menu bar clock for your workday. Punch in, punch out, see your hours by project.</p>
+            <span class="go">View on the Mac App Store →</span>
+          </div>
+        </a>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script type="module" src="/src/main.js"></script>
+  <section>
+    <div class="wrap">
+      <div class="section-head"><h2>Free HSA guides and tools</h2><p>Plain-English answers about Health Savings Accounts, each linked to the IRS source.</p></div>
+      <div class="cards">
+        <a class="card" href="/hsa/shoebox-strategy"><span class="tag">Guide</span><h3>The HSA shoebox strategy</h3><p>Pay now, reimburse yourself tax-free years later.</p></a>
+        <a class="card" href="/hsa/eligible-expenses"><span class="tag">Tool</span><h3>Is it HSA eligible?</h3><p>Search common medical expenses.</p></a>
+        <a class="card" href="/hsa/hsa-tax-savings-calculator"><span class="tag">Tool</span><h3>Tax savings calculator</h3><p>What your HSA contributions save this year.</p></a>
+        <a class="card" href="/hsa/"><span class="tag">All guides</span><h3>Browse all 23 guides</h3><p>Medicare, rollovers, spouse and kids, and more.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <h2>About</h2>
+      <div>
+        <p>I'm Parth Darji, an independent developer. I build small apps that solve one real problem, keep your information on your own device, and don't sell anything about you.</p>
+        <p>Questions or feedback? Every app has a feedback button in Settings, and I read every message.</p>
+        <a class="btn ghost" href="https://apps.apple.com/developer/id1889125667">All apps on the App Store</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/shoeboxhsa/">ShoeboxHSA</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/shoeboxhsa-privacy-policy.html">ShoeboxHSA privacy</a>
+      <a href="/punchmate-privacy-policy.html">PunchMate privacy</a>
+    </nav>
+    <p>© 2026 Parth Darji</p>
+  </div>
+</footer>
 </body>
 </html>
