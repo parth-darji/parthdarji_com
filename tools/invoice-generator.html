@@ -135,6 +135,7 @@ client@example.com</textarea></div>
     <div class="row" style="margin-top:14px">
       <div class="field"><label for="tax">Tax (%)</label><input id="tax" type="number" min="0" max="100" step="0.5" value="0" inputmode="decimal"></div>
       <div class="field"><label for="disc">Discount ($ or amount)</label><input id="disc" type="number" min="0" step="1" value="0" inputmode="decimal"></div>
+      <div class="field"><label for="lfee">Late fee (% per month, optional)</label><input id="lfee" type="number" min="0" max="10" step="0.25" value="" placeholder="e.g. 1.5" inputmode="decimal"></div>
     </div>
     <div class="field"><label for="notes">Notes or payment details</label><textarea id="notes" rows="3" style="font:inherit;width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text)">Thank you for your business. Payment due within 14 days.</textarea></div>
     <div class="cta-row" style="margin:6px 0 20px">
@@ -152,7 +153,7 @@ client@example.com</textarea></div>
 <li>Tax, discounts and the total due, with a due date</li>
 <li>How to pay: bank details, payment link or address</li>
 </ul>
-<p>Billing by the hour? Add up your week with the <a href="/tools/time-card-calculator">time card calculator</a>, and check your price with the <a href="/tools/freelance-rate-calculator">freelance rate calculator</a>.</p>
+<p>Billing by the hour? Add up your week with the <a href="/tools/time-card-calculator">time card calculator</a>, and check your price with the <a href="/tools/freelance-rate-calculator">freelance rate calculator</a>. Paid late? Use the <a href="/tools/late-fee-calculator">late fee calculator</a>.</p>
 <aside class="promo">
   <img src="/images/apps/punchmate-192.webp" alt="" width="64" height="64" loading="lazy">
   <div><p><strong>PunchMate</strong> · Track billable hours per client from the Mac menu bar, then invoice them here.</p>
@@ -178,7 +179,7 @@ client@example.com</textarea></div>
   var today = new Date(), iso = function (d) { return new Date(d.getTime() - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10); };
   function init(s) {
     box.innerHTML = '';
-    ['from', 'to', 'num', 'cur', 'tax', 'disc', 'notes'].forEach(function (k) { if (s && s[k] != null) document.getElementById(k).value = s[k]; });
+    ['from', 'to', 'num', 'cur', 'tax', 'disc', 'lfee', 'notes'].forEach(function (k) { if (s && s[k] != null) document.getElementById(k).value = s[k]; });
     document.getElementById('date').value = (s && s.date) || iso(today);
     document.getElementById('due').value = (s && s.due) || iso(new Date(today.getTime() + 14 * 864e5));
     ((s && s.items) || [['Design work', 10, 75], ['Revisions', 2, 75]]).forEach(function (i) { row(i[0], i[1], i[2]); });
@@ -202,14 +203,14 @@ client@example.com</textarea></div>
       '<table><tr><th>Description</th><th class="r">Qty</th><th class="r">Rate</th><th class="r">Amount</th></tr>' + rows + '</table>' +
       '<div class="r">Subtotal: ' + money.format(sub) + (disc ? '<br>Discount: −' + money.format(disc) : '') + (tax ? '<br>Tax (' + n(g('tax')) + '%): ' + money.format(tax) : '') +
       '<div class="doc-total">Total due: ' + money.format(total) + '</div></div>' +
-      (g('notes') ? '<p style="margin-top:18px">' + esc(g('notes')).replace(/\n/g, '<br>') + '</p>' : '');
-    try { localStorage.setItem(KEY, JSON.stringify({ from: g('from'), to: g('to'), num: g('num'), date: g('date'), due: g('due'), cur: cur, tax: g('tax'), disc: g('disc'), notes: g('notes'), items: items })); } catch (e) {}
+      (n(g('lfee')) ? '<p style="margin-top:14px">Late payments: ' + n(g('lfee')) + '% per month on overdue balances after the due date.</p>' : '') + (g('notes') ? '<p style="margin-top:18px">' + esc(g('notes')).replace(/\n/g, '<br>') + '</p>' : '');
+    try { localStorage.setItem(KEY, JSON.stringify({ from: g('from'), to: g('to'), num: g('num'), date: g('date'), due: g('due'), cur: cur, tax: g('tax'), disc: g('disc'), lfee: g('lfee'), notes: g('notes'), items: items })); } catch (e) {}
   }
   var inv = document.getElementById('inv'); inv.addEventListener('input', run); inv.addEventListener('change', run); run();
 })();
 </script>
 <h2>Related free tools</h2>
-<div class="cards"><a class="card" href="/tools/time-card-calculator"><h3>Time card calculator</h3><p>Add up hours for the week with breaks, rounding and overtime pay.</p></a><a class="card" href="/tools/freelance-rate-calculator"><h3>Freelance hourly rate calculator</h3><p>The hourly rate you need to reach your income goal.</p></a><a class="card" href="/tools/pto-planner"><h3>PTO and long weekend planner</h3><p>Turn your vacation days into the longest breaks around holidays.</p></a><a class="card" href="/tools/secret-santa-generator"><h3>Secret Santa generator</h3><p>Draw names with no sign-up, couples excluded, private reveal links.</p></a></div>
+<div class="cards"><a class="card" href="/tools/time-card-calculator"><h3>Time card calculator</h3><p>Add up hours for the week with breaks, rounding and overtime pay.</p></a><a class="card" href="/tools/freelance-rate-calculator"><h3>Freelance hourly rate calculator</h3><p>The hourly rate you need to reach your income goal.</p></a><a class="card" href="/tools/late-fee-calculator"><h3>Invoice late fee calculator</h3><p>Interest and late fees on an overdue invoice.</p></a><a class="card" href="/tools/meeting-cost-calculator"><h3>Meeting cost calculator</h3><p>What a meeting costs, with a live running timer.</p></a></div>
 <h2>Questions</h2>
 <details><summary>How do I make an invoice for free?</summary><p>Enter your details, your client's details and each item with quantity and rate, then download it as a PDF. No account is needed and nothing is uploaded.</p></details>
 <details><summary>What should an invoice include?</summary><p>Your and your client's details, a unique invoice number, the date, each item with quantity, rate and amount, tax, the total due, the due date and how to pay.</p></details>
@@ -243,6 +244,10 @@ client@example.com</textarea></div>
 <a href="/tools/trip-expense-splitter">Trip expense splitter</a>
 <a href="/tools/random-team-generator">Random team generator</a>
 <a href="/tools/chore-chart-maker">Chore chart maker</a>
+<a href="/tools/late-fee-calculator">Invoice late fee calculator</a>
+<a href="/tools/unit-price-calculator">Unit price comparison</a>
+<a href="/tools/sinking-fund-calculator">Sinking fund planner</a>
+<a href="/tools/meeting-cost-calculator">Meeting cost calculator</a>
       <a href="/hsa/">HSA guides</a>
       <a href="/">Home</a>
     </nav>

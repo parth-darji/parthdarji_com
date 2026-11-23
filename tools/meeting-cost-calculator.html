@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meeting Cost Calculator with Live Timer</title>
+<meta name="description" content="Free meeting cost calculator: enter attendees and pay to see what a meeting costs per minute, per meeting and per year, and run a live timer that shows the…">
+<link rel="canonical" href="https://parthdarji.com/tools/meeting-cost-calculator">
+
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Meeting cost calculator">
+<meta property="og:description" content="Free meeting cost calculator: enter attendees and pay to see what a meeting costs per minute, per meeting and per year, and run a live timer that shows the…">
+<meta property="og:url" content="https://parthdarji.com/tools/meeting-cost-calculator">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-meeting-cost-calculator.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Meeting cost calculator",
+   "description": "Free meeting cost calculator: enter attendees and pay to see what a meeting costs per minute, per meeting and per year, and run a live timer that shows the\u2026",
+   "url": "https://parthdarji.com/tools/meeting-cost-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do you calculate the cost of a meeting?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Attendees \u00d7 average hourly pay (plus overhead) \u00d7 hours. Six people at $85,000 a year with 30% overhead cost about $319 for a one-hour meeting."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much do weekly meetings cost a year?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The cost of one meeting times 52. A $319 weekly meeting costs about $16,600 a year."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Meeting cost calculator",
+     "item": "https://parthdarji.com/tools/meeting-cost-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Meeting cost calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<div class="tool" id="mc">
+  <div class="row">
+    <div class="field"><label for="ppl">People in the meeting</label><input id="ppl" type="number" min="1" step="1" value="6" inputmode="numeric"></div>
+    <div class="field"><label for="pay">Average pay</label><input id="pay" type="number" min="0" step="1000" value="85000" inputmode="decimal"></div>
+    <div class="field"><label for="per">Pay is per</label><select id="per"><option value="y">Year</option><option value="h">Hour</option></select></div>
+    <div class="field"><label for="ovh">Add for benefits and overhead (%)</label><input id="ovh" type="number" min="0" max="200" step="5" value="30" inputmode="decimal"></div>
+    <div class="field"><label for="len">Length (minutes)</label><input id="len" type="number" min="1" step="5" value="60" inputmode="numeric"></div>
+    <div class="field"><label for="freq">How often</label><select id="freq"><option value="1">Once</option><option value="52" selected>Weekly</option><option value="26">Every 2 weeks</option><option value="12">Monthly</option><option value="250">Daily (workdays)</option></select></div>
+  </div>
+  <p class="fine" style="margin:6px 0 2px">Cost of one meeting</p>
+  <div class="big-number" id="out" aria-live="polite">$0</div>
+  <p class="fine" id="sub"></p>
+  <h3>Live meeting timer</h3>
+  <div class="big-number" id="live" aria-live="off">$0.00</div>
+  <p class="fine" id="clock">0:00</p>
+  <div class="cta-row"><button class="btn" type="button" id="start">Start</button><button class="btn ghost" type="button" id="reset">Reset</button></div>
+</div>
+<p class="note">Yearly pay is converted at 2,080 working hours. Overhead covers benefits, payroll taxes and office costs; 25–40% is a common rough figure. Prep and follow-up time aren't included.</p>
+<h2>Make meetings cheaper</h2>
+<ul><li>Invite only people who need to decide or contribute; share notes with the rest.</li><li>Default to 25 or 50 minutes instead of 30 or 60.</li><li>Send the agenda first, and end early when it's done.</li></ul>
+<aside class="promo">
+  <img src="/images/apps/punchmate-192.webp" alt="" width="64" height="64" loading="lazy">
+  <div><p><strong>PunchMate</strong> · See where your work hours really go, meetings included, from the Mac menu bar.</p>
+  <a class="btn" href="https://apps.apple.com/app/id6811594421">Get it for Mac</a> <span class="fine" style="margin-left:8px">Free to try · No account</span></div>
+</aside><p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var usd2 = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  var ids = ['ppl', 'pay', 'per', 'ovh', 'len', 'freq'], el = {}; ids.forEach(function (i) { el[i] = document.getElementById(i); });
+  function n(i) { var v = parseFloat(el[i].value); return isFinite(v) && v > 0 ? v : 0; }
+  function perSec() { var hr = el.per.value === 'y' ? n('pay') / 2080 : n('pay'); return hr * (1 + n('ovh') / 100) * Math.max(1, Math.round(n('ppl'))) / 3600; }
+  function run() {
+    var ps = perSec(), one = ps * 60 * n('len'), f = +el.freq.value;
+    document.getElementById('out').textContent = usd.format(one);
+    document.getElementById('sub').textContent = usd2.format(ps * 60) + ' per minute' + (f > 1 ? ' · ' + usd.format(one * f) + ' a year at this schedule (' + Math.round(n('len') * f / 60 * Math.max(1, Math.round(n('ppl')))) + ' people-hours)' : '');
+  }
+  var t0 = null, acc = 0, timer = null, btn = document.getElementById('start');
+  function tick() { var s = acc + (t0 ? (Date.now() - t0) / 1000 : 0); document.getElementById('live').textContent = usd2.format(s * perSec()); document.getElementById('clock').textContent = Math.floor(s / 60) + ':' + ('0' + Math.floor(s % 60)).slice(-2); }
+  btn.addEventListener('click', function () {
+    if (t0) { acc += (Date.now() - t0) / 1000; t0 = null; clearInterval(timer); btn.textContent = 'Resume'; }
+    else { t0 = Date.now(); timer = setInterval(tick, 250); btn.textContent = 'Pause'; }
+    tick();
+  });
+  document.getElementById('reset').addEventListener('click', function () { acc = 0; t0 = null; clearInterval(timer); btn.textContent = 'Start'; tick(); });
+  ids.forEach(function (i) { el[i].addEventListener('input', function () { run(); tick(); }); el[i].addEventListener('change', function () { run(); tick(); }); }); run(); tick();
+})();
+</script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/invoice-generator"><h3>Free invoice generator</h3><p>Make a clean PDF invoice in a minute. No sign-up.</p></a><a class="card" href="/tools/time-card-calculator"><h3>Time card calculator</h3><p>Add up hours for the week with breaks, rounding and overtime pay.</p></a><a class="card" href="/tools/freelance-rate-calculator"><h3>Freelance hourly rate calculator</h3><p>The hourly rate you need to reach your income goal.</p></a><a class="card" href="/tools/late-fee-calculator"><h3>Invoice late fee calculator</h3><p>Interest and late fees on an overdue invoice.</p></a></div>
+<h2>Questions</h2>
+<details><summary>How do you calculate the cost of a meeting?</summary><p>Attendees × average hourly pay (plus overhead) × hours. Six people at $85,000 a year with 30% overhead cost about $319 for a one-hour meeting.</p></details>
+<details><summary>How much do weekly meetings cost a year?</summary><p>The cost of one meeting times 52. A $319 weekly meeting costs about $16,600 a year.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/trip-expense-splitter">Trip expense splitter</a>
+<a href="/tools/random-team-generator">Random team generator</a>
+<a href="/tools/chore-chart-maker">Chore chart maker</a>
+<a href="/tools/late-fee-calculator">Invoice late fee calculator</a>
+<a href="/tools/unit-price-calculator">Unit price comparison</a>
+<a href="/tools/sinking-fund-calculator">Sinking fund planner</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
+</body>
+</html>

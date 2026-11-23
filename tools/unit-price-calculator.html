@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unit Price Calculator: Compare Prices per Ounce, Pound or Item</title>
+<meta name="description" content="Free unit price calculator: compare up to 6 products in different sizes and units (oz, lb, g, kg, ml, L, fl oz, count) and see which is cheapest per unit…">
+<link rel="canonical" href="https://parthdarji.com/tools/unit-price-calculator">
+
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Unit price comparison">
+<meta property="og:description" content="Free unit price calculator: compare up to 6 products in different sizes and units (oz, lb, g, kg, ml, L, fl oz, count) and see which is cheapest per unit…">
+<meta property="og:url" content="https://parthdarji.com/tools/unit-price-calculator">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-unit-price-calculator.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Unit price comparison",
+   "description": "Free unit price calculator: compare up to 6 products in different sizes and units (oz, lb, g, kg, ml, L, fl oz, count) and see which is cheapest per unit\u2026",
+   "url": "https://parthdarji.com/tools/unit-price-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do you calculate unit price?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Divide the price by the size in a common unit. $5.99 for 24 oz is $0.25 per ounce; compare that with other sizes or brands in the same unit."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is buying in bulk always cheaper?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Often but not always; compare unit prices, since sales and store brands can make smaller packs cheaper, and only buy what you'll use."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Unit price comparison",
+     "item": "https://parthdarji.com/tools/unit-price-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Unit price comparison</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p>Bigger isn't always cheaper. Enter price and size for each option; units are converted automatically so you can compare grams with ounces.</p>
+<div class="tool" id="up">
+  <div class="row"><div class="field"><label for="basis">Compare per</label><select id="basis"><option value="w">Weight (per oz and per 100 g)</option><option value="v">Volume (per fl oz and per 100 ml)</option><option value="c">Count (per item)</option></select></div></div>
+  <div id="rows"></div>
+  <button class="btn ghost" type="button" id="add">+ Add option</button>
+  <div class="results" id="res" style="margin-top:14px"></div>
+</div>
+<p class="note">Check the shelf tag too: stores often show unit prices, but sometimes in different units for different brands. A bigger pack only saves money if you'll use it before it expires.</p>
+<p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var U = { w: [['oz', 1], ['lb', 16], ['g', 1 / 28.3495], ['kg', 1000 / 28.3495]], v: [['fl oz', 1], ['ml', 1 / 29.5735], ['L', 1000 / 29.5735], ['gal', 128], ['qt', 32]], c: [['items', 1]] };
+  var box = document.getElementById('rows'), basis = document.getElementById('basis');
+  function row(name, price, size, unit) {
+    var d = document.createElement('div'); d.className = 'row up';
+    d.innerHTML = '<div class="field"><label>Option</label><input type="search" class="nm" autocomplete="off"></div><div class="field"><label>Price ($)</label><input type="number" min="0" step="0.01" class="pr" inputmode="decimal"></div>' +
+      '<div class="field"><label>Size</label><input type="number" min="0" step="0.01" class="sz" inputmode="decimal"></div><div class="field"><label>Unit</label><select class="un"></select></div>' +
+      '<div class="field" style="align-self:end"><button type="button" class="chip del">Remove</button></div>';
+    d.querySelector('.nm').value = name; d.querySelector('.pr').value = price; d.querySelector('.sz').value = size; d.dataset.u = unit || '';
+    d.querySelector('.del').addEventListener('click', function () { if (document.querySelectorAll('.up').length > 2) { d.remove(); run(); } });
+    box.appendChild(d); fill(d);
+  }
+  function fill(d) { var s = d.querySelector('.un'), cur = s.value || d.dataset.u; s.innerHTML = U[basis.value].map(function (u) { return '<option>' + u[0] + '</option>'; }).join(''); if (U[basis.value].some(function (u) { return u[0] === cur; })) s.value = cur; }
+  row('Small jar', 3.49, 12, 'oz'); row('Big jar', 5.99, 24, 'oz'); row('Store brand', 4.29, 680, 'g');
+  basis.addEventListener('change', function () { [].forEach.call(document.querySelectorAll('.up'), fill); run(); });
+  document.getElementById('add').addEventListener('click', function () { if (document.querySelectorAll('.up').length < 6) { row('Option ' + (document.querySelectorAll('.up').length + 1), '', '', ''); run(); } });
+  function n(v) { v = parseFloat(v); return isFinite(v) && v > 0 ? v : 0; }
+  function run() {
+    var b = basis.value, f = {}; U[b].forEach(function (u) { f[u[0]] = u[1]; });
+    var it = [].map.call(document.querySelectorAll('.up'), function (d) {
+      var base = n(d.querySelector('.sz').value) * (f[d.querySelector('.un').value] || 0), pr = n(d.querySelector('.pr').value);
+      return { nm: d.querySelector('.nm').value || 'Option', per: base && pr ? pr / base : null };
+    });
+    var ok = it.filter(function (x) { return x.per; }); if (!ok.length) { document.getElementById('res').innerHTML = '<p class="fine">Enter a price and size.</p>'; return; }
+    var best = Math.min.apply(null, ok.map(function (x) { return x.per; }));
+    var fmt = function (v) { return b === 'w' ? '$' + v.toFixed(3) + '/oz · $' + (v / 28.3495 * 100).toFixed(2) + '/100 g' : b === 'v' ? '$' + v.toFixed(3) + '/fl oz · $' + (v / 29.5735 * 100).toFixed(2) + '/100 ml' : '$' + v.toFixed(2) + ' each'; };
+    document.getElementById('res').innerHTML = it.map(function (x) {
+      if (!x.per) return '<div class="item"><p>' + esc(x.nm) + ': enter price and size</p></div>';
+      var pct = (x.per / best - 1) * 100;
+      return '<div class="item"><h3>' + esc(x.nm) + (x.per === best ? ' <span class="badge ok">Best price</span>' : ' <span class="badge lmn">' + pct.toFixed(0) + '% more</span>') + '</h3><p>' + fmt(x.per) + '</p></div>';
+    }).join('');
+  }
+  document.getElementById('up').addEventListener('input', run); document.getElementById('up').addEventListener('change', run); run();
+})();
+</script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/holiday-gift-budget-calculator"><h3>Holiday gift budget calculator</h3><p>Plan gifts per person and holiday extras, and see how much to save each week.</p></a><a class="card" href="/tools/trip-expense-splitter"><h3>Trip expense splitter</h3><p>Who owes whom after a trip or group dinner, in the fewest payments.</p></a><a class="card" href="/tools/bill-split-by-income-calculator"><h3>Bill split by income calculator</h3><p>Split shared bills fairly by each person's income.</p></a><a class="card" href="/tools/rent-split-by-room-calculator"><h3>Rent split by room size calculator</h3><p>Split rent fairly between roommates by room size.</p></a></div>
+<h2>Questions</h2>
+<details><summary>How do you calculate unit price?</summary><p>Divide the price by the size in a common unit. $5.99 for 24 oz is $0.25 per ounce; compare that with other sizes or brands in the same unit.</p></details>
+<details><summary>Is buying in bulk always cheaper?</summary><p>Often but not always; compare unit prices, since sales and store brands can make smaller packs cheaper, and only buy what you'll use.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/trip-expense-splitter">Trip expense splitter</a>
+<a href="/tools/random-team-generator">Random team generator</a>
+<a href="/tools/chore-chart-maker">Chore chart maker</a>
+<a href="/tools/late-fee-calculator">Invoice late fee calculator</a>
+<a href="/tools/sinking-fund-calculator">Sinking fund planner</a>
+<a href="/tools/meeting-cost-calculator">Meeting cost calculator</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
+</body>
+</html>

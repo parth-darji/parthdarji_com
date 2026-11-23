@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sinking Fund Calculator: Plan Monthly Savings for Several Goals</title>
+<meta name="description" content="Free sinking fund planner: add goals like car repairs, holidays, insurance or a new phone with amounts and dates, and see how much to save each month for…">
+<link rel="canonical" href="https://parthdarji.com/tools/sinking-fund-calculator">
+
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sinking fund planner">
+<meta property="og:description" content="Free sinking fund planner: add goals like car repairs, holidays, insurance or a new phone with amounts and dates, and see how much to save each month for…">
+<meta property="og:url" content="https://parthdarji.com/tools/sinking-fund-calculator">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-sinking-fund-calculator.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Sinking fund planner",
+   "description": "Free sinking fund planner: add goals like car repairs, holidays, insurance or a new phone with amounts and dates, and see how much to save each month for\u2026",
+   "url": "https://parthdarji.com/tools/sinking-fund-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is a sinking fund?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Money you save a little at a time for a known future cost, like car repairs, insurance or holidays, so you don't need a credit card when the bill comes."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I calculate how much to save for a sinking fund?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Subtract what you've saved from the goal and divide by the months until you need it. $1,200 due in 12 months with $200 saved is about $83 a month."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Sinking fund planner",
+     "item": "https://parthdarji.com/tools/sinking-fund-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Sinking fund planner</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p>A sinking fund is money you set aside each month for a cost you know is coming, so it never surprises you. Add every goal; the planner splits it into monthly amounts. Your list stays in this browser.</p>
+<div class="tool" id="sf">
+  <div id="goals"></div>
+  <button class="btn ghost" type="button" id="add">+ Add goal</button>
+  <p class="fine" style="margin:14px 0 2px">Save each month</p>
+  <div class="big-number" id="out" aria-live="polite">$0</div>
+  <p class="fine" id="sub"></p>
+  <div class="results" id="res"></div>
+</div>
+<p class="note">Monthly amount = (goal − already saved) ÷ months left, counting the current month. Interest is ignored, so a savings account only helps. Review the list when your plans change.</p>
+<p>Planning gifts? Use the <a href="/tools/holiday-gift-budget-calculator">holiday gift budget calculator</a>.</p>
+<p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var KEY = 'pd-sinking-v1', box = document.getElementById('goals');
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var now = new Date(), ym = function (y, m) { return y + '-' + ('0' + (m + 1)).slice(-2); };
+  function row(g) {
+    var d = document.createElement('div'); d.className = 'row gl';
+    d.innerHTML = '<div class="field"><label>Goal</label><input type="search" class="nm" autocomplete="off"></div><div class="field"><label>Amount ($)</label><input type="number" min="0" step="50" class="am" inputmode="decimal"></div>' +
+      '<div class="field"><label>Already saved ($)</label><input type="number" min="0" step="50" class="sv" inputmode="decimal"></div><div class="field"><label>Needed by</label><input type="month" class="by"></div>' +
+      '<div class="field" style="align-self:end"><button type="button" class="chip del">Remove</button></div>';
+    d.querySelector('.nm').value = g[0]; d.querySelector('.am').value = g[1]; d.querySelector('.sv').value = g[2]; d.querySelector('.by').value = g[3];
+    d.querySelector('.del').addEventListener('click', function () { d.remove(); run(); });
+    box.appendChild(d);
+  }
+  var st = null; try { st = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+  (st || [['Car repairs and tires', 1200, 200, ym(now.getFullYear() + 1, now.getMonth())], ['Holidays next year', 900, 0, ym(now.getFullYear() + 1, 10)], ['Car insurance (yearly)', 1500, 300, ym(now.getFullYear() + 1, 3)]]).forEach(row);
+  document.getElementById('add').addEventListener('click', function () { row(['', '', '', ym(now.getFullYear() + 1, now.getMonth())]); run(); });
+  function n(v) { v = parseFloat(v); return isFinite(v) && v > 0 ? v : 0; }
+  function run() {
+    var total = 0, need = 0, rows = [], save = [];
+    [].forEach.call(document.querySelectorAll('.gl'), function (d) {
+      var nm = d.querySelector('.nm').value, am = n(d.querySelector('.am').value), sv = n(d.querySelector('.sv').value), by = d.querySelector('.by').value;
+      save.push([nm, d.querySelector('.am').value, d.querySelector('.sv').value, by]);
+      if (!am) return;
+      var p = by.split('-'), months = by ? (+p[0] - now.getFullYear()) * 12 + (+p[1] - 1 - now.getMonth()) + 1 : 0, left = Math.max(0, am - sv);
+      var per = months > 0 ? left / months : left; total += months > 0 ? per : 0; need += left;
+      rows.push('<div class="item"><h3>' + esc(nm || 'Goal') + ' <span class="badge ' + (months > 0 ? 'ok' : 'no') + '">' + (months > 0 ? usd.format(per) + '/mo' : 'Due now') + '</span></h3><p>' + usd.format(left) + ' to go' + (months > 0 ? ' over ' + months + (months === 1 ? ' month' : ' months') : ' · the date has passed or is this month') + ' · ' + Math.round(sv / am * 100) + '% saved</p></div>');
+    });
+    document.getElementById('out').textContent = usd.format(total);
+    document.getElementById('sub').textContent = usd.format(need) + ' still to save across ' + rows.length + (rows.length === 1 ? ' goal' : ' goals') + ' · about ' + usd.format(total * 12 / 26) + ' per biweekly paycheck';
+    document.getElementById('res').innerHTML = rows.join('');
+    try { localStorage.setItem(KEY, JSON.stringify(save)); } catch (e) {}
+  }
+  document.getElementById('sf').addEventListener('input', run); document.getElementById('sf').addEventListener('change', run); run();
+})();
+</script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/holiday-gift-budget-calculator"><h3>Holiday gift budget calculator</h3><p>Plan gifts per person and holiday extras, and see how much to save each week.</p></a><a class="card" href="/tools/trip-expense-splitter"><h3>Trip expense splitter</h3><p>Who owes whom after a trip or group dinner, in the fewest payments.</p></a><a class="card" href="/tools/bill-split-by-income-calculator"><h3>Bill split by income calculator</h3><p>Split shared bills fairly by each person's income.</p></a><a class="card" href="/tools/rent-split-by-room-calculator"><h3>Rent split by room size calculator</h3><p>Split rent fairly between roommates by room size.</p></a></div>
+<h2>Questions</h2>
+<details><summary>What is a sinking fund?</summary><p>Money you save a little at a time for a known future cost, like car repairs, insurance or holidays, so you don't need a credit card when the bill comes.</p></details>
+<details><summary>How do I calculate how much to save for a sinking fund?</summary><p>Subtract what you've saved from the goal and divide by the months until you need it. $1,200 due in 12 months with $200 saved is about $83 a month.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/trip-expense-splitter">Trip expense splitter</a>
+<a href="/tools/random-team-generator">Random team generator</a>
+<a href="/tools/chore-chart-maker">Chore chart maker</a>
+<a href="/tools/late-fee-calculator">Invoice late fee calculator</a>
+<a href="/tools/unit-price-calculator">Unit price comparison</a>
+<a href="/tools/meeting-cost-calculator">Meeting cost calculator</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
+</body>
+</html>
