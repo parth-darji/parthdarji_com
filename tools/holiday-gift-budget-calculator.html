@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Holiday Gift Budget Calculator: Plan Christmas Gifts and Spending</title>
+<meta name="description" content="Free holiday budget calculator: list everyone you&#x27;re buying for, add food, decorations, travel and shipping, and see your total and how much to save each week until the holiday.">
+<link rel="canonical" href="https://parthdarji.com/tools/holiday-gift-budget-calculator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Holiday gift budget calculator">
+<meta property="og:description" content="Free holiday budget calculator: list everyone you&#x27;re buying for, add food, decorations, travel and shipping, and see your total and how much to save each week until the holiday.">
+<meta property="og:url" content="https://parthdarji.com/tools/holiday-gift-budget-calculator">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Holiday gift budget calculator",
+   "description": "Free holiday budget calculator: list everyone you're buying for, add food, decorations, travel and shipping, and see your total and how much to save each week until the holiday.",
+   "url": "https://parthdarji.com/tools/holiday-gift-budget-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How much should I spend on Christmas gifts?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Start from what you can pay without debt, then split it across people. Many people set a per-person cap and budget 20-40% extra for food, wrapping and shipping."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I make a holiday budget?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "List everyone you buy for with an amount, add extras like food, decorations, travel and shipping, compare the total to what you can afford, and save a set amount each week until the holiday."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Holiday gift budget calculator",
+     "item": "https://parthdarji.com/tools/holiday-gift-budget-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Holiday gift budget calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p>Add everyone you're buying for and the extras that sneak up on you. You'll see the total and how much to set aside each week. Your list stays in this browser.</p>
+<div class="tool" id="hb">
+  <h3 style="margin-top:0">Gifts</h3>
+  <div id="people"></div>
+  <button class="btn ghost" type="button" id="add">+ Add a person</button>
+  <h3>Extras</h3>
+  <div class="row">
+    <div class="field"><label for="x-food">Food and hosting ($)</label><input id="x-food" class="x" type="number" min="0" value="150" inputmode="decimal"></div>
+    <div class="field"><label for="x-dec">Decorations ($)</label><input id="x-dec" class="x" type="number" min="0" value="50" inputmode="decimal"></div>
+    <div class="field"><label for="x-trav">Travel ($)</label><input id="x-trav" class="x" type="number" min="0" value="0" inputmode="decimal"></div>
+    <div class="field"><label for="x-ship">Cards, wrapping, shipping ($)</label><input id="x-ship" class="x" type="number" min="0" value="40" inputmode="decimal"></div>
+  </div>
+  <div class="row">
+    <div class="field"><label for="limit">Your total budget ($, optional)</label><input id="limit" type="number" min="0" value="" placeholder="e.g. 800" inputmode="decimal"></div>
+    <div class="field"><label for="day">Holiday date</label><input id="day" type="date"></div>
+  </div>
+  <p class="fine" style="margin:6px 0 2px">Total holiday spending</p>
+  <div class="big-number" id="total" aria-live="polite">$0</div>
+  <p class="fine" id="sub"></p>
+</div>
+<h2>Tips that actually help</h2>
+<ul>
+<li><strong>Set the total first,</strong> then split it across people. It's easier to stick to one number than to twenty.</li>
+<li><strong>Don't forget the extras.</strong> Food, wrapping and shipping often add 20-40% on top of gifts.</li>
+<li><strong>Pay cash or debit</strong> if you can. Holiday spending on a credit card at 20%+ interest can cost you for months.</li>
+<li><strong>Agree on limits</strong> with family: a gift exchange or a price cap per person saves everyone money.</li>
+</ul>
+<p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var KEY = 'pd-holiday-budget-v1';
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var people = document.getElementById('people');
+  var defaults = [['Partner', 150], ['Mom', 75], ['Dad', 75], ['Kids', 200], ['Friends and coworkers', 80]];
+  var state = null;
+  try { state = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+  function row(name, amt) {
+    var d = document.createElement('div'); d.className = 'row person';
+    d.innerHTML = '<div class="field"><label>Name or group</label><input type="search" class="pn" autocomplete="off"></div>' +
+      '<div class="field"><label>Gift budget ($)</label><input type="number" min="0" class="pa" inputmode="decimal"></div>' +
+      '<div class="field" style="align-self:end"><button type="button" class="chip rm" aria-label="Remove">Remove</button></div>';
+    d.querySelector('.pn').value = name; d.querySelector('.pa').value = amt;
+    d.querySelector('.rm').addEventListener('click', function () { d.remove(); run(); });
+    people.appendChild(d);
+  }
+  (state && state.p ? state.p : defaults).forEach(function (p) { row(p[0], p[1]); });
+  if (state && state.x) Object.keys(state.x).forEach(function (k) { var e = document.getElementById(k); if (e) e.value = state.x[k]; });
+  var day = document.getElementById('day');
+  var now = new Date(), y = now.getMonth() === 11 && now.getDate() > 25 ? now.getFullYear() + 1 : now.getFullYear();
+  day.value = (state && state.d) || (y + '-12-25');
+  if (state && state.l) document.getElementById('limit').value = state.l;
+  document.getElementById('add').addEventListener('click', function () { row('', 50); run(); });
+  function n(v) { v = parseFloat(v); return isFinite(v) && v > 0 ? v : 0; }
+  function run() {
+    var p = [].map.call(document.querySelectorAll('.person'), function (r) { return [r.querySelector('.pn').value, n(r.querySelector('.pa').value)]; });
+    var gifts = p.reduce(function (s, x) { return s + x[1]; }, 0), xs = {}, extras = 0;
+    [].forEach.call(document.querySelectorAll('.x'), function (e) { xs[e.id] = e.value; extras += n(e.value); });
+    var total = gifts + extras, limit = n(document.getElementById('limit').value);
+    document.getElementById('total').textContent = usd.format(total);
+    var target = new Date(day.value + 'T00:00:00'), days = Math.ceil((target - new Date()) / 864e5), weeks = Math.max(1, Math.ceil(days / 7));
+    var parts = [usd.format(gifts) + ' gifts · ' + usd.format(extras) + ' extras'];
+    if (days > 0) parts.push('Save about ' + usd.format(total / weeks) + ' a week for ' + weeks + (weeks === 1 ? ' week' : ' weeks'));
+    if (limit) parts.push(total > limit ? usd.format(total - limit) + ' over your budget' : usd.format(limit - total) + ' under your budget');
+    document.getElementById('sub').textContent = parts.join(' · ');
+    try { localStorage.setItem(KEY, JSON.stringify({ p: p, x: xs, d: day.value, l: document.getElementById('limit').value })); } catch (e) {}
+  }
+  document.getElementById('hb').addEventListener('input', run); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>How much should I spend on Christmas gifts?</summary><p>Start from what you can pay without debt, then split it across people. Many people set a per-person cap and budget 20-40% extra for food, wrapping and shipping.</p></details>
+<details><summary>How do I make a holiday budget?</summary><p>List everyone you buy for with an amount, add extras like food, decorations, travel and shipping, compare the total to what you can afford, and save a set amount each week until the holiday.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>

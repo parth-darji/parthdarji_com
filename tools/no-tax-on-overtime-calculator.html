@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>No Tax on Overtime Calculator 2026: Estimate Your Deduction</title>
+<meta name="description" content="Free no tax on overtime calculator: estimate your qualified overtime deduction (up to $12,500, or $25,000 joint) for 2025-2028, the income phase-out, and the federal tax you save.">
+<link rel="canonical" href="https://parthdarji.com/tools/no-tax-on-overtime-calculator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="No tax on overtime calculator">
+<meta property="og:description" content="Free no tax on overtime calculator: estimate your qualified overtime deduction (up to $12,500, or $25,000 joint) for 2025-2028, the income phase-out, and the federal tax you save.">
+<meta property="og:url" content="https://parthdarji.com/tools/no-tax-on-overtime-calculator">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "No tax on overtime calculator",
+   "description": "Free no tax on overtime calculator: estimate your qualified overtime deduction (up to $12,500, or $25,000 joint) for 2025-2028, the income phase-out, and the federal tax you save.",
+   "url": "https://parthdarji.com/tools/no-tax-on-overtime-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How does no tax on overtime work?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "For 2025 through 2028, workers can deduct the overtime premium required by the Fair Labor Standards Act, the extra half in time-and-a-half, up to $12,500 a year or $25,000 for joint filers. It reduces federal income tax, not payroll tax."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is all overtime pay tax free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Only the premium part counts: for time-and-a-half, the extra half of your rate. The regular part of overtime pay is still taxable, and Social Security and Medicare taxes still apply."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Who can't take the overtime deduction?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Married people filing separately can't. The deduction also shrinks for income above $150,000, or $300,000 for joint filers."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "No tax on overtime calculator",
+     "item": "https://parthdarji.com/tools/no-tax-on-overtime-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>No tax on overtime calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<div class="tldr"><strong>In short</strong>For tax years 2025 through 2028, you can deduct the extra "half" part of overtime pay required by federal law (the premium above your regular rate), up to $12,500 a year, or $25,000 if married filing jointly. It shrinks above $150,000 of income ($300,000 joint). It lowers federal income tax only.</div>
+<div class="tool" id="ot">
+  <div class="row">
+    <div class="field"><label for="rate">Regular hourly rate ($)</label><input id="rate" type="number" min="0" step="0.5" value="28" inputmode="decimal"></div>
+    <div class="field"><label for="hrs">Overtime hours per week</label><input id="hrs" type="number" min="0" step="1" value="6" inputmode="decimal"></div>
+    <div class="field"><label for="wks">Weeks with overtime per year</label><input id="wks" type="number" min="0" max="52" step="1" value="40" inputmode="numeric"></div>
+    <div class="field"><label for="fs">Filing status</label><select id="fs"><option value="s">Single or head of household</option><option value="j">Married filing jointly</option><option value="m">Married filing separately</option></select></div>
+    <div class="field"><label for="inc">Modified AGI, roughly your total income ($)</label><input id="inc" type="number" min="0" step="1000" value="72000" inputmode="decimal"></div>
+    <div class="field"><label for="br">Federal tax bracket</label><select id="br"><option>10</option><option selected>12</option><option>22</option><option>24</option><option>32</option><option>35</option><option>37</option></select></div>
+  </div>
+  <p class="fine" style="margin:6px 0 2px">Estimated overtime deduction</p>
+  <div class="big-number" id="ded" aria-live="polite">$0</div>
+  <p class="fine" id="sub"></p>
+</div>
+<p class="note">An estimate based on IRS guidance as of November 2026. Only overtime required by the Fair Labor Standards Act counts, and only the premium part: for time-and-a-half, that's the extra half. Double time still counts as the half. Overtime from union contracts or state law beyond the federal rule may not count. Social Security, Medicare and most state income taxes still apply.</p>
+<h2>How it's calculated</h2>
+<ol class="steps">
+<li><strong>Qualified premium</strong> = half your regular rate × overtime hours × weeks.</li>
+<li><strong>Cap:</strong> up to $12,500 ($25,000 joint).</li>
+<li><strong>Phase-out:</strong> the cap drops by $100 for every $1,000 of income above $150,000 ($300,000 joint).</li>
+<li><strong>Tax saved</strong> ≈ deduction × your federal bracket.</li>
+</ol>
+<h2>What to keep</h2>
+<p>Keep your pay stubs and W-2 showing overtime hours and pay. Employers are expected to report qualified overtime separately; if yours doesn't, your pay stubs are your record.</p>
+<aside class="promo">
+  <img src="/images/apps/punchmate-192.webp" alt="" width="64" height="64" loading="lazy">
+  <div><p><strong>PunchMate</strong> · Track your hours and overtime from the Mac menu bar.</p>
+  <a class="btn" href="https://apps.apple.com/app/id6811594421">Get it on the App Store</a></div>
+</aside><p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var ids = ['rate', 'hrs', 'wks', 'fs', 'inc', 'br'], el = {}; ids.forEach(function (i) { el[i] = document.getElementById(i); });
+  function n(i) { var v = parseFloat(el[i].value); return isFinite(v) && v > 0 ? v : 0; }
+  function run() {
+    var fs = el.fs.value, prem = n('rate') * 0.5 * n('hrs') * Math.min(52, n('wks'));
+    if (fs === 'm') { document.getElementById('ded').textContent = '$0'; document.getElementById('sub').textContent = 'Married couples filing separately can\'t take this deduction.'; return; }
+    var cap = fs === 'j' ? 25000 : 12500, start = fs === 'j' ? 300000 : 150000;
+    var capNow = Math.max(0, cap - Math.floor(Math.max(0, n('inc') - start) / 1000) * 100);
+    var ded = Math.min(prem, capNow), saved = ded * n('br') / 100;
+    document.getElementById('ded').textContent = usd.format(ded);
+    document.getElementById('sub').textContent = usd.format(prem) + ' qualified overtime premium · limit ' + usd.format(capNow) + ' · about ' + usd.format(saved) + ' less federal income tax';
+  }
+  ids.forEach(function (i) { el[i].addEventListener('input', run); }); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>How does no tax on overtime work?</summary><p>For 2025 through 2028, workers can deduct the overtime premium required by the Fair Labor Standards Act, the extra half in time-and-a-half, up to $12,500 a year or $25,000 for joint filers. It reduces federal income tax, not payroll tax.</p></details>
+<details><summary>Is all overtime pay tax free?</summary><p>No. Only the premium part counts: for time-and-a-half, the extra half of your rate. The regular part of overtime pay is still taxable, and Social Security and Medicare taxes still apply.</p></details>
+<details><summary>Who can't take the overtime deduction?</summary><p>Married people filing separately can't. The deduction also shrinks for income above $150,000, or $300,000 for joint filers.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PTO Planner 2027: Maximize Vacation Days and Long Weekends</title>
+<meta name="description" content="Free PTO planner: enter your vacation days and see the best days to take off around 2027 US federal holidays for the longest breaks. Also works for 2026 and 2028.">
+<link rel="canonical" href="https://parthdarji.com/tools/pto-planner">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PTO and long weekend planner">
+<meta property="og:description" content="Free PTO planner: enter your vacation days and see the best days to take off around 2027 US federal holidays for the longest breaks. Also works for 2026 and 2028.">
+<meta property="og:url" content="https://parthdarji.com/tools/pto-planner">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "PTO and long weekend planner",
+   "description": "Free PTO planner: enter your vacation days and see the best days to take off around 2027 US federal holidays for the longest breaks. Also works for 2026 and 2028.",
+   "url": "https://parthdarji.com/tools/pto-planner",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I get the most days off with PTO?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Take vacation days next to weekends and holidays. One day next to a Monday holiday makes a 4-day weekend, and the 4 workdays in a holiday week can give 9 days off."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What are the US federal holidays in 2027?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "New Year's Day (Fri Jan 1), MLK Day (Jan 18), Presidents' Day (Feb 15), Memorial Day (May 31), Juneteenth (observed Fri Jun 18), Independence Day (observed Mon Jul 5), Labor Day (Sep 6), Columbus Day (Oct 11), Veterans Day (Nov 11), Thanksgiving (Nov 25), Christmas (observed Fri Dec 24), and New Year's Day 2028 observed Fri Dec 31, 2027."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "PTO and long weekend planner",
+     "item": "https://parthdarji.com/tools/pto-planner"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>PTO and long weekend planner</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p>Enter how many vacation days you have. The planner finds the days off that turn holidays and weekends into the longest breaks, using US federal holidays.</p>
+<div class="tool" id="pto">
+  <div class="row">
+    <div class="field"><label for="yr">Year</label><select id="yr"><option>2026</option><option selected>2027</option><option>2028</option></select></div>
+    <div class="field"><label for="days">Vacation days to use</label><input id="days" type="number" min="1" max="40" value="10" inputmode="numeric"></div>
+    <div class="field"><label for="fri">Day after Thanksgiving</label><select id="fri"><option value="1">My employer gives it off</option><option value="0">I work that day</option></select></div>
+  </div>
+  <p class="fine" style="margin:6px 0 2px">Total days off from your vacation days</p>
+  <div class="big-number" id="tot" aria-live="polite">0</div>
+  <p class="fine" id="sub"></p>
+  <div class="results" id="list"></div>
+</div>
+<p class="note">Uses the 11 US federal holidays with weekend observance rules (a Saturday holiday is observed Friday, a Sunday holiday Monday). Your employer's holidays may differ; days are suggestions, ranked by days off per vacation day.</p>
+<h2>How it picks</h2>
+<p>Every stretch of workdays between weekends and holidays is a chance to bridge. Taking 1 day next to a Monday holiday gives a 4-day weekend; taking the 4 workdays of a holiday week gives 9 days off. The planner ranks every option by days off per vacation day and fills your days from the best.</p>
+<aside class="promo">
+  <img src="/images/apps/punchmate-192.webp" alt="" width="64" height="64" loading="lazy">
+  <div><p><strong>PunchMate</strong> · See your real working hours each day from the Mac menu bar.</p>
+  <a class="btn" href="https://apps.apple.com/app/id6811594421">Get it on the App Store</a></div>
+</aside><p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var fmt = new Intl.DateTimeFormat('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  function nth(y, m, wd, k) { var d = new Date(y, m, 1); var off = (wd - d.getDay() + 7) % 7; return new Date(y, m, 1 + off + 7 * (k - 1)); }
+  function last(y, m, wd) { var d = new Date(y, m + 1, 0); return new Date(y, m, d.getDate() - ((d.getDay() - wd + 7) % 7)); }
+  function obs(d) { var w = d.getDay(); if (w === 6) return new Date(d.getFullYear(), d.getMonth(), d.getDate() - 1); if (w === 0) return new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1); return d; }
+  function holidays(y, fri) {
+    var h = [
+      [obs(new Date(y, 0, 1)), "New Year's Day"], [nth(y, 0, 1, 3), 'Martin Luther King Jr. Day'], [nth(y, 1, 1, 3), "Presidents' Day"],
+      [last(y, 4, 1), 'Memorial Day'], [obs(new Date(y, 5, 19)), 'Juneteenth'], [obs(new Date(y, 6, 4)), 'Independence Day'],
+      [nth(y, 8, 1, 1), 'Labor Day'], [nth(y, 9, 1, 2), 'Columbus Day'], [obs(new Date(y, 10, 11)), 'Veterans Day'],
+      [nth(y, 10, 4, 4), 'Thanksgiving'], [obs(new Date(y, 11, 25)), 'Christmas Day'], [obs(new Date(y + 1, 0, 1)), "New Year's Day (observed)"]
+    ];
+    if (fri) { var t = nth(y, 10, 4, 4); h.push([new Date(y, 10, t.getDate() + 1), 'Day after Thanksgiving']); }
+    var m = {}; h.forEach(function (x) { if (x[0].getFullYear() === y) m[x[0].toDateString()] = x[1]; }); return m;
+  }
+  function run() {
+    var y = +document.getElementById('yr').value, budget = Math.max(0, Math.min(40, parseInt(document.getElementById('days').value, 10) || 0));
+    var hol = holidays(y, document.getElementById('fri').value === '1'), days = [];
+    for (var d = new Date(y, 0, 1); d.getFullYear() === y; d = new Date(y, d.getMonth(), d.getDate() + 1)) {
+      var w = d.getDay(); days.push({ d: d, off: w === 0 || w === 6 || !!hol[d.toDateString()], h: hol[d.toDateString()] });
+    }
+    var N = days.length, pto = new Array(N).fill(false);
+    function runs() {
+      var out = [], i = 0;
+      while (i < N) {
+        if (!(days[i].off || pto[i])) { i++; continue; }
+        var s = i, hasP = false, h = '';
+        while (i < N && (days[i].off || pto[i])) { if (pto[i]) hasP = true; if (days[i].h && !h) h = days[i].h; i++; }
+        if (hasP && h) out.push({ a: s, b: i - 1, len: i - s, h: h });
+      }
+      return out;
+    }
+    function score() { return runs().reduce(function (t, r) { return t + r.len; }, 0); }
+    var left = budget, base = 0;
+    while (left > 0) {
+      var best = null;
+      for (var i = 0; i < N; i++) {
+        if (days[i].off || pto[i]) continue;
+        if (!((i > 0 && (days[i - 1].off || pto[i - 1])) || (i < N - 1 && (days[i + 1].off || pto[i + 1])))) continue;
+        for (var l = 1; l <= Math.min(5, left); l++) {
+          var ok = true; for (var k = i; k < i + l; k++) if (k >= N || days[k].off || pto[k]) { ok = false; break; }
+          if (!ok) break;
+          for (k = i; k < i + l; k++) pto[k] = true;
+          var gain = score() - base;
+          for (k = i; k < i + l; k++) pto[k] = false;
+          if (gain <= 0) continue;
+          var r = gain / l;
+          if (!best || r > best.r + 1e-9 || (Math.abs(r - best.r) < 1e-9 && gain > best.gain)) best = { i: i, l: l, r: r, gain: gain };
+        }
+      }
+      if (!best) break;
+      for (var k2 = best.i; k2 < best.i + best.l; k2++) pto[k2] = true;
+      left -= best.l; base = score();
+    }
+    var pick = runs();
+    var total = pick.reduce(function (s, r) { return s + r.len; }, 0);
+    document.getElementById('tot').textContent = total + ' days';
+    document.getElementById('sub').textContent = (budget - left) + ' vacation days used' + (left ? ' · ' + left + ' left for a normal week off (5 days gives 9 with weekends)' : '');
+    document.getElementById('list').innerHTML = pick.map(function (r) {
+      var takes = [], k = r.a, cost = 0;
+      while (k <= r.b) { if (pto[k]) { var s0 = k; while (k <= r.b && pto[k]) k++; cost += k - s0; takes.push(s0 === k - 1 ? fmt.format(days[s0].d) : fmt.format(days[s0].d) + ' – ' + fmt.format(days[k - 1].d)); } else k++; }
+      return '<div class="item"><h3>' + r.len + ' days off: ' + fmt.format(days[r.a].d) + ' – ' + fmt.format(days[r.b].d) + ' <span class="badge ok">' + cost + (cost === 1 ? ' vacation day' : ' vacation days') + '</span></h3><p>Take ' + takes.join(' and ') + ' · around ' + r.h + '</p></div>';
+    }).join('') || '<p class="fine">Add at least 1 vacation day.</p>';
+  }
+  ['yr', 'days', 'fri'].forEach(function (i) { document.getElementById(i).addEventListener('input', run); }); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>How do I get the most days off with PTO?</summary><p>Take vacation days next to weekends and holidays. One day next to a Monday holiday makes a 4-day weekend, and the 4 workdays in a holiday week can give 9 days off.</p></details>
+<details><summary>What are the US federal holidays in 2027?</summary><p>New Year's Day (Fri Jan 1), MLK Day (Jan 18), Presidents' Day (Feb 15), Memorial Day (May 31), Juneteenth (observed Fri Jun 18), Independence Day (observed Mon Jul 5), Labor Day (Sep 6), Columbus Day (Oct 11), Veterans Day (Nov 11), Thanksgiving (Nov 25), Christmas (observed Fri Dec 24), and New Year's Day 2028 observed Fri Dec 31, 2027.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>
