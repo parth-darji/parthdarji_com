@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HSA Tax Savings Calculator 2026: How Much Does an HSA Save You?</title>
+<meta name="description" content="Free HSA tax savings calculator: see how much federal, state and payroll tax you save by putting money in an HSA in 2026. Includes 2026 limits. An estimate.">
+<link rel="canonical" href="https://parthdarji.com/hsa/hsa-tax-savings-calculator">
+<meta name="apple-itunes-app" content="app-id=6813872704">
+<meta name="theme-color" content="#0a0f0d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f7f5" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HSA tax savings calculator">
+<meta property="og:description" content="Free HSA tax savings calculator: see how much federal, state and payroll tax you save by putting money in an HSA in 2026. Includes 2026 limits. An estimate.">
+<meta property="og:url" content="https://parthdarji.com/hsa/hsa-tax-savings-calculator">
+<meta property="og:image" content="https://parthdarji.com/images/shoeboxhsa/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/hsa/hsa.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "HSA tax savings calculator",
+   "description": "Free HSA tax savings calculator: see how much federal, state and payroll tax you save by putting money in an HSA in 2026. Includes 2026 limits. An estimate.",
+   "url": "https://parthdarji.com/hsa/hsa-tax-savings-calculator",
+   "inLanguage": "en-US",
+   "dateModified": "2026-11-23",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "publisher": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "image": "https://parthdarji.com/images/shoeboxhsa/og.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "HSA guides",
+     "item": "https://parthdarji.com/hsa/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Tax savings calculator",
+     "item": "https://parthdarji.com/hsa/hsa-tax-savings-calculator"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How much tax does an HSA save?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Your contribution avoids federal income tax at your bracket, usually state income tax, and 7.65% payroll tax if it goes in through payroll. At a 22% bracket and 5% state tax, $4,400 through payroll saves about $1,525."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do HSA contributions avoid FICA tax?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, when they're made through your employer's payroll as pre-tax contributions. Contributions you make on your own are deducted on your tax return but still pay FICA."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/shoeboxhsa/"><img src="/images/apps/shoeboxhsa.png" alt="" width="30" height="30">ShoeboxHSA</a>
+    <nav class="nav">
+      <a class="opt" href="/hsa/">HSA guides</a>
+      <a class="opt" href="/hsa/eligible-expenses">Is it eligible?</a>
+      <a class="btn" href="https://apps.apple.com/app/id6813872704">Get the app</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="article read">
+<div class="crumbs"><a href="/hsa/">HSA guides</a></div>
+<h1>HSA tax savings calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p>Enter how much you'll put in your HSA this year and your tax rates. The calculator estimates the tax you skip on that money.</p>
+<div class="tool">
+  <div class="row">
+    <div class="field"><label for="c">HSA contribution this year ($)</label><input id="c" type="number" min="0" step="100" value="4400" inputmode="decimal"></div>
+    <div class="field"><label for="fed">Federal tax bracket</label><select id="fed"><option>10</option><option>12</option><option selected>22</option><option>24</option><option>32</option><option>35</option><option>37</option></select></div>
+    <div class="field"><label for="st">State income tax rate (%)</label><input id="st" type="number" min="0" max="15" step="0.5" value="5" inputmode="decimal"></div>
+    <div class="field"><label for="pay">How you contribute</label><select id="pay"><option value="1">Through payroll at work</option><option value="0">On my own (deducted on my tax return)</option></select></div>
+  </div>
+  <p class="fine" style="margin:4px 0 2px">Estimated tax you save this year</p>
+  <div class="big-number" id="out" aria-live="polite">$0</div>
+  <p class="fine" id="split"></p>
+</div>
+<p class="note">2026 limits: $4,400 self-only, $8,750 family, plus $1,000 if you're 55 or older. Payroll contributions also skip Social Security and Medicare tax (7.65%) up to the Social Security wage limit. California and New Jersey tax HSA contributions at the state level, so use 0% state there. This is an estimate, not tax advice.</p>
+<h2>Where the savings come from</h2>
+<ul>
+<li><strong>Federal income tax:</strong> contributions lower your taxable income.</li>
+<li><strong>State income tax:</strong> most states follow the federal rule.</li>
+<li><strong>Payroll tax:</strong> only when the money goes in through your employer's payroll (a cafeteria plan).</li>
+</ul>
+<p>That's only the first of the three tax breaks. See <a href="/hsa/triple-tax-advantage">the HSA triple tax advantage</a> and the <a href="/hsa/growth-calculator">growth calculator</a> for what happens next.</p>
+<aside class="promo">
+  <img src="/images/apps/shoeboxhsa.png" alt="" width="64" height="64">
+  <div><p><strong>ShoeboxHSA</strong> · Keep the receipts so your future withdrawals stay tax-free too.</p>
+  <a class="btn" href="https://apps.apple.com/app/id6813872704">Get it on the App Store</a> <a href="/shoeboxhsa/" style="margin-left:10px;font-size:15px">Learn more</a></div>
+</aside><p class="note">This guide explains general IRS rules in plain words. It is not tax or legal advice. Rules can change, and some states tax HSAs differently. For your own situation, check <a href="https://www.irs.gov/publications/p969">IRS Publication 969</a> or ask a tax professional.</p>
+<script>
+(function () {
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var ids = ['c', 'fed', 'st', 'pay'], el = {}; ids.forEach(function (i) { el[i] = document.getElementById(i); });
+  function n(i) { var v = parseFloat(el[i].value); return isFinite(v) && v > 0 ? v : 0; }
+  function run() {
+    var c = n('c'), f = c * n('fed') / 100, s = c * n('st') / 100, p = el.pay.value === '1' ? c * 0.0765 : 0;
+    document.getElementById('out').textContent = usd.format(f + s + p);
+    document.getElementById('split').textContent = usd.format(f) + ' federal · ' + usd.format(s) + ' state · ' + usd.format(p) + ' payroll';
+  }
+  ids.forEach(function (i) { el[i].addEventListener('input', run); }); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>How much tax does an HSA save?</summary><p>Your contribution avoids federal income tax at your bracket, usually state income tax, and 7.65% payroll tax if it goes in through payroll. At a 22% bracket and 5% state tax, $4,400 through payroll saves about $1,525.</p></details>
+<details><summary>Do HSA contributions avoid FICA tax?</summary><p>Yes, when they're made through your employer's payroll as pre-tax contributions. Contributions you make on your own are deducted on your tax return but still pay FICA.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/hsa/">All HSA guides</a>
+      <a href="/hsa/shoebox-strategy">Shoebox strategy</a>
+<a href="/hsa/what-receipts-to-keep">Receipts to keep</a>
+<a href="/hsa/reimburse-yourself">Reimburse yourself</a>
+<a href="/hsa/eligible-expenses">Eligible expenses</a>
+<a href="/hsa/growth-calculator">Growth calculator</a>
+<a href="/hsa/hsa-vs-fsa">HSA vs FSA</a>
+<a href="/hsa/hsa-after-65">HSA after 65</a>
+<a href="/hsa/form-8889">Form 8889</a>
+<a href="/hsa/eob-explained">Reading an EOB</a>
+<a href="/hsa/lost-hsa-receipt">Lost a receipt</a>
+<a href="/hsa/contribution-limits">Contribution limits</a>
+<a href="/hsa/hsa-eligible-health-plan">HSA-eligible plans</a>
+<a href="/hsa/how-to-track-hsa-receipts">Ways to track receipts</a>
+<a href="/hsa/hsa-for-spouse-and-dependents">Spouse and kids</a>
+<a href="/hsa/hsa-dental-and-vision">Dental and vision</a>
+<a href="/hsa/hsa-gray-area-expenses">Gym, massage, therapy</a>
+<a href="/hsa/triple-tax-advantage">Triple tax advantage</a>
+<a href="/hsa/hsa-insurance-premiums">Insurance premiums</a>
+<a href="/hsa/hsa-rollover-and-transfer">Rollovers</a>
+<a href="/hsa/hsa-excess-contribution">Excess contribution</a>
+<a href="/hsa/hsa-after-death">HSA after death</a>
+<a href="/hsa/hsa-tax-savings-calculator" aria-current="page">Tax savings calculator</a>
+<a href="/hsa/hsa-withdrawal-penalty-calculator">Withdrawal calculator</a>
+      <a href="/shoeboxhsa/">ShoeboxHSA app</a>
+      <a href="/shoeboxhsa-privacy-policy.html">Privacy</a>
+    </nav>
+    <p>Written by <a href="/">Parth Darji</a>, the independent developer of ShoeboxHSA. General information, not tax or legal advice.</p>
+  </div>
+</footer>
+</body>
+</html>
