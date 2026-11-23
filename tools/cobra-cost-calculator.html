@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>COBRA Cost Calculator: Estimate Your Monthly COBRA Premium</title>
+<meta name="description" content="Free COBRA cost calculator: estimate your monthly and total COBRA premium (up to 102% of the full plan cost) after leaving a job, and compare it with a marketplace plan.">
+<link rel="canonical" href="https://parthdarji.com/tools/cobra-cost-calculator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="COBRA cost calculator">
+<meta property="og:description" content="Free COBRA cost calculator: estimate your monthly and total COBRA premium (up to 102% of the full plan cost) after leaving a job, and compare it with a marketplace plan.">
+<meta property="og:url" content="https://parthdarji.com/tools/cobra-cost-calculator">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "COBRA cost calculator",
+   "description": "Free COBRA cost calculator: estimate your monthly and total COBRA premium (up to 102% of the full plan cost) after leaving a job, and compare it with a marketplace plan.",
+   "url": "https://parthdarji.com/tools/cobra-cost-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How much does COBRA cost?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Up to 102% of the full premium: your share plus your employer's share, plus a 2% admin fee. Many people pay three to five times what came out of their paycheck."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How long does COBRA last?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Usually up to 18 months after leaving a job. A disability extension can add 11 months, and some events for family members allow up to 36 months."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I pay COBRA with my HSA?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. COBRA premiums are a qualified HSA expense."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "COBRA cost calculator",
+     "item": "https://parthdarji.com/tools/cobra-cost-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>COBRA cost calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<div class="tldr"><strong>In short</strong>With COBRA you keep your work health plan, but you pay the whole premium: your share plus what your employer paid, plus up to 2% for admin. Coverage usually lasts up to 18 months.</div>
+<div class="tool" id="cb">
+  <div class="row">
+    <div class="field"><label for="you">Your share per paycheck ($)</label><input id="you" type="number" min="0" step="5" value="120" inputmode="decimal"></div>
+    <div class="field"><label for="per">Paychecks per year</label><select id="per"><option value="52">52 (weekly)</option><option value="26" selected>26 (every 2 weeks)</option><option value="24">24 (twice a month)</option><option value="12">12 (monthly)</option></select></div>
+    <div class="field"><label for="emp">Employer's share per month ($)</label><input id="emp" type="number" min="0" step="10" value="550" inputmode="decimal"></div>
+    <div class="field"><label for="mo">Months you need COBRA</label><input id="mo" type="number" min="1" max="36" step="1" value="6" inputmode="numeric"></div>
+    <div class="field"><label for="fee">Admin fee (%)</label><select id="fee"><option value="2" selected>2% (most plans)</option><option value="0">None</option></select></div>
+    <div class="field"><label for="mk">Marketplace plan per month, if you have a quote ($)</label><input id="mk" type="number" min="0" step="10" value="" placeholder="optional" inputmode="decimal"></div>
+  </div>
+  <p class="fine" style="margin:6px 0 2px">Estimated COBRA premium per month</p>
+  <div class="big-number" id="out" aria-live="polite">$0</div>
+  <p class="fine" id="sub"></p>
+</div>
+<p class="note">Find the employer's share on your benefits statement or W-2 (Box 12, code DD shows the total yearly cost of coverage). Disability extensions can cost up to 150% for the extra months. An estimate; your COBRA notice shows the real price.</p>
+<h2>Ways to pay less</h2>
+<ul>
+<li><strong>Compare the marketplace.</strong> Losing job coverage lets you enroll at HealthCare.gov within 60 days, and you may qualify for savings based on income.</li>
+<li><strong>Use the 60-day election window.</strong> You have 60 days to elect COBRA, and coverage is retroactive once you pay.</li>
+<li><strong>Use your HSA.</strong> COBRA premiums are one of the few premiums your HSA can pay. See <a href="/hsa/hsa-insurance-premiums">HSA and insurance premiums</a>.</li>
+</ul>
+<aside class="promo">
+  <img src="/images/apps/shoeboxhsa-192.webp" alt="" width="64" height="64" loading="lazy">
+  <div><p><strong>ShoeboxHSA</strong> · Save COBRA premium statements as HSA receipts.</p>
+  <a class="btn" href="https://apps.apple.com/app/id6813872704">Get it on the App Store</a></div>
+</aside><p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var ids = ['you', 'per', 'emp', 'mo', 'fee', 'mk'], el = {}; ids.forEach(function (i) { el[i] = document.getElementById(i); });
+  function n(i) { var v = parseFloat(el[i].value); return isFinite(v) && v > 0 ? v : 0; }
+  function run() {
+    var mine = n('you') * (+el.per.value) / 12, full = mine + n('emp'), cobra = full * (1 + (+el.fee.value) / 100);
+    var months = Math.min(36, Math.max(1, Math.round(n('mo')) || 1)), mk = n('mk');
+    document.getElementById('out').textContent = usd.format(cobra);
+    var t = 'Now you pay about ' + usd.format(mine) + ' a month · COBRA is ' + usd.format(cobra - mine) + ' more · ' + usd.format(cobra * months) + ' for ' + months + (months === 1 ? ' month' : ' months');
+    if (mk) t += ' · Marketplace: ' + usd.format(mk * months) + ' (' + (mk < cobra ? usd.format((cobra - mk) * months) + ' less' : usd.format((mk - cobra) * months) + ' more') + ')';
+    document.getElementById('sub').textContent = t;
+  }
+  ids.forEach(function (i) { el[i].addEventListener('input', run); }); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>How much does COBRA cost?</summary><p>Up to 102% of the full premium: your share plus your employer's share, plus a 2% admin fee. Many people pay three to five times what came out of their paycheck.</p></details>
+<details><summary>How long does COBRA last?</summary><p>Usually up to 18 months after leaving a job. A disability extension can add 11 months, and some events for family members allow up to 36 months.</p></details>
+<details><summary>Can I pay COBRA with my HSA?</summary><p>Yes. COBRA premiums are a qualified HSA expense.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>

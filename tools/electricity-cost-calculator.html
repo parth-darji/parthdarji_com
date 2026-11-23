@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Appliance Electricity Cost Calculator: Cost per Hour, Month and Year</title>
+<meta name="description" content="Free electricity cost calculator: pick an appliance or enter its watts, hours of use and your rate per kWh to see what it costs per day, month and year.">
+<link rel="canonical" href="https://parthdarji.com/tools/electricity-cost-calculator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Appliance electricity cost calculator">
+<meta property="og:description" content="Free electricity cost calculator: pick an appliance or enter its watts, hours of use and your rate per kWh to see what it costs per day, month and year.">
+<meta property="og:url" content="https://parthdarji.com/tools/electricity-cost-calculator">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Appliance electricity cost calculator",
+   "description": "Free electricity cost calculator: pick an appliance or enter its watts, hours of use and your rate per kWh to see what it costs per day, month and year.",
+   "url": "https://parthdarji.com/tools/electricity-cost-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I calculate electricity cost for an appliance?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Multiply watts by hours of use and divide by 1,000 to get kWh, then multiply by your rate. A 1,500 W heater for 4 hours uses 6 kWh; at 17 cents per kWh that's $1.02."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much does it cost to run a space heater?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A typical 1,500 W space heater costs about 26 cents an hour at 17 cents per kWh, or about $31 a month at 4 hours a day."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Appliance electricity cost calculator",
+     "item": "https://parthdarji.com/tools/electricity-cost-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Appliance electricity cost calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p>Pick an appliance or type its wattage (it's on the label or charger). Use the rate from your electric bill for the most accurate answer.</p>
+<div class="tool" id="ec">
+  <div class="row">
+    <div class="field"><label for="ap">Appliance</label><select id="ap">
+      <option value="">Custom</option>
+      <option value="1500" data-h="4">Space heater (1,500 W)</option>
+      <option value="3500" data-h="3">Central air conditioner (3,500 W)</option>
+      <option value="1000" data-h="8">Window air conditioner (1,000 W)</option>
+      <option value="150" data-h="24">Refrigerator (150 W average)</option>
+      <option value="3000" data-h="1">Electric dryer (3,000 W)</option>
+      <option value="500" data-h="1">Washing machine (500 W)</option>
+      <option value="1800" data-h="1">Dishwasher (1,800 W)</option>
+      <option value="1200" data-h="0.3">Microwave (1,200 W)</option>
+      <option value="150" data-h="5">TV (150 W)</option>
+      <option value="350" data-h="4">Gaming PC (350 W)</option>
+      <option value="60" data-h="8">Laptop (60 W)</option>
+      <option value="10" data-h="5">LED bulb (10 W)</option>
+      <option value="7200" data-h="3">EV charger, level 2 (7,200 W)</option>
+      <option value="4500" data-h="3">Electric water heater (4,500 W)</option>
+      <option value="100" data-h="8">Dehumidifier (100 W small)</option>
+    </select></div>
+    <div class="field"><label for="w">Watts</label><input id="w" type="number" min="0" step="10" value="1500" inputmode="decimal"></div>
+    <div class="field"><label for="h">Hours used per day</label><input id="h" type="number" min="0" max="24" step="0.5" value="4" inputmode="decimal"></div>
+    <div class="field"><label for="d">Days used per month</label><input id="d" type="number" min="0" max="31" step="1" value="30" inputmode="numeric"></div>
+    <div class="field"><label for="r">Your rate (cents per kWh)</label><input id="r" type="number" min="0" step="0.5" value="17" inputmode="decimal"></div>
+    <div class="field"><label for="q">How many</label><input id="q" type="number" min="1" step="1" value="1" inputmode="numeric"></div>
+  </div>
+  <p class="fine" style="margin:6px 0 2px">Cost per month</p>
+  <div class="big-number" id="out" aria-live="polite">$0</div>
+  <p class="fine" id="sub"></p>
+</div>
+<p class="note">Wattages are typical examples; real use varies (fridges and AC units cycle on and off). Your rate is on your bill as cents per kWh; include delivery charges for the true cost. Time-of-use plans charge different rates by hour.</p>
+<h2>How it's calculated</h2>
+<p>kWh = watts × hours ÷ 1,000. Cost = kWh × your rate. A 1,500 W heater for 4 hours uses 6 kWh a day; at 17¢ that's $1.02 a day, about $31 a month.</p>
+<h2>Easy ways to cut the bill</h2>
+<ul>
+<li>Heat or cool the room you're in, not the whole house, and use a timer.</li>
+<li>Switch remaining bulbs to LED: about 10 W instead of 60 W.</li>
+<li>Run the dryer and dishwasher at off-peak hours if your plan has time-of-use rates.</li>
+</ul>
+<p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });
+  var ids = ['w', 'h', 'd', 'r', 'q'], el = {}; ids.forEach(function (i) { el[i] = document.getElementById(i); });
+  var ap = document.getElementById('ap');
+  ap.addEventListener('change', function () { var o = ap.options[ap.selectedIndex]; if (o.value) { el.w.value = o.value; el.h.value = o.dataset.h; } run(); });
+  ap.value = '1500';
+  function n(i) { var v = parseFloat(el[i].value); return isFinite(v) && v > 0 ? v : 0; }
+  function run() {
+    var q = Math.max(1, Math.round(n('q')) || 1), kwhDay = n('w') * Math.min(24, n('h')) / 1000 * q, rate = n('r') / 100;
+    var day = kwhDay * rate, month = day * Math.min(31, n('d'));
+    document.getElementById('out').textContent = usd.format(month);
+    document.getElementById('sub').textContent = kwhDay.toFixed(2) + ' kWh a day · ' + usd.format(day) + ' per day of use · ' + usd.format(n('w') / 1000 * rate * q) + ' per hour · about ' + usd.format(month * 12) + ' a year';
+  }
+  ids.forEach(function (i) { el[i].addEventListener('input', function () { if (i === 'w' || i === 'h') ap.value = ''; run(); }); }); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>How do I calculate electricity cost for an appliance?</summary><p>Multiply watts by hours of use and divide by 1,000 to get kWh, then multiply by your rate. A 1,500 W heater for 4 hours uses 6 kWh; at 17 cents per kWh that's $1.02.</p></details>
+<details><summary>How much does it cost to run a space heater?</summary><p>A typical 1,500 W space heater costs about 26 cents an hour at 17 cents per kWh, or about $31 a month at 4 hours a day.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>

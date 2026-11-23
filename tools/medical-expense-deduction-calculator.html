@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Medical Expense Deduction Calculator 2026: Is It Worth Itemizing?</title>
+<meta name="description" content="Free calculator: how much of your medical bills you can deduct (the part above 7.5% of AGI), and whether itemizing beats the 2026 standard deduction.">
+<link rel="canonical" href="https://parthdarji.com/tools/medical-expense-deduction-calculator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Medical expense deduction calculator">
+<meta property="og:description" content="Free calculator: how much of your medical bills you can deduct (the part above 7.5% of AGI), and whether itemizing beats the 2026 standard deduction.">
+<meta property="og:url" content="https://parthdarji.com/tools/medical-expense-deduction-calculator">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Medical expense deduction calculator",
+   "description": "Free calculator: how much of your medical bills you can deduct (the part above 7.5% of AGI), and whether itemizing beats the 2026 standard deduction.",
+   "url": "https://parthdarji.com/tools/medical-expense-deduction-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Can I deduct medical expenses in 2026?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, if you itemize: the part of your qualified medical expenses above 7.5% of your adjusted gross income. It only helps if your total itemized deductions exceed the standard deduction ($16,100 single, $32,200 joint for 2026)."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I deduct medical bills paid with my HSA?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Expenses paid with HSA or FSA money are already tax-free, so they can't also be deducted."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Medical expense deduction calculator",
+     "item": "https://parthdarji.com/tools/medical-expense-deduction-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Medical expense deduction calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<div class="tldr"><strong>In short</strong>You can deduct medical expenses only if you itemize, and only the part above 7.5% of your adjusted gross income (AGI). It helps only when all your itemized deductions together beat the standard deduction.</div>
+<div class="tool" id="md">
+  <div class="row">
+    <div class="field"><label for="agi">Adjusted gross income, AGI ($)</label><input id="agi" type="number" min="0" step="1000" value="70000" inputmode="decimal"></div>
+    <div class="field"><label for="med">Medical and dental expenses you paid ($)</label><input id="med" type="number" min="0" step="100" value="9000" inputmode="decimal"></div>
+    <div class="field"><label for="oth">Other itemized deductions ($)</label><input id="oth" type="number" min="0" step="100" value="8000" inputmode="decimal"></div>
+    <div class="field"><label for="fs">Filing status</label><select id="fs"><option value="s">Single</option><option value="j">Married filing jointly</option><option value="h">Head of household</option><option value="m">Married filing separately</option></select></div>
+    <div class="field"><label for="old">People 65+ or blind on the return</label><select id="old"><option>0</option><option>1</option><option>2</option></select></div>
+    <div class="field"><label for="br">Federal tax bracket</label><select id="br"><option>10</option><option selected>12</option><option>22</option><option>24</option><option>32</option><option>35</option><option>37</option></select></div>
+  </div>
+  <p class="fine" style="margin:6px 0 2px">Deductible medical expenses</p>
+  <div class="big-number" id="out" aria-live="polite">$0</div>
+  <p class="fine" id="sub"></p>
+</div>
+<p class="note">Uses the 2026 standard deduction ($16,100 single or married filing separately, $32,200 joint, $24,150 head of household, plus $2,050 or $1,650 per person 65+ or blind). Don't count expenses paid with HSA or FSA money or reimbursed by insurance. Other itemized deductions are things like state and local taxes, mortgage interest and charity. An estimate, not tax advice.</p>
+<h2>What counts as a medical expense</h2>
+<p>Doctor, dentist and hospital bills, prescriptions, glasses and contacts, insurance premiums you paid with after-tax money, and travel for medical care, under <a href="https://www.irs.gov/publications/p502">IRS Publication 502</a>. Keep the receipts. Look up items in the <a href="/hsa/eligible-expenses">eligibility lookup</a>.</p>
+<h2>HSA or deduction?</h2>
+<p>If you have an HSA, paying medical bills from it (or reimbursing yourself later) is usually better than the deduction: it's tax-free from the first dollar, with no 7.5% floor. See <a href="/hsa/shoebox-strategy">the shoebox strategy</a>.</p>
+<aside class="promo">
+  <img src="/images/apps/shoeboxhsa-192.webp" alt="" width="64" height="64" loading="lazy">
+  <div><p><strong>ShoeboxHSA</strong> · Keep every medical receipt in one place, ready for taxes or your HSA.</p>
+  <a class="btn" href="https://apps.apple.com/app/id6813872704">Get it on the App Store</a></div>
+</aside><p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var ids = ['agi', 'med', 'oth', 'fs', 'old', 'br'], el = {}; ids.forEach(function (i) { el[i] = document.getElementById(i); });
+  function n(i) { var v = parseFloat(el[i].value); return isFinite(v) && v > 0 ? v : 0; }
+  var STD = { s: 16100, m: 16100, j: 32200, h: 24150 }, EXTRA = { s: 2050, h: 2050, j: 1650, m: 1650 };
+  function run() {
+    var fs = el.fs.value, floor = n('agi') * 0.075, ded = Math.max(0, n('med') - floor);
+    var std = STD[fs] + EXTRA[fs] * (+el.old.value), item = ded + n('oth'), gain = Math.max(0, item - std);
+    document.getElementById('out').textContent = usd.format(ded);
+    var msg = 'First ' + usd.format(floor) + ' (7.5% of AGI) is not deductible. ';
+    msg += item > std
+      ? 'Itemizing (' + usd.format(item) + ') beats your standard deduction (' + usd.format(std) + ') by ' + usd.format(gain) + ', saving about ' + usd.format(gain * n('br') / 100) + ' in federal tax.'
+      : 'Itemizing (' + usd.format(item) + ') is less than your standard deduction (' + usd.format(std) + '), so the standard deduction is better this year.';
+    document.getElementById('sub').textContent = msg;
+  }
+  ids.forEach(function (i) { el[i].addEventListener('input', run); }); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>Can I deduct medical expenses in 2026?</summary><p>Yes, if you itemize: the part of your qualified medical expenses above 7.5% of your adjusted gross income. It only helps if your total itemized deductions exceed the standard deduction ($16,100 single, $32,200 joint for 2026).</p></details>
+<details><summary>Can I deduct medical bills paid with my HSA?</summary><p>No. Expenses paid with HSA or FSA money are already tax-free, so they can't also be deducted.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>

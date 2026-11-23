@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Coinsurance Calculator: What Will I Pay on a Medical Bill?</title>
+<meta name="description" content="Free coinsurance and out-of-pocket maximum calculator: enter a medical bill, your deductible, coinsurance and out-of-pocket max to see what you pay and what insurance pays.">
+<link rel="canonical" href="https://parthdarji.com/tools/coinsurance-calculator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Coinsurance and out-of-pocket calculator">
+<meta property="og:description" content="Free coinsurance and out-of-pocket maximum calculator: enter a medical bill, your deductible, coinsurance and out-of-pocket max to see what you pay and what insurance pays.">
+<meta property="og:url" content="https://parthdarji.com/tools/coinsurance-calculator">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Coinsurance and out-of-pocket calculator",
+   "description": "Free coinsurance and out-of-pocket maximum calculator: enter a medical bill, your deductible, coinsurance and out-of-pocket max to see what you pay and what insurance pays.",
+   "url": "https://parthdarji.com/tools/coinsurance-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How is coinsurance calculated?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You pay the remaining deductible first, then your coinsurance percentage of the rest of the allowed amount, up to your out-of-pocket maximum. For a $3,000 bill with $1,000 deductible left and 20% coinsurance, you pay $1,000 + 20% of $2,000 = $1,400."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What happens after I reach my out-of-pocket maximum?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Your plan pays 100% of covered in-network care for the rest of the plan year."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Coinsurance and out-of-pocket calculator",
+     "item": "https://parthdarji.com/tools/coinsurance-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Coinsurance and out-of-pocket calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p>Enter the allowed amount of a bill (from your insurer's estimate or EOB) and where you are with your deductible this year.</p>
+<div class="tool" id="ci">
+  <div class="row">
+    <div class="field"><label for="bill">Allowed amount of the bill ($)</label><input id="bill" type="number" min="0" step="50" value="3000" inputmode="decimal"></div>
+    <div class="field"><label for="ded">Deductible left this year ($)</label><input id="ded" type="number" min="0" step="50" value="1000" inputmode="decimal"></div>
+    <div class="field"><label for="co">Your coinsurance (%)</label><input id="co" type="number" min="0" max="100" step="5" value="20" inputmode="decimal"></div>
+    <div class="field"><label for="oop">Out-of-pocket max left this year ($)</label><input id="oop" type="number" min="0" step="100" value="4000" inputmode="decimal"></div>
+  </div>
+  <p class="fine" style="margin:6px 0 2px">You pay</p>
+  <div class="big-number" id="out" aria-live="polite">$0</div>
+  <p class="fine" id="sub"></p>
+</div>
+<p class="note">Simple in-network estimate: deductible first, then your coinsurance share, never more than your out-of-pocket max. Copays, out-of-network bills and services covered before the deductible (like preventive care) work differently.</p>
+<h2>The terms, simply</h2>
+<ul>
+<li><strong>Allowed amount:</strong> the price your insurer agreed to, often much less than the provider's list price.</li>
+<li><strong>Deductible:</strong> what you pay first each year before insurance shares the cost.</li>
+<li><strong>Coinsurance:</strong> your percentage after the deductible, for example 20%.</li>
+<li><strong>Out-of-pocket max:</strong> the most you pay in a year for covered in-network care.</li>
+</ul>
+<p>Read your bill against the EOB: <a href="/hsa/eob-explained">how to read an EOB</a>. If you have an HSA, what you pay here can come from it tax-free.</p>
+<aside class="promo">
+  <img src="/images/apps/shoeboxhsa-192.webp" alt="" width="64" height="64" loading="lazy">
+  <div><p><strong>ShoeboxHSA</strong> · Save the bill and EOB together so you can reimburse yourself from your HSA.</p>
+  <a class="btn" href="https://apps.apple.com/app/id6813872704">Get it on the App Store</a></div>
+</aside><p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });
+  var ids = ['bill', 'ded', 'co', 'oop'], el = {}; ids.forEach(function (i) { el[i] = document.getElementById(i); });
+  function n(i) { var v = parseFloat(el[i].value); return isFinite(v) && v > 0 ? v : 0; }
+  function run() {
+    var bill = n('bill'), d = Math.min(bill, n('ded')), co = Math.min(100, n('co')), rest = bill - d;
+    var share = rest * co / 100, cap = el.oop.value === '' ? Infinity : n('oop'), you = Math.min(cap, d + share);
+    document.getElementById('out').textContent = usd.format(you);
+    var t = usd.format(d) + ' deductible + ' + usd.format(share) + ' coinsurance' + (you < d + share ? ', capped by your out-of-pocket max' : '') + ' · Insurance pays ' + usd.format(bill - you);
+    document.getElementById('sub').textContent = t;
+  }
+  ids.forEach(function (i) { el[i].addEventListener('input', run); }); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>How is coinsurance calculated?</summary><p>You pay the remaining deductible first, then your coinsurance percentage of the rest of the allowed amount, up to your out-of-pocket maximum. For a $3,000 bill with $1,000 deductible left and 20% coinsurance, you pay $1,000 + 20% of $2,000 = $1,400.</p></details>
+<details><summary>What happens after I reach my out-of-pocket maximum?</summary><p>Your plan pays 100% of covered in-network care for the rest of the plan year.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>

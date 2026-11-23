@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bill Split by Income Calculator: Split Rent and Bills Fairly</title>
+<meta name="description" content="Free calculator to split rent and shared bills by income for couples and roommates. Enter each person&#x27;s income and the shared costs to see each fair share.">
+<link rel="canonical" href="https://parthdarji.com/tools/bill-split-by-income-calculator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bill split by income calculator">
+<meta property="og:description" content="Free calculator to split rent and shared bills by income for couples and roommates. Enter each person&#x27;s income and the shared costs to see each fair share.">
+<meta property="og:url" content="https://parthdarji.com/tools/bill-split-by-income-calculator">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Bill split by income calculator",
+   "description": "Free calculator to split rent and shared bills by income for couples and roommates. Enter each person's income and the shared costs to see each fair share.",
+   "url": "https://parthdarji.com/tools/bill-split-by-income-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do you split bills by income?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Add up everyone's income, find each person's percentage of the total, and pay that percentage of the shared costs. If one person earns 60% of the combined income, they pay 60% of the bills."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Should couples split rent 50/50 or by income?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It's a personal choice. Splitting by income means both people pay the same percentage of what they earn, which many couples find fairer when incomes differ."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Bill split by income calculator",
+     "item": "https://parthdarji.com/tools/bill-split-by-income-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Bill split by income calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p>Splitting 50/50 can feel unfair when incomes differ. This splits shared costs in proportion to income, so each person pays the same percentage of what they earn.</p>
+<div class="tool" id="bs">
+  <h3 style="margin-top:0">People and monthly take-home income</h3>
+  <div id="ppl"></div>
+  <button class="btn ghost" type="button" id="addp">+ Add a person</button>
+  <h3>Shared costs per month</h3>
+  <div class="row">
+    <div class="field"><label for="c-rent">Rent or mortgage ($)</label><input id="c-rent" class="c" type="number" min="0" value="2200" inputmode="decimal"></div>
+    <div class="field"><label for="c-util">Utilities and internet ($)</label><input id="c-util" class="c" type="number" min="0" value="250" inputmode="decimal"></div>
+    <div class="field"><label for="c-food">Groceries ($)</label><input id="c-food" class="c" type="number" min="0" value="600" inputmode="decimal"></div>
+    <div class="field"><label for="c-oth">Other shared ($)</label><input id="c-oth" class="c" type="number" min="0" value="0" inputmode="decimal"></div>
+  </div>
+  <p class="fine" style="margin:6px 0 2px">Total shared costs</p>
+  <div class="big-number" id="tot" aria-live="polite">$0</div>
+  <div class="results" id="res"></div>
+</div>
+<h2>Is splitting by income fair?</h2>
+<p>Many couples find it fairer than 50/50, because both people keep the same share of their income for themselves. Others split some costs 50/50 (like rent) and the rest by income. Talk it through; the numbers just make the conversation easier.</p>
+<p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var ppl = document.getElementById('ppl');
+  function row(name, inc) {
+    var d = document.createElement('div'); d.className = 'row pp';
+    d.innerHTML = '<div class="field"><label>Name</label><input type="search" class="nm" autocomplete="off"></div>' +
+      '<div class="field"><label>Monthly income ($)</label><input type="number" min="0" class="in" inputmode="decimal"></div>' +
+      '<div class="field" style="align-self:end"><button type="button" class="chip rm">Remove</button></div>';
+    d.querySelector('.nm').value = name; d.querySelector('.in').value = inc;
+    d.querySelector('.rm').addEventListener('click', function () { if (document.querySelectorAll('.pp').length > 1) { d.remove(); run(); } });
+    ppl.appendChild(d);
+  }
+  row('Person A', 6000); row('Person B', 4000);
+  document.getElementById('addp').addEventListener('click', function () { row('Person ' + String.fromCharCode(65 + document.querySelectorAll('.pp').length), 3000); run(); });
+  function n(v) { v = parseFloat(v); return isFinite(v) && v > 0 ? v : 0; }
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function run() {
+    var total = 0; [].forEach.call(document.querySelectorAll('.c'), function (e) { total += n(e.value); });
+    var ps = [].map.call(document.querySelectorAll('.pp'), function (r) { return [r.querySelector('.nm').value || 'Person', n(r.querySelector('.in').value)]; });
+    var inc = ps.reduce(function (s, p) { return s + p[1]; }, 0);
+    document.getElementById('tot').textContent = usd.format(total);
+    document.getElementById('res').innerHTML = ps.map(function (p) {
+      var share = inc ? p[1] / inc : 1 / ps.length, pay = total * share, pct = p[1] ? pay / p[1] * 100 : 0;
+      return '<div class="item"><h3>' + esc(p[0]) + ' <span class="badge ok">' + Math.round(share * 100) + '%</span></h3><p>Pays ' + usd.format(pay) + ' a month' +
+        (p[1] ? ' · ' + pct.toFixed(0) + '% of income · 50/50 would be ' + usd.format(total / ps.length) : '') + '</p></div>';
+    }).join('');
+  }
+  document.getElementById('bs').addEventListener('input', run); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>How do you split bills by income?</summary><p>Add up everyone's income, find each person's percentage of the total, and pay that percentage of the shared costs. If one person earns 60% of the combined income, they pay 60% of the bills.</p></details>
+<details><summary>Should couples split rent 50/50 or by income?</summary><p>It's a personal choice. Splitting by income means both people pay the same percentage of what they earn, which many couples find fairer when incomes differ.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>
