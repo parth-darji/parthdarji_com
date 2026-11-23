@@ -1,6 +1,6 @@
 // Offline support for parthdarji.com/tools. Pages: network first, cache fallback. Assets: cache first.
-const CACHE = 'pd-tools-v5';
-const CORE = ['/tools/', '/assets/site.css?v=10', '/images/logo-96.webp'];
+const CACHE = 'pd-tools-v6';
+const CORE = ['/tools/', '/assets/site.css?v=11', '/images/logo-96.webp'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener('fetch', e => {

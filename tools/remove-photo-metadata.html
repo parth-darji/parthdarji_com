@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Remove Photo Location and EXIF Metadata (No Upload)</title>
+<meta name="description" content="Remove hidden GPS location, camera and date data (EXIF) from photos before sharing, on your own device. Checks which photos contain location.">
+<link rel="canonical" href="https://parthdarji.com/tools/remove-photo-metadata">
+
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Remove photo location and metadata">
+<meta property="og:description" content="Remove hidden GPS location, camera and date data (EXIF) from photos before sharing, on your own device. Checks which photos contain location.">
+<meta property="og:url" content="https://parthdarji.com/tools/remove-photo-metadata">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-remove-photo-metadata.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=11">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Remove photo location and metadata",
+   "description": "Remove hidden GPS location, camera and date data (EXIF) from photos before sharing, on your own device. Checks which photos contain location.",
+   "url": "https://parthdarji.com/tools/remove-photo-metadata",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I remove location data from a photo?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Choose the photo here and tap Remove metadata. You'll get a clean copy without GPS location or other EXIF data, made on your device with no upload."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do photos contain my location?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Phone photos often store the GPS location in hidden EXIF data if location access is on for the camera. Some apps strip it when sharing, but files sent by email or cloud links usually keep it."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Remove photo location and metadata",
+     "item": "https://parthdarji.com/tools/remove-photo-metadata"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Remove photo location and metadata</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p class="tldr"><strong>Private by design</strong>Your photos never leave this device: everything happens inside your browser, and nothing is uploaded to any server. Once you've opened this page, it even works offline.</p>
+<p>Photos from phones often hide the exact GPS location where they were taken, plus the camera model and time. Anyone you send the original file to can read it. This tool makes a clean copy without that data.</p>
+<div class="tool" id="rm">
+  <div class="field"><label for="files">Choose photos (JPG, PNG, WebP)</label><input id="files" type="file" accept="image/jpeg,image/png,image/webp" multiple></div>
+  <div class="cta-row"><button class="btn big" type="button" id="go" disabled>Remove metadata</button></div>
+  <p class="fine" id="msg" aria-live="polite">Choose one or more photos.</p>
+  <div class="results" id="out"></div>
+</div>
+<p class="note">The clean copy is re-saved at high quality, so it looks the same but contains only the picture. Rotation is applied to the pixels so photos don't end up sideways. Many apps (like iMessage, WhatsApp) strip some data already, but email and file sharing usually keep it.</p>
+<p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function size(b) { return b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB'; }
+  function decode(file) {
+    if (window.createImageBitmap) return createImageBitmap(file, { imageOrientation: 'from-image' }).catch(function () { return viaImg(file); });
+    return viaImg(file);
+  }
+  function viaImg(file) { return new Promise(function (ok, no) { var u = URL.createObjectURL(file), im = new Image(); im.onload = function () { ok(im); }; im.onerror = function () { no(new Error('decode')); }; im.src = u; }); }
+  function draw(img, maxW, maxH) {
+    var w = img.width, h = img.height, s = Math.min(1, maxW ? maxW / w : 1, maxH ? maxH / h : 1);
+    var c = document.createElement('canvas'); c.width = Math.max(1, Math.round(w * s)); c.height = Math.max(1, Math.round(h * s));
+    var x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(img, 0, 0, c.width, c.height); return c;
+  }
+  function toBlob(c, type, q) { return new Promise(function (ok) { c.toBlob(ok, type, q); }); }
+
+  var files = [], urls = [], go = document.getElementById('go'), msg = document.getElementById('msg');
+  document.getElementById('files').addEventListener('change', function (e) { files = [].slice.call(e.target.files).filter(function (f) { return /^image\//.test(f.type); }); go.disabled = !files.length; msg.textContent = files.length ? files.length + (files.length === 1 ? ' photo' : ' photos') + ' ready.' : 'Choose one or more photos.'; });
+  async function inspect(f) {
+    var b = new Uint8Array(await f.slice(0, Math.min(f.size, 262144)).arrayBuffer()), exif = false, gps = false;
+    if (b[0] === 0xFF && b[1] === 0xD8) {
+      for (var i = 2; i < b.length - 10;) {
+        if (b[i] !== 0xFF) break; var mk = b[i + 1], len = (b[i + 2] << 8) | b[i + 3];
+        if (mk === 0xE1 && b[i + 4] === 0x45 && b[i + 5] === 0x78 && b[i + 6] === 0x69 && b[i + 7] === 0x66) {
+          exif = true; var t = i + 10, le = b[t] === 0x49;
+          var u16 = function (o) { return le ? b[t + o] | (b[t + o + 1] << 8) : (b[t + o] << 8) | b[t + o + 1]; };
+          var u32 = function (o) { return le ? (b[t + o] | (b[t + o + 1] << 8) | (b[t + o + 2] << 16) | (b[t + o + 3] << 24)) >>> 0 : ((b[t + o] << 24) | (b[t + o + 1] << 16) | (b[t + o + 2] << 8) | b[t + o + 3]) >>> 0; };
+          var ifd = u32(4), cnt = u16(ifd);
+          for (var k = 0; k < cnt && k < 200; k++) { if (u16(ifd + 2 + k * 12) === 0x8825) gps = true; }
+          break;
+        }
+        if (mk === 0xDA) break; i += 2 + len;
+      }
+    } else if (b.length > 16) { var s = String.fromCharCode.apply(null, b.subarray(0, 4096)); exif = /eXIf|Exif/.test(s); }
+    return { exif: exif, gps: gps };
+  }
+  go.addEventListener('click', async function () {
+    urls.forEach(URL.revokeObjectURL); urls = []; var out = document.getElementById('out'); out.innerHTML = ''; go.disabled = true; var ok = 0, located = 0;
+    for (var i = 0; i < files.length; i++) {
+      var f = files[i]; msg.textContent = 'Cleaning ' + (i + 1) + ' of ' + files.length + ' on your device…';
+      try {
+        var info = await inspect(f), img = await decode(f), c = draw(img, 0, 0), type = f.type === 'image/png' ? 'image/png' : f.type === 'image/webp' ? 'image/webp' : 'image/jpeg';
+        var blob = await toBlob(c, type, 0.95), u = URL.createObjectURL(blob); urls.push(u); ok++; if (info.gps) located++;
+        var name = f.name.replace(/\.[^.]+$/, '') + '-clean.' + (type === 'image/png' ? 'png' : type === 'image/webp' ? 'webp' : 'jpg');
+        var d = document.createElement('div'); d.className = 'item';
+        d.innerHTML = '<h3>' + esc(name) + ' <span class="badge ' + (info.gps ? 'no">Had GPS location' : info.exif ? 'lmn">Had metadata' : 'ok">No metadata found') + '</span> <a class="btn">Download clean copy</a></h3><p>Removed: ' + (info.gps ? 'location, ' : '') + (info.exif ? 'camera, date and other EXIF data' : 'nothing hidden was found, clean copy made anyway') + '</p>';
+        var a = d.querySelector('a'); a.href = u; a.download = name; out.appendChild(d);
+      } catch (e) { var d2 = document.createElement('div'); d2.className = 'item'; d2.innerHTML = '<p>' + esc(f.name) + ': could not be read.</p>'; out.appendChild(d2); }
+    }
+    msg.textContent = 'Done: ' + ok + ' of ' + files.length + ' cleaned' + (located ? ', ' + located + ' had GPS location' : '') + '. Nothing was uploaded.'; go.disabled = false;
+  });
+})();
+</script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/merge-pdf"><h3>Merge PDF without uploading</h3><p>Combine, reorder and split PDFs privately on your device.</p></a><a class="card" href="/tools/image-to-pdf"><h3>Image to PDF (no upload)</h3><p>Turn photos, scans or receipts into one PDF on your device.</p></a><a class="card" href="/tools/compress-image"><h3>Compress, resize and convert images</h3><p>Shrink, resize or convert JPG, PNG and WebP privately, in batches.</p></a><a class="card" href="/tools/heic-to-jpg"><h3>HEIC to JPG converter (no upload)</h3><p>Convert iPhone photos to JPG on your device, in batches.</p></a></div>
+<h2>Questions</h2>
+<details><summary>How do I remove location data from a photo?</summary><p>Choose the photo here and tap Remove metadata. You'll get a clean copy without GPS location or other EXIF data, made on your device with no upload.</p></details>
+<details><summary>Do photos contain my location?</summary><p>Phone photos often store the GPS location in hidden EXIF data if location access is on for the camera. Some apps strip it when sharing, but files sent by email or cloud links usually keep it.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/trip-expense-splitter">Trip expense splitter</a>
+<a href="/tools/random-team-generator">Random team generator</a>
+<a href="/tools/chore-chart-maker">Chore chart maker</a>
+<a href="/tools/late-fee-calculator">Invoice late fee calculator</a>
+<a href="/tools/unit-price-calculator">Unit price comparison</a>
+<a href="/tools/sinking-fund-calculator">Sinking fund planner</a>
+<a href="/tools/meeting-cost-calculator">Meeting cost calculator</a>
+<a href="/tools/merge-pdf">Merge PDF without uploading</a>
+<a href="/tools/heic-to-jpg">HEIC to JPG converter (no upload)</a>
+<a href="/tools/image-to-pdf">Image to PDF (no upload)</a>
+<a href="/tools/compress-image">Compress, resize and convert images</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
+</body>
+</html>

@@ -278,3 +278,6 @@ textarea { min-height: 96px; }
 ::placeholder { color: var(--muted); opacity: .75; }
 /* Fields in a row line up even when a label wraps to two lines */
 .row { align-items: end; }
+/* Result rows: let name, badge and button wrap on small screens */
+.item h3 { flex-wrap: wrap; row-gap: 8px; overflow-wrap: anywhere; }
+.item h3 .btn { margin-left: auto; }

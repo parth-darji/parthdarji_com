@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Image to PDF Without Uploading: JPG, PNG to PDF Privately</title>
+<meta name="description" content="Convert JPG, PNG or WebP photos, scans and receipts into one PDF on your own device: no upload, reorder pages, choose page size.">
+<link rel="canonical" href="https://parthdarji.com/tools/image-to-pdf">
+
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Image to PDF (no upload)">
+<meta property="og:description" content="Convert JPG, PNG or WebP photos, scans and receipts into one PDF on your own device: no upload, reorder pages, choose page size.">
+<meta property="og:url" content="https://parthdarji.com/tools/image-to-pdf">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-image-to-pdf.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=11">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Image to PDF (no upload)",
+   "description": "Convert JPG, PNG or WebP photos, scans and receipts into one PDF on your own device: no upload, reorder pages, choose page size.",
+   "url": "https://parthdarji.com/tools/image-to-pdf",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I convert JPG to PDF without uploading?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Choose your images here, put them in order and tap Make PDF. The PDF is created in your browser on your device; nothing is uploaded."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I combine several photos into one PDF?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Add as many images as you like, reorder them, and each becomes one page of the same PDF."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I turn receipts into a PDF?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Photograph each receipt, add the photos here and download one PDF, useful for expense reports, FSA claims or HSA records."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Image to PDF (no upload)",
+     "item": "https://parthdarji.com/tools/image-to-pdf"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Image to PDF (no upload)</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p class="tldr"><strong>Private by design</strong>Your photos never leave this device: everything happens inside your browser, and nothing is uploaded to any server. Once you've opened this page, it even works offline.</p>
+<div class="tool" id="ip">
+  <div class="field"><label for="files">Choose images (JPG, PNG, WebP)</label><input id="files" type="file" accept="image/jpeg,image/png,image/webp" multiple></div>
+  <div class="row">
+    <div class="field"><label for="ps">Page size</label><select id="ps"><option value="fit">Same as each image</option><option value="letter">US Letter</option><option value="a4">A4</option></select></div>
+    <div class="field"><label for="mg">Margin</label><select id="mg"><option value="0">None</option><option value="18" selected>Small</option><option value="36">Large</option></select></div>
+    <div class="field"><label for="ql">Quality</label><select id="ql"><option value="0.92">High</option><option value="0.8" selected>Good (smaller file)</option><option value="0.65">Smallest</option></select></div>
+  </div>
+  <div class="results" id="list"></div>
+  <div class="cta-row"><button class="btn big" type="button" id="go" disabled>Make PDF</button></div>
+  <p class="fine" id="msg" aria-live="polite">Choose one or more images.</p>
+  <div class="results" id="out"></div>
+</div>
+<p>iPhone photos in HEIC format? Convert them first with the <a href="/tools/heic-to-jpg">HEIC to JPG converter</a>. Need to combine with other PDFs? Use <a href="/tools/merge-pdf">Merge PDF</a>.</p>
+<aside class="promo">
+  <img src="/images/apps/shoeboxhsa-192.webp" alt="" width="64" height="64" loading="lazy">
+  <div><p><strong>ShoeboxHSA</strong> · Snap medical receipts with your iPhone and keep them organized for your HSA, with PDF export built in.</p>
+  <a class="btn" href="https://apps.apple.com/app/id6813872704">Download for iPhone</a> <span class="fine" style="margin-left:8px">Free to try · No account</span></div>
+</aside><p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script src="/assets/vendor/pdf-lib-1.17.1.min.js"></script>
+<script>
+(function () {
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function size(b) { return b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB'; }
+  function decode(file) {
+    if (window.createImageBitmap) return createImageBitmap(file, { imageOrientation: 'from-image' }).catch(function () { return viaImg(file); });
+    return viaImg(file);
+  }
+  function viaImg(file) { return new Promise(function (ok, no) { var u = URL.createObjectURL(file), im = new Image(); im.onload = function () { ok(im); }; im.onerror = function () { no(new Error('decode')); }; im.src = u; }); }
+  function draw(img, maxW, maxH) {
+    var w = img.width, h = img.height, s = Math.min(1, maxW ? maxW / w : 1, maxH ? maxH / h : 1);
+    var c = document.createElement('canvas'); c.width = Math.max(1, Math.round(w * s)); c.height = Math.max(1, Math.round(h * s));
+    var x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(img, 0, 0, c.width, c.height); return c;
+  }
+  function toBlob(c, type, q) { return new Promise(function (ok) { c.toBlob(ok, type, q); }); }
+
+  var files = [], go = document.getElementById('go'), msg = document.getElementById('msg'), list = document.getElementById('list'), url = null;
+  document.getElementById('files').addEventListener('change', function (e) { files = files.concat([].slice.call(e.target.files).filter(function (f) { return /^image\//.test(f.type); })); e.target.value = ''; show(); });
+  function show() {
+    list.innerHTML = '';
+    files.forEach(function (f, i) {
+      var d = document.createElement('div'); d.className = 'item'; d.innerHTML = '<h3>' + (i + 1) + '. ' + esc(f.name) + ' <span class="badge ok">' + size(f.size) + '</span></h3>';
+      var bar = document.createElement('div'); bar.className = 'chips';
+      [['↑', -1], ['↓', 1], ['Remove', 0]].forEach(function (a) { var b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.textContent = a[0];
+        b.addEventListener('click', function () { if (!a[1]) files.splice(i, 1); else { var j = i + a[1]; if (j < 0 || j >= files.length) return; var t = files[i]; files[i] = files[j]; files[j] = t; } show(); }); bar.appendChild(b); });
+      d.appendChild(bar); list.appendChild(d);
+    });
+    go.disabled = !files.length; msg.textContent = files.length ? files.length + (files.length === 1 ? ' image' : ' images') + ', one per page.' : 'Choose one or more images.';
+  }
+  go.addEventListener('click', async function () {
+    go.disabled = true; if (url) URL.revokeObjectURL(url); document.getElementById('out').innerHTML = '';
+    try {
+      var doc = await PDFLib.PDFDocument.create(), ps = document.getElementById('ps').value, mg = +document.getElementById('mg').value, q = +document.getElementById('ql').value, bad = 0;
+      for (var i = 0; i < files.length; i++) {
+        msg.textContent = 'Adding image ' + (i + 1) + ' of ' + files.length + ' on your device…';
+        try {
+          var img = await decode(files[i]), c = draw(img, 2400, 2400), blob = await toBlob(c, 'image/jpeg', q);
+          var jpg = await doc.embedJpg(await blob.arrayBuffer());
+          var pw, ph; if (ps === 'fit') { pw = c.width * 0.75 + mg * 2; ph = c.height * 0.75 + mg * 2; } else { pw = ps === 'a4' ? 595.28 : 612; ph = ps === 'a4' ? 841.89 : 792; if (c.width > c.height) { var t = pw; pw = ph; ph = t; } }
+          var page = doc.addPage([pw, ph]), s = Math.min((pw - mg * 2) / jpg.width, (ph - mg * 2) / jpg.height), w = jpg.width * s, h = jpg.height * s;
+          page.drawImage(jpg, { x: (pw - w) / 2, y: (ph - h) / 2, width: w, height: h });
+        } catch (e) { bad++; }
+      }
+      if (!doc.getPageCount()) throw new Error('none');
+      var bytes = await doc.save(); url = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }));
+      document.getElementById('out').innerHTML = '<div class="item"><h3>images.pdf <a class="btn" href="' + url + '" download="images.pdf">Download PDF</a></h3><p>' + doc.getPageCount() + ' pages · ' + size(bytes.length) + '</p></div>';
+      msg.textContent = 'Done.' + (bad ? ' ' + bad + ' file(s) could not be read and were skipped.' : ' Nothing was uploaded.');
+    } catch (e) { msg.textContent = 'Sorry, none of these images could be read. Try JPG or PNG files.'; }
+    go.disabled = !files.length;
+  });
+})();
+</script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/merge-pdf"><h3>Merge PDF without uploading</h3><p>Combine, reorder and split PDFs privately on your device.</p></a><a class="card" href="/tools/compress-image"><h3>Compress, resize and convert images</h3><p>Shrink, resize or convert JPG, PNG and WebP privately, in batches.</p></a><a class="card" href="/tools/heic-to-jpg"><h3>HEIC to JPG converter (no upload)</h3><p>Convert iPhone photos to JPG on your device, in batches.</p></a><a class="card" href="/tools/remove-photo-metadata"><h3>Remove photo location and metadata</h3><p>Strip hidden GPS location and camera info before you share.</p></a></div>
+<h2>Questions</h2>
+<details><summary>How do I convert JPG to PDF without uploading?</summary><p>Choose your images here, put them in order and tap Make PDF. The PDF is created in your browser on your device; nothing is uploaded.</p></details>
+<details><summary>Can I combine several photos into one PDF?</summary><p>Yes. Add as many images as you like, reorder them, and each becomes one page of the same PDF.</p></details>
+<details><summary>Can I turn receipts into a PDF?</summary><p>Yes. Photograph each receipt, add the photos here and download one PDF, useful for expense reports, FSA claims or HSA records.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/trip-expense-splitter">Trip expense splitter</a>
+<a href="/tools/random-team-generator">Random team generator</a>
+<a href="/tools/chore-chart-maker">Chore chart maker</a>
+<a href="/tools/late-fee-calculator">Invoice late fee calculator</a>
+<a href="/tools/unit-price-calculator">Unit price comparison</a>
+<a href="/tools/sinking-fund-calculator">Sinking fund planner</a>
+<a href="/tools/meeting-cost-calculator">Meeting cost calculator</a>
+<a href="/tools/merge-pdf">Merge PDF without uploading</a>
+<a href="/tools/heic-to-jpg">HEIC to JPG converter (no upload)</a>
+<a href="/tools/compress-image">Compress, resize and convert images</a>
+<a href="/tools/remove-photo-metadata">Remove photo location and metadata</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
+</body>
+</html>

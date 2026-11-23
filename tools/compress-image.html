@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Compress Images Without Uploading: Resize and Convert JPG, PNG, WebP</title>
+<meta name="description" content="Compress, resize and convert images on your own device: JPG, PNG and WebP, batch processing, quality and size control.">
+<link rel="canonical" href="https://parthdarji.com/tools/compress-image">
+
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Compress, resize and convert images">
+<meta property="og:description" content="Compress, resize and convert images on your own device: JPG, PNG and WebP, batch processing, quality and size control.">
+<meta property="og:url" content="https://parthdarji.com/tools/compress-image">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-compress-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=11">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Compress, resize and convert images",
+   "description": "Compress, resize and convert images on your own device: JPG, PNG and WebP, batch processing, quality and size control.",
+   "url": "https://parthdarji.com/tools/compress-image",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I compress an image without uploading it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Choose your images here and tap Process images. Compression happens in your browser on your device, so the images are never sent to a server."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is the best format to make images smaller?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "WebP usually gives the smallest files for photos, then JPG. PNG is lossless and best for graphics or screenshots with sharp text."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I resize an image to a specific width?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Enter a max width or height in pixels; the image is scaled down to fit and keeps its proportions."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Compress, resize and convert images",
+     "item": "https://parthdarji.com/tools/compress-image"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Compress, resize and convert images</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p class="tldr"><strong>Private by design</strong>Your photos never leave this device: everything happens inside your browser, and nothing is uploaded to any server. Once you've opened this page, it even works offline.</p>
+<div class="tool" id="ci">
+  <div class="field"><label for="files">Choose images (JPG, PNG, WebP)</label><input id="files" type="file" accept="image/jpeg,image/png,image/webp" multiple></div>
+  <div class="row">
+    <div class="field"><label for="fmt">Save as</label><select id="fmt"><option value="same">Same format</option><option value="image/jpeg">JPG</option><option value="image/webp">WebP (smallest)</option><option value="image/png">PNG (lossless)</option></select></div>
+    <div class="field"><label for="ql">Quality</label><select id="ql"><option value="0.9">High</option><option value="0.75" selected>Good (recommended)</option><option value="0.6">Small</option><option value="0.45">Smallest</option></select></div>
+    <div class="field"><label for="mw">Max width (px, optional)</label><input id="mw" type="number" min="1" step="10" placeholder="e.g. 1600" inputmode="numeric"></div>
+    <div class="field"><label for="mh">Max height (px, optional)</label><input id="mh" type="number" min="1" step="10" placeholder="e.g. 1600" inputmode="numeric"></div>
+  </div>
+  <div class="cta-row"><button class="btn big" type="button" id="go" disabled>Process images</button></div>
+  <p class="fine" id="msg" aria-live="polite">Choose one or more images.</p>
+  <div class="results" id="out"></div>
+</div>
+<p class="note">Images are never made bigger than the original. PNG keeps full quality, so its file size may not shrink much; choose JPG or WebP for photos. Transparent PNGs saved as JPG get a white background. Re-saving also removes hidden photo metadata like location.</p>
+<p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function size(b) { return b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB'; }
+  function decode(file) {
+    if (window.createImageBitmap) return createImageBitmap(file, { imageOrientation: 'from-image' }).catch(function () { return viaImg(file); });
+    return viaImg(file);
+  }
+  function viaImg(file) { return new Promise(function (ok, no) { var u = URL.createObjectURL(file), im = new Image(); im.onload = function () { ok(im); }; im.onerror = function () { no(new Error('decode')); }; im.src = u; }); }
+  function draw(img, maxW, maxH) {
+    var w = img.width, h = img.height, s = Math.min(1, maxW ? maxW / w : 1, maxH ? maxH / h : 1);
+    var c = document.createElement('canvas'); c.width = Math.max(1, Math.round(w * s)); c.height = Math.max(1, Math.round(h * s));
+    var x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(img, 0, 0, c.width, c.height); return c;
+  }
+  function toBlob(c, type, q) { return new Promise(function (ok) { c.toBlob(ok, type, q); }); }
+
+  var files = [], urls = [], go = document.getElementById('go'), msg = document.getElementById('msg');
+  document.getElementById('files').addEventListener('change', function (e) { files = [].slice.call(e.target.files).filter(function (f) { return /^image\//.test(f.type); }); go.disabled = !files.length; msg.textContent = files.length ? files.length + (files.length === 1 ? ' image' : ' images') + ' ready.' : 'Choose one or more images.'; });
+  function n(id) { var v = parseInt(document.getElementById(id).value, 10); return v > 0 ? v : 0; }
+  go.addEventListener('click', async function () {
+    urls.forEach(URL.revokeObjectURL); urls = []; var out = document.getElementById('out'); out.innerHTML = ''; go.disabled = true;
+    var fmt = document.getElementById('fmt').value, q = +document.getElementById('ql').value, before = 0, after = 0, ok = 0;
+    for (var i = 0; i < files.length; i++) {
+      var f = files[i]; msg.textContent = 'Processing ' + (i + 1) + ' of ' + files.length + ' on your device…';
+      try {
+        var img = await decode(f), c = draw(img, n('mw'), n('mh')), type = fmt === 'same' ? (f.type === 'image/png' || f.type === 'image/webp' ? f.type : 'image/jpeg') : fmt;
+        if (type === 'image/jpeg') { var t = document.createElement('canvas'); t.width = c.width; t.height = c.height; var x = t.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, t.width, t.height); x.drawImage(c, 0, 0); c = t; }
+        var blob = await toBlob(c, type, q); if (!blob) throw new Error('enc');
+        var ext = type === 'image/png' ? 'png' : type === 'image/webp' ? 'webp' : 'jpg', name = f.name.replace(/\.[^.]+$/, '') + '-small.' + ext;
+        var u = URL.createObjectURL(blob); urls.push(u); before += f.size; after += blob.size; ok++;
+        var pct = Math.round((1 - blob.size / f.size) * 100), d = document.createElement('div'); d.className = 'item';
+        d.innerHTML = '<h3>' + esc(name) + ' <a class="btn">Download</a></h3><p>' + size(f.size) + ' → ' + size(blob.size) + ' (' + (pct >= 0 ? pct + '% smaller' : Math.abs(pct) + '% larger') + ') · ' + c.width + ' × ' + c.height + ' px</p>';
+        var a = d.querySelector('a'); a.href = u; a.download = name; out.appendChild(d);
+      } catch (e) { var d2 = document.createElement('div'); d2.className = 'item'; d2.innerHTML = '<p>' + esc(f.name) + ': could not be read.</p>'; out.appendChild(d2); }
+    }
+    msg.textContent = 'Done: ' + ok + ' of ' + files.length + (ok ? ' · total ' + size(before) + ' → ' + size(after) : '') + '. Nothing was uploaded.'; go.disabled = false;
+  });
+})();
+</script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/merge-pdf"><h3>Merge PDF without uploading</h3><p>Combine, reorder and split PDFs privately on your device.</p></a><a class="card" href="/tools/image-to-pdf"><h3>Image to PDF (no upload)</h3><p>Turn photos, scans or receipts into one PDF on your device.</p></a><a class="card" href="/tools/heic-to-jpg"><h3>HEIC to JPG converter (no upload)</h3><p>Convert iPhone photos to JPG on your device, in batches.</p></a><a class="card" href="/tools/remove-photo-metadata"><h3>Remove photo location and metadata</h3><p>Strip hidden GPS location and camera info before you share.</p></a></div>
+<h2>Questions</h2>
+<details><summary>How do I compress an image without uploading it?</summary><p>Choose your images here and tap Process images. Compression happens in your browser on your device, so the images are never sent to a server.</p></details>
+<details><summary>What is the best format to make images smaller?</summary><p>WebP usually gives the smallest files for photos, then JPG. PNG is lossless and best for graphics or screenshots with sharp text.</p></details>
+<details><summary>How do I resize an image to a specific width?</summary><p>Enter a max width or height in pixels; the image is scaled down to fit and keeps its proportions.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/trip-expense-splitter">Trip expense splitter</a>
+<a href="/tools/random-team-generator">Random team generator</a>
+<a href="/tools/chore-chart-maker">Chore chart maker</a>
+<a href="/tools/late-fee-calculator">Invoice late fee calculator</a>
+<a href="/tools/unit-price-calculator">Unit price comparison</a>
+<a href="/tools/sinking-fund-calculator">Sinking fund planner</a>
+<a href="/tools/meeting-cost-calculator">Meeting cost calculator</a>
+<a href="/tools/merge-pdf">Merge PDF without uploading</a>
+<a href="/tools/heic-to-jpg">HEIC to JPG converter (no upload)</a>
+<a href="/tools/image-to-pdf">Image to PDF (no upload)</a>
+<a href="/tools/remove-photo-metadata">Remove photo location and metadata</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
+</body>
+</html>
