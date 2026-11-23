@@ -167,7 +167,7 @@ a.app:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 .crumbs { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
 .crumbs a { color: var(--muted); }
 .tldr { background: var(--brand-soft); border: 1px solid color-mix(in srgb, var(--brand) 18%, transparent); border-radius: var(--radius); padding: 18px 22px; margin: 18px 0 28px; }
-.tldr strong { display: block; margin-bottom: 4px; font-family: var(--display); }
+.tldr > strong:first-child { display: block; margin-bottom: 4px; font-family: var(--display); }
 .note { background: var(--amber-soft); border-radius: var(--radius-s); padding: 14px 18px; font-size: 16px; margin: 22px 0; }
 .toc { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 20px; margin: 0 0 26px; font-size: 16px; }
 .toc ol { margin: 6px 0 0; }
@@ -292,3 +292,6 @@ textarea { min-height: 96px; }
 .embed .tldr { display: none !important; }
 /* Anything marked hidden must stay hidden, even cards and blocks with their own display */
 [hidden] { display: none !important; }
+input[type="color"] { width: 100%; height: 52px; padding: 6px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); cursor: pointer; }
+input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+input[type="color"]::-webkit-color-swatch { border: 0; border-radius: 8px; }

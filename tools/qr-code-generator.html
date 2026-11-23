@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Free QR Code Generator That Never Expires (No Sign-Up)</title>
+<meta name="description" content="Make free static QR codes that never expire, with your logo: links, Wi-Fi, contact cards, email, text and SMS. No sign-up, no tracking. Download PNG or SVG.">
+<link rel="canonical" href="https://parthdarji.com/tools/qr-code-generator">
+
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="QR code generator (never expires)">
+<meta property="og:description" content="Make free static QR codes that never expire, with your logo: links, Wi-Fi, contact cards, email, text and SMS. No sign-up, no tracking. Download PNG or SVG.">
+<meta property="og:url" content="https://parthdarji.com/tools/qr-code-generator">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-qr-code-generator.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=15">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+
+<meta name="theme-color" content="#0e7c66">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "QR code generator (never expires)",
+   "description": "Make free static QR codes that never expire, with your logo: links, Wi-Fi, contact cards, email, text and SMS. No sign-up, no tracking. Download PNG or SVG.",
+   "url": "https://parthdarji.com/tools/qr-code-generator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do these QR codes expire?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. They're static QR codes: the link or text is stored inside the code itself, not on a server, so they keep working forever."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why do some free QR codes stop working?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Many sites create dynamic codes that redirect through their server, then disable them after a trial or ask for payment. Static codes don't depend on any server."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I make a QR code for Wi-Fi?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Choose Wi-Fi, enter the network name, password and security type, and download the code. Guests scan it with their phone camera to join without typing the password."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I add a logo to my QR code?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Upload a logo and it's placed in the middle with a background box. The tool switches to the highest error correction and test-scans the code to make sure it still reads."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I change the link later?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not with a static code: the link is part of the code. Make a new code if the link changes, or point the code at a page you control."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "QR code generator (never expires)",
+     "item": "https://parthdarji.com/tools/qr-code-generator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>QR code generator (never expires)</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<div class="tldr"><strong>Why these never expire</strong>Many QR sites make "dynamic" codes that point to their own server first, so the code stops working if you stop paying. These are <strong>static</strong> codes: your link or text is stored inside the code itself, so it works forever and nobody tracks the scans.</div>
+<div class="tool" id="qr">
+  <div class="chips" role="group" aria-label="Type">
+    <button class="chip" data-t="url" aria-pressed="true">Link</button><button class="chip" data-t="wifi" aria-pressed="false">Wi-Fi</button><button class="chip" data-t="vcard" aria-pressed="false">Contact</button><button class="chip" data-t="text" aria-pressed="false">Text</button><button class="chip" data-t="email" aria-pressed="false">Email</button><button class="chip" data-t="sms" aria-pressed="false">SMS</button><button class="chip" data-t="tel" aria-pressed="false">Phone</button>
+  </div>
+  <div class="row" data-for="url"><div class="field" style="grid-column:1/-1"><label for="url">Website link</label><input id="url" type="text" inputmode="url" value="https://parthdarji.com/tools/" autocomplete="off"></div></div>
+  <div class="row" data-for="wifi" hidden><div class="field"><label for="ssid">Network name (SSID)</label><input id="ssid" type="text" autocomplete="off" placeholder="Home WiFi"></div><div class="field"><label for="wpass">Password</label><input id="wpass" type="text" autocomplete="off"></div><div class="field"><label for="wsec">Security</label><select id="wsec"><option value="WPA">WPA/WPA2/WPA3</option><option value="WEP">WEP</option><option value="nopass">None (open)</option></select></div><div class="field"><label for="whid">Hidden network</label><select id="whid"><option value="">No</option><option value="true">Yes</option></select></div></div>
+  <div class="row" data-for="vcard" hidden><div class="field"><label for="vn">Full name</label><input id="vn" type="text" autocomplete="off"></div><div class="field"><label for="vp">Phone</label><input id="vp" type="text" inputmode="tel" autocomplete="off"></div><div class="field"><label for="ve">Email</label><input id="ve" type="text" inputmode="email" autocomplete="off"></div><div class="field"><label for="vo">Company</label><input id="vo" type="text" autocomplete="off"></div><div class="field"><label for="vt">Job title</label><input id="vt" type="text" autocomplete="off"></div><div class="field"><label for="vw">Website</label><input id="vw" type="text" inputmode="url" autocomplete="off"></div></div>
+  <div class="row" data-for="text" hidden><div class="field" style="grid-column:1/-1"><label for="txt">Text</label><textarea id="txt" rows="3"></textarea></div></div>
+  <div class="row" data-for="email" hidden><div class="field"><label for="em">Email address</label><input id="em" type="text" inputmode="email" autocomplete="off"></div><div class="field"><label for="es">Subject</label><input id="es" type="text" autocomplete="off"></div><div class="field" style="grid-column:1/-1"><label for="eb">Message</label><textarea id="eb" rows="2"></textarea></div></div>
+  <div class="row" data-for="sms" hidden><div class="field"><label for="sn">Phone number</label><input id="sn" type="text" inputmode="tel" autocomplete="off"></div><div class="field" style="grid-column:1/-1"><label for="sm">Message</label><textarea id="sm" rows="2"></textarea></div></div>
+  <div class="row" data-for="tel" hidden><div class="field"><label for="tn">Phone number</label><input id="tn" type="text" inputmode="tel" autocomplete="off"></div></div>
+  <div class="row">
+    <div class="field"><label for="fg">Code color</label><input id="fg" type="color" value="#0d1513"></div>
+    <div class="field"><label for="bg">Background</label><input id="bg" type="color" value="#ffffff"></div>
+    <div class="field"><label for="ec">Error correction</label><select id="ec"><option value="L">Low (smallest)</option><option value="M" selected>Medium (recommended)</option><option value="Q">High</option><option value="H">Highest (for print)</option></select></div>
+    <div class="field"><label for="px">PNG size</label><select id="px"><option>512</option><option selected>1024</option><option>2048</option></select></div>
+  </div>
+  <div class="row">
+    <div class="field"><label for="logo">Logo in the middle (optional)</label><input id="logo" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml"></div>
+    <div class="field"><label for="lsz">Logo size</label><select id="lsz"><option value="0.16">Small</option><option value="0.2" selected>Medium</option><option value="0.24">Large</option></select></div>
+    <div class="field"><label for="lbox">Logo background</label><select id="lbox"><option value="round">Rounded box</option><option value="square">Square box</option><option value="circle">Circle</option><option value="none">None</option></select></div>
+    <div class="field" style="align-self:end"><button class="btn ghost" type="button" id="lrm" disabled>Remove logo</button></div>
+  </div>
+  <div style="display:grid;place-items:center;margin:14px 0"><canvas id="cv" width="320" height="320" style="width:min(320px,100%);height:auto;border-radius:12px;border:1px solid var(--line)" aria-label="QR code preview"></canvas></div>
+  <p class="fine" id="msg" aria-live="polite" style="text-align:center"></p>
+  <div class="cta-row" style="justify-content:center"><button class="btn big" type="button" id="png">Download PNG</button><button class="btn big ghost" type="button" id="svg">Download SVG</button></div>
+</div>
+<h2>Tips for QR codes that always scan</h2>
+<ul>
+<li>Keep strong contrast: dark code on a light background. Light-on-dark codes fail on some phone cameras.</li>
+<li>Print at least 2 cm (0.8 inch) wide, bigger for posters seen from far away.</li>
+<li>Use SVG for print (it stays sharp at any size) and PNG for screens and documents.</li>
+<li>Test the printed code with two different phones before printing many copies.</li>
+<li>Adding a logo? Keep it small and simple, and use Highest error correction (switched on automatically). The tool test-scans every code and warns you if it doesn't read.</li>
+</ul>
+<p>Need your Wi-Fi password shared with guests? The Wi-Fi code lets phones join without typing it.</p>
+<p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script src="/assets/vendor/qrcode-generator-1.4.4.js"></script>
+<script>
+(function () {
+  qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8'];
+  var type = 'url', cv = document.getElementById('cv'), msg = document.getElementById('msg'), cur = null, logo = null, logoURL = null, det = null, scanId = 0;
+  try { if ('BarcodeDetector' in window) det = new BarcodeDetector({ formats: ['qr_code'] }); } catch (e) {}
+  document.getElementById('logo').addEventListener('change', function (e) {
+    var f = e.target.files[0]; if (!f) return;
+    var rd = new FileReader(); rd.onload = function () { var im = new Image(); im.onload = function () { logo = im; logoURL = rd.result; document.getElementById('lrm').disabled = false; document.getElementById('ec').value = 'H'; run(); }; im.onerror = function () { msg.textContent = 'That logo image could not be read.'; }; im.src = rd.result; }; rd.readAsDataURL(f);
+  });
+  document.getElementById('lrm').addEventListener('click', function () { logo = null; logoURL = null; document.getElementById('logo').value = ''; this.disabled = true; run(); });
+  function logoBox(size) { var n = cur.getModuleCount(), q = 4, s = size / (n + q * 2), b = Math.round(size * +document.getElementById('lsz').value), pad = Math.round(s * 1.2); return { b: b, pad: pad, x: Math.round((size - b) / 2), y: Math.round((size - b) / 2) }; }
+  function fit(w, h, b) { var r = Math.min(b / w, b / h); return [w * r, h * r]; }
+  function v(id) { return document.getElementById(id).value.trim(); }
+  function wesc(s) { return s.replace(/([\\;,:"])/g, '\\$1'); }
+  function vesc(s) { return s.replace(/([\\;,])/g, '\\$1').replace(/\n/g, '\\n'); }
+  function payload() {
+    switch (type) {
+      case 'url': var u = v('url'); if (u && !/^[a-z][a-z0-9+.-]*:/i.test(u)) u = 'https://' + u; return u.replace(/ /g, '%20');
+      case 'wifi': if (!v('ssid')) return ''; return 'WIFI:T:' + document.getElementById('wsec').value + ';S:' + wesc(v('ssid')) + ';' + (document.getElementById('wsec').value !== 'nopass' ? 'P:' + wesc(document.getElementById('wpass').value) + ';' : '') + (document.getElementById('whid').value ? 'H:true;' : '') + ';';
+      case 'vcard': if (!v('vn') && !v('vp') && !v('ve')) return ''; var n = v('vn'), parts = n.split(/\s+/), last = parts.length > 1 ? parts.pop() : '', first = parts.join(' ');
+        return ['BEGIN:VCARD', 'VERSION:3.0', 'N:' + vesc(last) + ';' + vesc(first) + ';;;', 'FN:' + vesc(n), v('vo') ? 'ORG:' + vesc(v('vo')) : '', v('vt') ? 'TITLE:' + vesc(v('vt')) : '', v('vp') ? 'TEL;TYPE=CELL:' + v('vp') : '', v('ve') ? 'EMAIL:' + v('ve') : '', v('vw') ? 'URL:' + v('vw') : '', 'END:VCARD'].filter(Boolean).join('\n');
+      case 'text': return document.getElementById('txt').value;
+      case 'email': if (!v('em')) return ''; var q = []; if (v('es')) q.push('subject=' + encodeURIComponent(v('es'))); if (v('eb')) q.push('body=' + encodeURIComponent(v('eb'))); return 'mailto:' + v('em') + (q.length ? '?' + q.join('&') : '');
+      case 'sms': return v('sn') ? 'SMSTO:' + v('sn') + ':' + document.getElementById('sm').value : '';
+      case 'tel': return v('tn') ? 'tel:' + v('tn').replace(/[^0-9+*#]/g, '') : '';
+    }
+  }
+  function lum(hex) { var c = [1, 3, 5].map(function (i) { var x = parseInt(hex.substr(i, 2), 16) / 255; return x <= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4); }); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; }
+  function render(c, size) {
+    var n = cur.getModuleCount(), q = 4, s = size / (n + q * 2), x = c.getContext('2d');
+    c.width = size; c.height = size; x.fillStyle = v('bg'); x.fillRect(0, 0, size, size); x.fillStyle = v('fg');
+    for (var r = 0; r < n; r++) for (var k = 0; k < n; k++) if (cur.isDark(r, k)) x.fillRect(Math.floor((k + q) * s), Math.floor((r + q) * s), Math.ceil(s), Math.ceil(s));
+    if (logo) {
+      var L = logoBox(size), shape = document.getElementById('lbox').value, bx = L.x - L.pad, by = L.y - L.pad, bw = L.b + L.pad * 2;
+      if (shape !== 'none') { x.fillStyle = v('bg'); x.beginPath(); if (shape === 'circle') x.arc(size / 2, size / 2, bw / 2 * 1.1, 0, Math.PI * 2); else if (shape === 'round' && x.roundRect) x.roundRect(bx, by, bw, bw, bw * 0.18); else x.rect(bx, by, bw, bw); x.fill(); }
+      var wh = fit(logo.naturalWidth || logo.width, logo.naturalHeight || logo.height, L.b); x.drawImage(logo, (size - wh[0]) / 2, (size - wh[1]) / 2, wh[0], wh[1]);
+    }
+  }
+  function run() {
+    var data = payload(), btns = [document.getElementById('png'), document.getElementById('svg')];
+    if (!data) { cur = null; var x = cv.getContext('2d'); cv.width = cv.height = 320; x.fillStyle = '#eef3f0'; x.fillRect(0, 0, 320, 320); msg.textContent = 'Fill in the details to make your code.'; btns.forEach(function (b) { b.disabled = true; }); return; }
+    try { cur = qrcode(0, document.getElementById('ec').value); cur.addData(data); cur.make(); }
+    catch (e) { cur = null; msg.textContent = 'Too much content for one QR code. Shorten it or lower error correction.'; btns.forEach(function (b) { b.disabled = true; }); return; }
+    render(cv, 640);
+    var l1 = lum(v('fg')), l2 = lum(v('bg')), ratio = (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+    var base = (l1 > l2 ? 'Warning: light code on a dark background may not scan on some phones. ' : ratio < 4 ? 'Warning: low contrast, the code may not scan. ' : '') + 'Static code, ' + cur.getModuleCount() + '×' + cur.getModuleCount() + ' modules. Never expires.';
+    if (logo && document.getElementById('ec').value !== 'H') base = 'Tip: use Highest error correction with a logo. ' + base;
+    msg.textContent = base;
+    btns.forEach(function (b) { b.disabled = false; });
+    if (det) { var id = ++scanId; det.detect(cv).then(function (res) { if (id !== scanId) return; var ok = res.length && res[0].rawValue === data;
+      msg.textContent = (ok ? '✓ Test scan OK. ' : '⚠ This code did not scan in our test. Make the logo smaller, raise error correction or increase contrast. ') + base; }).catch(function () {}); }
+  }
+  function save(blob, name) { var a = document.createElement('a'), u = URL.createObjectURL(blob); a.href = u; a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(u); }, 4000); }
+  document.getElementById('png').addEventListener('click', function () { if (!cur) return; var c = document.createElement('canvas'); render(c, +document.getElementById('px').value); c.toBlob(function (b) { save(b, 'qr-code.png'); }, 'image/png'); });
+  document.getElementById('svg').addEventListener('click', function () {
+    if (!cur) return; var n = cur.getModuleCount(), q = 4, t = n + q * 2, d = '';
+    for (var r = 0; r < n; r++) for (var k = 0; k < n; k++) if (cur.isDark(r, k)) d += 'M' + (k + q) + ' ' + (r + q) + 'h1v1h-1z';
+    var lg = '';
+    if (logo) { var b = t * +document.getElementById('lsz').value, pad = 1.2, shape = document.getElementById('lbox').value, o = (t - b) / 2, wh = fit(logo.naturalWidth || logo.width, logo.naturalHeight || logo.height, b);
+      if (shape === 'circle') lg += '<circle cx="' + t / 2 + '" cy="' + t / 2 + '" r="' + ((b + pad * 2) / 2 * 1.1) + '" fill="' + v('bg') + '"/>';
+      else if (shape !== 'none') lg += '<rect x="' + (o - pad) + '" y="' + (o - pad) + '" width="' + (b + pad * 2) + '" height="' + (b + pad * 2) + '" rx="' + (shape === 'round' ? (b + pad * 2) * 0.18 : 0) + '" fill="' + v('bg') + '"/>';
+      lg += '<image href="' + logoURL + '" x="' + ((t - wh[0]) / 2) + '" y="' + ((t - wh[1]) / 2) + '" width="' + wh[0] + '" height="' + wh[1] + '" preserveAspectRatio="xMidYMid meet"/>'; }
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + t + ' ' + t + '" shape-rendering="crispEdges"><rect width="100%" height="100%" fill="' + v('bg') + '"/><path d="' + d + '" fill="' + v('fg') + '"/>' + lg + '</svg>';
+    save(new Blob([svg], { type: 'image/svg+xml' }), 'qr-code.svg');
+  });
+  [].forEach.call(document.querySelectorAll('.chip[data-t]'), function (c) { c.addEventListener('click', function () {
+    type = c.dataset.t; [].forEach.call(document.querySelectorAll('.chip[data-t]'), function (x) { x.setAttribute('aria-pressed', x === c); });
+    [].forEach.call(document.querySelectorAll('[data-for]'), function (r) { r.hidden = r.dataset.for !== type; }); run(); }); });
+  var box = document.getElementById('qr'); box.addEventListener('input', run); box.addEventListener('change', run); run();
+})();
+</script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/secret-santa-generator"><h3>Secret Santa generator</h3><p>Draw names with no sign-up, couples excluded, private reveal links.</p></a><a class="card" href="/tools/random-team-generator"><h3>Random team generator</h3><p>Split names into fair random teams or groups.</p></a><a class="card" href="/tools/chore-chart-maker"><h3>Chore chart maker</h3><p>Make a printable weekly chore chart that rotates fairly.</p></a><a class="card" href="/tools/merge-pdf"><h3>Merge PDF without uploading</h3><p>Combine, reorder and split PDFs privately on your device.</p></a></div>
+<h2>Questions</h2>
+<details><summary>Do these QR codes expire?</summary><p>No. They're static QR codes: the link or text is stored inside the code itself, not on a server, so they keep working forever.</p></details>
+<details><summary>Why do some free QR codes stop working?</summary><p>Many sites create dynamic codes that redirect through their server, then disable them after a trial or ask for payment. Static codes don't depend on any server.</p></details>
+<details><summary>How do I make a QR code for Wi-Fi?</summary><p>Choose Wi-Fi, enter the network name, password and security type, and download the code. Guests scan it with their phone camera to join without typing the password.</p></details>
+<details><summary>Can I add a logo to my QR code?</summary><p>Yes. Upload a logo and it's placed in the middle with a background box. The tool switches to the highest error correction and test-scans the code to make sure it still reads.</p></details>
+<details><summary>Can I change the link later?</summary><p>Not with a static code: the link is part of the code. Make a new code if the link changes, or point the code at a page you control.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/trip-expense-splitter">Trip expense splitter</a>
+<a href="/tools/random-team-generator">Random team generator</a>
+<a href="/tools/chore-chart-maker">Chore chart maker</a>
+<a href="/tools/late-fee-calculator">Invoice late fee calculator</a>
+<a href="/tools/unit-price-calculator">Unit price comparison</a>
+<a href="/tools/sinking-fund-calculator">Sinking fund planner</a>
+<a href="/tools/meeting-cost-calculator">Meeting cost calculator</a>
+<a href="/tools/merge-pdf">Merge PDF without uploading</a>
+<a href="/tools/heic-to-jpg">HEIC to JPG converter (no upload)</a>
+<a href="/tools/image-to-pdf">Image to PDF (no upload)</a>
+<a href="/tools/compress-image">Compress, resize and convert images</a>
+<a href="/tools/remove-photo-metadata">Remove photo location and metadata</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers, <a href="/tools/privacy">nothing uploaded</a>. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
+</body>
+</html>
