@@ -19,8 +19,17 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
-<link rel="stylesheet" href="/assets/site.css?v=11">
+<link rel="stylesheet" href="/assets/site.css?v=12">
 <link rel="manifest" href="/tools/manifest.webmanifest">
+<script>
+(function () { if (!/[?&]embed=1/.test(location.search)) return;
+  document.documentElement.classList.add('embed');
+  var credit = document.createElement('p'); credit.className = 'embed-credit';
+  credit.innerHTML = 'Free tool by <a href="' + location.pathname + '" target="_blank" rel="noopener">parthdarji.com</a>';
+  document.addEventListener('DOMContentLoaded', function () { var a = document.querySelector('.article'); if (a) a.appendChild(credit);
+    [].forEach.call(document.querySelectorAll('a[href^="/"]'), function (l) { l.target = '_blank'; l.rel = 'noopener'; }); });
+})();
+</script>
 <meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
 {
@@ -140,6 +149,11 @@
 </script>
 <h2>Related free tools</h2>
 <div class="cards"><a class="card" href="/tools/fsa-use-it-or-lose-it-calculator"><h3>FSA use it or lose it calculator</h3><p>How much FSA money you could lose, and what to buy before the deadline.</p></a><a class="card" href="/tools/cobra-cost-calculator"><h3>COBRA cost calculator</h3><p>Estimate COBRA premiums after leaving a job.</p></a><a class="card" href="/tools/coinsurance-calculator"><h3>Coinsurance and out-of-pocket calculator</h3><p>What you'll pay on a medical bill after deductible and coinsurance.</p></a><a class="card" href="/tools/medicare-irmaa-calculator"><h3>Medicare IRMAA calculator 2026</h3><p>Your 2026 Part B and Part D premiums by income.</p></a></div>
+<details class="noprint embed-box"><summary>Embed this calculator on your site</summary>
+<p>Free for blogs and websites. Paste this code into your page; it stays up to date automatically. No tracking.</p>
+<textarea readonly rows="4" onclick="this.select()">&lt;iframe src=&quot;https://parthdarji.com/tools/dependent-care-fsa-calculator?embed=1&quot; title=&quot;Dependent care FSA calculator 2026&quot; width=&quot;100%&quot; height=&quot;860&quot; style=&quot;border:1px solid #e1e7e4;border-radius:12px;max-width:760px&quot; loading=&quot;lazy&quot;&gt;&lt;/iframe&gt;&lt;p style=&quot;font-size:13px&quot;&gt;Free tool by &lt;a href=&quot;https://parthdarji.com/tools/dependent-care-fsa-calculator&quot;&gt;parthdarji.com&lt;/a&gt;&lt;/p&gt;</textarea>
+<button class="btn ghost" type="button" onclick="var t=this.previousElementSibling;t.select();if(navigator.clipboard)navigator.clipboard.writeText(t.value);this.textContent='Copied'">Copy embed code</button>
+</details>
 <h2>Questions</h2>
 <details><summary>What is the dependent care FSA limit for 2026?</summary><p>$7,500 per household, or $3,750 if married filing separately. The One Big Beautiful Bill Act raised it from $5,000. Employers can keep a lower plan limit.</p></details>
 <details><summary>How much does a dependent care FSA save?</summary><p>Your contribution skips federal income tax, 7.65% Social Security and Medicare tax, and usually state tax. At a 22% bracket and 5% state tax, $7,500 saves about $2,600.</p></details>

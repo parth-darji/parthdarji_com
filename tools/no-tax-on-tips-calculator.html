@@ -19,8 +19,17 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
-<link rel="stylesheet" href="/assets/site.css?v=11">
+<link rel="stylesheet" href="/assets/site.css?v=12">
 <link rel="manifest" href="/tools/manifest.webmanifest">
+<script>
+(function () { if (!/[?&]embed=1/.test(location.search)) return;
+  document.documentElement.classList.add('embed');
+  var credit = document.createElement('p'); credit.className = 'embed-credit';
+  credit.innerHTML = 'Free tool by <a href="' + location.pathname + '" target="_blank" rel="noopener">parthdarji.com</a>';
+  document.addEventListener('DOMContentLoaded', function () { var a = document.querySelector('.article'); if (a) a.appendChild(credit);
+    [].forEach.call(document.querySelectorAll('a[href^="/"]'), function (l) { l.target = '_blank'; l.rel = 'noopener'; }); });
+})();
+</script>
 <meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
 {
@@ -136,6 +145,11 @@
 </script>
 <h2>Related free tools</h2>
 <div class="cards"><a class="card" href="/tools/no-tax-on-overtime-calculator"><h3>No tax on overtime calculator</h3><p>Estimate your 2025-2028 overtime deduction and tax saved.</p></a><a class="card" href="/tools/senior-deduction-calculator"><h3>$6,000 senior deduction calculator</h3><p>The new extra deduction for people 65 and older.</p></a><a class="card" href="/tools/car-loan-interest-deduction-calculator"><h3>Car loan interest deduction calculator</h3><p>Deduct up to $10,000 of interest on a new US-assembled car.</p></a><a class="card" href="/tools/medical-expense-deduction-calculator"><h3>Medical expense deduction calculator</h3><p>See if your medical bills are tax-deductible above 7.5% of income.</p></a></div>
+<details class="noprint embed-box"><summary>Embed this calculator on your site</summary>
+<p>Free for blogs and websites. Paste this code into your page; it stays up to date automatically. No tracking.</p>
+<textarea readonly rows="4" onclick="this.select()">&lt;iframe src=&quot;https://parthdarji.com/tools/no-tax-on-tips-calculator?embed=1&quot; title=&quot;No tax on tips calculator&quot; width=&quot;100%&quot; height=&quot;860&quot; style=&quot;border:1px solid #e1e7e4;border-radius:12px;max-width:760px&quot; loading=&quot;lazy&quot;&gt;&lt;/iframe&gt;&lt;p style=&quot;font-size:13px&quot;&gt;Free tool by &lt;a href=&quot;https://parthdarji.com/tools/no-tax-on-tips-calculator&quot;&gt;parthdarji.com&lt;/a&gt;&lt;/p&gt;</textarea>
+<button class="btn ghost" type="button" onclick="var t=this.previousElementSibling;t.select();if(navigator.clipboard)navigator.clipboard.writeText(t.value);this.textContent='Copied'">Copy embed code</button>
+</details>
 <h2>Questions</h2>
 <details><summary>How does no tax on tips work?</summary><p>For 2025 through 2028, workers in customarily tipped jobs can deduct up to $25,000 of qualified tips a year from federal taxable income. It phases out above $150,000 of income ($300,000 joint) and doesn't remove Social Security or Medicare tax.</p></details>
 <details><summary>Can I take the tips deduction if I take the standard deduction?</summary><p>Yes. It's available whether you itemize or take the standard deduction.</p></details>

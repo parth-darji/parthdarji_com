@@ -19,8 +19,17 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
-<link rel="stylesheet" href="/assets/site.css?v=11">
+<link rel="stylesheet" href="/assets/site.css?v=12">
 <link rel="manifest" href="/tools/manifest.webmanifest">
+<script>
+(function () { if (!/[?&]embed=1/.test(location.search)) return;
+  document.documentElement.classList.add('embed');
+  var credit = document.createElement('p'); credit.className = 'embed-credit';
+  credit.innerHTML = 'Free tool by <a href="' + location.pathname + '" target="_blank" rel="noopener">parthdarji.com</a>';
+  document.addEventListener('DOMContentLoaded', function () { var a = document.querySelector('.article'); if (a) a.appendChild(credit);
+    [].forEach.call(document.querySelectorAll('a[href^="/"]'), function (l) { l.target = '_blank'; l.rel = 'noopener'; }); });
+})();
+</script>
 <meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
 {
@@ -152,6 +161,11 @@
 </script>
 <h2>Related free tools</h2>
 <div class="cards"><a class="card" href="/tools/holiday-gift-budget-calculator"><h3>Holiday gift budget calculator</h3><p>Plan gifts per person and holiday extras, and see how much to save each week.</p></a><a class="card" href="/tools/trip-expense-splitter"><h3>Trip expense splitter</h3><p>Who owes whom after a trip or group dinner, in the fewest payments.</p></a><a class="card" href="/tools/bill-split-by-income-calculator"><h3>Bill split by income calculator</h3><p>Split shared bills fairly by each person's income.</p></a><a class="card" href="/tools/rent-split-by-room-calculator"><h3>Rent split by room size calculator</h3><p>Split rent fairly between roommates by room size.</p></a></div>
+<details class="noprint embed-box"><summary>Embed this calculator on your site</summary>
+<p>Free for blogs and websites. Paste this code into your page; it stays up to date automatically. No tracking.</p>
+<textarea readonly rows="4" onclick="this.select()">&lt;iframe src=&quot;https://parthdarji.com/tools/unit-price-calculator?embed=1&quot; title=&quot;Unit price comparison&quot; width=&quot;100%&quot; height=&quot;860&quot; style=&quot;border:1px solid #e1e7e4;border-radius:12px;max-width:760px&quot; loading=&quot;lazy&quot;&gt;&lt;/iframe&gt;&lt;p style=&quot;font-size:13px&quot;&gt;Free tool by &lt;a href=&quot;https://parthdarji.com/tools/unit-price-calculator&quot;&gt;parthdarji.com&lt;/a&gt;&lt;/p&gt;</textarea>
+<button class="btn ghost" type="button" onclick="var t=this.previousElementSibling;t.select();if(navigator.clipboard)navigator.clipboard.writeText(t.value);this.textContent='Copied'">Copy embed code</button>
+</details>
 <h2>Questions</h2>
 <details><summary>How do you calculate unit price?</summary><p>Divide the price by the size in a common unit. $5.99 for 24 oz is $0.25 per ounce; compare that with other sizes or brands in the same unit.</p></details>
 <details><summary>Is buying in bulk always cheaper?</summary><p>Often but not always; compare unit prices, since sales and store brands can make smaller packs cheaper, and only buy what you'll use.</p></details>

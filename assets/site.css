@@ -281,3 +281,12 @@ textarea { min-height: 96px; }
 /* Result rows: let name, badge and button wrap on small screens */
 .item h3 { flex-wrap: wrap; row-gap: 8px; overflow-wrap: anywhere; }
 .item h3 .btn { margin-left: auto; }
+/* Embed mode (?embed=1): just the tool */
+.embed .top, .embed .foot, .embed .crumbs, .embed .meta, .embed .promo, .embed .embed-box, .embed .article > h2, .embed .article > h2 ~ *:not(.tool):not(.embed-credit), .embed details, .embed .skip { display: none !important; }
+.embed body, html.embed body { background: transparent; }
+.embed .article { padding: 12px 0; }
+.embed .article h1 { font-size: 24px; margin: 0 0 10px; }
+.embed-credit { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+.embed-box { margin: 26px 0; }
+.embed-box textarea { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; margin: 10px 0; }
+.embed .tldr { display: none !important; }

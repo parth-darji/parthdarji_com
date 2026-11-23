@@ -19,7 +19,16 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
-<link rel="stylesheet" href="/assets/site.css?v=11">
+<link rel="stylesheet" href="/assets/site.css?v=12">
+<script>
+(function () { if (!/[?&]embed=1/.test(location.search)) return;
+  document.documentElement.classList.add('embed');
+  var credit = document.createElement('p'); credit.className = 'embed-credit';
+  credit.innerHTML = 'Free tool by <a href="' + location.pathname + '" target="_blank" rel="noopener">parthdarji.com</a>';
+  document.addEventListener('DOMContentLoaded', function () { var a = document.querySelector('.article'); if (a) a.appendChild(credit);
+    [].forEach.call(document.querySelectorAll('a[href^="/"]'), function (l) { l.target = '_blank'; l.rel = 'noopener'; }); });
+})();
+</script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -160,6 +169,11 @@
   ids.forEach(function (i) { el[i].addEventListener('input', run); }); run();
 })();
 </script>
+<details class="noprint embed-box"><summary>Embed this calculator on your site</summary>
+<p>Free for blogs and websites. Paste this code into your page; it stays up to date automatically. No tracking.</p>
+<textarea readonly rows="4" onclick="this.select()">&lt;iframe src=&quot;https://parthdarji.com/hsa/hsa-vs-ppo-calculator?embed=1&quot; title=&quot;HSA plan vs PPO calculator&quot; width=&quot;100%&quot; height=&quot;860&quot; style=&quot;border:1px solid #e1e7e4;border-radius:12px;max-width:760px&quot; loading=&quot;lazy&quot;&gt;&lt;/iframe&gt;&lt;p style=&quot;font-size:13px&quot;&gt;Free tool by &lt;a href=&quot;https://parthdarji.com/hsa/hsa-vs-ppo-calculator&quot;&gt;parthdarji.com&lt;/a&gt;&lt;/p&gt;</textarea>
+<button class="btn ghost" type="button" onclick="var t=this.previousElementSibling;t.select();if(navigator.clipboard)navigator.clipboard.writeText(t.value);this.textContent='Copied'">Copy embed code</button>
+</details>
 <h2>Questions</h2>
 <details><summary>Is an HSA plan cheaper than a PPO?</summary><p>Often in years with low or normal medical bills, because premiums are lower and HSA money comes with tax savings and sometimes employer contributions. In years with big bills, a PPO can cost less. Compare your plans' numbers.</p></details>
 <details><summary>What counts as the cost of an HSA plan?</summary><p>Premiums plus out-of-pocket bills, minus your employer's HSA contribution and the tax you save on your own HSA contributions.</p></details>

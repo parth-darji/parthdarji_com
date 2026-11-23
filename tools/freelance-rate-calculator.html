@@ -19,8 +19,17 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
-<link rel="stylesheet" href="/assets/site.css?v=11">
+<link rel="stylesheet" href="/assets/site.css?v=12">
 <link rel="manifest" href="/tools/manifest.webmanifest">
+<script>
+(function () { if (!/[?&]embed=1/.test(location.search)) return;
+  document.documentElement.classList.add('embed');
+  var credit = document.createElement('p'); credit.className = 'embed-credit';
+  credit.innerHTML = 'Free tool by <a href="' + location.pathname + '" target="_blank" rel="noopener">parthdarji.com</a>';
+  document.addEventListener('DOMContentLoaded', function () { var a = document.querySelector('.article'); if (a) a.appendChild(credit);
+    [].forEach.call(document.querySelectorAll('a[href^="/"]'), function (l) { l.target = '_blank'; l.rel = 'noopener'; }); });
+})();
+</script>
 <meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
 {
@@ -143,6 +152,11 @@
 </script>
 <h2>Related free tools</h2>
 <div class="cards"><a class="card" href="/tools/invoice-generator"><h3>Free invoice generator</h3><p>Make a clean PDF invoice in a minute. No sign-up.</p></a><a class="card" href="/tools/time-card-calculator"><h3>Time card calculator</h3><p>Add up hours for the week with breaks, rounding and overtime pay.</p></a><a class="card" href="/tools/late-fee-calculator"><h3>Invoice late fee calculator</h3><p>Interest and late fees on an overdue invoice.</p></a><a class="card" href="/tools/meeting-cost-calculator"><h3>Meeting cost calculator</h3><p>What a meeting costs, with a live running timer.</p></a></div>
+<details class="noprint embed-box"><summary>Embed this calculator on your site</summary>
+<p>Free for blogs and websites. Paste this code into your page; it stays up to date automatically. No tracking.</p>
+<textarea readonly rows="4" onclick="this.select()">&lt;iframe src=&quot;https://parthdarji.com/tools/freelance-rate-calculator?embed=1&quot; title=&quot;Freelance hourly rate calculator&quot; width=&quot;100%&quot; height=&quot;860&quot; style=&quot;border:1px solid #e1e7e4;border-radius:12px;max-width:760px&quot; loading=&quot;lazy&quot;&gt;&lt;/iframe&gt;&lt;p style=&quot;font-size:13px&quot;&gt;Free tool by &lt;a href=&quot;https://parthdarji.com/tools/freelance-rate-calculator&quot;&gt;parthdarji.com&lt;/a&gt;&lt;/p&gt;</textarea>
+<button class="btn ghost" type="button" onclick="var t=this.previousElementSibling;t.select();if(navigator.clipboard)navigator.clipboard.writeText(t.value);this.textContent='Copied'">Copy embed code</button>
+</details>
 <h2>Questions</h2>
 <details><summary>How do I calculate my freelance hourly rate?</summary><p>Add your income goal grossed up for taxes plus business costs, then divide by the hours you can actually bill in a year. $70,000 take-home at 30% tax plus $6,000 costs over 25 billable hours a week for 46 weeks is about $93 an hour.</p></details>
 <details><summary>How many billable hours does a freelancer have?</summary><p>Often 20-30 hours a week, because admin, sales and invoicing take the rest of the working week.</p></details>

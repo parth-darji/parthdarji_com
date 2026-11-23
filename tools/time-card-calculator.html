@@ -19,8 +19,17 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
-<link rel="stylesheet" href="/assets/site.css?v=11">
+<link rel="stylesheet" href="/assets/site.css?v=12">
 <link rel="manifest" href="/tools/manifest.webmanifest">
+<script>
+(function () { if (!/[?&]embed=1/.test(location.search)) return;
+  document.documentElement.classList.add('embed');
+  var credit = document.createElement('p'); credit.className = 'embed-credit';
+  credit.innerHTML = 'Free tool by <a href="' + location.pathname + '" target="_blank" rel="noopener">parthdarji.com</a>';
+  document.addEventListener('DOMContentLoaded', function () { var a = document.querySelector('.article'); if (a) a.appendChild(credit);
+    [].forEach.call(document.querySelectorAll('a[href^="/"]'), function (l) { l.target = '_blank'; l.rel = 'noopener'; }); });
+})();
+</script>
 <meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
 {
@@ -179,6 +188,11 @@
 </script>
 <h2>Related free tools</h2>
 <div class="cards"><a class="card" href="/tools/invoice-generator"><h3>Free invoice generator</h3><p>Make a clean PDF invoice in a minute. No sign-up.</p></a><a class="card" href="/tools/freelance-rate-calculator"><h3>Freelance hourly rate calculator</h3><p>The hourly rate you need to reach your income goal.</p></a><a class="card" href="/tools/late-fee-calculator"><h3>Invoice late fee calculator</h3><p>Interest and late fees on an overdue invoice.</p></a><a class="card" href="/tools/meeting-cost-calculator"><h3>Meeting cost calculator</h3><p>What a meeting costs, with a live running timer.</p></a></div>
+<details class="noprint embed-box"><summary>Embed this calculator on your site</summary>
+<p>Free for blogs and websites. Paste this code into your page; it stays up to date automatically. No tracking.</p>
+<textarea readonly rows="4" onclick="this.select()">&lt;iframe src=&quot;https://parthdarji.com/tools/time-card-calculator?embed=1&quot; title=&quot;Time card calculator&quot; width=&quot;100%&quot; height=&quot;860&quot; style=&quot;border:1px solid #e1e7e4;border-radius:12px;max-width:760px&quot; loading=&quot;lazy&quot;&gt;&lt;/iframe&gt;&lt;p style=&quot;font-size:13px&quot;&gt;Free tool by &lt;a href=&quot;https://parthdarji.com/tools/time-card-calculator&quot;&gt;parthdarji.com&lt;/a&gt;&lt;/p&gt;</textarea>
+<button class="btn ghost" type="button" onclick="var t=this.previousElementSibling;t.select();if(navigator.clipboard)navigator.clipboard.writeText(t.value);this.textContent='Copied'">Copy embed code</button>
+</details>
 <h2>Questions</h2>
 <details><summary>How do I calculate hours worked with a lunch break?</summary><p>Subtract the start time from the end time, then subtract the unpaid break. 9:00 to 5:30 with a 30-minute lunch is 8 hours.</p></details>
 <details><summary>How do I convert hours and minutes to decimal?</summary><p>Divide the minutes by 60 and add them to the hours. 7 hours 45 minutes is 7 + 45/60 = 7.75 hours.</p></details>
