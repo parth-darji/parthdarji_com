@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
-<link rel="stylesheet" href="/assets/site.css?v=12">
+<link rel="stylesheet" href="/assets/site.css?v=13">
 <link rel="manifest" href="/tools/manifest.webmanifest">
 
 <meta name="theme-color" content="#0e7c66">
@@ -103,6 +103,9 @@
     document.getElementById('tnone').hidden = any;
   }
   q.addEventListener('input', run);
+  var pq = new URLSearchParams(location.search).get('q'); if (pq) { q.value = pq; }
+  var hc = location.hash.slice(1); chips.forEach(function (c) { if (hc && c.dataset.c === hc) { cat = hc; chips.forEach(function (x) { x.setAttribute('aria-pressed', x === c); }); } });
+  if (pq || cat) run();
   chips.forEach(function (c) { c.addEventListener('click', function () { cat = c.dataset.c; chips.forEach(function (x) { x.setAttribute('aria-pressed', x === c); }); run(); }); });
 })();
 </script>
@@ -149,7 +152,7 @@
       <a href="/hsa/">HSA guides</a>
       <a href="/">Home</a>
     </nav>
-    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers, <a href="/tools/privacy">nothing uploaded</a>. Estimates only, not financial or tax advice.</p>
   </div>
 </footer>
 <script>

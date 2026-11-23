@@ -290,3 +290,5 @@ textarea { min-height: 96px; }
 .embed-box { margin: 26px 0; }
 .embed-box textarea { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; margin: 10px 0; }
 .embed .tldr { display: none !important; }
+/* Anything marked hidden must stay hidden, even cards and blocks with their own display */
+[hidden] { display: none !important; }
