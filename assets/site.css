@@ -221,3 +221,23 @@ input:focus, select:focus { outline: 2px solid var(--brand); outline-offset: 1px
 .foot a:hover { color: var(--text); }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
+
+/* Print: only the document */
+.print-only { display: none; }
+@media print {
+  @page { margin: 14mm; }
+  body { background: #fff !important; color: #000 !important; }
+  .top, .foot, .noprint, .promo, .note, .crumbs, .meta, details, h2, .tldr, .article > p, .article > ul, .article > ol, .article > h1 { display: none !important; }
+  .tool { box-shadow: none !important; border: 0 !important; padding: 0 !important; margin: 0 !important; background: #fff !important; }
+  .print-only { display: block !important; }
+  .doc { color: #000; font-size: 13px; }
+}
+.doc { background: #fff; color: #111; border: 1px solid var(--line); border-radius: var(--radius-s); padding: 28px; font-size: 14px; line-height: 1.5; }
+.doc h3 { color: #111; margin: 0; font-size: 22px; }
+.doc table { background: #fff; color: #111; font-size: 14px; margin: 14px 0; }
+.doc th { background: #f1f4f3; color: #444; }
+.doc td, .doc th { border-bottom: 1px solid #e3e7e5; }
+.doc .r { text-align: right; }
+.doc-head { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.doc-total { font-size: 18px; font-weight: 700; }
+@media (max-width: 520px) { .doc { padding: 14px; font-size: 13px; } .doc table { font-size: 13px; } .doc td, .doc th { padding: 7px 5px; } .doc h3 { font-size: 19px; } }

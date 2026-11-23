@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Time Card Calculator with Lunch Breaks and Overtime (Free)</title>
-<meta name="description" content="Free weekly time card calculator: enter start and end times with lunch breaks, round to the quarter hour or tenth, and see total hours in decimal and…">
+<meta name="description" content="Free time card calculator with lunch breaks and overtime: total weekly hours in decimal and hours:minutes, pay, and a printable timesheet PDF.">
 <link rel="canonical" href="https://parthdarji.com/tools/time-card-calculator">
 <meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Time card calculator">
-<meta property="og:description" content="Free weekly time card calculator: enter start and end times with lunch breaks, round to the quarter hour or tenth, and see total hours in decimal and…">
+<meta property="og:description" content="Free time card calculator with lunch breaks and overtime: total weekly hours in decimal and hours:minutes, pay, and a printable timesheet PDF.">
 <meta property="og:url" content="https://parthdarji.com/tools/time-card-calculator">
 <meta property="og:image" content="https://parthdarji.com/images/og/tools-time-card-calculator.png">
 <meta property="og:image:width" content="1200">
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
-<link rel="stylesheet" href="/assets/site.css?v=5">
+<link rel="stylesheet" href="/assets/site.css?v=6">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -26,7 +26,7 @@
   {
    "@type": "WebApplication",
    "name": "Time card calculator",
-   "description": "Free weekly time card calculator: enter start and end times with lunch breaks, round to the quarter hour or tenth, and see total hours in decimal and\u2026",
+   "description": "Free time card calculator with lunch breaks and overtime: total weekly hours in decimal and hours:minutes, pay, and a printable timesheet PDF.",
    "url": "https://parthdarji.com/tools/time-card-calculator",
    "inLanguage": "en-US",
    "author": {
@@ -122,7 +122,14 @@
   <div class="big-number" id="out" aria-live="polite">0:00</div>
   <p class="fine" id="sub"></p>
   <div class="results" id="days"></div>
+  <div class="row" style="margin-top:14px">
+    <div class="field"><label for="emp">Name (for the printed timesheet)</label><input id="emp" type="search" autocomplete="off" placeholder="Your name"></div>
+    <div class="field"><label for="wk">Week starting</label><input id="wk" type="date"></div>
+  </div>
+  <button class="btn" type="button" id="prt">Print or save timesheet as PDF</button>
+  <div class="doc print-only" id="tsdoc"></div>
 </div>
+<style>@media print { #tc > *:not(#tsdoc) { display: none !important; } }</style>
 <p class="note">Federal law requires overtime after 40 hours in a workweek for most hourly employees; some states, like California, also count daily overtime. Rounding to the nearest 15 minutes is a common payroll practice, but it has to be neutral over time. Check your employer's policy.</p>
 <h2>Converting minutes to decimal hours</h2>
 <p>Divide minutes by 60: 15 min = 0.25, 30 min = 0.5, 45 min = 0.75, 6 min = 0.1. So 7 hours 45 minutes is 7.75 hours.</p>
@@ -139,13 +146,14 @@
   function hm(m) { m = Math.round(m); return Math.floor(m / 60) + ':' + ('0' + (m % 60)).slice(-2); }
   function n(id) { var v = parseFloat(document.getElementById(id).value); return isFinite(v) && v > 0 ? v : 0; }
   function run() {
-    var r = +document.getElementById('rnd').value, total = 0, out = [];
+    var r = +document.getElementById('rnd').value, total = 0, out = [], rowsT = [];
     for (var i = 0; i < 7; i++) {
       var s = mins(document.getElementById('s' + i).value), e = mins(document.getElementById('e' + i).value);
       if (s === null || e === null) continue;
       var w = e - s; if (w <= 0) w += 1440;
       w = Math.max(0, w - n('b' + i));
       if (r) w = Math.round(w / r) * r;
+      rowsT.push('<tr><td>' + names[i] + '</td><td>' + document.getElementById('s' + i).value + '</td><td>' + document.getElementById('e' + i).value + '</td><td class="r">' + n('b' + i) + ' min</td><td class="r">' + (w / 60).toFixed(2) + '</td></tr>');
       total += w; out.push('<div class="item"><h3>' + names[i] + ' <span class="badge ok">' + hm(w) + '</span></h3><p>' + (w / 60).toFixed(2) + ' hours</p></div>');
     }
     var hrs = total / 60, otAfter = document.getElementById('ot').value === '' ? 40 : n('ot'), reg = Math.min(hrs, otAfter), ot = Math.max(0, hrs - otAfter);
@@ -154,7 +162,14 @@
     if (rate) t += ' · Pay ' + usd.format(reg * rate + ot * rate * x) + ' (' + usd.format(reg * rate) + ' regular + ' + usd.format(ot * rate * x) + ' overtime)';
     document.getElementById('sub').textContent = t;
     document.getElementById('days').innerHTML = out.join('');
+    var wk = document.getElementById('wk').value, who = document.getElementById('emp').value;
+    function esc(x) { return x.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+    document.getElementById('tsdoc').innerHTML = '<div class="doc-head"><h3>Timesheet</h3><div class="r">' + esc(who || '') + (wk ? '<br>Week of ' + new Date(wk + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '') + '</div></div>' +
+      '<table><tr><th>Day</th><th>Start</th><th>End</th><th class="r">Break</th><th class="r">Hours</th></tr>' + rowsT.join('') + '</table>' +
+      '<div class="r">Regular ' + reg.toFixed(2) + ' h · Overtime ' + ot.toFixed(2) + ' h<div class="doc-total">Total ' + hrs.toFixed(2) + ' h (' + hm(total) + ')</div>' + (rate ? 'Pay ' + usd.format(reg * rate + ot * rate * x) : '') + '</div>' +
+      '<p style="margin-top:30px">Employee signature ____________________ &nbsp; Approved by ____________________</p>';
   }
+  document.getElementById('prt').addEventListener('click', function () { window.print(); });
   document.getElementById('tc').addEventListener('input', run); document.getElementById('tc').addEventListener('change', run); run();
 })();
 </script>
@@ -187,6 +202,7 @@
 <a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
 <a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
 <a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
       <a href="/hsa/">HSA guides</a>
       <a href="/">Home</a>
     </nav>

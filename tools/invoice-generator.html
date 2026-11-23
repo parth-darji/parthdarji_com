@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Free Invoice Generator: Create a PDF Invoice, No Sign-Up</title>
+<meta name="description" content="Free invoice generator for freelancers and small businesses: add your details and line items, tax and discount, then download a clean PDF invoice.">
+<link rel="canonical" href="https://parthdarji.com/tools/invoice-generator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free invoice generator">
+<meta property="og:description" content="Free invoice generator for freelancers and small businesses: add your details and line items, tax and discount, then download a clean PDF invoice.">
+<meta property="og:url" content="https://parthdarji.com/tools/invoice-generator">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-invoice-generator.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Free invoice generator",
+   "description": "Free invoice generator for freelancers and small businesses: add your details and line items, tax and discount, then download a clean PDF invoice.",
+   "url": "https://parthdarji.com/tools/invoice-generator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I make an invoice for free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Enter your details, your client's details and each item with quantity and rate, then download it as a PDF. No account is needed and nothing is uploaded."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What should an invoice include?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Your and your client's details, a unique invoice number, the date, each item with quantity, rate and amount, tax, the total due, the due date and how to pay."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is my invoice information stored anywhere?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Only in your own browser, so it's there next time. It's never sent to a server. Use Start over to clear it."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Free invoice generator",
+     "item": "https://parthdarji.com/tools/invoice-generator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Free invoice generator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p class="noprint">Fill in the form; the invoice updates as you type. Tap <strong>Download PDF</strong> and choose "Save as PDF". Your details are saved only in this browser for next time.</p>
+<div class="tool" id="inv">
+  <div class="noprint">
+    <div class="row">
+      <div class="field"><label for="from">From (your name, business, address, email)</label><textarea id="from" rows="4" style="font:inherit;width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text)">Your Name
+Your Business
+you@example.com</textarea></div>
+      <div class="field"><label for="to">Bill to</label><textarea id="to" rows="4" style="font:inherit;width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text)">Client Name
+Client Company
+client@example.com</textarea></div>
+    </div>
+    <div class="row">
+      <div class="field"><label for="num">Invoice number</label><input id="num" type="search" value="INV-001" autocomplete="off"></div>
+      <div class="field"><label for="date">Invoice date</label><input id="date" type="date"></div>
+      <div class="field"><label for="due">Due date</label><input id="due" type="date"></div>
+      <div class="field"><label for="cur">Currency</label><select id="cur"><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option><option>INR</option></select></div>
+    </div>
+    <h3>Items</h3>
+    <div id="items"></div>
+    <button class="btn ghost" type="button" id="add">+ Add item</button>
+    <div class="row" style="margin-top:14px">
+      <div class="field"><label for="tax">Tax (%)</label><input id="tax" type="number" min="0" max="100" step="0.5" value="0" inputmode="decimal"></div>
+      <div class="field"><label for="disc">Discount ($ or amount)</label><input id="disc" type="number" min="0" step="1" value="0" inputmode="decimal"></div>
+    </div>
+    <div class="field"><label for="notes">Notes or payment details</label><textarea id="notes" rows="3" style="font:inherit;width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text)">Thank you for your business. Payment due within 14 days.</textarea></div>
+    <div class="cta-row" style="margin:6px 0 20px">
+      <button class="btn big" type="button" id="pdf">Download PDF</button>
+      <button class="btn ghost" type="button" id="reset">Start over</button>
+    </div>
+  </div>
+  <div class="doc" id="doc" aria-label="Invoice preview"></div>
+</div>
+<h2>What to put on an invoice</h2>
+<ul>
+<li>Your name or business and contact details, and the client's</li>
+<li>A unique invoice number and the invoice date</li>
+<li>Each service or product with quantity, rate and amount</li>
+<li>Tax, discounts and the total due, with a due date</li>
+<li>How to pay: bank details, payment link or address</li>
+</ul>
+<p>Billing by the hour? Add up your week with the <a href="/tools/time-card-calculator">time card calculator</a>, and check your price with the <a href="/tools/freelance-rate-calculator">freelance rate calculator</a>.</p>
+<aside class="promo">
+  <img src="/images/apps/punchmate-192.webp" alt="" width="64" height="64" loading="lazy">
+  <div><p><strong>PunchMate</strong> · Track billable hours per client from the Mac menu bar, then invoice them here.</p>
+  <a class="btn" href="https://apps.apple.com/app/id6811594421">Get it on the App Store</a></div>
+</aside><p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var KEY = 'pd-invoice-v1', box = document.getElementById('items');
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function n(v) { v = parseFloat(v); return isFinite(v) && v > 0 ? v : 0; }
+  function row(d, q, r) {
+    var el = document.createElement('div'); el.className = 'row it';
+    el.innerHTML = '<div class="field" style="grid-column:span 2"><label>Description</label><input type="search" class="d" autocomplete="off"></div>' +
+      '<div class="field"><label>Qty / hours</label><input type="number" min="0" step="0.25" class="q" inputmode="decimal"></div>' +
+      '<div class="field"><label>Rate</label><input type="number" min="0" step="0.01" class="r" inputmode="decimal"></div>' +
+      '<div class="field" style="align-self:end"><button type="button" class="chip del">Remove</button></div>';
+    el.querySelector('.d').value = d; el.querySelector('.q').value = q; el.querySelector('.r').value = r;
+    el.querySelector('.del').addEventListener('click', function () { el.remove(); run(); });
+    box.appendChild(el);
+  }
+  var st = null; try { st = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+  var today = new Date(), iso = function (d) { return new Date(d.getTime() - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10); };
+  function init(s) {
+    box.innerHTML = '';
+    ['from', 'to', 'num', 'cur', 'tax', 'disc', 'notes'].forEach(function (k) { if (s && s[k] != null) document.getElementById(k).value = s[k]; });
+    document.getElementById('date').value = (s && s.date) || iso(today);
+    document.getElementById('due').value = (s && s.due) || iso(new Date(today.getTime() + 14 * 864e5));
+    ((s && s.items) || [['Design work', 10, 75], ['Revisions', 2, 75]]).forEach(function (i) { row(i[0], i[1], i[2]); });
+  }
+  init(st);
+  document.getElementById('add').addEventListener('click', function () { row('', 1, 0); run(); });
+  document.getElementById('reset').addEventListener('click', function () { if (confirm('Clear this invoice?')) { try { localStorage.removeItem(KEY); } catch (e) {} location.reload(); } });
+  document.getElementById('pdf').addEventListener('click', function () { window.print(); });
+  function fd(v) { return v ? new Date(v + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : ''; }
+  function run() {
+    var g = function (id) { return document.getElementById(id).value; }, cur = g('cur');
+    var money = new Intl.NumberFormat('en-US', { style: 'currency', currency: cur });
+    var items = [].map.call(document.querySelectorAll('.it'), function (r) { return [r.querySelector('.d').value, r.querySelector('.q').value, r.querySelector('.r').value]; });
+    var sub = items.reduce(function (s, i) { return s + n(i[1]) * n(i[2]); }, 0), disc = Math.min(sub, n(g('disc'))), tax = (sub - disc) * Math.min(100, n(g('tax'))) / 100, total = sub - disc + tax;
+    var rows = items.filter(function (i) { return i[0] || n(i[1]) || n(i[2]); }).map(function (i) {
+      return '<tr><td>' + esc(i[0]) + '</td><td class="r">' + n(i[1]) + '</td><td class="r">' + money.format(n(i[2])) + '</td><td class="r">' + money.format(n(i[1]) * n(i[2])) + '</td></tr>';
+    }).join('');
+    document.getElementById('doc').innerHTML =
+      '<div class="doc-head"><div><h3>Invoice</h3><div>' + esc(g('num')) + '</div></div><div class="r">Date: ' + fd(g('date')) + '<br>Due: ' + fd(g('due')) + '</div></div>' +
+      '<div class="doc-head" style="margin-top:18px"><div><strong>From</strong><br>' + esc(g('from')).replace(/\n/g, '<br>') + '</div><div><strong>Bill to</strong><br>' + esc(g('to')).replace(/\n/g, '<br>') + '</div></div>' +
+      '<table><tr><th>Description</th><th class="r">Qty</th><th class="r">Rate</th><th class="r">Amount</th></tr>' + rows + '</table>' +
+      '<div class="r">Subtotal: ' + money.format(sub) + (disc ? '<br>Discount: −' + money.format(disc) : '') + (tax ? '<br>Tax (' + n(g('tax')) + '%): ' + money.format(tax) : '') +
+      '<div class="doc-total">Total due: ' + money.format(total) + '</div></div>' +
+      (g('notes') ? '<p style="margin-top:18px">' + esc(g('notes')).replace(/\n/g, '<br>') + '</p>' : '');
+    try { localStorage.setItem(KEY, JSON.stringify({ from: g('from'), to: g('to'), num: g('num'), date: g('date'), due: g('due'), cur: cur, tax: g('tax'), disc: g('disc'), notes: g('notes'), items: items })); } catch (e) {}
+  }
+  var inv = document.getElementById('inv'); inv.addEventListener('input', run); inv.addEventListener('change', run); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>How do I make an invoice for free?</summary><p>Enter your details, your client's details and each item with quantity and rate, then download it as a PDF. No account is needed and nothing is uploaded.</p></details>
+<details><summary>What should an invoice include?</summary><p>Your and your client's details, a unique invoice number, the date, each item with quantity, rate and amount, tax, the total due, the due date and how to pay.</p></details>
+<details><summary>Is my invoice information stored anywhere?</summary><p>Only in your own browser, so it's there next time. It's never sent to a server. Use Start over to clear it.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>
