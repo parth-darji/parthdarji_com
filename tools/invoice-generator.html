@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
-<link rel="stylesheet" href="/assets/site.css?v=8">
+<link rel="stylesheet" href="/assets/site.css?v=10">
 <link rel="manifest" href="/tools/manifest.webmanifest">
 <meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
@@ -116,15 +116,15 @@
 <div class="tool" id="inv">
   <div class="noprint">
     <div class="row">
-      <div class="field"><label for="from">From (your name, business, address, email)</label><textarea id="from" rows="4" style="font:inherit;width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text)">Your Name
+      <div class="field"><label for="from">From (your name, business, address, email)</label><textarea id="from" rows="4" >Your Name
 Your Business
 you@example.com</textarea></div>
-      <div class="field"><label for="to">Bill to</label><textarea id="to" rows="4" style="font:inherit;width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text)">Client Name
+      <div class="field"><label for="to">Bill to</label><textarea id="to" rows="4" >Client Name
 Client Company
 client@example.com</textarea></div>
     </div>
     <div class="row">
-      <div class="field"><label for="num">Invoice number</label><input id="num" type="search" value="INV-001" autocomplete="off"></div>
+      <div class="field"><label for="num">Invoice number</label><input id="num" type="text" value="INV-001" autocomplete="off"></div>
       <div class="field"><label for="date">Invoice date</label><input id="date" type="date"></div>
       <div class="field"><label for="due">Due date</label><input id="due" type="date"></div>
       <div class="field"><label for="cur">Currency</label><select id="cur"><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option><option>INR</option></select></div>
@@ -137,7 +137,7 @@ client@example.com</textarea></div>
       <div class="field"><label for="disc">Discount ($ or amount)</label><input id="disc" type="number" min="0" step="1" value="0" inputmode="decimal"></div>
       <div class="field"><label for="lfee">Late fee (% per month, optional)</label><input id="lfee" type="number" min="0" max="10" step="0.25" value="" placeholder="e.g. 1.5" inputmode="decimal"></div>
     </div>
-    <div class="field"><label for="notes">Notes or payment details</label><textarea id="notes" rows="3" style="font:inherit;width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text)">Thank you for your business. Payment due within 14 days.</textarea></div>
+    <div class="field"><label for="notes">Notes or payment details</label><textarea id="notes" rows="3" >Thank you for your business. Payment due within 14 days.</textarea></div>
     <div class="cta-row" style="margin:6px 0 20px">
       <button class="btn big" type="button" id="pdf">Download PDF</button>
       <button class="btn ghost" type="button" id="reset">Start over</button>
@@ -167,7 +167,7 @@ client@example.com</textarea></div>
   function n(v) { v = parseFloat(v); return isFinite(v) && v > 0 ? v : 0; }
   function row(d, q, r) {
     var el = document.createElement('div'); el.className = 'row it';
-    el.innerHTML = '<div class="field" style="grid-column:span 2"><label>Description</label><input type="search" class="d" autocomplete="off"></div>' +
+    el.innerHTML = '<div class="field" style="grid-column:span 2"><label>Description</label><input type="text" class="d" autocomplete="off"></div>' +
       '<div class="field"><label>Qty / hours</label><input type="number" min="0" step="0.25" class="q" inputmode="decimal"></div>' +
       '<div class="field"><label>Rate</label><input type="number" min="0" step="0.01" class="r" inputmode="decimal"></div>' +
       '<div class="field" style="align-self:end"><button type="button" class="chip del">Remove</button></div>';

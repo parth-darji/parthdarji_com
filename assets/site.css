@@ -259,3 +259,22 @@ input[type="file"]::file-selector-button { font: inherit; font-weight: 600; marg
 input:disabled, select:disabled { opacity: .5; cursor: not-allowed; }
 textarea { resize: vertical; line-height: 1.5; }
 input[type="search"], input[type="number"], input[type="text"], input[type="email"], input[type="date"], input[type="month"], input[type="time"], select { height: 52px; min-height: 52px; }
+
+/* Number fields: no tiny spinner arrows */
+input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+/* Dropdowns: one clean chevron on every browser */
+select {
+  -webkit-appearance: none; appearance: none; padding-right: 40px; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%2356625e' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 16px center; background-size: 12px 8px;
+}
+@media (prefers-color-scheme: dark) {
+  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%2398a6a1' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+}
+/* Search boxes keep a tidy clear button; text fields never show one */
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+textarea { min-height: 96px; }
+::placeholder { color: var(--muted); opacity: .75; }
+/* Fields in a row line up even when a label wraps to two lines */
+.row { align-items: end; }

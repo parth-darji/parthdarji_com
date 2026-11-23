@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
-<link rel="stylesheet" href="/assets/site.css?v=8">
+<link rel="stylesheet" href="/assets/site.css?v=10">
 <link rel="manifest" href="/tools/manifest.webmanifest">
 <meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
@@ -106,7 +106,7 @@
 <p class="meta">By Parth Darji · Updated November 23, 2026</p>
 <p>Add the people, then each expense with who paid and who it was for. You'll get the simplest set of payments to settle up. Nothing is uploaded; use the share link to send the group the same view.</p>
 <div class="tool" id="tx">
-  <div class="field"><label for="ppl">People, one per line</label><textarea id="ppl" rows="4" style="font:inherit;width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text)">Alex
+  <div class="field"><label for="ppl">People, one per line</label><textarea id="ppl" rows="4" >Alex
 Sam
 Jordan
 Priya</textarea></div>
@@ -130,7 +130,7 @@ Priya</textarea></div>
   function names() { var s = {}, out = []; ppl.value.split('\n').forEach(function (x) { x = x.trim(); if (x && !s[x.toLowerCase()]) { s[x.toLowerCase()] = 1; out.push(x); } }); return out; }
   function row(e) {
     var d = document.createElement('div'); d.className = 'item ex';
-    d.innerHTML = '<div class="row"><div class="field"><label>What</label><input type="search" class="w" autocomplete="off"></div>' +
+    d.innerHTML = '<div class="row"><div class="field"><label>What</label><input type="text" class="w" autocomplete="off"></div>' +
       '<div class="field"><label>Amount</label><input type="number" min="0" step="0.01" class="a" inputmode="decimal"></div>' +
       '<div class="field"><label>Paid by</label><select class="by"></select></div></div>' +
       '<div class="field"><label>Who it was for</label><div class="chips fo"></div></div><button type="button" class="chip del">Remove expense</button>';

@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
-<link rel="stylesheet" href="/assets/site.css?v=8">
+<link rel="stylesheet" href="/assets/site.css?v=10">
 <link rel="manifest" href="/tools/manifest.webmanifest">
 <meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
@@ -142,7 +142,7 @@
   try { state = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
   function row(name, amt) {
     var d = document.createElement('div'); d.className = 'row person';
-    d.innerHTML = '<div class="field"><label>Name or group</label><input type="search" class="pn" autocomplete="off"></div>' +
+    d.innerHTML = '<div class="field"><label>Name or group</label><input type="text" class="pn" autocomplete="off"></div>' +
       '<div class="field"><label>Gift budget ($)</label><input type="number" min="0" class="pa" inputmode="decimal"></div>' +
       '<div class="field" style="align-self:end"><button type="button" class="chip rm" aria-label="Remove">Remove</button></div>';
     d.querySelector('.pn').value = name; d.querySelector('.pa').value = amt;

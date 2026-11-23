@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
-<link rel="stylesheet" href="/assets/site.css?v=8">
+<link rel="stylesheet" href="/assets/site.css?v=10">
 <link rel="manifest" href="/tools/manifest.webmanifest">
 <meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
@@ -129,7 +129,7 @@
   var ppl = document.getElementById('ppl');
   function row(name, inc) {
     var d = document.createElement('div'); d.className = 'row pp';
-    d.innerHTML = '<div class="field"><label>Name</label><input type="search" class="nm" autocomplete="off"></div>' +
+    d.innerHTML = '<div class="field"><label>Name</label><input type="text" class="nm" autocomplete="off"></div>' +
       '<div class="field"><label>Monthly income ($)</label><input type="number" min="0" class="in" inputmode="decimal"></div>' +
       '<div class="field" style="align-self:end"><button type="button" class="chip rm">Remove</button></div>';
     d.querySelector('.nm').value = name; d.querySelector('.in').value = inc;

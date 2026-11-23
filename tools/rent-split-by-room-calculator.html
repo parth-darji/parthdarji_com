@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
-<link rel="stylesheet" href="/assets/site.css?v=8">
+<link rel="stylesheet" href="/assets/site.css?v=10">
 <link rel="manifest" href="/tools/manifest.webmanifest">
 <meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
@@ -125,7 +125,7 @@
   function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function row(name, sqft, ppl, bath) {
     var d = document.createElement('div'); d.className = 'row rm-row';
-    d.innerHTML = '<div class="field"><label>Who</label><input type="search" class="nm" autocomplete="off"></div>' +
+    d.innerHTML = '<div class="field"><label>Who</label><input type="text" class="nm" autocomplete="off"></div>' +
       '<div class="field"><label>Room size (sq ft)</label><input type="number" min="0" class="sz" inputmode="decimal"></div>' +
       '<div class="field"><label>People in room</label><select class="pp"><option>1</option><option>2</option></select></div>' +
       '<div class="field"><label>Private bathroom</label><select class="bt"><option value="0">No</option><option value="1">Yes</option></select></div>' +

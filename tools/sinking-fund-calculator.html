@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
-<link rel="stylesheet" href="/assets/site.css?v=8">
+<link rel="stylesheet" href="/assets/site.css?v=10">
 <link rel="manifest" href="/tools/manifest.webmanifest">
 <meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
@@ -124,7 +124,7 @@
   var now = new Date(), ym = function (y, m) { return y + '-' + ('0' + (m + 1)).slice(-2); };
   function row(g) {
     var d = document.createElement('div'); d.className = 'row gl';
-    d.innerHTML = '<div class="field"><label>Goal</label><input type="search" class="nm" autocomplete="off"></div><div class="field"><label>Amount ($)</label><input type="number" min="0" step="50" class="am" inputmode="decimal"></div>' +
+    d.innerHTML = '<div class="field"><label>Goal</label><input type="text" class="nm" autocomplete="off"></div><div class="field"><label>Amount ($)</label><input type="number" min="0" step="50" class="am" inputmode="decimal"></div>' +
       '<div class="field"><label>Already saved ($)</label><input type="number" min="0" step="50" class="sv" inputmode="decimal"></div><div class="field"><label>Needed by</label><input type="month" class="by"></div>' +
       '<div class="field" style="align-self:end"><button type="button" class="chip del">Remove</button></div>';
     d.querySelector('.nm').value = g[0]; d.querySelector('.am').value = g[1]; d.querySelector('.sv').value = g[2]; d.querySelector('.by').value = g[3];
