@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FSA Use It or Lose It Calculator: Don&#x27;t Lose Your FSA Money</title>
+<meta name="description" content="Free FSA calculator: see how much of your health FSA balance you could lose at the deadline, how carryover ($680 for 2026) or a grace period helps, and…">
+<link rel="canonical" href="https://parthdarji.com/tools/fsa-use-it-or-lose-it-calculator">
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FSA use it or lose it calculator">
+<meta property="og:description" content="Free FSA calculator: see how much of your health FSA balance you could lose at the deadline, how carryover ($680 for 2026) or a grace period helps, and…">
+<meta property="og:url" content="https://parthdarji.com/tools/fsa-use-it-or-lose-it-calculator">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-fsa-use-it-or-lose-it-calculator.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "FSA use it or lose it calculator",
+   "description": "Free FSA calculator: see how much of your health FSA balance you could lose at the deadline, how carryover ($680 for 2026) or a grace period helps, and\u2026",
+   "url": "https://parthdarji.com/tools/fsa-use-it-or-lose-it-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What happens to unused FSA money?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It's usually forfeited after your plan's deadline, unless your plan allows a carryover (up to $680 of 2026 money into 2027) or a grace period of up to 2\u00bd months."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does my FSA roll over?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Only if your employer's plan offers a carryover, and only up to the limit. Some plans offer a grace period instead, and some offer neither. Check your plan documents."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What can I buy with leftover FSA money?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Common choices: glasses or contacts, dental work, over-the-counter medicine, first aid supplies, menstrual products and sunscreen."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "FSA use it or lose it calculator",
+     "item": "https://parthdarji.com/tools/fsa-use-it-or-lose-it-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>FSA use it or lose it calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<div class="tldr"><strong>In short</strong>Health FSA money you don't use by your plan's deadline is usually lost. Many plans soften this with either a carryover (up to $680 of 2026 money into 2027) or a grace period (up to 2½ extra months), never both. Check your plan, then spend the rest on things you'd buy anyway.</div>
+<div class="tool" id="fsa">
+  <div class="row">
+    <div class="field"><label for="bal">FSA balance left ($)</label><input id="bal" type="number" min="0" step="25" value="900" inputmode="decimal"></div>
+    <div class="field"><label for="plan">Expenses you still expect before the deadline ($)</label><input id="plan" type="number" min="0" step="25" value="200" inputmode="decimal"></div>
+    <div class="field"><label for="rule">Your plan's rule</label><select id="rule"><option value="c">Carryover allowed</option><option value="g">Grace period</option><option value="n">Neither</option></select></div>
+    <div class="field"><label for="cap">Carryover limit ($)</label><input id="cap" type="number" min="0" step="10" value="680" inputmode="decimal"></div>
+    <div class="field"><label for="end">Deadline to spend</label><input id="end" type="date" value="2026-12-31"></div>
+  </div>
+  <p class="fine" style="margin:6px 0 2px">Money at risk</p>
+  <div class="big-number" id="out" aria-live="polite">$0</div>
+  <p class="fine" id="sub"></p>
+</div>
+<h2>Things you can usually buy with FSA money</h2>
+<ul>
+<li>Prescription glasses, sunglasses, contact lenses and solution, and an eye exam</li>
+<li>Dental cleanings, fillings and other dental work</li>
+<li>Over-the-counter medicine: pain relievers, allergy and cold medicine</li>
+<li>Menstrual products, first aid kits, bandages, thermometers</li>
+<li>Sunscreen (SPF 15+), blood pressure monitors, heating pads</li>
+<li>Prescription refills and copays for appointments you've been putting off</li>
+</ul>
+<p>Not sure? Search the <a href="/hsa/eligible-expenses">eligibility lookup</a>. Many plans also give a few months after the deadline (a "run-out period") to submit claims for expenses you already had, so keep the receipts.</p>
+<p>An HSA works differently: it never expires. See <a href="/hsa/hsa-vs-fsa">HSA vs FSA</a>.</p>
+<aside class="promo">
+  <img src="/images/apps/shoeboxhsa-192.webp" alt="" width="64" height="64" loading="lazy">
+  <div><p><strong>ShoeboxHSA</strong> · Snap every FSA and HSA receipt so claims and reimbursements are easy.</p>
+  <a class="btn" href="https://apps.apple.com/app/id6813872704">Get it on the App Store</a></div>
+</aside><p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script>
+(function () {
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var ids = ['bal', 'plan', 'rule', 'cap', 'end'], el = {}; ids.forEach(function (i) { el[i] = document.getElementById(i); });
+  function n(i) { var v = parseFloat(el[i].value); return isFinite(v) && v > 0 ? v : 0; }
+  function run() {
+    var left = Math.max(0, n('bal') - n('plan')), rule = el.rule.value, saved = rule === 'c' ? Math.min(left, n('cap')) : 0;
+    el.cap.disabled = rule !== 'c';
+    var risk = left - saved, t = '';
+    var end = new Date(el.end.value + 'T23:59:59'), days = Math.ceil((end - new Date()) / 864e5);
+    if (isFinite(days)) t += days > 0 ? days + (days === 1 ? ' day' : ' days') + ' left · ' : 'Deadline passed · ';
+    if (rule === 'g') t += 'A grace period gives you extra time (often until mid-March) to spend this ' + usd.format(left) + ', so the risk is lower if you use it then.';
+    else if (rule === 'c') t += usd.format(saved) + ' carries over to next year' + (risk ? '; spend ' + usd.format(risk) + ' more to avoid losing it.' : '. Nothing to lose.');
+    else t += risk ? 'Spend ' + usd.format(risk) + ' more on eligible items before the deadline.' : 'Nothing to lose.';
+    document.getElementById('out').textContent = usd.format(rule === 'g' ? left : risk);
+    document.getElementById('sub').textContent = t;
+  }
+  ids.forEach(function (i) { el[i].addEventListener('input', run); el[i].addEventListener('change', run); }); run();
+})();
+</script>
+<h2>Questions</h2>
+<details><summary>What happens to unused FSA money?</summary><p>It's usually forfeited after your plan's deadline, unless your plan allows a carryover (up to $680 of 2026 money into 2027) or a grace period of up to 2½ months.</p></details>
+<details><summary>Does my FSA roll over?</summary><p>Only if your employer's plan offers a carryover, and only up to the limit. Some plans offer a grace period instead, and some offer neither. Check your plan documents.</p></details>
+<details><summary>What can I buy with leftover FSA money?</summary><p>Common choices: glasses or contacts, dental work, over-the-counter medicine, first aid supplies, menstrual products and sunscreen.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+</body>
+</html>
