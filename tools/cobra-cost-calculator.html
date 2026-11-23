@@ -20,6 +20,8 @@
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 <link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -153,6 +155,8 @@
   ids.forEach(function (i) { el[i].addEventListener('input', run); }); run();
 })();
 </script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/fsa-use-it-or-lose-it-calculator"><h3>FSA use it or lose it calculator</h3><p>How much FSA money you could lose, and what to buy before the deadline.</p></a><a class="card" href="/tools/coinsurance-calculator"><h3>Coinsurance and out-of-pocket calculator</h3><p>What you'll pay on a medical bill after deductible and coinsurance.</p></a><a class="card" href="/tools/medicare-irmaa-calculator"><h3>Medicare IRMAA calculator 2026</h3><p>Your 2026 Part B and Part D premiums by income.</p></a><a class="card" href="/tools/dependent-care-fsa-calculator"><h3>Dependent care FSA calculator 2026</h3><p>Tax saved with the new $7,500 dependent care FSA.</p></a></div>
 <h2>Questions</h2>
 <details><summary>How much does COBRA cost?</summary><p>Up to 102% of the full premium: your share plus your employer's share, plus a 2% admin fee. Many people pay three to five times what came out of their paycheck.</p></details>
 <details><summary>How long does COBRA last?</summary><p>Usually up to 18 months after leaving a job. A disability extension can add 11 months, and some events for family members allow up to 36 months.</p></details>
@@ -192,5 +196,10 @@
     <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
   </div>
 </footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
 </body>
 </html>

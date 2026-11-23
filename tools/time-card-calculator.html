@@ -20,6 +20,8 @@
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 <link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -175,6 +177,8 @@
   document.getElementById('tc').addEventListener('input', run); document.getElementById('tc').addEventListener('change', run); run();
 })();
 </script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/invoice-generator"><h3>Free invoice generator</h3><p>Make a clean PDF invoice in a minute. No sign-up.</p></a><a class="card" href="/tools/freelance-rate-calculator"><h3>Freelance hourly rate calculator</h3><p>The hourly rate you need to reach your income goal.</p></a><a class="card" href="/tools/pto-planner"><h3>PTO and long weekend planner</h3><p>Turn your vacation days into the longest breaks around holidays.</p></a><a class="card" href="/tools/secret-santa-generator"><h3>Secret Santa generator</h3><p>Draw names with no sign-up, couples excluded, private reveal links.</p></a></div>
 <h2>Questions</h2>
 <details><summary>How do I calculate hours worked with a lunch break?</summary><p>Subtract the start time from the end time, then subtract the unpaid break. 9:00 to 5:30 with a 30-minute lunch is 8 hours.</p></details>
 <details><summary>How do I convert hours and minutes to decimal?</summary><p>Divide the minutes by 60 and add them to the hours. 7 hours 45 minutes is 7 + 45/60 = 7.75 hours.</p></details>
@@ -214,5 +218,10 @@
     <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
   </div>
 </footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
 </body>
 </html>

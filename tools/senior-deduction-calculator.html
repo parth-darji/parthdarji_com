@@ -20,6 +20,8 @@
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 <link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -142,6 +144,8 @@
   ids.forEach(function (i) { el[i].addEventListener('input', run); el[i].addEventListener('change', run); }); run();
 })();
 </script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/no-tax-on-overtime-calculator"><h3>No tax on overtime calculator</h3><p>Estimate your 2025-2028 overtime deduction and tax saved.</p></a><a class="card" href="/tools/no-tax-on-tips-calculator"><h3>No tax on tips calculator</h3><p>Estimate your 2025-2028 tips deduction and tax saved.</p></a><a class="card" href="/tools/car-loan-interest-deduction-calculator"><h3>Car loan interest deduction calculator</h3><p>Deduct up to $10,000 of interest on a new US-assembled car.</p></a><a class="card" href="/tools/medical-expense-deduction-calculator"><h3>Medical expense deduction calculator</h3><p>See if your medical bills are tax-deductible above 7.5% of income.</p></a></div>
 <h2>Questions</h2>
 <details><summary>Who qualifies for the $6,000 senior deduction?</summary><p>People who are 65 or older by December 31 of the tax year, for 2025 through 2028, with a valid Social Security number. Married couples must file jointly.</p></details>
 <details><summary>Is the senior deduction $12,000 for couples?</summary><p>Up to $6,000 for each spouse who is 65 or older, so up to $12,000 for a joint return where both qualify, before the income phase-out.</p></details>
@@ -181,5 +185,10 @@
     <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
   </div>
 </footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
 </body>
 </html>

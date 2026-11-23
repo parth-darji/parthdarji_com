@@ -20,6 +20,8 @@
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 <link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -153,6 +155,8 @@
   preset();
 })();
 </script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/holiday-gift-budget-calculator"><h3>Holiday gift budget calculator</h3><p>Plan gifts per person and holiday extras, and see how much to save each week.</p></a><a class="card" href="/tools/trip-expense-splitter"><h3>Trip expense splitter</h3><p>Who owes whom after a trip or group dinner, in the fewest payments.</p></a><a class="card" href="/tools/bill-split-by-income-calculator"><h3>Bill split by income calculator</h3><p>Split shared bills fairly by each person's income.</p></a><a class="card" href="/tools/rent-split-by-room-calculator"><h3>Rent split by room size calculator</h3><p>Split rent fairly between roommates by room size.</p></a></div>
 <h2>Questions</h2>
 <details><summary>How much does a dog cost per year?</summary><p>It depends on size, health and where you live. Food, routine vet care, insurance, grooming and boarding commonly add up to roughly $1,500-$3,000 a year, plus first-year costs. Use the calculator with your own quotes.</p></details>
 <details><summary>How much does a pet cost over its lifetime?</summary><p>First-year costs plus the yearly cost times its lifespan. A pet costing $2,000 a year over 13 years is about $26,000 plus first-year extras.</p></details>
@@ -191,5 +195,10 @@
     <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
   </div>
 </footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
 </body>
 </html>

@@ -20,6 +20,8 @@
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 <link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -139,6 +141,8 @@
   ids.forEach(function (i) { el[i].addEventListener('input', run); }); run();
 })();
 </script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/invoice-generator"><h3>Free invoice generator</h3><p>Make a clean PDF invoice in a minute. No sign-up.</p></a><a class="card" href="/tools/time-card-calculator"><h3>Time card calculator</h3><p>Add up hours for the week with breaks, rounding and overtime pay.</p></a><a class="card" href="/tools/pto-planner"><h3>PTO and long weekend planner</h3><p>Turn your vacation days into the longest breaks around holidays.</p></a><a class="card" href="/tools/secret-santa-generator"><h3>Secret Santa generator</h3><p>Draw names with no sign-up, couples excluded, private reveal links.</p></a></div>
 <h2>Questions</h2>
 <details><summary>How do I calculate my freelance hourly rate?</summary><p>Add your income goal grossed up for taxes plus business costs, then divide by the hours you can actually bill in a year. $70,000 take-home at 30% tax plus $6,000 costs over 25 billable hours a week for 46 weeks is about $93 an hour.</p></details>
 <details><summary>How many billable hours does a freelancer have?</summary><p>Often 20-30 hours a week, because admin, sales and invoicing take the rest of the working week.</p></details>
@@ -177,5 +181,10 @@
     <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
   </div>
 </footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
 </body>
 </html>

@@ -20,6 +20,8 @@
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 <link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -136,6 +138,8 @@
   ids.forEach(function (i) { el[i].addEventListener('input', run); }); run();
 })();
 </script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/fsa-use-it-or-lose-it-calculator"><h3>FSA use it or lose it calculator</h3><p>How much FSA money you could lose, and what to buy before the deadline.</p></a><a class="card" href="/tools/cobra-cost-calculator"><h3>COBRA cost calculator</h3><p>Estimate COBRA premiums after leaving a job.</p></a><a class="card" href="/tools/coinsurance-calculator"><h3>Coinsurance and out-of-pocket calculator</h3><p>What you'll pay on a medical bill after deductible and coinsurance.</p></a><a class="card" href="/tools/medicare-irmaa-calculator"><h3>Medicare IRMAA calculator 2026</h3><p>Your 2026 Part B and Part D premiums by income.</p></a></div>
 <h2>Questions</h2>
 <details><summary>What is the dependent care FSA limit for 2026?</summary><p>$7,500 per household, or $3,750 if married filing separately. The One Big Beautiful Bill Act raised it from $5,000. Employers can keep a lower plan limit.</p></details>
 <details><summary>How much does a dependent care FSA save?</summary><p>Your contribution skips federal income tax, 7.65% Social Security and Medicare tax, and usually state tax. At a 22% bracket and 5% state tax, $7,500 saves about $2,600.</p></details>
@@ -174,5 +178,10 @@
     <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
   </div>
 </footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
 </body>
 </html>

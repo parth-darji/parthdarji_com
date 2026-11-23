@@ -20,6 +20,8 @@
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 <link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -137,6 +139,8 @@
   ids.forEach(function (i) { el[i].addEventListener('input', run); }); run();
 })();
 </script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/holiday-gift-budget-calculator"><h3>Holiday gift budget calculator</h3><p>Plan gifts per person and holiday extras, and see how much to save each week.</p></a><a class="card" href="/tools/trip-expense-splitter"><h3>Trip expense splitter</h3><p>Who owes whom after a trip or group dinner, in the fewest payments.</p></a><a class="card" href="/tools/bill-split-by-income-calculator"><h3>Bill split by income calculator</h3><p>Split shared bills fairly by each person's income.</p></a><a class="card" href="/tools/rent-split-by-room-calculator"><h3>Rent split by room size calculator</h3><p>Split rent fairly between roommates by room size.</p></a></div>
 <h2>Questions</h2>
 <details><summary>Is it cheaper to charge an EV than buy gas?</summary><p>Usually, when you charge mostly at home. At 17 cents per kWh and 30 kWh per 100 miles, an EV costs about $5 per 100 miles, versus about $10.67 for a 30 mpg car at $3.20 a gallon. Frequent fast charging can erase much of the gap.</p></details>
 <details><summary>How much does it cost to charge an EV per year?</summary><p>Miles ÷ 100 × kWh per 100 miles × your rate. 12,000 miles at 30 kWh/100 mi and 17 cents is about $612 a year at home.</p></details>
@@ -175,5 +179,10 @@
     <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
   </div>
 </footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
 </body>
 </html>

@@ -20,6 +20,8 @@
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 <link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -160,6 +162,8 @@
   ids.forEach(function (i) { el[i].addEventListener('input', function () { if (i === 'w' || i === 'h') ap.value = ''; run(); }); }); run();
 })();
 </script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/holiday-gift-budget-calculator"><h3>Holiday gift budget calculator</h3><p>Plan gifts per person and holiday extras, and see how much to save each week.</p></a><a class="card" href="/tools/trip-expense-splitter"><h3>Trip expense splitter</h3><p>Who owes whom after a trip or group dinner, in the fewest payments.</p></a><a class="card" href="/tools/bill-split-by-income-calculator"><h3>Bill split by income calculator</h3><p>Split shared bills fairly by each person's income.</p></a><a class="card" href="/tools/rent-split-by-room-calculator"><h3>Rent split by room size calculator</h3><p>Split rent fairly between roommates by room size.</p></a></div>
 <h2>Questions</h2>
 <details><summary>How do I calculate electricity cost for an appliance?</summary><p>Multiply watts by hours of use and divide by 1,000 to get kWh, then multiply by your rate. A 1,500 W heater for 4 hours uses 6 kWh; at 17 cents per kWh that's $1.02.</p></details>
 <details><summary>How much does it cost to run a space heater?</summary><p>A typical 1,500 W space heater costs about 26 cents an hour at 17 cents per kWh, or about $31 a month at 4 hours a day.</p></details>
@@ -198,5 +202,10 @@
     <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
   </div>
 </footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
 </body>
 </html>

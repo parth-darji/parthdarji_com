@@ -20,6 +20,8 @@
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 <link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -151,6 +153,8 @@ Jack</textarea></div>
   go();
 })();
 </script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/secret-santa-generator"><h3>Secret Santa generator</h3><p>Draw names with no sign-up, couples excluded, private reveal links.</p></a><a class="card" href="/tools/chore-chart-maker"><h3>Chore chart maker</h3><p>Make a printable weekly chore chart that rotates fairly.</p></a><a class="card" href="/tools/invoice-generator"><h3>Free invoice generator</h3><p>Make a clean PDF invoice in a minute. No sign-up.</p></a><a class="card" href="/tools/time-card-calculator"><h3>Time card calculator</h3><p>Add up hours for the week with breaks, rounding and overtime pay.</p></a></div>
 <h2>Questions</h2>
 <details><summary>How do I split a group into random teams?</summary><p>Paste the names, choose the number of teams or people per team, and shuffle. Team sizes will differ by at most one.</p></details>
 <details><summary>Is the random team generator fair?</summary><p>Yes. It shuffles with the browser's cryptographically secure random number generator, so every arrangement is equally likely.</p></details>
@@ -189,5 +193,10 @@ Jack</textarea></div>
     <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
   </div>
 </footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
 </body>
 </html>

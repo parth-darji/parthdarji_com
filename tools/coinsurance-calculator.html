@@ -20,6 +20,8 @@
 <link rel="icon" href="/favicon.png?v=4">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 <link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -144,6 +146,8 @@
   ids.forEach(function (i) { el[i].addEventListener('input', run); }); run();
 })();
 </script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/fsa-use-it-or-lose-it-calculator"><h3>FSA use it or lose it calculator</h3><p>How much FSA money you could lose, and what to buy before the deadline.</p></a><a class="card" href="/tools/cobra-cost-calculator"><h3>COBRA cost calculator</h3><p>Estimate COBRA premiums after leaving a job.</p></a><a class="card" href="/tools/medicare-irmaa-calculator"><h3>Medicare IRMAA calculator 2026</h3><p>Your 2026 Part B and Part D premiums by income.</p></a><a class="card" href="/tools/dependent-care-fsa-calculator"><h3>Dependent care FSA calculator 2026</h3><p>Tax saved with the new $7,500 dependent care FSA.</p></a></div>
 <h2>Questions</h2>
 <details><summary>How is coinsurance calculated?</summary><p>You pay the remaining deductible first, then your coinsurance percentage of the rest of the allowed amount, up to your out-of-pocket maximum. For a $3,000 bill with $1,000 deductible left and 20% coinsurance, you pay $1,000 + 20% of $2,000 = $1,400.</p></details>
 <details><summary>What happens after I reach my out-of-pocket maximum?</summary><p>Your plan pays 100% of covered in-network care for the rest of the plan year.</p></details>
@@ -182,5 +186,10 @@
     <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
   </div>
 </footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
 </body>
 </html>
