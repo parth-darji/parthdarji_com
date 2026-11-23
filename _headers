@@ -1,0 +1,24 @@
+# Cloudflare Pages headers (parthdarji.com)
+
+# Old build copy and leftover template files: keep reachable, keep out of search engines
+/dist/*
+  X-Robots-Tag: noindex, nofollow
+/src/*
+  X-Robots-Tag: noindex, nofollow
+/css/*
+  X-Robots-Tag: noindex, nofollow
+
+# Versioned assets (?v=N or versioned file names) can be cached for a year
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/images/*
+  Cache-Control: public, max-age=604800
+
+# Offline service worker must always be fresh
+/tools/sw.js
+  Cache-Control: no-cache
+
+# Sensible defaults on every page
+/*
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
