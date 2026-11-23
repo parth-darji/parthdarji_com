@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HEIC to JPG Converter, No Upload: Convert iPhone Photos Privately</title>
+<meta name="description" content="Convert HEIC photos from your iPhone to JPG on your own device: no upload, batch conversion, adjustable quality, works offline. Free, no sign-up.">
+<link rel="canonical" href="https://parthdarji.com/tools/heic-to-jpg">
+
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HEIC to JPG converter (no upload)">
+<meta property="og:description" content="Convert HEIC photos from your iPhone to JPG on your own device: no upload, batch conversion, adjustable quality, works offline. Free, no sign-up.">
+<meta property="og:url" content="https://parthdarji.com/tools/heic-to-jpg">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-heic-to-jpg.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "HEIC to JPG converter (no upload)",
+   "description": "Convert HEIC photos from your iPhone to JPG on your own device: no upload, batch conversion, adjustable quality, works offline. Free, no sign-up.",
+   "url": "https://parthdarji.com/tools/heic-to-jpg",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I convert HEIC to JPG without uploading?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Choose your HEIC photos here and tap Convert. The conversion runs in your browser on your device, so the photos are never sent to a server."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why can't I open HEIC files?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "HEIC is Apple's space-saving photo format, and some Windows PCs, websites and older apps don't support it. Converting to JPG makes the photo open anywhere."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I make my iPhone take JPG photos?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Go to Settings \u203a Camera \u203a Formats and choose Most Compatible. New photos will be saved as JPG."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "HEIC to JPG converter (no upload)",
+     "item": "https://parthdarji.com/tools/heic-to-jpg"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>HEIC to JPG converter (no upload)</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p class="tldr"><strong>Private by design</strong>Your files never leave this device: everything happens inside your browser, and nothing is uploaded to any server. Once you've opened this page, it even works offline.</p>
+<div class="tool" id="hc">
+  <div class="row">
+    <div class="field"><label for="files">Choose HEIC photos</label><input id="files" type="file" accept=".heic,.heif,image/heic,image/heif" multiple></div>
+    <div class="field"><label for="q">JPG quality</label><select id="q"><option value="0.95">High (larger files)</option><option value="0.85" selected>Good (recommended)</option><option value="0.7">Smaller files</option></select></div>
+  </div>
+  <div class="cta-row"><button class="btn big" type="button" id="go" disabled>Convert to JPG</button></div>
+  <p class="fine" id="msg" aria-live="polite">Choose one or more .heic photos.</p>
+  <div class="results" id="out"></div>
+</div>
+<h2>Why HEIC?</h2>
+<p>iPhones save photos as HEIC to use less space. Some websites, Windows PCs and older apps can't open them; JPG works everywhere. On your iPhone you can switch to JPG for new photos in Settings › Camera › Formats › Most Compatible.</p>
+<p>Converting many large photos can take a moment on older phones, since all the work happens on your device. Photo metadata like location isn't copied into the JPG.</p>
+<p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script src="/assets/vendor/heic2any-0.0.4.min.js"></script>
+<script>
+(function () {
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var files = [], urls = [], go = document.getElementById('go'), msg = document.getElementById('msg');
+  document.getElementById('files').addEventListener('change', function (e) { files = [].slice.call(e.target.files); go.disabled = !files.length; msg.textContent = files.length ? files.length + (files.length === 1 ? ' photo' : ' photos') + ' ready.' : 'Choose one or more .heic photos.'; });
+  function size(b) { return b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB'; }
+  go.addEventListener('click', async function () {
+    urls.forEach(URL.revokeObjectURL); urls = []; var out = document.getElementById('out'); out.innerHTML = ''; go.disabled = true;
+    var ok = 0, q = +document.getElementById('q').value;
+    for (var i = 0; i < files.length; i++) {
+      var f = files[i]; msg.textContent = 'Converting ' + (i + 1) + ' of ' + files.length + ' on your device…';
+      try {
+        var r = await heic2any({ blob: f, toType: 'image/jpeg', quality: q }); var blob = Array.isArray(r) ? r[0] : r;
+        var u = URL.createObjectURL(blob); urls.push(u); var name = f.name.replace(/\.(heic|heif)$/i, '') + '.jpg';
+        var d = document.createElement('div'); d.className = 'item';
+        d.innerHTML = '<h3>' + esc(name) + ' <a class="btn" download></a></h3><p>' + size(f.size) + ' → ' + size(blob.size) + '</p><img alt="" loading="lazy" style="max-height:140px;border-radius:10px;margin-top:8px">';
+        var a = d.querySelector('a'); a.href = u; a.download = name; a.textContent = 'Download'; d.querySelector('img').src = u; out.appendChild(d); ok++;
+      } catch (e) {
+        var d2 = document.createElement('div'); d2.className = 'item'; d2.innerHTML = '<p>' + esc(f.name) + ': could not convert (is it a HEIC photo?)</p>'; out.appendChild(d2);
+      }
+    }
+    msg.textContent = 'Done: ' + ok + ' of ' + files.length + ' converted. Nothing was uploaded.'; go.disabled = false;
+  });
+})();
+</script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/merge-pdf"><h3>Merge PDF without uploading</h3><p>Combine, reorder and split PDFs privately on your device.</p></a><a class="card" href="/tools/invoice-generator"><h3>Free invoice generator</h3><p>Make a clean PDF invoice in a minute. No sign-up.</p></a><a class="card" href="/tools/time-card-calculator"><h3>Time card calculator</h3><p>Add up hours for the week with breaks, rounding and overtime pay.</p></a><a class="card" href="/tools/secret-santa-generator"><h3>Secret Santa generator</h3><p>Draw names with no sign-up, couples excluded, private reveal links.</p></a></div>
+<h2>Questions</h2>
+<details><summary>How do I convert HEIC to JPG without uploading?</summary><p>Choose your HEIC photos here and tap Convert. The conversion runs in your browser on your device, so the photos are never sent to a server.</p></details>
+<details><summary>Why can't I open HEIC files?</summary><p>HEIC is Apple's space-saving photo format, and some Windows PCs, websites and older apps don't support it. Converting to JPG makes the photo open anywhere.</p></details>
+<details><summary>How do I make my iPhone take JPG photos?</summary><p>Go to Settings › Camera › Formats and choose Most Compatible. New photos will be saved as JPG.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/trip-expense-splitter">Trip expense splitter</a>
+<a href="/tools/random-team-generator">Random team generator</a>
+<a href="/tools/chore-chart-maker">Chore chart maker</a>
+<a href="/tools/late-fee-calculator">Invoice late fee calculator</a>
+<a href="/tools/unit-price-calculator">Unit price comparison</a>
+<a href="/tools/sinking-fund-calculator">Sinking fund planner</a>
+<a href="/tools/meeting-cost-calculator">Meeting cost calculator</a>
+<a href="/tools/merge-pdf">Merge PDF without uploading</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
+</body>
+</html>

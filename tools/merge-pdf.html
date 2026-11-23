@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Merge PDF Without Uploading: Private, Offline PDF Merger</title>
+<meta name="description" content="Merge, reorder and split PDF files privately: everything runs in your browser, nothing is uploaded, and it works offline. Free, no sign-up, no watermark.">
+<link rel="canonical" href="https://parthdarji.com/tools/merge-pdf">
+
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Merge PDF without uploading">
+<meta property="og:description" content="Merge, reorder and split PDF files privately: everything runs in your browser, nothing is uploaded, and it works offline. Free, no sign-up, no watermark.">
+<meta property="og:url" content="https://parthdarji.com/tools/merge-pdf">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-merge-pdf.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0e7c66">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Merge PDF without uploading",
+   "description": "Merge, reorder and split PDF files privately: everything runs in your browser, nothing is uploaded, and it works offline. Free, no sign-up, no watermark.",
+   "url": "https://parthdarji.com/tools/merge-pdf",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I merge PDF files without uploading them?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Use a tool that runs in your browser. Here, choose your PDFs, put them in order and download the merged file; the files are processed on your device and never sent to a server."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is it safe to merge PDFs online?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Many online PDF tools upload your files to their servers. This one doesn't: everything happens in your browser, which you can confirm in your browser's Network tab."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I split a PDF or extract pages?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Switch to Extract or split pages, choose one PDF and enter pages like 1-3, 5, or make a separate PDF for every page."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Merge PDF without uploading",
+     "item": "https://parthdarji.com/tools/merge-pdf"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Merge PDF without uploading</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<p class="tldr"><strong>Private by design</strong>Your files never leave this device: everything happens inside your browser, and nothing is uploaded to any server. Once you've opened this page, it even works offline.</p>
+<div class="tool" id="pm">
+  <div class="chips" role="group" aria-label="Mode"><button class="chip" data-m="merge" aria-pressed="true">Merge PDFs</button><button class="chip" data-m="split" aria-pressed="false">Extract or split pages</button></div>
+  <div class="field"><label for="files">Choose PDF files</label><input id="files" type="file" accept="application/pdf,.pdf" multiple></div>
+  <div class="results" id="list"></div>
+  <div id="splitbox" hidden>
+    <div class="field"><label for="ranges">Pages to keep, e.g. 1-3, 5, 8-10 (leave empty for all)</label><input id="ranges" type="search" autocomplete="off" placeholder="1-3, 5"></div>
+    <div class="field"><label for="each">Output</label><select id="each"><option value="one">One PDF with those pages</option><option value="each">A separate PDF for every page</option></select></div>
+  </div>
+  <div class="cta-row"><button class="btn big" type="button" id="go" disabled>Merge PDFs</button></div>
+  <p class="fine" id="msg" aria-live="polite"></p>
+  <div class="results" id="out"></div>
+</div>
+<h2>How it works</h2>
+<ol class="steps">
+<li><strong>Choose your PDFs.</strong> They're read by your browser, not sent anywhere.</li>
+<li><strong>Put them in order</strong> with the arrows, or pick the pages to keep.</li>
+<li><strong>Download</strong> the new PDF. No watermark, no limits on file count.</li>
+</ol>
+<p>Want to check? Open your browser's developer tools, go to the Network tab and merge a file: you'll see no upload. Very large files are limited only by your device's memory. Password-protected PDFs need to be unlocked first.</p>
+<aside class="promo">
+  <img src="/images/apps/shoeboxhsa-192.webp" alt="" width="64" height="64" loading="lazy">
+  <div><p><strong>ShoeboxHSA</strong> · Keep medical bills and receipts private on your iPhone, ready for your HSA.</p>
+  <a class="btn" href="https://apps.apple.com/app/id6813872704">Download for iPhone</a> <span class="fine" style="margin-left:8px">Free to try · No account</span></div>
+</aside><p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
+<script src="/assets/vendor/pdf-lib-1.17.1.min.js"></script>
+<script>
+(function () {
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var mode = 'merge', files = [], urls = [];
+  var go = document.getElementById('go'), msg = document.getElementById('msg'), list = document.getElementById('list');
+  [].forEach.call(document.querySelectorAll('.chip[data-m]'), function (c) { c.addEventListener('click', function () {
+    mode = c.dataset.m; [].forEach.call(document.querySelectorAll('.chip[data-m]'), function (x) { x.setAttribute('aria-pressed', x === c); });
+    document.getElementById('splitbox').hidden = mode !== 'split'; document.getElementById('files').multiple = mode === 'merge';
+    if (mode === 'split' && files.length > 1) files = files.slice(0, 1); draw(); }); });
+  document.getElementById('files').addEventListener('change', function (e) {
+    var add = [].slice.call(e.target.files).filter(function (f) { return /pdf$/i.test(f.type) || /\.pdf$/i.test(f.name); });
+    files = mode === 'merge' ? files.concat(add) : add.slice(0, 1); e.target.value = ''; draw();
+  });
+  function size(b) { return b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB'; }
+  function draw() {
+    list.innerHTML = '';
+    files.forEach(function (f, i) {
+      var d = document.createElement('div'); d.className = 'item';
+      d.innerHTML = '<h3>' + (i + 1) + '. ' + esc(f.name) + ' <span class="badge ok">' + size(f.size) + '</span></h3>';
+      var bar = document.createElement('div'); bar.className = 'chips';
+      [['↑', -1], ['↓', 1]].forEach(function (a) { if (mode !== 'merge') return; var b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.textContent = a[0]; b.setAttribute('aria-label', a[1] < 0 ? 'Move up' : 'Move down');
+        b.addEventListener('click', function () { var j = i + a[1]; if (j < 0 || j >= files.length) return; var t = files[i]; files[i] = files[j]; files[j] = t; draw(); }); bar.appendChild(b); });
+      var r = document.createElement('button'); r.type = 'button'; r.className = 'chip'; r.textContent = 'Remove'; r.addEventListener('click', function () { files.splice(i, 1); draw(); }); bar.appendChild(r);
+      d.appendChild(bar); list.appendChild(d);
+    });
+    go.textContent = mode === 'merge' ? 'Merge PDFs' : 'Extract pages';
+    go.disabled = mode === 'merge' ? files.length < 2 : files.length !== 1;
+    msg.textContent = mode === 'merge' ? (files.length < 2 ? 'Add at least 2 PDFs.' : files.length + ' files ready.') : (files.length ? '' : 'Choose one PDF.');
+  }
+  function parse(s, max) {
+    if (!s.trim()) { var all = []; for (var i = 0; i < max; i++) all.push(i); return all; }
+    var out = []; s.split(',').forEach(function (part) {
+      var m = part.trim().match(/^(\d+)\s*(?:-\s*(\d+))?$/); if (!m) throw new Error('Could not read "' + part.trim() + '". Use numbers like 1-3, 5.');
+      var a = +m[1], b = m[2] ? +m[2] : a; if (a < 1 || b > max || a > b) throw new Error('Pages must be between 1 and ' + max + '.');
+      for (var k = a; k <= b; k++) out.push(k - 1);
+    }); return out;
+  }
+  function link(bytes, name) { var u = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' })); urls.push(u); return '<div class="item"><h3>' + esc(name) + ' <a class="btn" href="' + u + '" download="' + esc(name) + '">Download</a></h3><p>' + size(bytes.length) + '</p></div>'; }
+  go.addEventListener('click', async function () {
+    urls.forEach(URL.revokeObjectURL); urls = []; document.getElementById('out').innerHTML = ''; go.disabled = true; msg.textContent = 'Working on your device…';
+    try {
+      var L = PDFLib.PDFDocument;
+      if (mode === 'merge') {
+        var doc = await L.create(), pages = 0;
+        for (var i = 0; i < files.length; i++) {
+          var src = await L.load(await files[i].arrayBuffer());
+          var cp = await doc.copyPages(src, src.getPageIndices()); cp.forEach(function (pg) { doc.addPage(pg); }); pages += cp.length;
+        }
+        var bytes = await doc.save(); document.getElementById('out').innerHTML = link(bytes, 'merged.pdf'); msg.textContent = 'Done: ' + pages + ' pages from ' + files.length + ' files.';
+      } else {
+        var src1 = await L.load(await files[0].arrayBuffer()), idx = parse(document.getElementById('ranges').value, src1.getPageCount());
+        var base = files[0].name.replace(/\.pdf$/i, ''), html = '';
+        if (document.getElementById('each').value === 'each') {
+          for (var j = 0; j < idx.length; j++) { var d1 = await L.create(); var c1 = await d1.copyPages(src1, [idx[j]]); d1.addPage(c1[0]); html += link(await d1.save(), base + '-page-' + (idx[j] + 1) + '.pdf'); }
+        } else { var d2 = await L.create(); (await d2.copyPages(src1, idx)).forEach(function (pg) { d2.addPage(pg); }); html = link(await d2.save(), base + '-pages.pdf'); }
+        document.getElementById('out').innerHTML = html; msg.textContent = 'Done: ' + idx.length + ' of ' + src1.getPageCount() + ' pages.';
+      }
+    } catch (e) {
+      msg.textContent = /encrypt/i.test(e.message) ? 'This PDF is password-protected. Unlock it first, then try again.' : (e.message && e.message.indexOf('Could not') === 0 || /Pages must/.test(e.message)) ? e.message : 'Sorry, one of the files could not be read as a PDF.';
+    }
+    go.disabled = mode === 'merge' ? files.length < 2 : files.length !== 1;
+  });
+  draw();
+})();
+</script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/heic-to-jpg"><h3>HEIC to JPG converter (no upload)</h3><p>Convert iPhone photos to JPG on your device, in batches.</p></a><a class="card" href="/tools/invoice-generator"><h3>Free invoice generator</h3><p>Make a clean PDF invoice in a minute. No sign-up.</p></a><a class="card" href="/tools/time-card-calculator"><h3>Time card calculator</h3><p>Add up hours for the week with breaks, rounding and overtime pay.</p></a><a class="card" href="/tools/secret-santa-generator"><h3>Secret Santa generator</h3><p>Draw names with no sign-up, couples excluded, private reveal links.</p></a></div>
+<h2>Questions</h2>
+<details><summary>How do I merge PDF files without uploading them?</summary><p>Use a tool that runs in your browser. Here, choose your PDFs, put them in order and download the merged file; the files are processed on your device and never sent to a server.</p></details>
+<details><summary>Is it safe to merge PDFs online?</summary><p>Many online PDF tools upload your files to their servers. This one doesn't: everything happens in your browser, which you can confirm in your browser's Network tab.</p></details>
+<details><summary>Can I split a PDF or extract pages?</summary><p>Yes. Switch to Extract or split pages, choose one PDF and enter pages like 1-3, 5, or make a separate PDF for every page.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/trip-expense-splitter">Trip expense splitter</a>
+<a href="/tools/random-team-generator">Random team generator</a>
+<a href="/tools/chore-chart-maker">Chore chart maker</a>
+<a href="/tools/late-fee-calculator">Invoice late fee calculator</a>
+<a href="/tools/unit-price-calculator">Unit price comparison</a>
+<a href="/tools/sinking-fund-calculator">Sinking fund planner</a>
+<a href="/tools/meeting-cost-calculator">Meeting cost calculator</a>
+<a href="/tools/heic-to-jpg">HEIC to JPG converter (no upload)</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no trackers. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
+</body>
+</html>
