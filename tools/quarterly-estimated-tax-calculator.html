@@ -146,6 +146,28 @@
   <table class="breakdown" aria-label="Due dates"><thead><tr><th scope="col">Due date</th><th scope="col">Covers income from</th><th scope="col">Amount</th></tr></thead><tbody id="dates"></tbody></table>
 </div>
 <p class="note">Your expected tax is the total federal tax for the year (income tax plus self-employment tax). Get it from the <a href="/tools/1099-tax-calculator">1099 tax calculator</a>. Last year's tax is the "total tax" line on your last return. If you owed no tax at all last year (and were a US citizen or resident all year), you generally owe no penalty this year. 2027 dates follow the usual rule; check Form 1040-ES for 2027. You can also skip the January payment if you file and pay in full by January 31. Many states have their own estimated tax. Not tax advice.</p>
+<form class="tool" id="wl" style="margin-top:22px" novalidate>
+  <p style="margin:0 0 6px"><strong>Want a reminder before each due date?</strong> I'm building a small iPhone app that tracks what to set aside from each payment and reminds you before every quarterly deadline. Leave your email and I'll send you <strong>one email when it's ready</strong>. No spam, no sharing.</p>
+  <div class="row"><div class="field"><label for="wl-email">Email</label><input id="wl-email" type="email" autocomplete="email" required placeholder="you@example.com"></div></div>
+  <input type="text" name="website" id="wl-web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+  <button class="btn" type="submit">Tell me when it's ready</button>
+  <p class="fine" id="wl-msg" aria-live="polite" style="margin-top:10px">Used only for that launch email. To be removed, write to hello@parthdarji.com. <a href="/tools/privacy">Privacy</a></p>
+</form>
+<script>
+(function () {
+  var f = document.getElementById('wl'), m = document.getElementById('wl-msg'), e = document.getElementById('wl-email');
+  f.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    if (!e.checkValidity()) { m.textContent = 'Please enter a valid email address.'; e.focus(); return; }
+    var b = f.querySelector('button'); b.disabled = true; m.textContent = 'Saving…';
+    fetch('/api/waitlist', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: e.value, list: '1099-app', website: document.getElementById('wl-web').value }) })
+      .then(function (r) { return r.json().catch(function () { return {}; }); })
+      .then(function (j) { if (j.ok) { f.innerHTML = '<p style="margin:0"><strong>Thanks, you’re on the list.</strong> I’ll email you once, when the app is ready.</p>'; } else { m.textContent = j.error || 'Something went wrong. Please try again.'; b.disabled = false; } })
+      .catch(function () { m.textContent = 'Couldn’t connect. Please try again.'; b.disabled = false; });
+  });
+})();
+</script>
+
 <p>Pay online for free with IRS Direct Pay or your IRS Online Account at irs.gov/payments.</p>
 <p class="note">Everything runs in your browser. Nothing you type is sent anywhere or stored on a server.</p>
 <script>
