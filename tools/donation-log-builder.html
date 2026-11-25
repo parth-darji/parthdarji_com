@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Donation Log Builder: Track Charity Gifts and Receipts</title>
+<meta name="description" content="Free donation log: record cash and goods gifts, see which need a receipt or acknowledgment, and save a PDF for your tax preparer.">
+<link rel="canonical" href="https://parthdarji.com/tools/donation-log-builder">
+
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Donation log builder">
+<meta property="og:description" content="Free donation log: record cash and goods gifts, see which need a receipt or acknowledgment, and save a PDF for your tax preparer.">
+<meta property="og:url" content="https://parthdarji.com/tools/donation-log-builder">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-donation-log-builder.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=15">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+
+<meta name="theme-color" content="#0e7c66">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Donation log builder",
+   "description": "Free donation log: record cash and goods gifts, see which need a receipt or acknowledgment, and save a PDF for your tax preparer.",
+   "url": "https://parthdarji.com/tools/donation-log-builder",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What records do I need for donations to charity?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "For cash gifts, a bank or card record or a written record from the charity. For $250 or more, a written acknowledgment from the charity. For goods, a receipt or your own written record, and Form 8283 if your goods total more than $500 in the year."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I deduct donated clothes that are worn out?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Generally no. The IRS says clothing and household items must be in good used condition or better. A single item over $500 that isn't needs a qualified appraisal."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I have to itemize to deduct donations?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not for cash gifts in 2026. People who take the standard deduction may deduct up to $1,000 ($2,000 joint) of cash gifts to eligible charities. Goods don't qualify for that, and itemizers can only deduct gifts above 0.5% of their adjusted gross income."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Donation log builder",
+     "item": "https://parthdarji.com/tools/donation-log-builder"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Donation log builder</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<div class="tldr"><strong>In short</strong>Keep a dated list of what you give. The IRS wants records: a receipt or bank record for cash, a written acknowledgment from the charity for gifts of $250 or more, and a good-condition test for clothing and household goods. This log flags what's missing and saves a PDF.</div>
+<style>@media print { #dc > *:not(#dcdoc) { display: none !important; } }</style>
+<div class="tool" id="dc">
+  <div class="row"><div class="field"><label for="who">Your name (optional)</label><input id="who" type="text" maxlength="80" autocomplete="name"></div></div>
+  <div class="row">
+    <div class="field"><label for="date">Date of the gift</label><input id="date" type="date"></div>
+    <div class="field"><label for="charity">Charity or organization</label><input id="charity" type="text" maxlength="100" placeholder="e.g. Goodwill, local food bank"></div>
+  </div>
+  <div class="row">
+    <div class="field"><label for="kind">Type of gift</label><select id="kind"><option value="cash">Cash, check or card</option><option value="noncash">Goods (clothes, furniture, items)</option></select></div>
+    <div class="field"><label for="amount" id="amtlabel">Amount ($)</label><input id="amount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="e.g. 50"></div>
+    <div class="field"><label for="proof">Receipt, bank record or acknowledgment?</label><select id="proof"><option value="yes">Yes, I have it</option><option value="no">Not yet</option></select></div>
+  </div>
+  <div id="ncwrap" style="display:none">
+    <div class="row">
+      <div class="field"><label for="type">What kind of goods</label><select id="type"><option>Clothing</option><option>Household items</option><option>Other items</option></select></div>
+      <div class="field"><label for="cond">Condition</label><select id="cond"><option value="good">Good used condition or better</option><option value="notgood">Not in good used condition</option></select></div>
+      <div class="field"><label for="what">Short description (optional)</label><input id="what" type="text" maxlength="120" placeholder="e.g. 2 bags of winter coats"></div>
+    </div>
+    <p class="fine">Value goods at what buyers typically pay for used items, such as thrift-shop prices, not what you paid new. The IRS says there is no fixed percentage of the original price.</p>
+  </div>
+  <button class="btn" type="button" id="add">Add gift</button>
+  <p class="fine" id="msg" aria-live="polite" style="margin-top:10px">Nothing you type is stored or sent. Entries stay on this page only.</p>
+  <h2 style="margin-top:26px">Your log <span class="fine" id="count" style="font-weight:400"></span></h2>
+  <div id="list"></div>
+  <div id="sum" style="margin-top:14px"></div>
+  <div class="row" style="margin-top:14px"><button class="btn" type="button" id="prt" disabled>Print or save as PDF</button> <button class="btn ghost" type="button" id="txt" disabled>Download as text file</button></div>
+  <div class="doc print-only" id="dcdoc"></div>
+</div>
+<p class="note">General record-keeping help for the 2026 tax year, not tax advice. This log doesn't work out whether or how much you can deduct. Check the IRS pages below or ask a tax professional.</p>
+<h2>What the IRS asks you to keep</h2>
+<ul>
+<li><strong>Cash gifts (any amount):</strong> a bank or card record, or a written record from the charity.</li>
+<li><strong>$250 or more:</strong> a written acknowledgment from the charity, which must say whether you got anything in return. Get it by the earlier of the date you file or the due date (including extensions).</li>
+<li><strong>Goods under $250:</strong> a receipt from the charity, or your own written record of the charity, date, place and what you gave.</li>
+<li><strong>Goods totalling over $500 in the year:</strong> Form 8283 goes with your return.</li>
+<li><strong>Clothing and household items:</strong> must be in good used condition or better. A single item over $500 that isn't, needs a qualified appraisal.</li>
+</ul>
+<h2>New for 2026: gifts if you don't itemize</h2>
+<p>If you take the standard deduction, you may be able to deduct up to <strong>$1,000</strong> (<strong>$2,000</strong> if married filing jointly) of <strong>cash</strong> gifts to eligible charities. Goods, donor-advised funds and supporting organizations don't count for this. If you do itemize, only the part of your gifts above 0.5% of your adjusted gross income counts. Read the IRS notice below for the details.</p>
+<form class="tool" id="wl" style="margin-top:22px" novalidate>
+  <p style="margin:0 0 6px"><strong>Want this on your iPhone, with photos of receipts?</strong> I'm considering a small iPhone app for donation records: snap the receipt, log the items, keep it all private, export a PDF for your tax preparer. Leave your email and I'll send <strong>one email if I build it</strong>. No spam, no sharing.</p>
+  <div class="row"><div class="field"><label for="wl-email">Email</label><input id="wl-email" type="email" autocomplete="email" required placeholder="you@example.com"></div></div>
+  <input type="text" name="website" id="wl-web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+  <button class="btn" type="submit">Tell me if it's built</button>
+  <p class="fine" id="wl-msg" aria-live="polite" style="margin-top:10px">Used only for that one email. To be removed, write to hello@parthdarji.com. <a href="/tools/privacy">Privacy</a></p>
+</form>
+<script>
+(function () {
+  var f = document.getElementById('wl'), m = document.getElementById('wl-msg'), e = document.getElementById('wl-email');
+  f.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    if (!e.checkValidity() || !e.value) { m.textContent = 'Please enter a valid email address.'; e.focus(); return; }
+    var b = f.querySelector('button'); b.disabled = true; m.textContent = 'Saving\u2026';
+    fetch('/api/waitlist', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: e.value, list: 'donation-app', website: document.getElementById('wl-web').value }) })
+      .then(function (r) { return r.json().catch(function () { return {}; }); })
+      .then(function (j) { if (j.ok) { f.innerHTML = '<p style="margin:0"><strong>Thanks, you\u2019re on the list.</strong> I\u2019ll email you once if the app goes ahead.</p>'; } else { m.textContent = j.error || 'Something went wrong. Please try again.'; b.disabled = false; } })
+      .catch(function () { m.textContent = 'Couldn\u2019t connect. Please try again.'; b.disabled = false; });
+  });
+})();
+</script>
+
+<h2>Sources</h2><ul><li><a href="https://www.irs.gov/publications/p526" rel="noopener">IRS Publication 526: Charitable Contributions</a></li><li><a href="https://www.irs.gov/publications/p561" rel="noopener">IRS Publication 561: Determining the Value of Donated Property</a></li><li><a href="https://www.irs.gov/pub/irs-pdf/i8283.pdf" rel="noopener">IRS Instructions for Form 8283 (noncash contributions)</a></li><li><a href="https://www.irs.gov/newsroom/tips-for-tracking-charitable-donations" rel="noopener">IRS: Tips for tracking charitable donations</a></li><li><a href="https://www.irs.gov/newsroom/irs-reminder-permanent-charitable-contribution-deduction-begins-for-returns-filed-next-year-for-taxpayers-who-do-not-itemize" rel="noopener">IRS: New charitable deduction for people who don't itemize</a></li><li><a href="https://www.irs.gov/taxtopics/tc506" rel="noopener">IRS Topic no. 506: Charitable contributions</a></li></ul><p class="fine">Checked against these official pages on November 25, 2026. Rules and amounts change; confirm on the source before you file.</p>
+<script>
+(function () {
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var MS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function iso(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function nice(s) { var a = s.split('-'); return a.length === 3 ? MS[+a[1] - 1] + ' ' + (+a[2]) + ', ' + a[0] : s; }
+  var rows = [];
+  function flags(e) {
+    var f = [];
+    if (e.kind === 'noncash' && (e.type === 'Clothing' || e.type === 'Household items') && e.cond === 'notgood') f.push('Clothing and household items generally can\'t be deducted unless they are in good used condition or better.');
+    if (e.kind === 'cash' && !e.proof) f.push('Cash gifts need a bank record or a written record from the charity.');
+    if (e.amount >= 250 && !e.proof) f.push('For $250 or more, get a written acknowledgment from the charity before you file.');
+    if (e.kind === 'noncash' && e.amount < 250 && !e.proof) f.push('For goods under $250, get a receipt or keep a written record (charity, date, place, what you gave).');
+    return f;
+  }
+  function sorted() { return rows.slice().sort(function (a, b) { return a.date < b.date ? -1 : 1; }); }
+  function render() {
+    var list = sorted(), html = '', cash = 0, non = 0;
+    list.forEach(function (e) {
+      if (e.kind === 'cash') cash += e.amount; else non += e.amount;
+      var fl = flags(e).map(function (x) { return '<p class="fine" style="color:var(--amber)">&#9888; ' + esc(x) + '</p>'; }).join('');
+      html += '<div class="item"><h3>' + esc(nice(e.date)) + ' &middot; ' + esc(e.charity) + ' &middot; ' + usd.format(e.amount) + '</h3>' +
+        '<p class="fine">' + (e.kind === 'cash' ? 'Cash gift' : esc(e.type) + (e.what ? ': ' + esc(e.what) : '') + (e.cond === 'good' ? ' (good used condition or better)' : e.cond === 'notgood' ? ' (not in good used condition)' : '')) + (e.proof ? ' &middot; receipt or record kept' : ' &middot; no receipt yet') + '</p>' + fl +
+        '<button type="button" class="btn ghost" data-id="' + e.id + '">Remove</button></div>';
+    });
+    $('list').innerHTML = html || '<p class="fine">No gifts yet. Add your first one above.</p>';
+    $('count').textContent = list.length + (list.length === 1 ? ' gift' : ' gifts');
+    var note = '';
+    if (non > 500) note += '<p class="fine" style="color:var(--amber)">&#9888; Your goods donations total more than $500, so a Form 8283 goes with your return. Check the IRS instructions.</p>';
+    $('sum').innerHTML = '<table class="breakdown"><tr><td>Cash gifts</td><td>' + usd.format(cash) + '</td></tr><tr><td>Goods (your estimate of fair market value)</td><td>' + usd.format(non) + '</td></tr><tr class="total"><td>Total logged</td><td>' + usd.format(cash + non) + '</td></tr></table>' + note +
+      '<p class="fine">For 2026, people who take the standard deduction may deduct up to $1,000 ($2,000 if married filing jointly) of <strong>cash</strong> gifts to eligible charities. Goods don\'t qualify for that. This log doesn\'t work out your deduction.</p>';
+    $('prt').disabled = $('txt').disabled = !list.length;
+    var who = $('who').value.trim();
+    var trs = list.map(function (e) {
+      return '<tr><td style="white-space:nowrap">' + esc(nice(e.date)) + '</td><td>' + esc(e.charity) + '</td><td>' + (e.kind === 'cash' ? 'Cash' : esc(e.type) + (e.what ? ': ' + esc(e.what) : '')) + '</td><td class="r">' + usd.format(e.amount) + '</td><td>' + (e.proof ? 'Yes' : 'No') + '</td></tr>';
+    }).join('');
+    $('dcdoc').innerHTML = '<div class="doc-head"><h3>Donation log</h3><div class="r">' + (who ? esc(who) + '<br>' : '') + 'Printed ' + esc(nice(iso(new Date()))) + '</div></div>' +
+      '<table><tr><th>Date</th><th>Charity</th><th>What</th><th class="r">Amount / value</th><th>Receipt kept</th></tr>' + trs + '</table>' +
+      '<div class="r">Cash ' + usd.format(cash) + ' &middot; Goods ' + usd.format(non) + '<div class="doc-total">Total ' + usd.format(cash + non) + '</div></div>' +
+      '<p class="fine">Personal records. Keep the original receipts, acknowledgments and bank records. Goods are valued at your estimate of fair market value (what buyers typically pay for used items). Not tax advice.</p>';
+  }
+  function toggle() { var n = $('kind').value === 'noncash'; $('ncwrap').style.display = n ? '' : 'none'; $('amtlabel').textContent = n ? 'Fair market value ($)' : 'Amount ($)'; }
+  $('kind').addEventListener('change', toggle);
+  $('add').addEventListener('click', function () {
+    var amt = parseFloat($('amount').value), charity = $('charity').value.trim(), msg = $('msg');
+    if (!$('date').value) { msg.textContent = 'Pick the date of the gift.'; $('date').focus(); return; }
+    if (charity.length < 2) { msg.textContent = 'Enter the charity\'s name.'; $('charity').focus(); return; }
+    if (!(amt > 0) || amt > 100000000) { msg.textContent = 'Enter an amount above $0.'; $('amount').focus(); return; }
+    var kind = $('kind').value;
+    rows.push({ id: Date.now() + Math.random(), date: $('date').value, charity: charity, kind: kind, amount: Math.round(amt * 100) / 100, type: kind === 'noncash' ? $('type').value : '', what: kind === 'noncash' ? $('what').value.trim() : '', cond: kind === 'noncash' ? $('cond').value : '', proof: $('proof').value === 'yes' });
+    ['charity', 'amount', 'what'].forEach(function (id) { $(id).value = ''; });
+    msg.textContent = 'Gift added. Entries stay on this page only, so print or download before you leave.'; render();
+  });
+  $('list').addEventListener('click', function (ev) { var id = ev.target && ev.target.getAttribute && ev.target.getAttribute('data-id'); if (!id) return; rows = rows.filter(function (e) { return String(e.id) !== id; }); render(); });
+  $('who').addEventListener('input', render);
+  $('prt').addEventListener('click', function () { window.print(); });
+  $('txt').addEventListener('click', function () {
+    var lines = ['Donation log' + ($('who').value.trim() ? ' - ' + $('who').value.trim() : ''), 'Printed ' + nice(iso(new Date())), ''];
+    sorted().forEach(function (e) { lines.push(nice(e.date) + ' | ' + e.charity + ' | ' + (e.kind === 'cash' ? 'Cash' : e.type + (e.what ? ': ' + e.what : '')) + ' | ' + usd.format(e.amount) + ' | receipt kept: ' + (e.proof ? 'yes' : 'no')); });
+    var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([lines.join('\n')], { type: 'text/plain' })); a.download = 'donation-log.txt'; document.body.appendChild(a); a.click(); a.remove();
+  });
+  $('date').value = iso(new Date()); toggle(); render();
+})();
+</script>
+<p class="fine app-strip" style="margin-top:22px">More from me: <a href="/shoeboxhsa/">ShoeboxHSA</a> (HSA receipts, iPhone) · <a href="/aheadly/">Aheadly</a> (quarterly taxes, iPhone, coming soon) · <a href="https://apps.apple.com/app/apple-store/id6811594421?pt=128719990&amp;ct=tools-donation-log-builder&amp;mt=8">PunchMate</a> (time clock, Mac)</p>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/1099-taxes-nevada"><h3>1099 taxes in Nevada</h3><p>No state income tax: what Nevada freelancers set aside, plus the state business license.</p></a><a class="card" href="/tools/1099-taxes-tennessee"><h3>1099 taxes in Tennessee</h3><p>No state income tax: what Tennessee freelancers set aside, and when an LLC changes it.</p></a><a class="card" href="/tools/1099-tax-calculator"><h3>1099 tax calculator 2026</h3><p>Self-employment tax plus income tax, and how much to set aside.</p></a><a class="card" href="/tools/quarterly-estimated-tax-calculator"><h3>Quarterly estimated tax calculator</h3><p>What to pay each quarter, the 2026 and 2027 due dates, and the safe harbor.</p></a></div>
+<h2>Questions</h2>
+<details><summary>What records do I need for donations to charity?</summary><p>For cash gifts, a bank or card record or a written record from the charity. For $250 or more, a written acknowledgment from the charity. For goods, a receipt or your own written record, and Form 8283 if your goods total more than $500 in the year.</p></details>
+<details><summary>Can I deduct donated clothes that are worn out?</summary><p>Generally no. The IRS says clothing and household items must be in good used condition or better. A single item over $500 that isn't needs a qualified appraisal.</p></details>
+<details><summary>Do I have to itemize to deduct donations?</summary><p>Not for cash gifts in 2026. People who take the standard deduction may deduct up to $1,000 ($2,000 joint) of cash gifts to eligible charities. Goods don't qualify for that, and itemizers can only deduct gifts above 0.5% of their adjusted gross income.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/trip-expense-splitter">Trip expense splitter</a>
+<a href="/tools/random-team-generator">Random team generator</a>
+<a href="/tools/chore-chart-maker">Chore chart maker</a>
+<a href="/tools/late-fee-calculator">Invoice late fee calculator</a>
+<a href="/tools/unit-price-calculator">Unit price comparison</a>
+<a href="/tools/sinking-fund-calculator">Sinking fund planner</a>
+<a href="/tools/meeting-cost-calculator">Meeting cost calculator</a>
+<a href="/tools/merge-pdf">Merge PDF without uploading</a>
+<a href="/tools/heic-to-jpg">HEIC to JPG converter (no upload)</a>
+<a href="/tools/image-to-pdf">Image to PDF (no upload)</a>
+<a href="/tools/compress-image">Compress, resize and convert images</a>
+<a href="/tools/remove-photo-metadata">Remove photo location and metadata</a>
+<a href="/tools/qr-code-generator">QR code generator (never expires)</a>
+<a href="/tools/1099-tax-calculator">1099 tax calculator 2026</a>
+<a href="/tools/quarterly-estimated-tax-calculator">Quarterly estimated tax calculator</a>
+<a href="/tools/self-employment-tax-explained">Self-employment tax explained</a>
+<a href="/tools/home-office-deduction-freelancers">Home office deduction for freelancers</a>
+<a href="/tools/how-to-pay-quarterly-taxes-online">How to pay quarterly taxes online</a>
+<a href="/tools/1099-nec-vs-1099-k">1099-NEC vs 1099-K</a>
+<a href="/tools/sole-proprietor-vs-llc-taxes">Sole proprietor vs LLC taxes</a>
+<a href="/tools/freelancer-tax-deductions">Freelancer tax deductions</a>
+<a href="/tools/warranty-expiry-calculator">Warranty expiry calculator</a>
+<a href="/tools/home-inventory-checklist">Home inventory checklist</a>
+<a href="/tools/mileage-deduction-freelancers">Mileage deduction for freelancers</a>
+<a href="/tools/do-i-need-to-pay-estimated-taxes">Do I need to pay estimated taxes?</a>
+<a href="/tools/underpayment-penalty-estimated-taxes">Underpayment penalty explained</a>
+<a href="/tools/1099-taxes-texas">1099 taxes in Texas</a>
+<a href="/tools/1099-taxes-florida">1099 taxes in Florida</a>
+<a href="/tools/incident-log-template">Incident log builder</a>
+<a href="/tools/1099-taxes-nevada">1099 taxes in Nevada</a>
+<a href="/tools/1099-taxes-tennessee">1099 taxes in Tennessee</a>
+<a href="/tools/embed-calculators">Embed our calculators on your site</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+      <a href="mailto:hello@parthdarji.com">Contact</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no tracking cookies, <a href="/tools/privacy">nothing uploaded</a>. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
+</body>
+</html>

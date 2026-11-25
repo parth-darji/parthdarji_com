@@ -1,7 +1,7 @@
 // POST /api/waitlist  {email, list, website(honeypot)}
 // Stores an email in the D1 database bound as WAITLIST (table signups: email, list, created).
 // Used only to send one email when the app on that list launches. Nothing else is stored (no IP, no cookies).
-const LISTS = new Set(["1099-app", "warranty-app", "incident-app", "embed-biz"]);
+const LISTS = new Set(["1099-app", "warranty-app", "incident-app", "embed-biz", "donation-app"]);
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
 
