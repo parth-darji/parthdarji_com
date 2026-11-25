@@ -1,7 +1,7 @@
 // POST /api/waitlist  {email, list, website(honeypot)}
 // Stores an email in the D1 database bound as WAITLIST (table signups: email, list, created).
 // Used only to send one email when the app on that list launches. Nothing else is stored (no IP, no cookies).
-const LISTS = new Set(["1099-app", "warranty-app", "incident-app"]);
+const LISTS = new Set(["1099-app", "warranty-app", "incident-app", "embed-biz"]);
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
 
@@ -20,6 +20,13 @@ export async function onRequestPost({ request, env }) {
   if (!env.WAITLIST) return json({ ok: false, error: "Signup is not available right now." }, 503);
   await env.WAITLIST.prepare("INSERT OR IGNORE INTO signups (email, list, created) VALUES (?, ?, ?)")
     .bind(email, list, new Date().toISOString()).run();
+  // Optional short note (role, website, use) for lists that ask for it; kept in a separate table.
+  const note = String(data.note || "").trim().slice(0, 300);
+  if (note) {
+    await env.WAITLIST.prepare("CREATE TABLE IF NOT EXISTS signup_notes (email TEXT, list TEXT, note TEXT, created TEXT)").run();
+    await env.WAITLIST.prepare("INSERT INTO signup_notes (email, list, note, created) VALUES (?, ?, ?, ?)")
+      .bind(email, list, note, new Date().toISOString()).run();
+  }
   return json({ ok: true });
 }
 
