@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Incident Log Template and Builder: Keep a Dated Record</title>
+<meta name="description" content="Free incident log builder: add dated entries with what happened, who was there and what evidence you have, then save a PDF or text file.">
+<link rel="canonical" href="https://parthdarji.com/tools/incident-log-template">
+
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Incident log builder">
+<meta property="og:description" content="Free incident log builder: add dated entries with what happened, who was there and what evidence you have, then save a PDF or text file.">
+<meta property="og:url" content="https://parthdarji.com/tools/incident-log-template">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-incident-log-template.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=15">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+
+<meta name="theme-color" content="#0e7c66">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Incident log builder",
+   "description": "Free incident log builder: add dated entries with what happened, who was there and what evidence you have, then save a PDF or text file.",
+   "url": "https://parthdarji.com/tools/incident-log-template",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What should an incident log include?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The date and time, where it happened, what happened in plain facts, who was involved or saw it, what evidence you have (photos, messages, documents), and what you did or said afterward."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is my information stored when I use this builder?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Entries stay on the page in your browser and are never sent anywhere. Print, save as PDF or download the text file before you close the page, because the entries are lost when you leave."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is an incident log legal advice or proof?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. It's a personal record to help you stay organized. What can be used in a dispute differs by place and situation, so ask a lawyer or legal aid group about your case."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Incident log builder",
+     "item": "https://parthdarji.com/tools/incident-log-template"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Incident log builder</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<div class="tldr"><strong>In short</strong>When something goes wrong (a landlord that won't fix things, a problem at work, a car accident, a neighbor dispute), notes written <strong>at the time</strong> are far more useful than memories later. Add dated entries here and save them as a PDF or text file.</div>
+<style>@media print { #ic > *:not(#icdoc) { display: none !important; } } #ic textarea{width:100%;min-height:90px;resize:vertical}</style>
+<div class="tool" id="ic">
+  <div class="row">
+    <div class="field"><label for="title">Log title (optional)</label><input id="title" type="text" maxlength="80" placeholder="e.g. Repairs at 12 Oak St"></div>
+    <div class="field"><label for="who">Your name (optional)</label><input id="who" type="text" maxlength="80" autocomplete="name"></div>
+  </div>
+  <div class="row">
+    <div class="field"><label for="date">Date it happened</label><input id="date" type="date"></div>
+    <div class="field"><label for="time">Time (optional)</label><input id="time" type="time"></div>
+    <div class="field"><label for="place">Where (optional)</label><input id="place" type="text" maxlength="100" placeholder="e.g. Kitchen, office, parking lot"></div>
+  </div>
+  <div class="field"><label for="what">What happened (facts: what you saw, heard or did)</label><textarea id="what" maxlength="4000" placeholder="Write what happened in order. Quote exact words if you remember them."></textarea></div>
+  <div class="row">
+    <div class="field"><label for="people">Who was involved or saw it (optional)</label><input id="people" type="text" maxlength="200" placeholder="Names and roles"></div>
+    <div class="field"><label for="proof">Evidence you have (optional)</label><input id="proof" type="text" maxlength="200" placeholder="Photos, texts, emails, receipts"></div>
+  </div>
+  <div class="field"><label for="next">What you did or said next (optional)</label><input id="next" type="text" maxlength="200" placeholder="e.g. Emailed the manager at 3 pm"></div>
+  <button class="btn" type="button" id="add">Add entry</button>
+  <p class="fine" id="msg" aria-live="polite" style="margin-top:10px">Nothing you type is stored or sent. Entries stay on this page only.</p>
+  <h2 style="margin-top:26px">Your log <span class="fine" id="count" style="font-weight:400"></span></h2>
+  <div id="list"></div>
+  <div class="row" style="margin-top:14px"><button class="btn" type="button" id="prt" disabled>Print or save as PDF</button> <button class="btn ghost" type="button" id="txt" disabled>Download as text file</button></div>
+  <div class="doc print-only" id="icdoc"></div>
+</div>
+<p class="note">General record-keeping help, not legal advice. Rules about what can be used in a dispute differ by place and situation. For legal questions, ask a lawyer or a legal aid group (the <a href="https://www.lsc.gov/about-lsc/what-legal-aid/get-legal-help" rel="noopener">Legal Services Corporation</a> explains how to find free legal aid).</p>
+<h2>How to keep a useful log</h2>
+<ol>
+<li><strong>Write it soon.</strong> Add the entry the same day, while you remember clearly.</li>
+<li><strong>Stick to facts.</strong> What you saw, heard and did. Save opinions and guesses for separate notes.</li>
+<li><strong>Include the basics.</strong> Date, time, place, who was there, and what was said, using exact words if you can.</li>
+<li><strong>Keep the originals.</strong> Don't edit photos, messages or emails. Save copies somewhere safe and note them in the entry.</li>
+<li><strong>Don't change old entries.</strong> If you remember more later, add a new entry with today's date.</li>
+<li><strong>Keep it private and backed up.</strong> Store it where only you can see it, with a second copy elsewhere.</li>
+</ol>
+<h2>When people keep one</h2>
+<ul>
+<li>Landlord or tenant problems: repairs asked for, answers received, dates of visits.</li>
+<li>Problems at work: what happened, who was there, what you reported and to whom.</li>
+<li>A car accident or injury: what you saw, photos, who you spoke to, dates of treatment.</li>
+<li>Ongoing disputes with a neighbor, a contractor or a company.</li>
+<li>Parenting-time exchanges and expenses.</li>
+</ul>
+<form class="tool" id="wl" style="margin-top:22px" novalidate>
+  <p style="margin:0 0 6px"><strong>Want this on your iPhone, private, with photos?</strong> I'm building a small iPhone app for dated notes and photos that stay on your device and export as a tidy PDF. Leave your email and I'll send you <strong>one email when it's ready</strong>. No spam, no sharing.</p>
+  <div class="row"><div class="field"><label for="wl-email">Email</label><input id="wl-email" type="email" autocomplete="email" required placeholder="you@example.com"></div></div>
+  <input type="text" name="website" id="wl-web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+  <button class="btn" type="submit">Tell me when it's ready</button>
+  <p class="fine" id="wl-msg" aria-live="polite" style="margin-top:10px">Used only for that launch email. To be removed, write to hello@parthdarji.com. <a href="/tools/privacy">Privacy</a></p>
+</form>
+<script>
+(function () {
+  var f = document.getElementById('wl'), m = document.getElementById('wl-msg'), e = document.getElementById('wl-email');
+  f.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    if (!e.checkValidity() || !e.value) { m.textContent = 'Please enter a valid email address.'; e.focus(); return; }
+    var b = f.querySelector('button'); b.disabled = true; m.textContent = 'Saving\u2026';
+    fetch('/api/waitlist', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: e.value, list: 'incident-app', website: document.getElementById('wl-web').value }) })
+      .then(function (r) { return r.json().catch(function () { return {}; }); })
+      .then(function (j) { if (j.ok) { f.innerHTML = '<p style="margin:0"><strong>Thanks, you\u2019re on the list.</strong> I\u2019ll email you once, when the app is ready.</p>'; } else { m.textContent = j.error || 'Something went wrong. Please try again.'; b.disabled = false; } })
+      .catch(function () { m.textContent = 'Couldn\u2019t connect. Please try again.'; b.disabled = false; });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var MS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function iso(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function nice(s) { var a = s.split('-'); return a.length === 3 ? MS[+a[1] - 1] + ' ' + (+a[2]) + ', ' + a[0] : s; }
+  var entries = [];
+  function sorted() { return entries.slice().sort(function (a, b) { return (a.date + ' ' + (a.time || '00:00')) < (b.date + ' ' + (b.time || '00:00')) ? -1 : 1; }); }
+  function render() {
+    var list = sorted(), html = '';
+    list.forEach(function (e, i) {
+      html += '<div class="item"><h3>' + esc(nice(e.date)) + (e.time ? ' &middot; ' + esc(e.time) : '') + (e.place ? ' &middot; ' + esc(e.place) : '') + '</h3>' +
+        '<p>' + esc(e.what).replace(/\n/g, '<br>') + '</p>' +
+        (e.who ? '<p class="fine"><strong>People:</strong> ' + esc(e.who) + '</p>' : '') +
+        (e.proof ? '<p class="fine"><strong>Evidence:</strong> ' + esc(e.proof) + '</p>' : '') +
+        (e.next ? '<p class="fine"><strong>What I did or said:</strong> ' + esc(e.next) + '</p>' : '') +
+        '<button type="button" class="btn ghost" data-id="' + e.id + '">Remove</button></div>';
+    });
+    $('list').innerHTML = html || '<p class="fine">No entries yet. Add your first one above.</p>';
+    $('count').textContent = entries.length + (entries.length === 1 ? ' entry' : ' entries');
+    $('prt').disabled = $('txt').disabled = !entries.length;
+    var who = $('who').value.trim(), title = $('title').value.trim() || 'Incident log';
+    var rows = list.map(function (e) {
+      return '<tr><td style="white-space:nowrap">' + esc(nice(e.date)) + (e.time ? '<br>' + esc(e.time) : '') + '</td><td>' + (e.place ? '<strong>' + esc(e.place) + '</strong><br>' : '') + esc(e.what).replace(/\n/g, '<br>') +
+        (e.who ? '<br><em>People:</em> ' + esc(e.who) : '') + (e.proof ? '<br><em>Evidence:</em> ' + esc(e.proof) : '') + (e.next ? '<br><em>My response:</em> ' + esc(e.next) : '') + '</td></tr>';
+    }).join('');
+    $('icdoc').innerHTML = '<div class="doc-head"><h3>' + esc(title) + '</h3><div class="r">' + (who ? esc(who) + '<br>' : '') + 'Printed ' + esc(nice(iso(new Date()))) + '<br>' + entries.length + ' entries</div></div>' +
+      '<table><tr><th>Date</th><th>What happened</th></tr>' + rows + '</table><p class="fine">Personal notes written by the person named above. Keep the original photos, messages and documents.</p>';
+  }
+  $('add').addEventListener('click', function () {
+    var what = $('what').value.trim(), msg = $('msg');
+    if (!$('date').value) { msg.textContent = 'Pick the date it happened.'; $('date').focus(); return; }
+    if (what.length < 5) { msg.textContent = 'Describe what happened in a sentence or two.'; $('what').focus(); return; }
+    entries.push({ id: Date.now() + Math.random(), date: $('date').value, time: $('time').value, place: $('place').value.trim(), what: what, who: $('people').value.trim(), proof: $('proof').value.trim(), next: $('next').value.trim() });
+    ['time', 'place', 'what', 'people', 'proof', 'next'].forEach(function (id) { $(id).value = ''; });
+    msg.textContent = 'Entry added. Entries are kept only on this page, so print or download before you leave.'; render();
+  });
+  $('list').addEventListener('click', function (ev) {
+    var id = ev.target && ev.target.getAttribute && ev.target.getAttribute('data-id'); if (!id) return;
+    entries = entries.filter(function (e) { return String(e.id) !== id; }); render();
+  });
+  $('ic').addEventListener('input', function (ev) { if (ev.target === $('who') || ev.target === $('title')) render(); });
+  $('prt').addEventListener('click', function () { window.print(); });
+  $('txt').addEventListener('click', function () {
+    var lines = [($('title').value.trim() || 'Incident log') + ($('who').value.trim() ? ' - ' + $('who').value.trim() : ''), 'Printed ' + nice(iso(new Date())), ''];
+    sorted().forEach(function (e) {
+      lines.push(nice(e.date) + (e.time ? ' ' + e.time : '') + (e.place ? ' - ' + e.place : ''), e.what);
+      if (e.who) lines.push('People: ' + e.who); if (e.proof) lines.push('Evidence: ' + e.proof); if (e.next) lines.push('My response: ' + e.next); lines.push('');
+    });
+    var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([lines.join('\n')], { type: 'text/plain' }));
+    a.download = 'incident-log.txt'; document.body.appendChild(a); a.click(); a.remove();
+  });
+  $('date').value = iso(new Date()); render();
+})();
+</script>
+<p class="fine app-strip" style="margin-top:22px">More from me: <a href="/shoeboxhsa/">ShoeboxHSA</a> (HSA receipts, iPhone) · <a href="/aheadly/">Aheadly</a> (quarterly taxes, iPhone, coming soon) · <a href="https://apps.apple.com/app/apple-store/id6811594421?pt=128719990&amp;ct=tools-incident-log-template&amp;mt=8">PunchMate</a> (time clock, Mac)</p>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/invoice-generator"><h3>Free invoice generator</h3><p>Make a clean PDF invoice in a minute. No sign-up.</p></a><a class="card" href="/tools/time-card-calculator"><h3>Time card calculator</h3><p>Add up hours for the week with breaks, rounding and overtime pay.</p></a><a class="card" href="/tools/freelance-rate-calculator"><h3>Freelance hourly rate calculator</h3><p>The hourly rate you need to reach your income goal.</p></a><a class="card" href="/tools/late-fee-calculator"><h3>Invoice late fee calculator</h3><p>Interest and late fees on an overdue invoice.</p></a></div>
+<h2>Questions</h2>
+<details><summary>What should an incident log include?</summary><p>The date and time, where it happened, what happened in plain facts, who was involved or saw it, what evidence you have (photos, messages, documents), and what you did or said afterward.</p></details>
+<details><summary>Is my information stored when I use this builder?</summary><p>No. Entries stay on the page in your browser and are never sent anywhere. Print, save as PDF or download the text file before you close the page, because the entries are lost when you leave.</p></details>
+<details><summary>Is an incident log legal advice or proof?</summary><p>No. It's a personal record to help you stay organized. What can be used in a dispute differs by place and situation, so ask a lawyer or legal aid group about your case.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/trip-expense-splitter">Trip expense splitter</a>
+<a href="/tools/random-team-generator">Random team generator</a>
+<a href="/tools/chore-chart-maker">Chore chart maker</a>
+<a href="/tools/late-fee-calculator">Invoice late fee calculator</a>
+<a href="/tools/unit-price-calculator">Unit price comparison</a>
+<a href="/tools/sinking-fund-calculator">Sinking fund planner</a>
+<a href="/tools/meeting-cost-calculator">Meeting cost calculator</a>
+<a href="/tools/merge-pdf">Merge PDF without uploading</a>
+<a href="/tools/heic-to-jpg">HEIC to JPG converter (no upload)</a>
+<a href="/tools/image-to-pdf">Image to PDF (no upload)</a>
+<a href="/tools/compress-image">Compress, resize and convert images</a>
+<a href="/tools/remove-photo-metadata">Remove photo location and metadata</a>
+<a href="/tools/qr-code-generator">QR code generator (never expires)</a>
+<a href="/tools/1099-tax-calculator">1099 tax calculator 2026</a>
+<a href="/tools/quarterly-estimated-tax-calculator">Quarterly estimated tax calculator</a>
+<a href="/tools/self-employment-tax-explained">Self-employment tax explained</a>
+<a href="/tools/home-office-deduction-freelancers">Home office deduction for freelancers</a>
+<a href="/tools/how-to-pay-quarterly-taxes-online">How to pay quarterly taxes online</a>
+<a href="/tools/1099-nec-vs-1099-k">1099-NEC vs 1099-K</a>
+<a href="/tools/sole-proprietor-vs-llc-taxes">Sole proprietor vs LLC taxes</a>
+<a href="/tools/freelancer-tax-deductions">Freelancer tax deductions</a>
+<a href="/tools/warranty-expiry-calculator">Warranty expiry calculator</a>
+<a href="/tools/home-inventory-checklist">Home inventory checklist</a>
+<a href="/tools/mileage-deduction-freelancers">Mileage deduction for freelancers</a>
+<a href="/tools/do-i-need-to-pay-estimated-taxes">Do I need to pay estimated taxes?</a>
+<a href="/tools/underpayment-penalty-estimated-taxes">Underpayment penalty explained</a>
+<a href="/tools/1099-taxes-texas">1099 taxes in Texas</a>
+<a href="/tools/1099-taxes-florida">1099 taxes in Florida</a>
+<a href="/tools/1099-taxes-nevada">1099 taxes in Nevada</a>
+<a href="/tools/1099-taxes-tennessee">1099 taxes in Tennessee</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+      <a href="mailto:hello@parthdarji.com">Contact</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no tracking cookies, <a href="/tools/privacy">nothing uploaded</a>. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
+</body>
+</html>
