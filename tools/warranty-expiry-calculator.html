@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Warranty Expiry Calculator: End Date and Reminder</title>
+<meta name="description" content="Free warranty expiry calculator: enter the purchase date and warranty length to see the end date, days left, and add a calendar reminder before it runs out.">
+<link rel="canonical" href="https://parthdarji.com/tools/warranty-expiry-calculator">
+
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Warranty expiry calculator">
+<meta property="og:description" content="Free warranty expiry calculator: enter the purchase date and warranty length to see the end date, days left, and add a calendar reminder before it runs out.">
+<meta property="og:url" content="https://parthdarji.com/tools/warranty-expiry-calculator">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-warranty-expiry-calculator.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=15">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+
+<meta name="theme-color" content="#0e7c66">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Warranty expiry calculator",
+   "description": "Free warranty expiry calculator: enter the purchase date and warranty length to see the end date, days left, and add a calendar reminder before it runs out.",
+   "url": "https://parthdarji.com/tools/warranty-expiry-calculator",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I calculate when a warranty ends?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Add the warranty length to the purchase date. A 12-month warranty bought on June 10 ends on June 10 of the next year. Check your terms, since some start on delivery or installation."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need a receipt to make a warranty claim?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Usually yes. Most sellers and makers ask for proof of purchase showing the date, so keep the receipt or order email."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What does a reminder file (.ics) do?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It's a calendar event. Download it and open it, and it's added to Apple Calendar, Google Calendar or Outlook. Nothing is sent anywhere."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Warranty expiry calculator",
+     "item": "https://parthdarji.com/tools/warranty-expiry-calculator"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>Warranty expiry calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<div class="tldr"><strong>In short</strong>Enter the date you bought something and how long the warranty lasts. You get the end date, how many days are left, and a calendar reminder so you can make a claim in time.</div>
+<style>.wx td:last-child{text-align:right;white-space:nowrap}.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-weight:600;font-size:14px}.pill.ok{background:var(--brand-soft);color:var(--brand-ink)}.pill.soon{background:var(--amber-soft);color:var(--amber)}.pill.gone{background:var(--red-soft);color:var(--red)}</style>
+<div class="tool" id="wc">
+  <div class="row">
+    <div class="field"><label for="item">Item (optional)</label><input id="item" type="text" maxlength="80" placeholder="e.g. Washing machine"></div>
+    <div class="field"><label for="buy">Purchase date</label><input id="buy" type="date"></div>
+  </div>
+  <div class="row">
+    <div class="field"><label for="len">Warranty length</label><input id="len" type="number" min="1" step="1" value="12" inputmode="numeric"></div>
+    <div class="field"><label for="unit">Unit</label><select id="unit"><option value="months">Months</option><option value="years">Years</option></select></div>
+    <div class="field"><label for="lead">Remind me (days before)</label><select id="lead"><option value="0">No reminder</option><option value="7">7 days before</option><option value="14">14 days before</option><option value="30" selected>30 days before</option><option value="60">60 days before</option></select></div>
+  </div>
+  <div id="out" aria-live="polite"></div>
+  <button class="btn" type="button" id="ics" disabled>Add reminder to my calendar (.ics)</button>
+</div>
+<p class="note">Warranties usually count from the purchase date or delivery date, and some start on the day the product is installed. Always check the terms that came with the product: what's covered, what voids it, and how to claim. Keep the receipt, since most warranty claims need proof of purchase.</p>
+<h2>Making a warranty claim</h2>
+<ol>
+<li>Find the receipt or order confirmation and the model and serial number.</li>
+<li>Check the terms: many warranties cover defects, not accidents or normal wear.</li>
+<li>Contact the maker or seller <strong>before</strong> the end date, and keep a note of who you spoke to.</li>
+</ol>
+<h2>Where to find the date</h2>
+<ul>
+<li>The receipt or order email shows the purchase date.</li>
+<li>The warranty card or the maker's website shows the length.</li>
+<li>Some credit cards add extra coverage to purchases; check your card's benefits guide for the terms.</li>
+</ul>
+<p>Doing a full home inventory too? See the <a href="/tools/home-inventory-checklist">home inventory checklist</a>.</p>
+<form class="tool" id="wl" style="margin-top:22px" novalidate>
+  <p style="margin:0 0 6px"><strong>Tired of losing receipts and warranty dates?</strong> I'm building a small iPhone app that scans receipts, tracks every warranty, and reminds you before each one ends. Leave your email and I'll send you <strong>one email when it's ready</strong>. No spam, no sharing.</p>
+  <div class="row"><div class="field"><label for="wl-email">Email</label><input id="wl-email" type="email" autocomplete="email" required placeholder="you@example.com"></div></div>
+  <input type="text" name="website" id="wl-web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+  <button class="btn" type="submit">Tell me when it's ready</button>
+  <p class="fine" id="wl-msg" aria-live="polite" style="margin-top:10px">Used only for that launch email. To be removed, write to hello@parthdarji.com. <a href="/tools/privacy">Privacy</a></p>
+</form>
+<script>
+(function () {
+  var f = document.getElementById('wl'), m = document.getElementById('wl-msg'), e = document.getElementById('wl-email');
+  f.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    if (!e.checkValidity() || !e.value) { m.textContent = 'Please enter a valid email address.'; e.focus(); return; }
+    var b = f.querySelector('button'); b.disabled = true; m.textContent = 'Saving\u2026';
+    fetch('/api/waitlist', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: e.value, list: 'warranty-app', website: document.getElementById('wl-web').value }) })
+      .then(function (r) { return r.json().catch(function () { return {}; }); })
+      .then(function (j) { if (j.ok) { f.innerHTML = '<p style="margin:0"><strong>Thanks, you\u2019re on the list.</strong> I\u2019ll email you once, when the app is ready.</p>'; } else { m.textContent = j.error || 'Something went wrong. Please try again.'; b.disabled = false; } })
+      .catch(function () { m.textContent = 'Couldn\u2019t connect. Please try again.'; b.disabled = false; });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  function $(id) { return document.getElementById(id); }
+  var MS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function parse(s) { var a = s.split('-'); return a.length === 3 ? new Date(+a[0], +a[1] - 1, +a[2]) : null; }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function iso(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function fmt(d) { return MS[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear(); }
+  function addMonths(d, n) {
+    var t = new Date(d.getFullYear(), d.getMonth() + n, 1), last = new Date(t.getFullYear(), t.getMonth() + 1, 0).getDate();
+    return new Date(t.getFullYear(), t.getMonth(), Math.min(d.getDate(), last));
+  }
+  function today() { var n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); }
+  var cur = null;
+  function run() {
+    var p = parse($('buy').value), len = parseFloat($('len').value), unit = $('unit').value;
+    if (!p || !(len > 0)) { $('out').innerHTML = '<p class="fine">Enter the purchase date and the warranty length.</p>'; cur = null; $('ics').disabled = true; return; }
+    var months = unit === 'years' ? Math.round(len * 12) : Math.round(len);
+    var end = addMonths(p, months), days = Math.round((end - today()) / 86400000);
+    var lead = Math.max(0, parseInt($('lead').value, 10) || 0), rem = new Date(end.getFullYear(), end.getMonth(), end.getDate() - lead);
+    var pill = days < 0 ? '<span class="pill gone">Expired</span>' : days <= 30 ? '<span class="pill soon">Ends soon</span>' : '<span class="pill ok">Covered</span>';
+    var note = days < 0 ? 'Ended ' + Math.abs(days) + ' day' + (Math.abs(days) === 1 ? '' : 's') + ' ago' : days === 0 ? 'Ends today' : days + ' day' + (days === 1 ? '' : 's') + ' left';
+    $('out').innerHTML = '<p class="fine" style="margin:6px 0 2px">Warranty ends</p><div class="big-number">' + fmt(end) + '</div><p style="margin:6px 0 14px">' + pill + ' &nbsp;' + note + '</p>' +
+      '<table class="wx"><tr><td>Purchased</td><td>' + fmt(p) + '</td></tr><tr><td>Coverage</td><td>' + months + ' months</td></tr><tr><td>Reminder date</td><td>' + (lead ? fmt(rem) : 'none') + '</td></tr></table>';
+    cur = { end: end, rem: rem, lead: lead, name: $('item').value.trim() || 'Item' };
+    $('ics').disabled = false;
+  }
+  function esc(s) { return s.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\r?\n/g, '\\n'); }
+  function stamp(d) { return d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()); }
+  $('ics').addEventListener('click', function () {
+    if (!cur) return;
+    var day = cur.lead ? cur.rem : cur.end, next = new Date(day.getFullYear(), day.getMonth(), day.getDate() + 1);
+    var uid = Date.now() + '@parthdarji.com', now = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+Z$/, 'Z');
+    var ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//parthdarji.com//Warranty//EN', 'BEGIN:VEVENT', 'UID:' + uid, 'DTSTAMP:' + now,
+      'DTSTART;VALUE=DATE:' + stamp(day), 'DTEND;VALUE=DATE:' + stamp(next),
+      'SUMMARY:' + esc('Warranty ' + (cur.lead ? 'ends ' + fmt(cur.end) : 'ends today') + ': ' + cur.name),
+      'DESCRIPTION:' + esc('Check the warranty terms and make any claim before ' + fmt(cur.end) + '.'), 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+    var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
+    a.download = 'warranty-reminder.ics'; document.body.appendChild(a); a.click(); a.remove();
+  });
+  $('buy').value = iso(today());
+  $('wc').addEventListener('input', run); $('wc').addEventListener('change', run); run();
+})();
+</script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/holiday-gift-budget-calculator"><h3>Holiday gift budget calculator</h3><p>Plan gifts per person and holiday extras, and see how much to save each week.</p></a><a class="card" href="/tools/home-inventory-checklist"><h3>Home inventory checklist</h3><p>Room-by-room list of what to record for insurance, plus what to save for each item.</p></a><a class="card" href="/tools/trip-expense-splitter"><h3>Trip expense splitter</h3><p>Who owes whom after a trip or group dinner, in the fewest payments.</p></a><a class="card" href="/tools/bill-split-by-income-calculator"><h3>Bill split by income calculator</h3><p>Split shared bills fairly by each person's income.</p></a></div>
+<h2>Questions</h2>
+<details><summary>How do I calculate when a warranty ends?</summary><p>Add the warranty length to the purchase date. A 12-month warranty bought on June 10 ends on June 10 of the next year. Check your terms, since some start on delivery or installation.</p></details>
+<details><summary>Do I need a receipt to make a warranty claim?</summary><p>Usually yes. Most sellers and makers ask for proof of purchase showing the date, so keep the receipt or order email.</p></details>
+<details><summary>What does a reminder file (.ics) do?</summary><p>It's a calendar event. Download it and open it, and it's added to Apple Calendar, Google Calendar or Outlook. Nothing is sent anywhere.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/trip-expense-splitter">Trip expense splitter</a>
+<a href="/tools/random-team-generator">Random team generator</a>
+<a href="/tools/chore-chart-maker">Chore chart maker</a>
+<a href="/tools/late-fee-calculator">Invoice late fee calculator</a>
+<a href="/tools/unit-price-calculator">Unit price comparison</a>
+<a href="/tools/sinking-fund-calculator">Sinking fund planner</a>
+<a href="/tools/meeting-cost-calculator">Meeting cost calculator</a>
+<a href="/tools/merge-pdf">Merge PDF without uploading</a>
+<a href="/tools/heic-to-jpg">HEIC to JPG converter (no upload)</a>
+<a href="/tools/image-to-pdf">Image to PDF (no upload)</a>
+<a href="/tools/compress-image">Compress, resize and convert images</a>
+<a href="/tools/remove-photo-metadata">Remove photo location and metadata</a>
+<a href="/tools/qr-code-generator">QR code generator (never expires)</a>
+<a href="/tools/1099-tax-calculator">1099 tax calculator 2026</a>
+<a href="/tools/quarterly-estimated-tax-calculator">Quarterly estimated tax calculator</a>
+<a href="/tools/self-employment-tax-explained">Self-employment tax explained</a>
+<a href="/tools/home-office-deduction-freelancers">Home office deduction for freelancers</a>
+<a href="/tools/how-to-pay-quarterly-taxes-online">How to pay quarterly taxes online</a>
+<a href="/tools/1099-nec-vs-1099-k">1099-NEC vs 1099-K</a>
+<a href="/tools/sole-proprietor-vs-llc-taxes">Sole proprietor vs LLC taxes</a>
+<a href="/tools/freelancer-tax-deductions">Freelancer tax deductions</a>
+<a href="/tools/home-inventory-checklist">Home inventory checklist</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+      <a href="mailto:hello@parthdarji.com">Contact</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no tracking cookies, <a href="/tools/privacy">nothing uploaded</a>. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
+</body>
+</html>
