@@ -12,7 +12,7 @@ async function table(db) {
   await db.prepare("CREATE TABLE IF NOT EXISTS inquiries (id INTEGER PRIMARY KEY AUTOINCREMENT, created TEXT, name TEXT, email TEXT, type TEXT, budget TEXT, timeline TEXT, message TEXT)").run();
 }
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost({ request, env, waitUntil }) {
   const origin = request.headers.get("origin") || "";
   if (origin && !/^https:\/\/(www\.)?parthdarji\.com$|^https:\/\/[a-z0-9-]+\.parthdarji-com\.pages\.dev$|^http:\/\/localhost:\d+$/.test(origin)) {
     return json({ ok: false, error: "origin" }, 403);
@@ -29,6 +29,8 @@ export async function onRequestPost({ request, env }) {
   await table(env.WAITLIST);
   await env.WAITLIST.prepare("INSERT INTO inquiries (created, name, email, type, budget, timeline, message) VALUES (?, ?, ?, ?, ?, ?, ?)")
     .bind(new Date().toISOString(), clip(d.name, 120), email, type, clip(d.budget, 60), clip(d.timeline, 60), message).run();
+  // Email alert to Parth via the mailer Worker (service binding MAILER); never blocks or fails the form.
+  if (env.MAILER) waitUntil(env.MAILER.fetch("https://mailer/", { method: "POST", body: JSON.stringify({ name: clip(d.name, 120), email, type, budget: clip(d.budget, 60), timeline: clip(d.timeline, 60), message }) }).catch(() => {}));
   return json({ ok: true });
 }
 
