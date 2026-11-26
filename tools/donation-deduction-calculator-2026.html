@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2026 Donation Deduction Calculator (Standard Deduction)</title>
+<meta name="description" content="Free calculator: how much of your 2026 cash gifts to charity you can deduct if you take the standard deduction ($1,000, or $2,000 married filing jointly).">
+<link rel="canonical" href="https://parthdarji.com/tools/donation-deduction-calculator-2026">
+
+<meta name="theme-color" content="#0b100f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2026 donation deduction calculator">
+<meta property="og:description" content="Free calculator: how much of your 2026 cash gifts to charity you can deduct if you take the standard deduction ($1,000, or $2,000 married filing jointly).">
+<meta property="og:url" content="https://parthdarji.com/tools/donation-deduction-calculator-2026">
+<meta property="og:image" content="https://parthdarji.com/images/og/tools-donation-deduction-calculator-2026.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=15">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+
+<meta name="theme-color" content="#0e7c66">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "2026 donation deduction calculator",
+   "description": "Free calculator: how much of your 2026 cash gifts to charity you can deduct if you take the standard deduction ($1,000, or $2,000 married filing jointly).",
+   "url": "https://parthdarji.com/tools/donation-deduction-calculator-2026",
+   "inLanguage": "en-US",
+   "author": {
+    "@type": "Person",
+    "name": "Parth Darji",
+    "url": "https://parthdarji.com/"
+   },
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How much can I deduct for charity in 2026 without itemizing?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Up to $1,000 of cash gifts to qualified charities, or $2,000 if married filing jointly."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I check if a charity is tax-deductible?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Search for it in the IRS Tax Exempt Organization Search at apps.irs.gov/app/eos."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does this calculator store my numbers?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. It runs in your browser and nothing is sent anywhere."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Tools",
+     "item": "https://parthdarji.com/tools/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "2026 donation deduction calculator",
+     "item": "https://parthdarji.com/tools/donation-deduction-calculator-2026"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/logo-96.webp" alt="" width="30" height="30" style="border-radius:50%">Parth Darji</a>
+    <nav class="nav">
+      <a href="/tools/">Tools</a>
+      <a href="/hsa/">HSA guides</a>
+      <a class="opt" href="/#apps">Apps</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+<article class="article read">
+<div class="crumbs"><a href="/tools/">Free tools</a></div>
+<h1>2026 donation deduction calculator</h1>
+<p class="meta">By Parth Darji · Updated November 23, 2026</p>
+<div class="tldr"><strong>In short</strong>From tax year 2026, people who take the standard deduction can deduct cash gifts to qualified charities up to <strong>$1,000</strong>, or <strong>$2,000</strong> if married filing jointly. Enter your gifts to see how much counts.</div>
+<style>.wx td:last-child{text-align:right;white-space:nowrap}</style>
+<div class="tool" id="dc">
+  <div class="row">
+    <div class="field"><label for="fs">Filing status</label><select id="fs"><option value="single">Single, head of household or married filing separately</option><option value="mfj">Married filing jointly</option></select></div>
+    <div class="field"><label for="it">Do you itemize?</label><select id="it"><option value="no">No, standard deduction</option><option value="unsure">Not sure</option><option value="yes">Yes, I itemize</option></select></div>
+  </div>
+  <div class="row">
+    <div class="field"><label for="cash">Cash gifts in 2026 ($)</label><input id="cash" inputmode="decimal" value="750"></div>
+    <div class="field"><label for="daf">Of that, to a donor advised fund ($)</label><input id="daf" inputmode="decimal" value="0"></div>
+    <div class="field"><label for="goods">Donated items, value ($)</label><input id="goods" inputmode="decimal" value="0"></div>
+  </div>
+  <div id="out" aria-live="polite"></div>
+</div>
+<p class="note">Cash means check, card, bank transfer or online payment. The charity must be a qualified organization: check it with the <a href="https://apps.irs.gov/app/eos/" rel="noopener">IRS Tax Exempt Organization Search</a>. This shows the deduction, not your tax savings, which depend on your tax bracket.</p>
+<h2>What counts and what doesn't</h2>
+<p>Read the full rules in the <a href="/tools/charitable-deduction-2026-non-itemizers">2026 charitable deduction guide</a>, and keep the right proof for each gift: <a href="/tools/donation-receipt-requirements">donation receipt requirements</a>.</p>
+<h2>Sources</h2><ul><li><a href="https://www.irs.gov/newsroom/irs-reminder-permanent-charitable-contribution-deduction-begins-for-returns-filed-next-year-for-taxpayers-who-do-not-itemize" rel="noopener">IRS: Permanent charitable deduction for taxpayers who do not itemize</a></li><li><a href="https://www.irs.gov/publications/p526" rel="noopener">IRS Publication 526: Charitable contributions</a></li></ul><p class="fine">Checked against these official pages on November 26, 2026.</p><p class="tldr" style="margin-top:14px"><strong>Keep every donation in one place</strong>GiveLedger is my iPhone app for logging gifts to charity: cash and goods, receipt photos, and a year-end PDF report that flags missing records. <a href="/giveledger/">See GiveLedger →</a></p><p class="note">General information, not tax advice. Your situation may differ; check with a tax professional.</p><script>
+(function () {
+  function $(id) { return document.getElementById(id); }
+  function num(id) { var v = parseFloat(String($(id).value).replace(/[$,\s]/g, '')); return isFinite(v) && v > 0 ? v : 0; }
+  function usd(n) { return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  function run() {
+    var cap = $('fs').value === 'mfj' ? 2000 : 1000, item = $('it').value;
+    var cash = num('cash'), daf = Math.min(num('daf'), cash), goods = num('goods'), ok = cash - daf;
+    var h = '';
+    if (item === 'yes') {
+      h = '<p class="fine" style="margin:6px 0 2px">You itemize</p><div class="big-number">Schedule A</div>' +
+          '<p>The $' + cap.toLocaleString() + ' deduction is only for people who don’t itemize. Itemizers deduct gifts on Schedule A, where other limits apply. Your gifts: ' + usd(cash) + ' cash and ' + usd(goods) + ' in items.</p>';
+    } else {
+      var ded = Math.min(ok, cap);
+      h = '<p class="fine" style="margin:6px 0 2px">Deduction for cash gifts (standard deduction)</p><div class="big-number">' + usd(ded) + '</div>' +
+          '<table class="wx"><tr><td>Cash gifts to qualified charities</td><td>' + usd(ok) + '</td></tr><tr><td>Limit (' + ($('fs').value === 'mfj' ? 'married filing jointly' : 'other filing status') + ')</td><td>' + usd(cap) + '</td></tr>' +
+          (ok > cap ? '<tr><td>Above the limit (not deductible)</td><td>' + usd(ok - cap) + '</td></tr>' : '') +
+          (daf ? '<tr><td>Donor advised fund / supporting org (doesn’t count)</td><td>' + usd(daf) + '</td></tr>' : '') +
+          (goods ? '<tr><td>Donated items (don’t count unless you itemize)</td><td>' + usd(goods) + '</td></tr>' : '') + '</table>' +
+          (item === 'unsure' ? '<p class="fine">Not sure if you itemize? Most people take the standard deduction. Itemizing only helps when your itemized deductions add up to more than the standard deduction.</p>' : '');
+    }
+    $('out').innerHTML = h;
+  }
+  $('dc').addEventListener('input', run); $('dc').addEventListener('change', run); run();
+})();
+</script>
+<h2>Related free tools</h2>
+<div class="cards"><a class="card" href="/tools/january-15-estimated-tax-payment"><h3>January 15, 2027 estimated tax payment</h3><p>The last 2026 quarterly payment: who pays, how much, how to pay, the Feb 1 exception, and a calendar reminder.</p></a><a class="card" href="/tools/charitable-deduction-2026-non-itemizers"><h3>2026 charitable deduction if you don't itemize</h3><p>The new $1,000 / $2,000 deduction for cash gifts in 2026, what qualifies, what doesn't, and the records to keep.</p></a><a class="card" href="/tools/donation-receipt-requirements"><h3>Donation receipt requirements (IRS)</h3><p>What a donation receipt must show, the $250 acknowledgment rule, the $75 quid pro quo rule, and the deadline.</p></a><a class="card" href="/tools/form-8283-explained"><h3>Form 8283 explained</h3><p>When you need Form 8283 for donated goods, Section A vs Section B, and the records to keep.</p></a></div>
+<h2>Questions</h2>
+<details><summary>How much can I deduct for charity in 2026 without itemizing?</summary><p>Up to $1,000 of cash gifts to qualified charities, or $2,000 if married filing jointly.</p></details>
+<details><summary>How do I check if a charity is tax-deductible?</summary><p>Search for it in the IRS Tax Exempt Organization Search at apps.irs.gov/app/eos.</p></details>
+<details><summary>Does this calculator store my numbers?</summary><p>No. It runs in your browser and nothing is sent anywhere.</p></details>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav>
+      <a href="/tools/">All free tools</a>
+      <a href="/tools/holiday-gift-budget-calculator">Holiday gift budget calculator</a>
+<a href="/tools/no-tax-on-overtime-calculator">No tax on overtime calculator</a>
+<a href="/tools/pto-planner">PTO and long weekend planner</a>
+<a href="/tools/medical-expense-deduction-calculator">Medical expense deduction calculator</a>
+<a href="/tools/cobra-cost-calculator">COBRA cost calculator</a>
+<a href="/tools/coinsurance-calculator">Coinsurance and out-of-pocket calculator</a>
+<a href="/tools/bill-split-by-income-calculator">Bill split by income calculator</a>
+<a href="/tools/electricity-cost-calculator">Appliance electricity cost calculator</a>
+<a href="/tools/time-card-calculator">Time card calculator</a>
+<a href="/tools/freelance-rate-calculator">Freelance hourly rate calculator</a>
+<a href="/tools/ev-vs-gas-calculator">EV vs gas cost calculator</a>
+<a href="/tools/rent-split-by-room-calculator">Rent split by room size calculator</a>
+<a href="/tools/dependent-care-fsa-calculator">Dependent care FSA calculator 2026</a>
+<a href="/tools/medicare-irmaa-calculator">Medicare IRMAA calculator 2026</a>
+<a href="/tools/pet-cost-calculator">Cost of owning a dog calculator</a>
+<a href="/tools/no-tax-on-tips-calculator">No tax on tips calculator</a>
+<a href="/tools/senior-deduction-calculator">$6,000 senior deduction calculator</a>
+<a href="/tools/car-loan-interest-deduction-calculator">Car loan interest deduction calculator</a>
+<a href="/tools/fsa-use-it-or-lose-it-calculator">FSA use it or lose it calculator</a>
+<a href="/tools/secret-santa-generator">Secret Santa generator</a>
+<a href="/tools/invoice-generator">Free invoice generator</a>
+<a href="/tools/trip-expense-splitter">Trip expense splitter</a>
+<a href="/tools/random-team-generator">Random team generator</a>
+<a href="/tools/chore-chart-maker">Chore chart maker</a>
+<a href="/tools/late-fee-calculator">Invoice late fee calculator</a>
+<a href="/tools/unit-price-calculator">Unit price comparison</a>
+<a href="/tools/sinking-fund-calculator">Sinking fund planner</a>
+<a href="/tools/meeting-cost-calculator">Meeting cost calculator</a>
+<a href="/tools/merge-pdf">Merge PDF without uploading</a>
+<a href="/tools/heic-to-jpg">HEIC to JPG converter (no upload)</a>
+<a href="/tools/image-to-pdf">Image to PDF (no upload)</a>
+<a href="/tools/compress-image">Compress, resize and convert images</a>
+<a href="/tools/remove-photo-metadata">Remove photo location and metadata</a>
+<a href="/tools/qr-code-generator">QR code generator (never expires)</a>
+<a href="/tools/1099-tax-calculator">1099 tax calculator 2026</a>
+<a href="/tools/quarterly-estimated-tax-calculator">Quarterly estimated tax calculator</a>
+<a href="/tools/self-employment-tax-explained">Self-employment tax explained</a>
+<a href="/tools/home-office-deduction-freelancers">Home office deduction for freelancers</a>
+<a href="/tools/how-to-pay-quarterly-taxes-online">How to pay quarterly taxes online</a>
+<a href="/tools/1099-nec-vs-1099-k">1099-NEC vs 1099-K</a>
+<a href="/tools/sole-proprietor-vs-llc-taxes">Sole proprietor vs LLC taxes</a>
+<a href="/tools/freelancer-tax-deductions">Freelancer tax deductions</a>
+<a href="/tools/warranty-expiry-calculator">Warranty expiry calculator</a>
+<a href="/tools/home-inventory-checklist">Home inventory checklist</a>
+<a href="/tools/mileage-deduction-freelancers">Mileage deduction for freelancers</a>
+<a href="/tools/do-i-need-to-pay-estimated-taxes">Do I need to pay estimated taxes?</a>
+<a href="/tools/underpayment-penalty-estimated-taxes">Underpayment penalty explained</a>
+<a href="/tools/1099-taxes-texas">1099 taxes in Texas</a>
+<a href="/tools/1099-taxes-florida">1099 taxes in Florida</a>
+<a href="/tools/incident-log-template">Incident log builder</a>
+<a href="/tools/1099-taxes-nevada">1099 taxes in Nevada</a>
+<a href="/tools/1099-taxes-tennessee">1099 taxes in Tennessee</a>
+<a href="/tools/embed-calculators">Embed our calculators on your site</a>
+<a href="/tools/donation-log-builder">Donation log builder</a>
+<a href="/tools/donated-items-value-guide">How to value donated clothes and household items</a>
+<a href="/tools/donation-receipt-requirements">Donation receipt requirements (IRS)</a>
+<a href="/tools/form-8283-explained">Form 8283 explained</a>
+<a href="/tools/charitable-deduction-2026-non-itemizers">2026 charitable deduction if you don't itemize</a>
+<a href="/tools/january-15-estimated-tax-payment">January 15, 2027 estimated tax payment</a>
+      <a href="/hsa/">HSA guides</a>
+      <a href="/">Home</a>
+      <a href="mailto:hello@parthdarji.com">Contact</a>
+    </nav>
+    <p>Free tools by <a href="/">Parth Darji</a>, an independent developer. No ads, no tracking cookies, <a href="/tools/privacy">nothing uploaded</a>. Estimates only, not financial or tax advice.</p>
+  </div>
+</footer>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/tools/sw.js', { scope: '/tools/' }).catch(function () {}); }); }
+(function () { var s = location.pathname.split('/').filter(Boolean); if (s[0] !== 'tools' || !s[1]) return;
+  try { var k = 'pd-recent-tools', r = JSON.parse(localStorage.getItem(k) || '[]').filter(function (x) { return x !== s[1]; }); r.unshift(s[1]); localStorage.setItem(k, JSON.stringify(r.slice(0, 6))); } catch (e) {} })();
+</script>
+</body>
+</html>
