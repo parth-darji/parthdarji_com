@@ -41,7 +41,9 @@ export async function onRequestGet({ request, env }) {
   if (!env.WAITLIST) return json({ ok: false, error: "db" }, 503);
   await table(env.WAITLIST);
   const { results } = await env.WAITLIST.prepare("SELECT * FROM inquiries ORDER BY id DESC LIMIT 100").all();
-  return json({ ok: true, inquiries: results });
+  let waitlists = [];
+  try { waitlists = (await env.WAITLIST.prepare("SELECT list, COUNT(*) AS n, MAX(created) AS last FROM signups GROUP BY list").all()).results; } catch {}
+  return json({ ok: true, inquiries: results, waitlists });
 }
 
 export const onRequest = () => json({ ok: false, error: "method" }, 405);
